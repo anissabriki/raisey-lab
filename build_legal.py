@@ -215,7 +215,7 @@ def page(lang):
 <a class="skip" href="#main">%(skip)s</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab">Raisey Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="123" height="121">Raisey Lab</a>
     <nav class="nav" aria-label="%(navlabel)s"><ul>%(nav)s</ul></nav>
     <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">%(cta)s <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">%(mo)s</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button></div>
@@ -224,7 +224,7 @@ def page(lang):
 </header>
 <main id="main" class="legal"><div class="wrap">%(body)s</div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px">Raisey Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="123" height="121">Raisey Lab</a>
   <nav aria-label="%(footlabel)s"><ul>%(fnav)s</ul></nav></div>
   <p class="f-legal">%(fl)s<span>%(places)s · %(tag)s © %(yr)d Raisey Lab. %(rights)s</span></p>
 </div></footer>
@@ -239,7 +239,7 @@ matchMedia('(min-width:1001px)').addEventListener('change',m=>{if(m.matches)set(
 </body>
 </html>
 ''' % dict(lang=lang_attr, title=title, en_href=('privacy.html' if en else '../privacy.html'), fr_href=('fr/confidentialite.html' if en else 'confidentialite.html'),
-           fonts=fonts, css=css, sprite=sprite, icon=(icon if en else icon.replace('href="', 'href="../')), skip=skip, home=home, navlabel=t('Main', 'Principale'), nav=nav_html, sw=sw, swm=sw_m, cta=cta, mo=menu_open, mc=menu_close,
+           fonts=fonts, css=css, sprite=sprite, up=up, icon=(icon if en else icon.replace('href="', 'href="../')), skip=skip, home=home, navlabel=t('Main', 'Principale'), nav=nav_html, sw=sw, swm=sw_m, cta=cta, mo=menu_open, mc=menu_close,
            mob=mob_html, body=body, footlabel=t('Footer', 'Pied de page'), fnav=footer_nav, fl=foot_legal, places=places, tag=tag, yr=today.year, rights=rights)
 
 
@@ -265,7 +265,7 @@ def page404():
 </head>
 <body>
 %(sprite)s
-<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Raisey Lab">Raisey Lab</a></div></header>
+<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Raisey Lab"><img class="brand-amp" src="images/raisey-ampersand.png" alt="" width="123" height="121">Raisey Lab</a></div></header>
 <main class="legal"><div class="wrap nf">
 <h1>This page doesn’t exist.</h1>
 <p>The link may be old or mistyped. You can go back to the site.</p>

@@ -223,7 +223,7 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab">Raisey Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="123" height="121">Raisey Lab</a>
     <nav class="nav" aria-label="Main"><ul>%(nav)s</ul></nav>
     <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">Start your Scan <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
@@ -235,7 +235,7 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 %(body)s
 </div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px">Raisey Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="123" height="121">Raisey Lab</a>
   <nav aria-label="Footer"><ul>%(foot)s</ul></nav></div>
   <p class="f-legal"><a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Raisey Lab. All rights reserved.</span></p>
 </div></footer>
