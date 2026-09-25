@@ -14,7 +14,7 @@ css_all = src[src.index('<style>') + 7:src.index('</style>')]
 css_base = css_all[css_all.index('/* ============ FONTS'):css_all.index('/* ============ 01 HERO')]
 css_foot = css_all[css_all.index('.site-footer{'):]
 sprite = ''   # the old circular symbol is deprecated; no SVG sprite
-icon = ''     # no favicon until the official & monogram files are supplied
+icon = re.search(r'<link rel="icon".*?<link rel="apple-touch-icon"[^>]*>', src, re.S).group(0)
 missing = []
 
 

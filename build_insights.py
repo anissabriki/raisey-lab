@@ -40,7 +40,7 @@ CSS_BASE = CSS_ALL[CSS_ALL.index('/* ============ FONTS'):CSS_ALL.index('/* ====
 CSS_FOOT = CSS_ALL[CSS_ALL.index('.site-footer{'):]
 FORM_CSS = '\n'.join(l for l in CSS_ALL.splitlines() if re.match(r'\.(input|field)\b[^{]*\{', l) and 'fp-' not in l)
 SPRITE = ''   # the old circular symbol is deprecated; no SVG sprite
-ICONS = ''    # no favicon until the official & monogram files are supplied
+ICONS = re.search(r'<link rel="icon".*?<link rel="apple-touch-icon"[^>]*>', SRC, re.S).group(0)
 
 CSS = '''
 /* Insights */

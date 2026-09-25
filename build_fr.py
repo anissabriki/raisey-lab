@@ -44,7 +44,7 @@ def main():
     fr = fr.replace('href="data:image/svg+xml', 'href="data:image/svg+xml')  # favicon is inline, unchanged
     fr = fr.replace('href="fonts/', 'href="../fonts/').replace('url(fonts/', 'url(../fonts/')
     fr = re.sub(r'(?<![\w/.])images/', '../images/', fr)
-    fr = re.sub(r'href="(favicon\.|apple-touch-icon)', r'href="../\1', fr)
+    fr = re.sub(r'href="(favicon|apple-touch-icon)', r'href="../\1', fr)
 
     # ---------- chrome ----------
     fr = fr.replace('alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait with the Raisey Lab signature"', 'alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la signature Raisey Lab"')
