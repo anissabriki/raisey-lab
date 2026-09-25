@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>
+<meta name="description" content="Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques. Commencez par le Raisey Scan gratuit en 4 minutes.">
+<meta name="theme-color" content="#f3eee6">
+<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">
+<meta property="og:description" content="Visibilité, autorité et croissance pour les médecins et cliniques esthétiques. Paris · Londres · Dubaï.">
+<meta property="og:type" content="website">
+<link rel="preload" href="../fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/fraunces-latin-opsz-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ============ FONTS (self-hosted) ============ */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(../fonts/fraunces-latin-opsz-normal.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(../fonts/fraunces-latin-opsz-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-style:normal;font-display:swap;src:url(../fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-style:normal;font-display:swap;src:url(../fonts/inter-latin-600-normal.woff2) format('woff2')}
+
+/* Metric-matched fallbacks: the system font is resized to the web font's metrics so the swap causes no layout shift. */
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia');size-adjust:119.4%;ascent-override:81.9%;descent-override:21.4%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';font-style:italic;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:118.7%;ascent-override:82.4%;descent-override:21.5%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:108.8%;ascent-override:89%;descent-override:22.2%;line-gap-override:0%}
+
+/* ============ TOKENS (visual system unchanged) ============ */
+:root{
+  /* Raisey Lab palette (art direction 2026-09, from the approved founder visuals): ivory architecture, black tailoring,
+     espresso shadows, deep burgundy typography; lavender + pale clinical blue as the digital/medical counterpoint. No pink. */
+  --rl-ivory:#f3eee6; --rl-optical:#faf8f4; --rl-stone:#e7e0d6; --rl-stone-line:#d9cfc4; --rl-stone-strong:#c2b6aa;
+  --rl-burgundy:#4f1a2a; --rl-burgundy-deep:#3a111d; --rl-ink:#1c1819; --rl-espresso:#211915; --rl-muted:#6b625e;
+  --rl-lavender:#d5cfdd; --rl-lavender-pale:#e8e5ec; --rl-lavender-ink:#5d5670; --rl-blue:#dde6ea; --rl-blue-powder:#c9d5db; --rl-blue-ink:#3f5963;
+  --rl-on-dark:#f3eee6; --rl-on-dark-2:#bdb2a6; --rl-line-dark:#3b302b;
+  --cream:#f3eee6; --blush:#e7e0d6; --paper:#faf8f4;
+  --p-red:#4f1a2a; --p-red-ink:#4f1a2a; --p-red-lt:#d5cfdd; --p-soft-lilac:#d5cfdd; --p-pale-lilac:#e8e5ec; --p-powder:#c2b6aa; --p-icy:#dde6ea; --p-plum:#1c1819; --p-burgundy:#4f1a2a; --p-graphite:#1c1819;
+  --aub:#1c1819; --aub-2:#2c2422; --rasp:#4f1a2a; --rasp-d:#1c1819;
+  --ink:#1c1819; --muted:#6b625e; --line:#d9cfc4; --line-strong:#c2b6aa;
+  --on-aub:#f3eee6; --on-aub-2:#bdb2a6; --line-aub:#3b302b;
+  --lilac:#d5cfdd; --lilac-d:#c4bdd0; --lime:#d2db98; --mauve:#5d5670;
+  --err:#8c2a3a; --white:#fff; --placeholder:#8f8680;
+  --rose-tint:#e7e0d6; --rose-ink:#4f1a2a; --rose-solid:#4f1a2a;
+  --lav-tint:#d5cfdd; --lav-ink:#5d5670; --lav-solid:#5d5670;
+  --gold-tint:#dde6ea; --gold-ink:#3f5963; --gold-solid:#3f5963;
+  --sage-tint:#e8e5ec; --sage-ink:#1c1819; --sage-solid:#1c1819;
+  --radius-card:26px; --radius-tile:14px; --radius-pill:999px;
+  --dusty:#e7e0d6; --deep-rose:#c2b6aa; --optical:#faf8f4; --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace; --ring-est:#5f7a6d; --ring-pot:#7c7598; --ring-elev:#4f1a2a;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,'Times New Roman',serif;
+  --sans:'Inter','Inter Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(20px,4.6vw,72px); --max:1360px; --head:72px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--head);-webkit-text-size-adjust:100%;scrollbar-color:var(--mauve) var(--cream)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,p,ul,ol,figure,blockquote{margin:0;padding:0}
+ul,ol{list-style:none}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:500;font-optical-sizing:auto;letter-spacing:-.018em;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--rasp);color:var(--white)}
+input,textarea,select{caret-color:var(--rasp)}
+a,button,label,input,select,textarea,summary{touch-action:manipulation}
+html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
+:focus-visible{outline:2px solid var(--rasp);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--on-aub)}
+[hidden]{display:none!important}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}   /* anti-spam honeypot: invisible to people, filled by bots */
+.skip{position:absolute;left:var(--gutter);top:-80px;z-index:100;background:var(--aub);color:var(--on-aub);padding:12px 18px;font-size:13px;text-decoration:none}
+.skip:focus{top:10px}
+.muted{color:var(--muted)}
+.dark{background:var(--p-burgundy);color:var(--on-aub)}
+.dark .muted{color:var(--on-aub-2)}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--p-red-ink)}
+.dark .eyebrow{color:var(--p-pale-lilac)}
+.sec{padding-block:clamp(72px,10vw,144px)}
+.h2{font-size:clamp(2.2rem,1.1rem + 3.8vw,4.4rem);line-height:1.05}
+.lede{font-size:clamp(1.05rem,.98rem + .35vw,1.3rem);line-height:1.6;color:var(--muted);max-width:40em}
+
+/* section index label: wayfinding "02  Raisey Review" */
+.sl{display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(28px,4vw,52px);font:600 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.sl .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.sl .t{color:var(--ink)}
+.sl .r{margin-left:auto;color:var(--muted);letter-spacing:.14em;font-weight:500;text-align:right}
+.dark .sl .n,.dark .sl .r{color:var(--on-aub-2)}
+@media (max-width:640px){.sl{flex-wrap:wrap;row-gap:4px}.sl .r{flex-basis:100%;margin-left:0;padding-left:calc(2ch + 18px);text-align:left}}
+.dark .sl .t{color:var(--on-aub)}
+
+/* arrows, drawn */
+.ar{display:inline-block;width:18px;height:10px;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 10' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M1 5h15M12 1l4 4-4 4'/></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 10' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M1 5h15M12 1l4 4-4 4'/></svg>") center/contain no-repeat;
+  transition:transform .4s var(--ease)}
+
+/* buttons: raspberry, squared */
+.btn{--b:var(--rasp);--f:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:15px 30px;background:var(--b);color:var(--f);border:1px solid var(--b);border-radius:var(--radius-pill);font:600 15px/1.2 var(--sans);letter-spacing:.01em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+/* 🔒 LOCKED 2026-09-22, revised 2026-09-22 · CTA colour/shape system — see memory presence-lab-locked-sections.
+   owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
+.svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+@media (hover:hover){.btn:hover{--b:var(--rasp-d)}}
+@media (hover:hover){.btn:hover .ar{transform:translateX(5px)}}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+@media (max-width:420px){.btn{white-space:normal;text-align:left;max-width:100%;padding-inline:20px}}
+.tl{display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px/1.2 var(--sans);text-decoration:none;border-bottom:1.5px solid currentColor;padding-block:6px}
+/* CTA colour hierarchy (scoped away from the locked services CTA) */
+/* light primary: only the hero's own inline CTA — the quieter first interaction */
+.hero-cta .btn{--b:var(--p-soft-lilac);--f:var(--p-graphite);border-color:var(--p-soft-lilac)}
+/* deep burgundy = the one recurring conversion colour everywhere else it repeats */
+.head-cta,.rv-cta .btn,.scan .btn,#contact .btn,#founding .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy)}
+.rv-cta .btn,.scan .btn,#contact .btn,#founding .btn{min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* a CTA ever placed on a burgundy panel must invert, never burgundy-on-burgundy */
+.dark .btn{--b:var(--optical);--f:var(--p-plum);border-color:var(--optical)}
+@media (hover:hover){.tl:hover .ar{transform:translateX(5px)}}
+
+.langsw{display:inline-flex;align-items:center;gap:2px;font:600 12px/1 var(--sans);letter-spacing:.14em}
+.langsw a,.langsw span{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:44px;text-decoration:none;color:var(--muted)}
+.langsw [aria-current]{color:var(--ink)}
+.langsw i{width:1px;height:14px;background:var(--line-strong)}
+.langsw a:hover{color:var(--rasp)}
+.langsw.m{display:none;margin-top:18px}
+@media (max-width:1000px){.langsw.h{display:none}.mobile .langsw.m{display:inline-flex}}
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line)}
+.bar{height:var(--head);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;min-height:44px;gap:12px;text-decoration:none;font:600 22px/1 var(--serif);letter-spacing:-.01em;white-space:nowrap}
+.brand{text-transform:uppercase;letter-spacing:.07em}   /* RAISEY LAB wordmark test (preview) */
+.nav ul{display:flex;gap:clamp(18px,2.6vw,40px)}
+/* six nav items at 1001–1159px: use the nav's own 18px minimum gap, keep labels on one line and the logo mark at full size */
+@media (min-width:1001px) and (max-width:1159px){.nav ul{gap:18px}}
+.nav a{white-space:nowrap}
+.nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:500 14px/1 var(--sans);color:var(--ink)}
+.nav a::after{content:'';position:absolute;left:0;right:0;bottom:8px;height:1.5px;background:var(--rasp);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a.on::after{transform:scaleX(1)}
+@media (hover:hover){.nav a:hover::after{transform:scaleX(1)}}
+.head-cta{min-height:44px;padding:11px 22px;font-size:14px}
+.menu-btn{display:none;align-items:center;gap:10px;background:none;border:0;color:var(--ink);min-height:44px;min-width:44px;padding:0 4px 0 12px;margin-right:-4px;cursor:pointer;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.menu-btn svg{overflow:visible}
+.menu-btn .l1,.menu-btn .l2{transform-box:fill-box;transform-origin:center;transition:transform .4s var(--ease)}
+.menu-btn[aria-expanded=true] .l1{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded=true] .l2{transform:translateY(-4px) rotate(-45deg)}
+.mobile{position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0 28px}
+.mobile li+li{border-top:1px solid var(--line)}
+.mobile a.l{display:block;padding:16px 0;font:500 30px/1.1 var(--serif);text-decoration:none}
+.mobile .btn{margin-top:22px}
+@media (max-width:1000px){.nav,.head-cta{display:none}.menu-btn{display:inline-flex}}
+
+/* ============ 01 HERO ============ */
+.hero{position:relative;overflow:hidden;padding-block:clamp(56px,8vw,120px) clamp(48px,6vw,88px)}
+.hero .wrap{position:relative;z-index:2;display:grid}
+.hero h1{font-size:clamp(2.75rem,.9rem + 6.9vw,7.2rem);line-height:.98;font-weight:500;letter-spacing:-.03em;margin-top:clamp(20px,2.6vw,36px)}
+.hero h1 br.m{display:none}
+.hero h1 .pun{font-style:italic;font-weight:400;letter-spacing:-.035em}
+.hero h1 .pun em{font-style:italic;color:var(--p-red)}
+@media (max-width:640px){.hero h1{font-size:clamp(2.3rem,14.2vw,4rem);line-height:.99}.hero h1 br.d{display:none}.hero h1 br.m{display:inline}}
+.hero .lede{margin-top:clamp(24px,3vw,40px);max-width:27em;font-size:clamp(1.05rem,.98rem + .3vw,1.25rem)}
+.hero .lede strong{font-weight:600;color:var(--ink)}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:clamp(28px,3.4vw,44px)}
+.hero-foot{margin-top:clamp(48px,7vw,104px);font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 18px}
+.hero-foot span+span::before{content:'·';margin-right:18px;color:var(--mauve)}
+@media (max-width:560px){.hero-foot{flex-direction:column;gap:2px}.hero-foot span+span::before{display:none}}
+.arcs{position:absolute;z-index:1;right:clamp(-260px,-13vw,-90px);top:48%;transform:translateY(-52%);width:clamp(300px,44vw,660px);height:auto;pointer-events:none}
+.arcs g{will-change:transform}
+.arcs path,.arcs circle{fill:none;stroke-linecap:round}
+.arcs .a1{stroke:var(--lilac)}
+.arcs .a2{stroke:var(--mauve)}
+.arcs .a3{stroke:var(--p-burgundy)}
+.arcs .dot{fill:var(--p-burgundy)}
+@media (max-width:760px){.arcs{opacity:.32;top:auto;bottom:-6%;transform:none;width:118vw;right:-52vw}}
+@media (prefers-reduced-motion:no-preference){
+  .arcs .a1,.arcs .a2,.arcs .a3{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.2s var(--ease) forwards}
+  .arcs .a2{animation-delay:.25s}.arcs .a3{animation-delay:.5s}
+  .arcs .dot{opacity:0;animation:pop .8s var(--ease) 1.4s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{from{opacity:0}to{opacity:1}}
+  .rise{animation:rise 1s var(--ease) both;animation-delay:calc(var(--i,0)*100ms + 60ms)}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+}
+
+/* ============ 02 PRESENCE REVIEW (diagnostic) ============ */
+.review{background:var(--p-pale-lilac)}
+.rv-head{display:grid;gap:20px;max-width:46rem}
+#dims6,#glance{scroll-margin-top:calc(var(--head) + 8px)}
+/* editorial diagnostic index: the framework, before Question 1 */
+.dim-index{margin-top:clamp(32px,5vw,56px);border-top:1px solid var(--ink);border-bottom:1px solid var(--line-strong);overflow:hidden;display:block}
+.dim-index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin:clamp(32px,5vw,56px) 0 0;padding:0}
+.dim-index li{display:grid;gap:8px;align-content:start;padding:20px 16px 22px;border-left:1px solid var(--line-strong);border-top:1px solid var(--line-strong);margin:-1px 0 0 -1px}
+.dim-index .dn{font:600 12px/1 var(--mono);letter-spacing:.14em;color:var(--rasp);font-variant-numeric:tabular-nums}
+.dim-index .dt{font:500 clamp(1.05rem,.95rem + .5vw,1.3rem)/1.18 var(--serif);letter-spacing:-.01em;color:var(--aub)}
+@media (min-width:640px){.dim-index{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:1000px){.dim-index{grid-template-columns:repeat(6,minmax(0,1fr))}.dim-index li{padding:22px 18px 26px}}
+.rv-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:clamp(28px,4vw,48px)}
+.pl{font:500 13px/1.4 var(--sans);color:var(--muted)}
+.scan{margin-top:clamp(28px,4vw,56px);background:var(--paper);border:1px solid var(--ink);padding:clamp(28px,6vw,56px) clamp(22px,4vw,56px);max-width:62rem;scroll-margin-top:calc(var(--head) + 16px)}
+.scan :focus{outline:none}
+.scan [data-focus]:focus-visible{outline:2px solid var(--rasp);outline-offset:6px}
+.prog{display:flex;align-items:center;gap:18px;margin-bottom:clamp(24px,3.6vw,44px)}
+.track{flex:1;height:2px;background:var(--line);position:relative;overflow:hidden}
+.track>span{position:absolute;inset:0;background:var(--rasp);transform:scaleX(var(--p,0));transform-origin:left;transition:transform .6s var(--ease)}
+.q{border:0;padding:0;margin:0;min-width:0}
+.q legend{padding:0;font:500 clamp(1.45rem,1rem + 1.7vw,2.5rem)/1.14 var(--serif);margin-bottom:8px;text-wrap:balance;letter-spacing:-.02em}
+.hint{color:var(--muted);font-size:15px}
+.opts{margin-top:24px;border-top:1px solid var(--line-strong)}
+.opt{position:relative;display:flex;align-items:center;gap:16px;min-height:56px;padding:11px 0;border-bottom:1px solid var(--line-strong);cursor:pointer}
+.opt input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:pointer}
+.opt .mk,.opt .tx{transition:transform .35s var(--ease)}
+@media (hover:hover){.opt:hover .mk,.opt:hover .tx{transform:translateX(8px)}}
+.mk{width:20px;height:20px;border:1.5px solid var(--ink);display:grid;place-items:center;flex:none}
+.opt input[type=radio]+.mk{border-radius:50%}
+.mk::after{content:'';width:9px;height:9px;background:var(--rasp);transform:scale(0);transition:transform .25s var(--ease)}
+.opt input[type=radio]+.mk::after{border-radius:50%}
+.opt input:checked+.mk::after{transform:scale(1)}
+.opt input:checked~.tx{font-weight:600}
+.opt:active{background:color-mix(in srgb,var(--rasp) 7%,transparent)}
+.btn:active .ar,.tl:active .ar{transform:translateX(4px)}
+.opt:has(input:focus-visible){outline:2px solid var(--rasp);outline-offset:-2px}
+.nav-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:32px}
+.back{background:none;border:0;padding:10px 0;min-height:44px;min-width:44px;font:600 14px/1.2 var(--sans);color:var(--ink);cursor:pointer;text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:1px}
+.back[disabled]{visibility:hidden}
+.result{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,5vw,44px)}
+.result .lead-in{display:grid;gap:clamp(14px,2.4vw,22px)}
+.result .k{font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--rasp)}
+.tier-name{font:500 clamp(2.3rem,1.2rem + 5.2vw,5.6rem)/.98 var(--serif);letter-spacing:-.035em;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;overflow-wrap:anywhere}
+.dot{width:16px;height:16px;border-radius:50%;flex:none;border:1px solid color-mix(in srgb,var(--aub) 40%,transparent)}
+.dot[data-t=established]{background:var(--lime)}
+.dot[data-t=potential]{background:var(--lilac-d)}
+.dot[data-t=elevate]{background:var(--rasp);border-color:var(--rasp)}
+.diag-line{font:400 clamp(1.3rem,1rem + .9vw,1.7rem)/1.35 var(--serif);max-width:36ch}
+.signal{max-width:52ch;color:var(--muted)}.signal b{font-weight:600;color:var(--ink)}
+.basis{display:block;margin-top:10px;font:600 12px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.basis-notes{display:grid;gap:10px}
+.note{font-size:14px;color:var(--muted);max-width:56ch}
+.note.priv{max-width:none}
+.note .link{color:var(--ink);white-space:nowrap}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.nb{white-space:nowrap}
+.micro{font-size:14px;color:var(--muted);text-align:center}
+@media (max-width:640px){.req-box .f-actions{display:grid}.req-box .f-actions .btn{width:100%;justify-content:center}.req-box .micro{text-align:center}}
+.req-box{margin-top:clamp(36px,6vw,56px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line-strong);display:grid;gap:14px}
+.done{display:inline-flex;align-items:center;gap:10px;font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--rasp)}
+.req-box h3{font-size:clamp(1.7rem,1.2rem + 1.4vw,2.4rem);line-height:1.12;margin-top:6px}
+.scan .btn{white-space:normal;text-align:left}
+
+/* results at a glance (radar) */
+.glance{margin-top:clamp(32px,5vw,56px);display:grid;gap:14px;justify-items:center;text-align:center}
+.glance .eyebrow{justify-self:start;text-align:left}
+.glance .g-h{font-size:clamp(2.3rem,1.2rem + 4vw,4rem);line-height:1.02;letter-spacing:-.03em;justify-self:start;text-align:left}
+.glance .g-h:focus{outline:none}
+.glance .g-sub{color:var(--muted);justify-self:start;text-align:left;max-width:30em}
+.radar{position:relative;width:100%;max-width:460px;aspect-ratio:100/122;margin-top:8px}
+.radar svg{position:absolute;inset:0;width:100%;height:100%}
+.radar .band{fill:color-mix(in srgb,var(--rasp) 5%,transparent);stroke:var(--line-strong);stroke-width:.25}
+.radar .ax{stroke:var(--line-strong);stroke-width:.2}
+.radar .shape{fill:color-mix(in srgb,var(--rasp) 22%,transparent);stroke:var(--rasp);stroke-width:.5;stroke-linejoin:round;transform-box:fill-box;transform-origin:center;animation:none}
+.radar .pt{fill:var(--rasp)}
+.nd{position:absolute;width:29%;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:6px;text-align:center}
+.nd .nm{font:500 clamp(14px,3.9vw,17px)/1.15 var(--serif);letter-spacing:-.01em;color:var(--ink)}
+.nd .bd{width:30px;height:30px;border-radius:50%;border:2px solid var(--line-strong);display:grid;place-items:center}
+.nd .bd i{width:12px;height:12px;border-radius:50%;background:var(--c,var(--line-strong))}
+.nd[data-lv=established]{--c:var(--ring-est)}.nd[data-lv=potential]{--c:var(--ring-pot)}.nd[data-lv=elevate]{--c:var(--ring-elev)}
+.nd[data-lv] .bd{border-color:var(--c)}
+.nd .st{font:500 12px/1.3 var(--sans);color:var(--muted)}
+.legend{width:100%;max-width:460px;text-align:left;border-top:1px solid var(--line-strong);padding-top:18px;margin-top:6px}
+.legend .lg-h{font:500 1.15rem/1.2 var(--serif)}
+.legend .lg-s{color:var(--muted);font-size:14px;margin-top:2px}
+.legend ul{display:grid;gap:12px;margin-top:16px}
+.legend li{display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:1px;align-items:baseline}
+.legend li .dot{grid-row:1/3;align-self:start;margin-top:4px}
+.legend li b{font:600 13px/1.3 var(--sans);letter-spacing:.02em}
+.legend li span{font-size:14px;color:var(--muted)}
+@media (min-width:1000px){.glance{grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:clamp(40px,6vw,96px);align-items:start;justify-items:stretch;text-align:left}.glance .eyebrow,.glance .g-h,.glance .g-sub{grid-column:1}.glance .radar{grid-column:2;grid-row:1/5;justify-self:center}.glance .legend{grid-column:1}}
+
+/* ============ 03 OUR APPROACH ============ */
+.approach{display:grid;gap:clamp(28px,4vw,56px)}
+.ap-l{display:grid;gap:24px;align-content:start;padding-block:clamp(0px,2vw,24px)}
+.ap-l h2 .bl{display:block}
+.ap-l h2{font-size:clamp(2.6rem,.9rem + 5.4vw,6rem);line-height:1;letter-spacing:-.03em}
+.ap-panel{padding:clamp(28px,4vw,56px)}
+.trio{display:grid}
+.trio .it{border-top:1px solid var(--line-aub);padding:22px 0 30px;display:grid;gap:12px;align-content:start}
+.trio .it:first-child{border-top:0;padding-top:0}
+.num{font:400 1.05rem/1 var(--serif);font-style:italic;color:var(--p-red)}
+.trio .it:nth-child(1) .num{color:var(--p-icy)}
+.trio .it:nth-child(2) .num{color:var(--p-powder)}
+.trio .it:nth-child(3) .num{color:var(--p-red-lt)}
+.trio h3{font:600 13px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.trio p{color:var(--on-aub-2);max-width:26ch}
+@media (min-width:900px){
+  .approach{grid-template-columns:5fr 7fr;align-items:stretch}
+  .trio{grid-template-columns:repeat(3,1fr)}
+  .trio .it{border-top:0;border-left:1px solid var(--line-aub);padding:6px 0 6px clamp(16px,2vw,28px)}
+  .trio .it:first-child{border-left:0;padding-left:0}
+}
+
+/* 🔒 LOCKED · APPROVED COMPONENT — "How we build your presence". Do not redesign, restyle, recolour or restructure unless the owner explicitly asks. Snapshot + checksum in /_locked. Global changes must not alter its appearance. */
+/* ============ 04 SERVICES: two territories (after "how we build your presence" reference) ============ */
+.svc-sec{display:grid;background:var(--optical)}
+.svc-l{background:var(--blush);color:var(--aub);position:relative;overflow:clip}
+.svc-l-in{padding:clamp(56px,8vw,104px) var(--gutter) clamp(48px,7vw,96px)}
+.svc-l .lab{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.svc-l h2{font-size:clamp(2.5rem,1rem + 3.4vw,4.1rem);line-height:1.02;letter-spacing:-.03em;font-weight:400;margin-top:clamp(22px,3vw,36px)}
+.svc-l h2 .l1,.svc-l h2 .l2{display:block}
+.svc-l h2 em{font-style:italic;font-weight:400;letter-spacing:-.035em}
+.svc-l .lede-l{margin-top:clamp(22px,2.8vw,32px);max-width:24em;font-size:clamp(1.02rem,.95rem + .3vw,1.2rem);line-height:1.6;color:var(--muted)}
+.svc-l .mc{margin-top:clamp(48px,9vw,120px);font:500 12px/2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.svc-l .mc::before{content:'';display:block;width:48px;height:1px;background:var(--aub);margin-bottom:22px;opacity:.7}
+.svc-l .mc span{display:block}
+.svc-r{padding:clamp(40px,7vw,88px) var(--gutter) clamp(56px,8vw,104px)}
+.rows{--nw:clamp(40px,5.2vw,76px);--pl:clamp(18px,2.4vw,34px);}
+.row{border-bottom:1px solid var(--line-strong)}
+.row h3{margin:0;font:inherit;letter-spacing:0}
+.r-btn{display:grid;grid-template-columns:var(--nw) minmax(0,1fr) 44px;column-gap:0;align-items:start;width:100%;padding:clamp(28px,3.4vw,40px) 0;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.r-btn .n{font:300 clamp(1.7rem,1.1rem + 1.8vw,2.9rem)/1 var(--serif);letter-spacing:-.02em;color:var(--aub);font-variant-numeric:lining-nums}
+.r-btn .mn{position:relative;display:grid;gap:8px;min-width:0;padding-left:var(--pl)}
+.r-btn .mn::before{content:'';position:absolute;left:0;top:4px;height:min(70px,100%);width:1px;background:var(--line-strong)}
+.r-btn .nm{font:400 clamp(1.5rem,1rem + 1.4vw,2.35rem)/1.1 var(--serif);letter-spacing:-.02em;color:var(--aub)}
+.r-btn .sup{display:none;font:500 12px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.r-btn .ds{display:none;font-size:1.05rem;line-height:1.5;color:var(--muted);max-width:24em;margin-top:6px;transition:color .3s var(--ease)}
+.r-btn .go{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:50%;color:var(--aub);transition:border-color .3s var(--ease)}
+.r-btn .go .ar{width:16px;height:9px}
+.row[data-open=true] .go .ar{transform:rotate(90deg)}
+.r-btn:focus-visible{outline:2px solid var(--rasp);outline-offset:-2px}
+@media (hover:hover){
+  .r-btn:hover .go{border-color:var(--aub)}
+  .r-btn:hover .go .ar{transform:translateX(3px)}
+  .row[data-open=true] .r-btn:hover .go .ar{transform:rotate(90deg)}
+  .r-btn:hover .ds{color:var(--aub)}
+}
+.r-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .38s var(--ease),visibility 0s linear .38s}
+.row[data-open=true] .r-panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .38s var(--ease),visibility 0s}
+.r-in{overflow:hidden;min-height:0}
+.r-body{display:grid;gap:14px;padding:0 0 clamp(26px,3vw,34px) calc(var(--nw) + var(--pl));max-width:calc(58ch + var(--nw) + var(--pl))}
+.r-body .p-stg{font:600 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rasp)}
+.r-body .p-sup{font:500 12px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.r-body .p-ds{color:var(--muted)}
+.cap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:22px}
+.cap li{padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.r-body .tl{justify-self:start}
+@media (prefers-reduced-motion:reduce){.r-panel,.row[data-open=true] .r-panel,.r-btn .ar,.r-btn .go{transition:none}}
+.svc-cta{margin-top:clamp(36px,5vw,56px);display:grid;gap:12px;justify-items:start}
+.svc-cta .eb{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.svc-cta h3{font-size:clamp(1.65rem,1.1rem + 1.5vw,2.4rem);line-height:1.12;letter-spacing:-.02em;font-weight:500}
+.svc-cta .m{font-size:15px;color:var(--muted)}
+.svc-cta .btn{margin-top:10px}
+@media (max-width:719px){
+  .rows{--nw:34px;--pl:14px}
+  .r-btn{grid-template-columns:var(--nw) minmax(0,1fr) 44px;align-items:center;padding:20px 0}
+  .r-btn .mn::before{display:none}
+  .r-btn .n{font-size:1.3rem}
+  .r-btn .nm{font-size:1.4rem}
+}
+@media (min-width:720px){
+  .r-btn .sup,.r-btn .ds{display:block}
+  .r-body .p-sup,.r-body .p-ds{display:none}
+}
+@media (min-width:1000px){
+  .svc-sec{grid-template-columns:40fr 60fr}
+  .svc-l-in{position:sticky;top:var(--head)}
+  .svc-r{padding-left:clamp(40px,5.6vw,88px)}
+}
+
+/* ============ 05 STUDIES ============ */
+.st-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;margin-bottom:clamp(28px,4vw,52px)}
+.st-head .n{font:600 13px/1 var(--mono);letter-spacing:.14em;color:var(--rasp)}
+.st-head h2{font-size:clamp(2.1rem,1rem + 3.2vw,3.6rem);line-height:1.05;letter-spacing:-.025em}
+.st-head .r{margin-left:auto;font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:right}
+@media (max-width:720px){.st-head .r{margin-left:0;flex-basis:100%;text-align:left}}
+.cases{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(14px,2vw,22px)}
+@media (min-width:700px){.cases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1360px){.cases{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:699px){.case{padding:24px 20px}}
+.case{--tint:var(--rose-tint);--ink2:var(--rose-ink);--solid:var(--rose-solid);background:var(--optical);border:1px solid var(--line);border-radius:var(--radius-card);padding:clamp(24px,2.6vw,34px);display:grid;gap:18px;align-content:start}
+.case[data-c=lav]{--tint:var(--lav-tint);--ink2:var(--lav-ink);--solid:var(--lav-solid)}
+.case[data-c=gold]{--tint:var(--gold-tint);--ink2:var(--gold-ink);--solid:var(--gold-solid)}
+.case[data-c=sage]{--tint:var(--sage-tint);--ink2:var(--sage-ink);--solid:var(--sage-solid)}
+.case h3{font-size:clamp(1.4rem,1.05rem + .8vw,1.75rem);line-height:1.15;letter-spacing:-.015em}
+.case{container-type:inline-size}
+.path{display:flex;flex-wrap:wrap;align-items:center;gap:.5em .3em}
+.path .st{display:inline-flex;align-items:center;gap:.3em;white-space:nowrap}
+.case p.path{font-size:clamp(11px,3.4cqi,12px);line-height:1}
+.path b{font:600 1em/1 var(--sans);letter-spacing:.05em;text-transform:uppercase;padding:.68em .8em;border-radius:999px;background:var(--tint);color:var(--ink2);white-space:nowrap;flex:none}
+.path b:last-of-type{background:var(--solid);color:var(--white)}
+.path .ar{width:1.05em;height:.65em;flex:none;color:var(--line-strong)}
+.case p{font-size:15.5px;line-height:1.65;color:var(--muted)}
+.disc{margin:clamp(32px,4.6vw,56px) auto 0;font-size:14px;line-height:1.6;color:var(--muted);max-width:60em;text-align:center}
+
+/* ============ 06 FOUNDER ============ */
+.founder-sec{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.founder{display:grid;gap:clamp(32px,5vw,72px);align-items:start}
+.founder figure img{width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;object-position:center;background:var(--blush)}   /* final founder portrait: shown whole, never cropped (2:3) */
+@media (max-width:639px){.founder figure{max-width:440px}}
+.bio{display:grid;gap:20px;align-content:start;max-width:40rem}
+.bio h2{font-size:clamp(2.2rem,1.2rem + 3.4vw,4rem);line-height:1.05}
+.bio p{color:var(--muted)}
+.bio .pq{font:italic 400 clamp(1.25rem,1.05rem + .8vw,1.6rem)/1.3 var(--serif);letter-spacing:-.01em;color:var(--aub)}
+.bio .who{font:600 12px/1.5 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.f-side{display:grid;gap:28px;align-content:space-between;min-height:100%}
+.journey{display:grid;border-top:1px solid var(--ink)}
+.ch{display:grid;gap:8px;padding:18px 0 22px;border-bottom:1px solid var(--line-strong);position:relative}
+.ch .cn{font:600 12px/1 var(--mono);letter-spacing:.2em;color:var(--rasp)}
+.ch .cv{width:100%;height:auto;max-height:104px;color:var(--p-plum);margin:4px 0 6px;overflow:visible}
+.ch h3{font:400 clamp(1.3rem,1.05rem + .7vw,1.6rem)/1.15 var(--serif);letter-spacing:-.015em;color:var(--aub)}
+.ch .cs{font:600 12px/1.5 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.f-quote{font:400 clamp(1.5rem,1rem + 1.6vw,2.3rem)/1.2 var(--serif);font-style:italic;letter-spacing:-.012em}
+@media (min-width:900px){.founder{grid-template-columns:4fr 5fr 3fr;gap:clamp(32px,4.4vw,72px)}}
+@media (min-width:640px) and (max-width:899px){.founder{grid-template-columns:1fr 1fr}.founder .f-side{grid-column:1/-1}.journey{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px}.ch{border-bottom:0;border-top:0;padding-bottom:6px}}
+
+/* ============ 07 FOUNDING PARTNERS ============ */
+.fp{background:var(--optical);overflow:clip;position:relative}
+.fp-top{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(20px,4vw,40px);position:relative}
+.fp{background:var(--p-pale-lilac)}
+.fp-lab{margin:0;order:-2}
+.fp-h h2{font-size:clamp(2.3rem,.8rem + 3.2vw,3.85rem);line-height:1.02;letter-spacing:-.03em}
+.fp-h h2 .a,.fp-h h2 .b{display:block}
+.fp-h h2 .b{font-style:italic;font-weight:400;letter-spacing:-.035em;color:var(--p-red-ink)}
+.fp-h p{margin-top:clamp(20px,3vw,32px);max-width:29em;color:var(--muted);font-size:clamp(1.02rem,.95rem + .3vw,1.2rem);line-height:1.6}
+.fp-06{position:relative;min-height:clamp(200px,40vw,260px);order:-1}
+.fp-06 .big{position:absolute;left:-.04em;top:-.1em;font:400 clamp(9rem,42vw,14rem)/.82 var(--serif);letter-spacing:-.06em;color:color-mix(in srgb,var(--dusty) 42%,transparent);font-variant-numeric:lining-nums;pointer-events:none;user-select:none;white-space:nowrap}
+.fp-06 .big .z{color:color-mix(in srgb,var(--dusty) 42%,transparent)}
+.fp-06 .big .six{color:color-mix(in srgb,var(--lilac-d) 50%,transparent)}
+.fp-06 .ring{position:absolute;left:-6%;top:-40%;width:min(78vw,300px);height:auto;pointer-events:none;opacity:.7}
+.fp-06 .ring circle{fill:none;stroke:var(--p-plum);stroke-width:.6;opacity:.22}
+.fp-06 .mono{position:absolute;left:.2rem;bottom:-4px;font:600 12px/1.7 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--p-burgundy);margin:0}
+.fp-06 .mono .d{display:none}
+.fp-perks{display:grid;margin-top:clamp(48px,7vw,96px)}
+.fp-perks .it{border-top:1px solid var(--ink);padding:22px 0 30px;display:grid;gap:12px;align-content:start}
+.fp-perks .n{font:500 13px/1.45 var(--mono);letter-spacing:.02em;color:var(--muted)}
+.fp-perks .n b{font-weight:600;color:var(--p-red-ink);letter-spacing:.14em}
+.fp-perks h3{font-size:clamp(1.55rem,1.1rem + 1.2vw,2.2rem);line-height:1.12;letter-spacing:-.02em}
+.fp-perks p{color:var(--muted);max-width:27ch}
+.fp-h p.fp-sub{margin-top:clamp(22px,3.2vw,34px);max-width:none;font:400 clamp(1.35rem,1rem + 1.2vw,1.95rem)/1.25 var(--serif);letter-spacing:-.01em;color:var(--p-plum)}
+.fp-h p.fp-sub+p{margin-top:clamp(16px,2.4vw,24px)}
+.fp-close{margin-top:clamp(40px,6vw,72px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line-strong);display:grid;gap:18px}
+.fp-close .lb{font:600 12px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--p-burgundy)}
+.fp-close .cl{display:grid;gap:16px;justify-items:start}
+.fp-close .st{font:400 clamp(1.9rem,1.1rem + 3vw,3.6rem)/1.08 var(--serif);letter-spacing:-.03em;color:var(--p-plum);max-width:16em}
+.fp-close .st span,.fp-close .st em{display:block}
+.fp-close .st em{font-style:italic;font-weight:400;color:var(--p-red-ink)}
+.fp-close .m{font-size:15px;color:var(--muted)}
+.fp-close .btn{margin-top:6px}
+.fp-strip{margin-top:clamp(40px,6vw,72px);padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:6px 22px;font:500 12px/1.6 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (min-width:720px){.fp-strip span+span::before{content:'·';margin-right:22px;color:var(--mauve)}}
+@media (min-width:900px){.fp-close{grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:clamp(28px,4vw,64px);align-items:start}}
+@media (min-width:900px){
+  .fp-top{grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"lab six" "h six";column-gap:clamp(32px,5vw,80px);align-items:start}
+  .fp-lab{grid-area:lab;order:0}.fp-h{grid-area:h}
+  .fp-06{grid-area:six;order:0;min-height:clamp(380px,32vw,520px)}
+  .fp-06 .big{left:auto;right:calc(var(--gutter) * -1 - 3vw);top:-.06em;font-size:clamp(17rem,36vw,34rem)}
+  .fp-06 .ring{left:auto;right:calc(var(--gutter) * -1 - 6vw);top:-6%;width:clamp(320px,34vw,520px)}
+  .fp-06 .mono{left:auto;right:calc(var(--gutter) * -1 + 6vw);bottom:6%;text-align:right}
+  .fp-06 .mono .m{display:none}.fp-06 .mono .d{display:inline}
+  .fp-perks{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(28px,4vw,64px)}
+}
+
+/* ============ 08 CONTACT ============ */
+.c-grid{display:grid;gap:clamp(32px,5vw,72px);align-items:stretch}
+.c-grid>*{min-width:0}
+.c-main h2{font-size:clamp(2.1rem,1rem + 4.6vw,4.8rem);line-height:1.02;letter-spacing:-.03em;max-width:12ch}
+.c-main .lede{margin-top:16px}
+.c-panel{padding:clamp(28px,4vw,52px);display:grid;gap:28px;align-content:space-between;min-height:320px}
+.c-panel .brand{color:var(--on-aub)}
+.c-panel h3{font-size:clamp(2rem,1.2rem + 2.6vw,3.4rem);line-height:1.08;letter-spacing:-.025em;max-width:9ch}
+.c-panel .mantra{font:600 12px/1.9 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--on-aub-2)}
+.c-panel .mantra span{display:block}
+@media (min-width:980px){.c-grid{grid-template-columns:8fr 4fr;gap:clamp(40px,6vw,96px)}}
+.form{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;margin-top:clamp(28px,4vw,44px)}
+@media (min-width:640px){.form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.field{min-width:0}
+.wide{grid-column:1/-1}
+.field{display:grid;gap:8px;align-content:start}
+.field>label{font:600 14px/1.4 var(--sans);color:var(--ink)}
+.field .o{font-weight:400;color:var(--muted)}
+.input{width:100%;min-height:54px;padding:14px 16px;background:var(--paper);border:1px solid var(--line-strong);border-radius:0;font:400 16px/1.4 var(--sans);color:var(--ink);transition:border-color .2s,background-color .2s}
+select.input{appearance:none;-webkit-appearance:none;padding-right:44px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none' stroke='%232a1621' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M1 1.5l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 16px center}
+textarea.input{min-height:130px;resize:vertical}
+.input::placeholder{color:var(--placeholder)}
+@media (hover:hover){.input:hover{border-color:var(--muted)}}
+.input:focus-visible{outline:2px solid var(--rasp);outline-offset:1px;border-color:var(--rasp);background:var(--white)}
+.input[aria-invalid=true]{border-color:var(--err);box-shadow:inset 0 0 0 1px var(--err)}
+.err{display:none;color:var(--err);font-size:14px;font-weight:500}
+.field.bad .err{display:block}
+.f-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.status{min-height:1.5em;font-size:15px}
+.status[data-s=error]{color:var(--err)}
+.thanks{display:grid;gap:14px;padding-block:16px}
+.thanks h3{font-size:clamp(1.8rem,1.2rem + 1.6vw,2.6rem)}
+.thanks:focus{outline:none}
+
+.site-footer{border-top:1px solid var(--line);padding-block:clamp(36px,5vw,64px) max(28px,env(safe-area-inset-bottom));margin-top:clamp(48px,7vw,96px)}
+.f-row{display:grid;gap:20px;align-items:center}
+.f-row nav ul{display:flex;flex-wrap:wrap;gap:0 28px}
+.f-row nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
+@media (hover:hover){.f-row nav a:hover{color:var(--rasp)}}
+.f-legal{margin-top:clamp(20px,3vw,32px);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
+.f-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-underline-offset:.3em}
+@media (min-width:900px){.f-row{grid-template-columns:1fr auto}}
+@media (prefers-reduced-motion:reduce){.btn .ar,.tl .ar,.opt .mk,.opt .tx,.nav a::after,.track>span,.menu-btn .l1,.menu-btn .l2,.input,.btn{transition:none}}
+@media print{.site-header{display:none}}
+
+/* ================= RAISEY LAB ART DIRECTION (2026-09) =================
+   Editorial studio × aesthetic medicine: ivory breathing room, burgundy anchor, ink authority, espresso dark moments,
+   lavender + clinical blue for the Raisey Scan. Layout first; image crops are reviewed in a second pass. */
+body{background:var(--rl-ivory)}
+::selection{background:var(--rl-burgundy);color:var(--rl-optical)}
+/* wordmark: the new logo direction (widely spaced editorial capitals). The & monogram will be added from the official SVG. */
+.brand{font-weight:400;letter-spacing:.3em;gap:0}
+.site-header .brand{font-size:17px}
+/* hero: tension through typography and burgundy, not colour */
+.hero{background:var(--rl-ivory)}
+.hero h1{color:var(--rl-ink)}
+.hero h1 .pun em{color:var(--rl-burgundy);font-weight:300}
+.eyebrow{letter-spacing:.24em}
+.arcs .a1{stroke:var(--rl-lavender)} .arcs .a2{stroke:var(--rl-blue-powder)} .arcs .a3{stroke:var(--rl-burgundy)} .arcs .dot{fill:var(--rl-ink)}
+.hero-cta .btn{--b:var(--rl-lavender);--f:var(--rl-ink);border-color:var(--rl-lavender)}
+/* Raisey Scan: the cooler diagnostic world */
+.review{background:var(--rl-lavender-pale)}
+.review .h2{color:var(--rl-burgundy)}
+.review .dim-index li{background:var(--rl-blue)}
+.review .dim-index .dn{color:var(--rl-blue-ink)}
+/* approach: ivory with the burgundy anchor panel */
+.trio .it .num,.trio .it:nth-child(2) .num,.trio .it:nth-child(3) .num{color:var(--rl-lavender)}
+/* services: stone + optical cream (colours only; the locked component itself is unchanged) */
+.svc-sec{background:var(--rl-optical)}
+/* work / studies: an editorial index on clinical blue */
+#work{background:var(--rl-blue)}
+#work .case{background:transparent;border:0;border-top:1px solid var(--rl-ink);border-radius:0;box-shadow:none;padding:22px 0 8px}
+#work .path b{background:transparent;color:var(--rl-ink);border:1px solid color-mix(in srgb,var(--rl-ink) 38%,transparent);border-radius:999px;font-family:var(--mono);font-weight:500;letter-spacing:.12em}
+#work .path .ar{color:var(--rl-muted)}
+#work .st-head .n{color:var(--rl-burgundy)}
+/* founder: ivory, photography does the work */
+.founder-sec{background:var(--rl-ivory)}
+/* dark editorial moment: founding partners on espresso with the sofa portrait */
+#founding{background:var(--rl-espresso);color:var(--rl-on-dark);
+  --ink:var(--rl-on-dark);--muted:var(--rl-on-dark-2);--line:var(--rl-line-dark);--line-strong:#54463f;--p-burgundy:var(--rl-on-dark);--p-red-ink:#d9c7c2;--p-plum:var(--rl-on-dark)}
+#founding .fp-h h2 .b,#founding .fp-close .st em{color:#d9c7c2;font-weight:300}
+#founding .fp-photo{min-height:0}
+#founding .fp-photo figure{margin:0}
+#founding .fp-photo img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;background:#2c2422}
+#founding .fp-photo .mono{position:static;margin-top:12px;color:var(--rl-on-dark-2)}
+#founding .btn{--b:var(--rl-on-dark);--f:var(--rl-ink);border-color:var(--rl-on-dark)}
+/* contact: ivory + burgundy panel */
+#contact .c-panel{background:var(--rl-burgundy)}
+.site-footer{background:var(--rl-ivory)}
+
+/* ---- Founder: editorial profile (credentials | manifesto | portrait insert) ---- */
+.founder.fx{display:grid;align-items:start;row-gap:0;column-gap:clamp(40px,5vw,88px);
+  grid-template-columns:minmax(0,1fr);grid-template-areas:"fig" "head" "story" "side" "cta"}
+.fx .f-portrait{grid-area:fig;margin:0 0 clamp(52px,12vw,64px);max-width:none;align-self:start}
+.fx .f-portrait img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:var(--rl-stone)}
+.fx .f-cap{margin-top:clamp(32px,3.6vw,52px);padding-bottom:clamp(16px,2vw,28px);font:400 clamp(1.3rem,1rem + .9vw,1.8rem)/1.22 var(--serif);letter-spacing:-.01em;color:var(--rl-burgundy)}
+.fx .f-cap span,.fx .f-cap em{display:block}
+.fx .f-cap em{font-style:italic}
+.fx .f-head{grid-area:head;max-width:32em}
+.fx .f-head h2{font-size:clamp(2.3rem,1rem + 3.4vw,3.9rem);line-height:1.02;letter-spacing:-.03em;color:var(--rl-ink)}
+.fx .f-head p{margin-top:clamp(18px,2.4vw,28px)}
+.fx .pq{font:italic 400 clamp(1.2rem,1rem + .6vw,1.5rem)/1.35 var(--serif);color:var(--rl-burgundy)}
+.fx .f-story{grid-area:story;max-width:32em;margin-top:clamp(22px,2.6vw,32px);display:grid;gap:14px}
+.fx .f-story p{color:var(--rl-muted)}
+.fx .who{margin-top:10px;padding-top:14px;border-top:1px solid var(--rl-stone-line);font:600 12px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+.fx .who .muted{color:var(--rl-muted)}
+.fx .f-side{grid-area:side;margin-top:clamp(40px,8vw,56px);min-height:0}
+.fx .journey{border-top:1px solid var(--rl-ink)}
+.fx .ch .cn{color:var(--rl-burgundy)}
+.fx .ch .cv{color:var(--rl-ink);max-height:88px}
+.fx .ch h3{color:var(--rl-ink)}
+.fx .f-quote{margin-top:22px;font:italic 400 clamp(1.25rem,1rem + .8vw,1.7rem)/1.15 var(--serif);color:var(--rl-ink)}
+.fx .f-cta{grid-area:cta;margin-top:clamp(28px,5vw,40px)}
+@media (min-width:640px) and (max-width:1099px){
+  .founder.fx{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"head fig" "story fig" "cta fig" "side side"}
+  .fx .f-portrait{margin:0}
+  .fx .f-cta{margin-top:24px}
+  .fx .f-side{margin-top:clamp(48px,6vw,72px)}
+  .fx .journey{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px}
+  .fx .ch{border-bottom:0}
+}
+@media (min-width:1100px){
+  .founder.fx{grid-template-columns:minmax(0,26fr) minmax(0,40fr) minmax(0,34fr);column-gap:clamp(40px,3.6vw,56px);grid-template-areas:"side head fig" "side story fig" "side cta fig"}
+  .fx .f-portrait{margin:0 calc(-1 * var(--gutter)) 0 0}   /* into the right margin: a full-page image beside the article */
+  .fx .f-cap{padding-right:var(--gutter)}
+  .fx .f-side{margin-top:0;display:flex;flex-direction:column;justify-content:space-between;align-self:stretch;gap:32px}
+  .fx .journey{grid-template-columns:minmax(0,1fr)}
+  .fx .f-cta{margin-top:28px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#studio" aria-label="Raisey Lab, haut de page">
+      Raisey Lab
+    </a>
+    <nav class="nav" aria-label="Principale">
+      <ul>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#raisey-scan">Raisey Scan</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Études</a></li>
+        <li><a href="#about">À propos</a></li>
+        <li><a href="../insights/index.html" hreflang="en">Insights</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="langsw h" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
+      <a class="btn head-cta" href="#raisey-scan">Lancer mon Scan <i class="ar"></i></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile" id="mobile-nav" hidden>
+    <div class="wrap">
+      <ul>
+        <li><a class="l" href="#studio">Studio</a></li>
+        <li><a class="l" href="#raisey-scan">Raisey Scan</a></li>
+        <li><a class="l" href="#services">Services</a></li>
+        <li><a class="l" href="#work">Études</a></li>
+        <li><a class="l" href="#about">À propos</a></li>
+        <li><a class="l" href="../insights/index.html" hreflang="en">Insights</a></li>
+      </ul>
+      <div class="langsw m" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
+      <a class="btn" href="#raisey-scan">Lancer mon Scan <i class="ar"></i></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ 01 · STUDIO ============ -->
+<section class="hero" id="studio" aria-label="Raisey Lab">
+  <svg class="arcs" viewBox="0 0 400 400" aria-hidden="true">
+    <g data-depth="3"><path class="a1" pathLength="1" d="M200 30a170 170 0 1 0 170 170" stroke-width="15"/></g>
+    <g data-depth="7"><path class="a2" pathLength="1" d="M282.7 130.6A108 108 0 1 0 282.7 269.4" stroke-width="15"/></g>
+    <g data-depth="12"><path class="a3" pathLength="1" d="M234.5 171.1A45 45 0 1 0 234.5 228.9" stroke-width="15"/><circle class="dot" cx="222" cy="200" r="14"/></g>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow rise" style="--i:0">Médecine esthétique — Visibilité · Autorité · Croissance</p>
+    <h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous élevons<br> sa présence.</em></span></h1>
+    <p class="lede rise" style="--i:2">Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab en élève la visibilité, l’autorité et la confiance, pour que les bons patients vous choisissent.</p>
+    <div class="hero-cta rise" style="--i:3">
+      <a class="btn" href="#raisey-scan" data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+      <a class="tl" href="#approach">Découvrir le studio</a>
+    </div>
+    <p class="hero-foot rise" style="--i:4" aria-label="Paris, Londres, Dubaï"><span>Paris</span><span>Londres</span><span>Dubaï</span></p>
+  </div>
+</section>
+
+<!-- ============ 02 · PRESENCE SCAN ============ -->
+<section class="sec review" id="raisey-scan" aria-labelledby="rv-h">
+  <div class="wrap">
+    <p class="sl"><span class="n">02</span><span class="t">Raisey Scan</span></p>
+    <div class="rv-head">
+      <h2 class="h2" id="rv-h">Jusqu’où votre cabinet peut-il s’élever ?</h2>
+      <p class="lede">Six dimensions, quatre minutes, une première lecture immédiate. Découvrez où votre visibilité, votre autorité et votre parcours patient ont le plus de marge pour s’élever. Sans e-mail.</p>
+    </div>
+
+    <ol class="dim-index" id="dims6" aria-label="Les six dimensions du Raisey Scan">
+      <li><span class="dn">01</span><span class="dt">Autorité médicale</span></li>
+      <li><span class="dn">02</span><span class="dt">Autorité digitale</span></li>
+      <li><span class="dn">03</span><span class="dt">Expression de marque</span></li>
+      <li><span class="dn">04</span><span class="dt">Visibilité</span></li>
+      <li><span class="dn">05</span><span class="dt">Potentiel éditorial</span></li>
+      <li><span class="dn">06</span><span class="dt">Parcours patient</span></li>
+    </ol>
+
+    <div class="glance" id="glance" hidden>
+      <p class="eyebrow">Votre Raisey Scan</p>
+      <h3 class="g-h" tabindex="-1" data-glance-title>Vos résultats en un coup d’œil.</h3>
+      <p class="g-sub">Une première lecture de vos réponses sur six dimensions clés.<span class="basis">Basé sur vos réponses · Pas sur un audit de votre présence digitale</span></p>
+      <div class="radar" id="radar"></div>
+      <div class="legend">
+        <p class="lg-h">Comprendre vos résultats</p>
+        <p class="lg-s">Chaque dimension se lit sur trois niveaux.</p>
+        <ul id="legend"></ul>
+      </div>
+    </div>
+
+    <div class="rv-cta">
+      <button class="btn" type="button" id="takeDiag">Lancer le Raisey Scan <i class="ar"></i></button>
+      <p class="pl">Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes</p>
+    </div>
+    <noscript><p class="muted" style="margin-top:20px">Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.</p></noscript>
+
+    <div class="scan" id="scan" data-scan hidden>
+      <div data-stage aria-live="polite"></div>
+      <div class="req-box" data-request hidden>
+        <p class="done"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Scan terminé</p>
+        <h3 tabindex="-1" data-request-title>Où souhaitez-vous recevoir les résultats complets de votre Scan ?</h3>
+        <p class="muted" style="max-width:52ch">Les résultats complets de votre Raisey Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier échange.</p>
+        <form class="lead form" id="scan-form" data-variant="scan" novalidate>
+          <div class="hp" aria-hidden="true"><label for="sf-website_url">Laissez ce champ vide</label><input id="sf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="field"><label for="sf-name">Nom du praticien ou de la clinique <span aria-hidden="true">*</span></label><input class="input" id="sf-name" name="name" type="text" placeholder="ex. Dr Marie Dupont" autocomplete="organization" required data-err="Merci d’indiquer votre nom ou celui de votre clinique." aria-describedby="sf-name-err"><p class="err" id="sf-name-err"></p></div>
+          <div class="field"><label for="sf-email">E-mail <span aria-hidden="true">*</span></label><input class="input" id="sf-email" name="email" type="email" placeholder="vous@clinique.fr" autocomplete="email" required data-err="Merci d’indiquer votre e-mail." data-err2="Cet e-mail semble incorrect." aria-describedby="sf-email-err"><p class="err" id="sf-email-err"></p></div>
+          <div class="field"><label for="sf-spec">Spécialité <span class="o">(facultatif)</span></label><select class="input" id="sf-spec" name="specialty"><option value="" selected>Choisissez votre spécialité</option><optgroup label="Médecins et chirurgiens"><option value="Aesthetic Physician" data-tier="tier1">Médecin esthétique</option><option value="Anesthesiologist" data-tier="tier1">Anesthésiste-réanimateur</option><option value="Cosmetic Surgeon" data-tier="tier1">Chirurgien esthétique</option><option value="Dermatologist" data-tier="tier1">Dermatologue</option><option value="Facial Plastic Surgeon" data-tier="tier1">Chirurgien plasticien de la face</option><option value="Gynecologist" data-tier="tier1">Gynécologue</option><option value="Internal Medicine" data-tier="tier1">Médecin interniste</option><option value="MD (general)" data-tier="tier1">Médecin généraliste</option><option value="Oculoplastic Surgeon" data-tier="tier1">Chirurgien oculo-plasticien</option><option value="Pediatrician" data-tier="tier1">Pédiatre</option><option value="Plastic Surgeon" data-tier="tier1">Chirurgien plasticien</option></optgroup><optgroup label="Infirmiers et infirmières"><option value="Nurse Practitioner" data-tier="tier2">Infirmier(ère) en pratique avancée (IPA)</option><option value="Registered Nurse" data-tier="tier2">Infirmier(ère) diplômé(e) d’État (IDE)</option></optgroup><optgroup label="Paramédical et dentaire"><option value="Dental Surgeon" data-tier="tier3">Chirurgien-dentiste</option><option value="Mesotherapist" data-tier="tier3">Mésothérapeute</option><option value="Pharmacist" data-tier="tier3">Pharmacien</option><option value="Physician Assistant" data-tier="tier3">Assistant médical</option></optgroup><optgroup label="Autre"><option value="Beautician" data-tier="tier4">Esthéticien(ne)</option><option value="Medical office staff" data-tier="tier4">Personnel de cabinet médical</option><option value="Nutritionist" data-tier="tier4">Nutritionniste</option><option value="Industry representative / other" data-tier="tier4">Représentant de l’industrie / autre</option></optgroup></select></div>
+          <div class="field"><label for="sf-web">Site web ou Instagram <span aria-hidden="true">*</span></label><input class="input" id="sf-web" name="web" type="text" placeholder="ex. votreclinique.fr ou @compte" autocomplete="url" required data-err="Merci d’indiquer votre site web ou Instagram." aria-describedby="sf-web-err"><p class="err" id="sf-web-err"></p></div>
+          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations, avec vos réponses au Scan, servent uniquement à vous envoyer vos résultats et à vous répondre. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
+          <div class="f-actions wide"><button class="btn" type="submit">Recevoir mes résultats <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
+          <p class="micro wide"><span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span></p>
+          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un premier échange avec Raisey Lab.</p><a class="tl" href="#contact" data-interest="first-conversation">Demander un premier échange <i class="ar"></i></a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · OUR APPROACH ============ -->
+<section class="sec" id="approach" aria-labelledby="ap-h">
+  <div class="wrap">
+    <p class="sl"><span class="n">03</span><span class="t">Notre approche</span></p>
+    <div class="approach">
+      <div class="ap-l">
+        <h2 id="ap-h"><span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span></h2>
+        <p class="lede">Conçu pour que votre cabinet s’élève.</p>
+      </div>
+      <div class="dark ap-panel">
+        <div class="trio">
+          <div class="it"><span class="num">01</span><h3>Être trouvé</h3><p>Élevez votre visibilité sur la recherche, en local et sur les réseaux, là où vos patients cherchent déjà.</p></div>
+          <div class="it"><span class="num">02</span><h3>Inspirer confiance</h3><p>Faites reconnaître l’autorité que vous avez acquise, dès le premier regard.</p></div>
+          <div class="it"><span class="num">03</span><h3>Être choisi</h3><p>Renforcez la confiance à chaque étape, et transformez l’attention en consultations, puis en fidélité.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🔒 LOCKED · APPROVED COMPONENT: services ("How we build your presence"). Do not modify unless explicitly requested. Snapshot in /_locked. No coloured icons, waves or illustrations. -->
+<!-- ============ 04 · SERVICES (two territories) ============ -->
+<section class="svc-sec" id="services" aria-labelledby="svc-h">
+  <div class="svc-l">
+    <div class="svc-l-in">
+      <p class="lab">Notre expertise</p>
+      <h2 id="svc-h"><span class="l1">Comment nous élevons</span><span class="l2">votre <em>présence.</em></span></h2>
+      <p class="lede-l">De la visibilité à l’expérience patient, nous relions les points de contact digitaux qui décident de la façon dont votre cabinet est trouvé, perçu et choisi.</p>
+      <p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>
+    </div>
+  </div>
+  <div class="svc-r">
+    <ol class="rows">
+        <li class="row" data-k="digital" data-open="false">
+          <h3><button class="r-btn" type="button" id="b-digital" aria-expanded="false" aria-controls="p-digital">
+            <span class="n">01</span>
+            <span class="mn"><span class="nm">Visibilité</span><span class="sup">Recherche · Google · Réseaux · Réputation</span><span class="ds">Élevez votre visibilité là où vos patients cherchent déjà.</span></span>
+            <span class="go" aria-hidden="true"><i class="ar"></i></span>
+          </button></h3>
+          <div class="r-panel" id="p-digital" role="region" aria-labelledby="b-digital"><div class="r-in"><div class="r-body">
+            <p class="p-stg">Être trouvé</p><p class="p-sup">Recherche · Google · Réseaux · Réputation</p><p class="p-ds">Élevez votre visibilité là où vos patients cherchent déjà.</p>
+            <ul class="cap"><li>Référencement local et SEO</li><li>Fiche Google Business</li><li>Réseaux sociaux</li><li>Avis et e-réputation</li></ul>
+            <a class="tl" href="#contact" data-interest="service-digital">En parler <i class="ar"></i></a>
+          </div></div></div>
+        </li>
+        <li class="row" data-k="website" data-open="false">
+          <h3><button class="r-btn" type="button" id="b-website" aria-expanded="false" aria-controls="p-website">
+            <span class="n">02</span>
+            <span class="mn"><span class="nm">Site web et parcours patient</span><span class="sup">Positionnement · UX/UI · Rendez-vous · Bases SEO</span><span class="ds">Faites de votre expertise une expérience en ligne que les patients comprennent — et en laquelle ils ont confiance.</span></span>
+            <span class="go" aria-hidden="true"><i class="ar"></i></span>
+          </button></h3>
+          <div class="r-panel" id="p-website" role="region" aria-labelledby="b-website"><div class="r-in"><div class="r-body">
+            <p class="p-stg">Inspirer confiance, soigner l’expérience</p><p class="p-sup">Positionnement · UX/UI · Rendez-vous · Bases SEO</p><p class="p-ds">Faites de votre expertise une expérience en ligne que les patients comprennent — et en laquelle ils ont confiance.</p>
+            <ul class="cap"><li>Positionnement et identité de marque</li><li>Conception et développement du site</li><li>Prise de rendez-vous et parcours patient</li><li>Bases SEO</li></ul>
+            <a class="tl" href="#contact" data-interest="service-website">En parler <i class="ar"></i></a>
+          </div></div></div>
+        </li>
+        <li class="row" data-k="ongoing" data-open="false">
+          <h3><button class="r-btn" type="button" id="b-ongoing" aria-expanded="false" aria-controls="p-ongoing">
+            <span class="n">03</span>
+            <span class="mn"><span class="nm">Visibilité durable</span><span class="sup">Contenu · Réseaux · Google · Réputation</span><span class="ds">Gardez votre cabinet visible, pertinent et en progression, bien après le lancement.</span></span>
+            <span class="go" aria-hidden="true"><i class="ar"></i></span>
+          </button></h3>
+          <div class="r-panel" id="p-ongoing" role="region" aria-labelledby="b-ongoing"><div class="r-in"><div class="r-body">
+            <p class="p-stg">Rester visible</p><p class="p-sup">Contenu · Réseaux · Google · Réputation</p><p class="p-ds">Gardez votre cabinet visible, pertinent et en progression, bien après le lancement.</p>
+            <ul class="cap"><li>Contenu éditorial</li><li>Réseaux sociaux</li><li>Google et avis</li><li>Suivi des performances</li></ul>
+            <a class="tl" href="#contact" data-interest="service-ongoing">En parler <i class="ar"></i></a>
+          </div></div></div>
+        </li>
+        <li class="row" data-k="growth" data-open="false">
+          <h3><button class="r-btn" type="button" id="b-growth" aria-expanded="false" aria-controls="p-growth">
+            <span class="n">04</span>
+            <span class="mn"><span class="nm">Croissance et autorité</span><span class="sup">Stratégie · Analytics · Marque personnelle · Contenu</span><span class="ds">Transformez votre visibilité en autorité durable et en croissance mesurable.</span></span>
+            <span class="go" aria-hidden="true"><i class="ar"></i></span>
+          </button></h3>
+          <div class="r-panel" id="p-growth" role="region" aria-labelledby="b-growth"><div class="r-in"><div class="r-body">
+            <p class="p-stg">Bâtir l’autorité</p><p class="p-sup">Stratégie · Analytics · Marque personnelle · Contenu</p><p class="p-ds">Transformez votre visibilité en autorité durable et en croissance mesurable.</p>
+            <ul class="cap"><li>Stratégie de croissance</li><li>Analytics et reporting</li><li>Marque personnelle</li><li>Contenus d’expertise</li></ul>
+            <a class="tl" href="#contact" data-interest="service-growth">En parler <i class="ar"></i></a>
+          </div></div></div>
+        </li>
+    </ol>
+    <div class="svc-cta">
+      <p class="eb">Vous ne savez pas par où commencer ?</p>
+      <h3>Découvrez ce que vous pouvez élever.</h3>
+      <p class="m">Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes</p>
+      <a class="btn" href="#raisey-scan" data-startdiag>Démarrer mon Raisey Scan <i class="ar"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · SELECTED PRESENCE STUDIES ============ -->
+<section class="sec" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="st-head"><span class="n">05</span><h2 id="work-h">Études sélectionnées Raisey</h2><span class="r">Analyses stratégiques indépendantes</span></div>
+    <div class="cases">
+      <article class="case" data-c="rose">
+        <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
+        <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
+        <p>Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.</p>
+      </article>
+      <article class="case" data-c="lav">
+        <h3>Un cabinet esthétique confidentiel, à mi-parcours</h3>
+        <p class="path" aria-label="Orientation : Réputation, Positionnement, Premium"><span class="st"><b>Réputation</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Positionnement</b><i class="ar" aria-hidden="true"></i></span><b>Premium</b></p>
+        <p>Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.</p>
+      </article>
+      <article class="case" data-c="gold">
+        <h3>Une infirmière en pratique avancée qui construit sa patientèle</h3>
+        <p class="path" aria-label="Orientation : Confiance, Autorité, Marque"><span class="st"><b>Confiance</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><b>Marque</b></p>
+        <p>De bons avis, mais aucun fil conducteur. L’étude : structurer les signaux de confiance en un récit cohérent transforme des preuves éparses en une vraie marque, choisie par les patients en toute connaissance de cause.</p>
+      </article>
+      <article class="case" data-c="sage">
+        <h3>Un spécialiste de niche pour un geste rare</h3>
+        <p class="path" aria-label="Orientation : Expertise, Visibilité, Acquisition"><span class="st"><b>Expertise</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Acquisition</b></p>
+        <p>Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.</p>
+      </article>
+      <article class="case" data-c="rose">
+        <h3>Un médecin à la vision clinique affirmée</h3>
+        <p class="path" aria-label="Orientation : Point de vue, Contenu, Réputation"><span class="st"><b>Point de vue</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Contenu</b><i class="ar" aria-hidden="true"></i></span><b>Réputation</b></p>
+        <p>De vraies convictions sur la manière de pratiquer un traitement — mais aucune n’est publique. L’étude : un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.</p>
+      </article>
+      <article class="case" data-c="lav">
+        <h3>Un consultant rattaché à un hôpital</h3>
+        <p class="path" aria-label="Orientation : Institution, Voix, Influence"><span class="st"><b>Institution</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Voix</b><i class="ar" aria-hidden="true"></i></span><b>Influence</b></p>
+        <p>Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.</p>
+      </article>
+    </div>
+    <p class="disc">Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
+  </div>
+</section>
+
+<!-- ============ 06 · FOUNDER ============ -->
+<section class="sec founder-sec" id="about" aria-labelledby="fnd-h">
+  <div class="wrap">
+    <p class="sl"><span class="n">06</span><span class="t">Fondatrice</span></p>
+    <div class="founder fx">
+      <figure class="f-portrait"><picture><source type="image/webp" srcset="../images/founder-about-480.webp 480w, ../images/founder-about-768.webp 768w, ../images/founder-about-1024.webp 1024w" sizes="(max-width:639px) calc(100vw - 40px), (max-width:899px) 46vw, 380px"><img src="../images/founder-about-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab : portrait rapproché sur fond crème, avec la signature Raisey Lab « Strategy, growth, experience for aesthetic practices »" loading="lazy" decoding="async" width="1024" height="1536"></picture><figcaption class="f-cap"><span>Vous l'avez bâti.</span> <em>Nous l'élevons.</em></figcaption></figure>
+      <div class="f-head">
+        <h2 id="fnd-h">Née au cœur de la médecine esthétique.</h2>
+        <p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>
+      </div>
+      <div class="f-story">
+        <p>C’est de ce constat qu’est née Raisey Lab.</p>
+        <p>Mon expérience chez FILLMED Laboratories m’a plongée au cœur de la médecine esthétique — aux côtés des praticiens, au plus près des parcours patients et des enjeux de développement des cabinets.</p><p>Avant cela, chez Google et GroupM, j’ai construit mon expertise en stratégie et croissance digitale, entre beauté, luxe et marchés internationaux.</p><p>Raisey Lab est née à la rencontre de ces deux univers : la compréhension de la médecine esthétique et l’expertise du digital.</p>
+        <p>Aujourd’hui, j’accompagne chaque cabinet personnellement, avec une même ambition : élever sa visibilité et son autorité à la hauteur de son expertise.</p>
+        <p class="who">Anissa Sabrina Briki <span class="muted">· Fondatrice · Stratégie &amp; Croissance</span></p>
+      </div>
+      <div class="f-side">
+        <ol class="journey" aria-label="Trois univers">
+          <li class="ch">
+            <span class="cn">01</span>
+            <svg class="cv" viewBox="0 0 240 96" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".6"><circle cx="64" cy="48" r="40"/><circle cx="64" cy="48" r="27" opacity=".7"/><circle cx="64" cy="48" r="14" opacity=".5"/><path d="M104 48H236M104 40v16M132 44v8M160 40v16M188 44v8M216 40v16" opacity=".6"/></g><circle cx="64" cy="48" r="14" fill="var(--rl-lavender-pale)" opacity=".9"/><circle cx="82" cy="30" r="2.4" fill="var(--rl-burgundy)"/><circle cx="46" cy="64" r="1.6" fill="var(--rl-ink)"/></svg>
+            <h3>FILLMED Laboratories</h3>
+            <p class="cs">Médecine esthétique</p>
+          </li>
+          <li class="ch">
+            <span class="cn">02</span>
+            <svg class="cv" viewBox="0 0 240 96" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".6"><path d="M0 24H240M0 48H240M0 72H240" opacity=".28"/><path d="M8 82L52 70L92 74L132 46L176 34L232 12"/></g><g fill="var(--rl-ink)"><circle cx="8" cy="82" r="1.8"/><circle cx="52" cy="70" r="1.8"/><circle cx="92" cy="74" r="1.8"/><circle cx="132" cy="46" r="1.8"/><circle cx="176" cy="34" r="2.4"/></g><circle cx="232" cy="12" r="6" fill="var(--rl-blue)"/><circle cx="232" cy="12" r="2.2" fill="var(--rl-burgundy)"/></svg>
+            <h3>Google · GroupM</h3>
+            <p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>
+          </li>
+          <li class="ch">
+            <span class="cn">03</span>
+            <svg class="cv" viewBox="0 0 240 96" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width=".6"><path d="M40 0V96M120 0V96M200 0V96" opacity=".22"/><path d="M0 32H240M0 64H240" opacity=".22"/><path d="M52 58Q92 8 138 34" /><path d="M138 34Q190 62 236 14" stroke-dasharray="2 4" opacity=".7"/></g><circle cx="52" cy="58" r="3" fill="var(--rl-burgundy)"/><circle cx="138" cy="34" r="3" fill="var(--rl-ink)"/><circle cx="236" cy="14" r="2.6" fill="var(--rl-lavender)"/></svg>
+            <h3>Paris&nbsp;· Londres&nbsp;· International</h3>
+            <p class="cs">Expérience multi-marchés</p>
+          </li>
+        </ol>
+      </div>
+      <p class="f-cta"><a class="tl" href="#contact" data-interest="founder">Échanger avec la fondatrice <i class="ar"></i></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 · FOUNDING PARTNERS ============ -->
+<section class="sec fp" id="founding" aria-labelledby="fp-h">
+  <div class="wrap">
+    <div class="fp-top">
+      <p class="sl fp-lab"><span class="n">07</span><span class="t">Partenaires fondateurs — <span class="nb">Paris · Londres · Dubaï</span></span></p>
+      <div class="fp-h">
+        <h2 id="fp-h"><span class="a">Une manière de travailler</span> <span class="b">plus proche.</span></h2>
+        <p class="fp-sub">Six cabinets. Une collaboration directe.<br>Une croissance pensée autour de votre cabinet.</p>
+        <p>Raisey Lab ouvre ses six premiers partenariats. Chaque collaboration commence par un échange pour comprendre votre pratique, votre positionnement et vos priorités — suivi d’un Raisey Review personnalisé pour définir ce qu’il faut élever, et dans quel ordre.</p>
+      </div>
+      <div class="fp-06 fp-photo">
+        <figure><picture><source type="image/webp" srcset="../images/founder-story-480.webp 480w, ../images/founder-story-768.webp 768w, ../images/founder-story-1024.webp 1024w" sizes="(max-width:899px) calc(100vw - 40px), 40vw"><img src="../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la signature Raisey Lab" loading="lazy" decoding="async" width="1024" height="1536"></picture></figure>
+        <p class="mono" aria-hidden="true"><span class="m">Six cabinets<br>seulement</span><span class="d">Partenaires<br>fondateurs</span></p>
+      </div>
+    </div>
+
+    <div class="fp-perks">
+      <div class="it"><span class="n"><b>01</b> — Savoir ce qu’il faut élever</span><h3>Votre Raisey Review</h3><p>Nous regardons ce que vous avez bâti, où il en est aujourd’hui, et ce qui mérite d’être élevé ensuite.</p></div>
+      <div class="it"><span class="n"><b>02</b> — Sur mesure pour votre cabinet</span><h3>Conditions partenaire fondateur</h3><p>Pas d’offre toute faite. Vos priorités, votre périmètre et votre stratégie sont définis selon ce dont votre cabinet a réellement besoin, avec des conditions privilégiées réservées à nos six premiers partenaires.</p></div>
+      <div class="it"><span class="n"><b>03</b> — Un échange direct</span><h3>Travaillez directement avec la fondatrice</h3><p>Stratégie, direction créative et décisions clés se traitent directement avec la fondatrice de Raisey Lab — du premier échange jusqu’à la mise en œuvre.</p></div>
+    </div>
+
+    <div class="fp-close">
+      <p class="lb">Partenariat fondateur</p>
+      <div class="cl">
+        <p class="st"><span>Votre expertise est déjà établie.</span> <em>Élevons-la maintenant.</em></p>
+        <p class="m">Six partenariats fondateurs entre <span class="nb">Paris · Londres · Dubaï.</span></p>
+        <a class="btn" href="#contact" data-interest="founding-partner">Devenir partenaire fondateur <i class="ar"></i></a>
+      </div>
+    </div>
+
+    <p class="fp-strip"><span>Raisey Scan</span><span>Premier échange</span><span>Raisey Review</span><span>Transformation</span><span>Croissance continue</span></p>
+  </div>
+</section>
+
+<!-- ============ 08 · CONTACT ============ -->
+<section class="sec" id="contact" aria-labelledby="c-h" style="padding-top:0">
+  <div class="wrap">
+    <p class="sl"><span class="n">08</span><span class="t">Élevons ce que vous avez bâti</span></p>
+    <div class="c-grid">
+      <div class="c-main">
+        <h2 id="c-h">Dites-nous ce que<br> vous avez bâti.</h2>
+        <p class="lede">Présentez-nous votre clinique en quelques lignes : nous vous répondons sous deux jours ouvrés pour convenir d’un premier échange.</p>
+        <form class="lead form" id="contact-form" data-variant="contact" novalidate>
+          <div class="hp" aria-hidden="true"><label for="cf-website_url">Laissez ce champ vide</label><input id="cf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="interest" id="cf-interest" value="">
+          <div class="field"><label for="cf-name">Nom <span aria-hidden="true">*</span></label><input class="input" id="cf-name" name="name" type="text" placeholder="Dr Marie Dupont" autocomplete="name" required data-err="Merci d’indiquer votre nom." aria-describedby="cf-name-err"><p class="err" id="cf-name-err"></p></div>
+          <div class="field"><label for="cf-clinic">Clinique <span aria-hidden="true">*</span></label><input class="input" id="cf-clinic" name="clinic" type="text" placeholder="Clinique Dupont Esthétique" autocomplete="organization" required data-err="Merci d’indiquer votre clinique." aria-describedby="cf-clinic-err"><p class="err" id="cf-clinic-err"></p></div>
+          <div class="field"><label for="cf-email">E-mail <span aria-hidden="true">*</span></label><input class="input" id="cf-email" name="email" type="email" placeholder="vous@clinique.fr" autocomplete="email" required data-err="Merci d’indiquer votre e-mail." data-err2="Cet e-mail semble incorrect." aria-describedby="cf-email-err"><p class="err" id="cf-email-err"></p></div>
+          <div class="field"><label for="cf-phone">Téléphone <span class="o">(facultatif)</span></label><input class="input" id="cf-phone" name="phone" type="tel" placeholder="06…" autocomplete="tel"></div>
+          <div class="field"><label for="cf-spec">Spécialité <span class="o">(facultatif)</span></label>
+            <select class="input" id="cf-spec" name="specialty"><option value="" selected>Choisissez votre spécialité</option><optgroup label="Médecins et chirurgiens"><option value="Aesthetic Physician" data-tier="tier1">Médecin esthétique</option><option value="Anesthesiologist" data-tier="tier1">Anesthésiste-réanimateur</option><option value="Cosmetic Surgeon" data-tier="tier1">Chirurgien esthétique</option><option value="Dermatologist" data-tier="tier1">Dermatologue</option><option value="Facial Plastic Surgeon" data-tier="tier1">Chirurgien plasticien de la face</option><option value="Gynecologist" data-tier="tier1">Gynécologue</option><option value="Internal Medicine" data-tier="tier1">Médecin interniste</option><option value="MD (general)" data-tier="tier1">Médecin généraliste</option><option value="Oculoplastic Surgeon" data-tier="tier1">Chirurgien oculo-plasticien</option><option value="Pediatrician" data-tier="tier1">Pédiatre</option><option value="Plastic Surgeon" data-tier="tier1">Chirurgien plasticien</option></optgroup><optgroup label="Infirmiers et infirmières"><option value="Nurse Practitioner" data-tier="tier2">Infirmier(ère) en pratique avancée (IPA)</option><option value="Registered Nurse" data-tier="tier2">Infirmier(ère) diplômé(e) d’État (IDE)</option></optgroup><optgroup label="Paramédical et dentaire"><option value="Dental Surgeon" data-tier="tier3">Chirurgien-dentiste</option><option value="Mesotherapist" data-tier="tier3">Mésothérapeute</option><option value="Pharmacist" data-tier="tier3">Pharmacien</option><option value="Physician Assistant" data-tier="tier3">Assistant médical</option></optgroup><optgroup label="Autre"><option value="Beautician" data-tier="tier4">Esthéticien(ne)</option><option value="Medical office staff" data-tier="tier4">Personnel de cabinet médical</option><option value="Nutritionist" data-tier="tier4">Nutritionniste</option><option value="Industry representative / other" data-tier="tier4">Représentant de l’industrie / autre</option></optgroup></select></div>
+          <div class="field wide"><label for="cf-msg">Qu’aimeriez-vous améliorer en priorité ? <span class="o">(facultatif)</span></label><textarea class="input" id="cf-msg" name="message" rows="4" placeholder="Votre message…"></textarea></div>
+          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations servent uniquement à répondre à votre demande et à convenir d’un premier échange. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
+          <div class="f-actions wide"><button class="btn" type="submit">Demander un premier échange <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
+          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Nous vous répondons sous deux jours ouvrés.</h3><p class="muted">Votre message est bien arrivé.</p></div>
+        </form>
+      </div>
+      <aside class="dark c-panel" aria-label="Raisey Lab">
+        <span class="brand" style="font-size:20px">
+          Raisey Lab
+        </span>
+        <h3>L’expertise, élevée.</h3>
+        <p class="mantra"><span>Être trouvé</span><span>Inspirer confiance</span><span>Être choisi</span></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-row">
+      <a class="brand" href="#studio" style="font-size:20px">
+        Raisey Lab
+      </a>
+      <nav aria-label="Pied de page"><ul><li><a href="#studio">Studio</a></li><li><a href="#raisey-scan">Raisey Scan</a></li><li><a href="#services">Services</a></li><li><a href="#work">Études</a></li><li><a href="#about">À propos</a></li><li><a href="../insights/index.html" hreflang="en">Insights</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    </div>
+    <p class="f-legal"><a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · L’expertise, élevée. © <span id="yr">2026</span> Raisey Lab. Tous droits réservés.</span></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+'use strict';
+/* ---------- config ---------- */
+// Set to your form endpoint (e.g. Formspree/Basin). While empty, forms say so instead of pretending to send.
+const FORM_ENDPOINT = '';
+const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
+const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---------- copy (français) ---------- */
+const COPY = {
+  form:{required:'Merci de renseigner ce champ.',email:'Merci de saisir une adresse e-mail valide.',send:'Votre demande n’a pas pu être envoyée. Merci de réessayer dans un instant.',sendScan:'Nous n’avons pas pu envoyer vos résultats. Merci de réessayer dans un instant.',sendScanEmail:'Nous n’avons pas pu envoyer vos résultats. Réessayez, ou écrivez à {email}.',orEmail:' Vous pouvez aussi écrire à {email}.',notConnected:'Ce formulaire n’est pas encore relié à une boîte mail : rien n’a été envoyé. (Définissez FORM_ENDPOINT avant la mise en ligne.)',sending:'Envoi…'},
+  tiers:{established:{label:'Établi'},potential:{label:'Fort potentiel'},elevate:{label:'À renforcer'}},
+  scan:{
+    label:'Raisey Scan',
+    progress:'Question {n} sur {total}',back:'Retour',next:'Continuer',finish:'Voir mon premier aperçu',restart:'Refaire le Scan',other:'Précisez',
+    q:[
+      {id:'medical',dim:'medical',facet:'medical',t:'single',q:'Lorsqu’un nouveau patient tape votre nom en ligne, que retient-il en premier, selon vous ?',o:[['expertise','Mon expertise et ce pour quoi l’on me reconnaît',3],['treatments','Les traitements que je propose',2],['practical','Surtout des informations pratiques',1],['depends','Cela dépend d’où il me trouve',1],['unsure','Je ne sais pas ce qu’il voit en premier',0]]},
+      {id:'digital',dim:'digital',facet:'digital',t:'single',q:'Quand avez-vous travaillé pour la dernière fois sur votre présence Google et vos avis patients ?',o:[['month','Au cours du dernier mois',3],['recent','Ces 3 à 6 derniers mois',2],['old','Il y a plus de 6 mois',1],['unmanaged','Des avis arrivent, mais nous ne les gérons pas activement',1],['unsure','Je ne sais pas',0]]},
+      {id:'brand',dim:'brand',facet:'brand',t:'single',q:'Votre présence en ligne reflète-t-elle fidèlement votre cabinet d’aujourd’hui ?',o:[['aligned','Oui — elle correspond à ce que nous sommes aujourd’hui',3],['mostly','Globalement, mais certains éléments ont vieilli',2],['image','Les informations sont là, mais l’image gagnerait à être plus forte',1],['evolved','Pas vraiment — nous avons évolué depuis',0],['never','Je n’y ai jamais vraiment réfléchi',0]]},
+      {id:'search',dim:'search',facet:'search',t:'single',q:'Savez-vous comment vos nouveaux patients vous découvrent ?',o:[['tracked','Oui — nous le suivons précisément',3],['idea','J’en ai une bonne idée, mais nous ne le mesurons pas précisément',2],['wom','Surtout par le bouche-à-oreille',1],['several','Ils semblent venir de plusieurs sources',1],['dontknow','Je ne sais pas vraiment',0]]},
+      {id:'content',dim:'content',facet:'contentPov',t:'single',q:'Quand avez-vous partagé en ligne, pour la dernière fois, votre propre point de vue médical ?',o:[['month','Au cours du dernier mois',3],['quarter','Ces 3 derniers mois',2],['older','Il y a plus de 3 mois',1],['clinic','Nous publions surtout des traitements, des résultats ou l’actualité du cabinet',1],['rare','Je publie rarement du contenu',0]]},
+      {id:'strategy',dim:'content',facet:'contentStrategy',t:'single',q:'Lorsque vous créez du contenu pour votre cabinet, qu’est-ce qui guide principalement ce que vous publiez ?',o:[['clear','Une stratégie éditoriale claire, construite autour de mon expertise et de mes objectifs',3],['themes','Quelques territoires éditoriaux définis que nous développons régulièrement',2],['clinic','Les traitements, résultats et actualités du cabinet',1],['trends','Les tendances, l’inspiration ou les sujets du moment',1],['none','Nous publions sans ligne éditoriale définie / nous publions rarement',0]]},
+      {id:'journey',dim:'journey',facet:'journeyBooking',t:'single',q:'Un patient vous découvre ce soir et souhaite un rendez-vous. Que se passe-t-il ensuite ?',o:[['direct','Il comprend l’offre et réserve directement',3],['followup','Il demande un rendez-vous et mon équipe le rappelle rapidement',2],['contact','Il doit appeler ou nous écrire',1],['depends','Cela dépend d’où il nous a trouvés',1],['unsure','Je ne suis pas tout à fait sûr(e)',0]]},
+      {id:'lead',dim:'journey',facet:'journeyLead',t:'single',q:'Lorsqu’un patient potentiel vous contacte sans prendre rendez-vous immédiatement, que se passe-t-il généralement ensuite ?',o:[['process','Il entre dans un processus de suivi structuré',3],['manual','Notre équipe le relance, mais principalement manuellement',2],['depends','Le suivi dépend de la demande ou de la personne qui la reçoit',1],['wait','Nous attendons généralement que le patient revienne vers nous',1],['unsure','Je ne sais pas précisément ce qui se passe après la demande',0]]},
+      {id:'crm',dim:'journey',facet:'journeyRelationship',t:'single',q:'Au-delà du rendez-vous, comment entretenez-vous la relation avec vos patients et prospects ?',o:[['structured','Nous avons une stratégie CRM et relationnelle structurée, avec des suivis ciblés et des campagnes e-mail',3],['regular','Nous communiquons régulièrement, mais avec peu de segmentation ou d’automatisation',2],['appointments','Nous communiquons principalement autour des rendez-vous ou de certains traitements',1],['manual','Le suivi est surtout manuel et ponctuel',1],['none','Nous n’avons pas encore de stratégie de suivi ou d’e-mailing structurée',0]]},
+      {id:'growth',t:'multi',q:'Que souhaiteriez-vous développer en priorité dans les 12 prochains mois ?',hint:'Plusieurs choix possibles.',o:[['patients','Plus de patients qualifiés'],['visibility','Ma visibilité'],['authority','Mon autorité médicale'],['social','Ma présence sur les réseaux sociaux'],['retention','La fidélisation de mes patients'],['treatment','Un traitement ou un acte en particulier'],['team','Mon cabinet ou mon équipe'],['market','Un nouveau lieu d’exercice ou un nouveau marché']]},
+      {id:'treatments',t:'multi',q:'Quels traitements ou actes aimeriez-vous développer en priorité ?',hint:'Plusieurs choix possibles.',o:[['botox','Botox / Neuromodulateurs'],['fillers','Injections de comblement (fillers)'],['skinboosters','Skin boosters'],['regenerative','Traitements régénératifs'],['lasers','Lasers et dispositifs à énergie'],['body','Soins du corps'],['hair','Traitements capillaires'],['dermatology','Dermatologie'],['surgery','Chirurgie'],['other','Autre',null,'other'],['none','Aucun en particulier — je veux développer l’ensemble du cabinet',null,'exclusive']]}
+    ],
+    result:{
+      title:'Votre premier aperçu',dims:'Par dimension',
+      leg:{elevate:'Une vraie marge de progression.',potential:'De bonnes bases, avec de la marge pour aller plus loin.',established:'Un atout solide à exploiter.'},
+      disclaimer:'Une première lecture qualitative, fondée sur vos propres réponses. Ce n’est pas une mesure médicale, clinique ou scientifique.',
+      /* SCAN_COPY:begin (generated from scan_copy.json — do not edit here) */
+      dim:{"medical": "Autorité médicale", "digital": "Autorité digitale", "brand": "Expression de marque", "search": "Visibilité", "content": "Potentiel éditorial", "journey": "Parcours patient"},
+      I:{"medical": {"established": ["Vos réponses suggèrent que vous voyez votre expertise comme la première chose qu’un nouveau patient comprend de vous.", "L’enjeu pourrait être de la porter de façon cohérente partout où vous apparaissez."], "potential": ["Vos réponses suggèrent que ce qui ressort d’abord, ce sont vos traitements, plus que votre expertise elle-même.", "Il y a peut-être de la place pour que votre autorité médicale passe au premier plan, devant la liste des traitements."], "elevate": ["Vos réponses laissent penser que la première impression est surtout pratique, varie selon l’endroit où l’on vous trouve, ou reste difficile à cerner.", "Cela peut indiquer une marge pour affirmer votre autorité médicale, afin qu’elle soit la première chose que l’on comprend de vous."]}, "digital": {"established": ["Vos réponses suggèrent que votre fiche Google et vos avis patients sont suivis activement.", "C’est un vrai atout, et un atout facile à négliger avec le temps."], "potential": ["Vos réponses suggèrent que votre fiche Google et vos avis ont été travaillés activement il y a quelques mois.", "Il y a peut-être de la marge pour renforcer la confiance avec un rythme plus régulier."], "elevate": ["Vos réponses laissent penser que votre fiche Google et vos avis patients ne sont pas gérés activement en ce moment.", "Il y a peut-être de la marge pour renforcer la confiance, là où les futurs patients vous consultent avant de vous contacter."]}, "brand": {"established": ["Vos réponses suggèrent que votre image en ligne reflète, selon vous, votre cabinet tel qu’il est aujourd’hui.", "Cet alignement est un vrai atout."], "potential": ["Vos réponses suggèrent que votre image en ligne reflète globalement votre cabinet, avec certains éléments qui ont vieilli.", "Il y a peut-être de la marge pour affiner votre positionnement, afin que l’image rattrape le cabinet."], "elevate": ["Vos réponses laissent penser que votre image en ligne ne reflète pas encore pleinement votre cabinet, ou que vous n’avez pas encore eu l’occasion d’y réfléchir.", "Cela peut indiquer une marge pour affiner votre positionnement, et réduire l’écart entre le cabinet que vous dirigez et l’impression qu’il donne."]}, "search": {"established": ["Vos réponses suggèrent que vous savez précisément comment vos nouveaux patients vous découvrent.", "Cette clarté est un véritable atout."], "potential": ["Vos réponses suggèrent que vous avez une bonne intuition de la manière dont vos nouveaux patients vous découvrent, sans pour autant la suivre avec précision.", "Il y a peut-être de la marge pour transformer cette intuition en connaissance claire, et gagner en visibilité là où cela compte."], "elevate": ["Vos réponses laissent penser que vos nouveaux patients vous découvrent surtout par le bouche-à-oreille, par plusieurs canaux, ou par des chemins que vous ne pouvez pas tout à fait retracer.", "Cela peut indiquer une marge pour gagner en visibilité, en commençant par mieux comprendre comment on vous trouve."]}, "content": {"established": ["Vos réponses suggèrent que vous partagez votre propre point de vue médical, et qu’une ligne éditoriale définie guide ce que vous publiez.", "Cette combinaison est un vrai atout."], "potential": ["Vos réponses suggèrent que vos contenus réunissent de vrais ingrédients, comme un point de vue ou des thèmes récurrents, sans former encore une stratégie éditoriale pleinement délibérée.", "Il y a peut-être de la marge pour donner une direction claire à ce potentiel, et asseoir votre autorité par ce que vous publiez."], "elevate": ["Vos réponses laissent penser que vos contenus s’expriment rarement, ou qu’ils suivent davantage les traitements, l’actualité ou l’air du temps qu’une ligne éditoriale définie.", "Cela peut indiquer un potentiel inexploité : exprimer ce que vous pensez, avec une direction claire, pourrait asseoir votre autorité."]}, "journey": {"established": ["Vos réponses suggèrent qu’un patient peut passer facilement de la découverte au rendez-vous, que les demandes sont suivies avec méthode, et que vous entretenez la relation par la suite.", "Cette continuité est un vrai atout."], "potential": ["Vos réponses suggèrent que certaines étapes du parcours sont bien maîtrisées, tandis que d’autres reposent sur l’habitude ou sur l’effort manuel.", "Il y a peut-être de la marge pour fluidifier le parcours patient, du premier contact à la relation dans la durée."], "elevate": ["Vos réponses laissent penser que le parcours repose sur des appels ou des messages, sur un suivi manuel, ou sur aucun suivi structuré.", "Cela peut indiquer une marge pour structurer le parcours patient, afin que l’intérêt comme les relations existantes aient toujours un chemin clair."]}},
+      diag:{"established": "Vos réponses suggèrent des fondations qui jouent déjà en votre faveur. L’enjeu pourrait être de les porter plus loin : un cabinet distinctif, cohérent et visible là où cela compte.", "potential": "Vos réponses suggèrent de solides fondations. Il y a peut-être de la marge pour renforcer la confiance, affiner votre positionnement et soigner davantage l’expérience patient qui en découle.", "elevate": "Vos réponses suggèrent qu’une grande partie de ce que vous avez bâti n’est pas encore visible. Il y a peut-être une vraie marge pour gagner en visibilité et en autorité, afin que de nouveaux patients vous trouvent, vous fassent confiance et vous choisissent."},
+      sig:{"label": "Votre signal le plus fort :", "none": "Tout cabinet commence quelque part. Vos réponses laissent entrevoir une vraie marge pour faire rayonner ce que vous avez bâti."},
+      transp:"Le Raisey Scan repose uniquement sur vos réponses. Il n’examine ni votre site, ni votre fiche Google, ni vos réseaux sociaux : cela se fait lors du Raisey Review.",
+      request:"Recevoir mon Scan complet",
+      /* SCAN_COPY:end */
+    }
+  }
+};
+
+/* ---------- mobile nav ---------- */
+const mb=document.querySelector('.menu-btn'), mp=document.getElementById('mobile-nav');
+const setMenu=o=>{mb.setAttribute('aria-expanded',String(o));mb.querySelector('.mt').textContent=o?'Fermer':'Menu';mp.hidden=!o};
+mb.addEventListener('click',()=>setMenu(mb.getAttribute('aria-expanded')!=='true'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mp.hidden){setMenu(false);mb.focus()}});
+mp.addEventListener('click',e=>{if(e.target.closest('a'))setMenu(false)});
+matchMedia('(min-width:1001px)').addEventListener('change',m=>{if(m.matches)setMenu(false)});
+
+/* ---------- active nav link ---------- */
+const links=[...document.querySelectorAll('.nav a')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+  ['studio','raisey-scan','services','work','about'].forEach(id=>{const n=document.getElementById(id);if(n)io.observe(n)});
+}
+
+/* ---------- carry the visitor's intent into the contact form ---------- */
+document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('cf-interest').value=a.dataset.interest}));
+
+/* ---------- lead forms ---------- */
+const isEmail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+async function send(payload){
+  if(!FORM_ENDPOINT) throw new Error('not-connected');
+  const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({...payload,sentAt:new Date().toISOString()})});
+  if(!r.ok) throw new Error('send-failed');
+}
+document.querySelectorAll('form.lead').forEach(form=>{
+  const status=form.querySelector('.status'), btn=form.querySelector('button[type=submit]'), thanks=form.querySelector('.thanks');
+  const setErr=(i,m)=>{const f=i.closest('.field'),e=document.getElementById(i.id+'-err');f.classList.toggle('bad',!!m);i.setAttribute('aria-invalid',String(!!m));if(e){e.textContent=m||'';i.setAttribute('aria-describedby',e.id)}};
+  const check=i=>{const v=i.value.trim();if(i.required&&!v){setErr(i,i.dataset.err||COPY.form.required);return false}if(i.type==='email'&&v&&!isEmail(v)){setErr(i,i.dataset.err2||COPY.form.email);return false}setErr(i,null);return true};
+  form.querySelectorAll('input[required]').forEach(i=>{i.addEventListener('blur',()=>{if(i.value||i.getAttribute('aria-invalid')==='true')check(i)});i.addEventListener('input',()=>{if(i.getAttribute('aria-invalid')==='true')check(i)})});
+  form.addEventListener('submit',async e=>{
+    e.preventDefault(); status.textContent=''; status.dataset.s='';
+    const bad=[...form.querySelectorAll('input[required]')].filter(i=>!check(i));
+    if(bad.length){bad[0].focus();return}
+    const fd=new FormData(form), p={}; fd.forEach((v,k)=>{p[k]=v});
+    const sp=form.querySelector('select[name=specialty]'); if(sp&&sp.value){const o=sp.selectedOptions[0]; p.practitioner_tier=o.dataset.tier||''}
+    p._t=Math.round(performance.now());   // time on page (ms): the form endpoint ignores sub-3-second bot submissions
+    if(form.__scan) p.scan=form.__scan; p.source=form.dataset.variant==='scan'?'presence-scan':'contact'; p.lang=document.documentElement.lang||'en';
+    const label=btn.firstChild.textContent; btn.disabled=true; btn.firstChild.textContent=COPY.form.sending+' ';
+    try{
+      await send(p);
+      [...form.children].forEach(c=>{c.hidden=c!==thanks}); thanks.hidden=false; thanks.focus();
+    }catch(err){
+      status.dataset.s='error'; status.textContent=(err.message==='not-connected'&&DEV)?COPY.form.notConnected:form.dataset.variant==='scan'?(CONTACT_EMAIL?COPY.form.sendScanEmail.replace('{email}',CONTACT_EMAIL):COPY.form.sendScan):COPY.form.send+(CONTACT_EMAIL?COPY.form.orEmail.replace('{email}',CONTACT_EMAIL):'');
+      btn.disabled=false; btn.firstChild.textContent=label;
+    }
+  });
+});
+
+/* ---------- Raisey Review diagnostic (six dimensions) ---------- */
+const S=COPY.scan, R=S.result, root=document.querySelector('[data-scan]'), stage=root.querySelector('[data-stage]'), request=root.querySelector('[data-request]'), sform=document.getElementById('scan-form'), takeBtn=document.getElementById('takeDiag');
+const Q=S.q.map(q=>({id:q.id,dim:q.dim,facet:q.facet,type:q.t,q:q.q,hint:q.hint,o:q.o.map(o=>({key:o[0],label:o[1],v:o[2],flag:o[3]}))}));
+/* SCAN_SCORING:begin (generated from scan_scoring.mjs — do not edit here) */
+const DIMS = ['medical', 'digital', 'brand', 'search', 'content', 'journey'];
+const FACETS = ['medical', 'digital', 'brand', 'search', 'contentPov', 'contentStrategy', 'journeyBooking', 'journeyLead', 'journeyRelationship'];
+const r2 = x => Math.round(x * 100) / 100;
+
+const levelOf = v => (v >= 2.5 ? 'established' : v >= 1.5 ? 'potential' : 'elevate');
+
+function dimensions(f) {
+  const rel = Math.min(f.journeyRelationship, (f.journeyBooking + f.journeyLead) / 2);
+  return {
+    medical: f.medical, digital: f.digital, brand: f.brand, search: f.search,
+    content: r2((f.contentPov + f.contentStrategy) / 2),
+    journey: r2((f.journeyBooking + f.journeyLead + rel) / 3),
+  };
+}
+
+const tierOf = d => { const s = DIMS.reduce((a, k) => a + d[k], 0); return s >= 14 ? 'established' : s >= 7 ? 'potential' : 'elevate'; };
+
+function nuance(f) {
+  if (Math.abs(f.contentPov - f.contentStrategy) >= 2) return [{ dim: 'content', key: f.contentPov > f.contentStrategy ? 'povStrong' : 'strategyStrong' }];
+  return [];
+}
+function journeyNuance(f) {
+  const parts = [['booking', f.journeyBooking], ['lead', f.journeyLead], ['relationship', f.journeyRelationship]];   // tie order: booking, lead, relationship
+  const max = Math.max(...parts.map(p => p[1])), min = Math.min(...parts.map(p => p[1]));
+  if (max - min < 2) return [];
+  return [{ dim: 'journey', key: parts.find(p => p[1] === min)[0] }];
+}
+const nuances = f => [...nuance(f), ...journeyNuance(f)];
+/* SCAN_SCORING:end */
+const ans={}, other={}; let step=0;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const AR='<i class="ar" aria-hidden="true"></i>';
+const fmt=(s,o)=>s.replace(/\{(\w+)\}/g,(_,k)=>o[k]);
+const lvl=levelOf;
+const val=id=>{const q=Q.find(x=>x.id===id),k=(ans[id]||[])[0];return (q.o.find(o=>o.key===k)||{}).v||0};
+const compute=()=>{const f={};Q.forEach(q=>{if(q.facet)f[q.facet]=val(q.id)});const d=dimensions(f);return{f,d,overall:tierOf(d)}};
+const focusFirst=()=>{const t=stage.querySelector('[data-focus]');if(t)t.focus({preventScroll:true})};
+
+
+/* radar: six dimensions, three qualitative levels (no numeric score is shown) */
+const NODES=[[50,18],[85,43],[85,79],[50,104],[15,79],[15,43]], ANG=[-90,-30,30,90,150,210], CX=50, CY=61, RR=24;
+const pt=(i,f)=>[(CX+RR*f*Math.cos(ANG[i]*Math.PI/180)).toFixed(2),(CY+RR*f*Math.sin(ANG[i]*Math.PI/180)).toFixed(2)];
+const poly=f=>ANG.map((_,i)=>pt(i,f).join(',')).join(' ');
+function showGlance(c){
+  const g=document.getElementById('glance');
+  const shape=DIMS.map((k,i)=>pt(i,0.2+0.27*c.d[k]).join(',')).join(' ');
+  const bands=[1,.66,.33].map(f=>`<polygon class="band" points="${poly(f)}"/>`).join('');
+  const axes=ANG.map((_,i)=>{const p=pt(i,1);return `<line class="ax" x1="${CX}" y1="${CY}" x2="${p[0]}" y2="${p[1]}"/>`}).join('');
+  const dots=DIMS.map((k,i)=>{const p=pt(i,0.2+0.27*c.d[k]);return `<circle class="pt" cx="${p[0]}" cy="${p[1]}" r="1"/>`}).join('');
+  const nodes=DIMS.map((k,i)=>{const l=lvl(c.d[k]);return `<div class="nd" data-lv="${l}" style="left:${NODES[i][0]}%;top:${(NODES[i][1]/122*100).toFixed(2)}%"><span class="nm">${esc(R.dim[k])}</span><span class="bd"><i></i></span><span class="st">${esc(COPY.tiers[l].label)}</span></div>`}).join('');
+  const radar=document.getElementById('radar');
+  radar.setAttribute('role','img');
+  radar.setAttribute('aria-label',DIMS.map(k=>R.dim[k]+': '+COPY.tiers[lvl(c.d[k])].label).join('. '));
+  radar.innerHTML=`<svg viewBox="0 0 100 122" aria-hidden="true">${bands}${axes}<polygon class="shape" points="${shape}"/>${dots}</svg>`+nodes;
+  document.getElementById('legend').innerHTML=['elevate','potential','established'].map(k=>`<li><i class="dot" data-t="${k}" aria-hidden="true"></i><b>${esc(COPY.tiers[k].label)}</b><span>${esc(R.leg[k])}</span></li>`).join('');
+  g.hidden=false;
+}
+function hideGlance(){document.getElementById('glance').hidden=true}
+
+function question(){
+  const q=Q[step], n=Q.length, sel=ans[q.id]||[], multi=q.type==='multi', oo=q.o.find(o=>o.flag==='other'), showOther=!!oo&&sel.includes(oo.key), last=step===n-1;
+  stage.innerHTML=`
+    <div class="prog"><div class="track" role="progressbar" aria-valuemin="1" aria-valuemax="${n}" aria-valuenow="${step+1}" aria-label="${esc(S.label)}"><span style="--p:${(step+1)/n}"></span></div><p class="pl">${esc(fmt(S.progress,{n:step+1,total:n}))}</p></div>
+    <fieldset class="q"><legend tabindex="-1" data-focus>${esc(q.q)}</legend>${q.hint?`<p class="hint">${esc(q.hint)}</p>`:''}
+      <div class="opts">${q.o.map(o=>`<label class="opt"><input type="${multi?'checkbox':'radio'}" name="${q.id}" value="${o.key}" ${sel.includes(o.key)?'checked':''}><span class="mk"></span><span class="tx" style="display:inline-block">${esc(o.label)}</span></label>`).join('')}</div>
+      ${showOther?`<div style="margin-top:16px"><label class="sr-only" for="scan-other">${esc(S.other)}</label><input class="input" id="scan-other" type="text" maxlength="80" placeholder="${esc(S.other)}" value="${esc(other[q.id]||'')}"></div>`:''}
+    </fieldset>
+    <div class="nav-row"><button class="back" type="button" data-back ${step===0?'disabled':''}>${esc(S.back)}</button><button class="btn" type="button" data-next ${sel.length?'':'disabled'}>${esc(last?S.finish:S.next)} ${AR}</button></div>`;
+  const next=stage.querySelector('[data-next]');
+  stage.querySelectorAll('.opt input').forEach(inp=>inp.addEventListener('change',()=>{
+    if(!multi) ans[q.id]=[inp.value];
+    else{
+      let cur=new Set(ans[q.id]||[]); const opt=q.o.find(o=>o.key===inp.value);
+      if(inp.checked){ if(opt.flag==='exclusive') cur=new Set([inp.value]); else{ q.o.filter(o=>o.flag==='exclusive').forEach(o=>cur.delete(o.key)); cur.add(inp.value)} } else cur.delete(inp.value);
+      ans[q.id]=[...cur];
+    }
+    const now=ans[q.id]||[]; next.disabled=!now.length;
+    const needOther=!!oo&&now.includes(oo.key);
+    if(needOther!==showOther){ question(); const again=stage.querySelector(`.opt input[value="${inp.value}"]`); if(again) again.focus(); }
+    else if(multi) stage.querySelectorAll('.opt input').forEach(i=>i.checked=now.includes(i.value));
+  }));
+  const oi=stage.querySelector('#scan-other'); if(oi) oi.addEventListener('input',e=>{other[q.id]=e.target.value});
+  next.addEventListener('click',()=>go(step+1));
+  stage.querySelector('[data-back]').addEventListener('click',()=>go(step-1));
+}
+function strongest(d){let b=null;DIMS.forEach(k=>{if(b===null||d[k]>d[b])b=k});return levelOf(d[b])!=='elevate'?b:null}
+function result(){
+  const c=compute(), t=COPY.tiers[c.overall], sk=strongest(c.d);
+  showGlance(c);
+  const signal=sk?`<p class="signal"><b>${esc(R.sig.label)} ${esc(R.dim[sk])}.</b> ${esc(R.I[sk][lvl(c.d[sk])][0])}</p>`:`<p class="signal">${esc(R.sig.none)}</p>`;
+  stage.innerHTML=`<div class="result">
+    <div class="lead-in">
+      <h3 class="k" tabindex="-1" data-focus>${esc(R.title)}</h3>
+      <p class="tier-name"><i class="dot" data-t="${c.overall}" aria-hidden="true"></i>${esc(t.label)}</p>
+      <p class="diag-line">${esc(R.diag[c.overall])}</p>
+      ${signal}
+    </div>
+    <div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>
+    <div class="basis-notes"><p class="note">${esc(R.transp)}</p><p class="note">${esc(R.disclaimer)}</p></div>
+    <button class="back" type="button" data-restart>${esc(S.restart)}</button>
+  </div>`;
+  stage.querySelector('[data-req]').addEventListener('click',openRequest);
+  stage.querySelector('[data-restart]').addEventListener('click',()=>{Object.keys(ans).forEach(k=>delete ans[k]);Object.keys(other).forEach(k=>delete other[k]);request.hidden=true;hideGlance();go(0)});
+}
+function openRequest(){
+  const c=compute(); sform.__scan={answers:ans,other,tier:c.overall,dimensions:c.d,scores:c.f};
+  request.hidden=false;
+  const t=request.querySelector('[data-request-title]');
+  t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); t.focus({preventScroll:true});
+}
+function go(n){ step=n; if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
+
+
+/* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */
+(function(){
+  const svg=document.querySelector('.arcs'); if(!svg) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const layers=[...svg.querySelectorAll('g[data-depth]')]; const hero=svg.closest('.hero');
+  let tx=0,ty=0,cx=0,cy=0,raf=0;
+  const tick=()=>{cx+=(tx-cx)*.06;cy+=(ty-cy)*.06;layers.forEach(g=>{const d=+g.dataset.depth;g.style.transform=`translate(${(cx*d).toFixed(2)}px,${(cy*d).toFixed(2)}px)`});raf=(Math.abs(tx-cx)>.001||Math.abs(ty-cy)>.001)?requestAnimationFrame(tick):0};
+  hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*-1;ty=((e.clientY-r.top)/r.height-.5)*-1;if(!raf)raf=requestAnimationFrame(tick)},{passive:true});
+  hero.addEventListener('pointerleave',()=>{tx=0;ty=0;if(!raf)raf=requestAnimationFrame(tick)});
+})();
+
+/* 🔒 LOCKED · services accordion + diagnostic CTA behaviour: approved, do not change. */
+/* ---------- services: exclusive accordion; diagnostic CTA opens the Raisey Review ---------- */
+(function(){
+  const rows=[...document.querySelectorAll('.row')];
+  rows.forEach(r=>{const b=r.querySelector('.r-btn');b.addEventListener('click',()=>{const was=b.getAttribute('aria-expanded')==='true';rows.forEach(o=>{o.dataset.open='false';o.querySelector('.r-btn').setAttribute('aria-expanded','false')});if(!was){r.dataset.open='true';b.setAttribute('aria-expanded','true')}})});
+  document.querySelectorAll('[data-startdiag]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault(); const t=document.getElementById('takeDiag'); const cta=document.querySelector('.rv-cta');
+    if(t&&cta&&!cta.hidden) t.click(); else document.getElementById('scan').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  }));
+})();
+
+takeBtn.addEventListener('click',()=>{
+  document.querySelector('.rv-cta').hidden=true; root.hidden=false; if(!stage.innerHTML.trim()) go(0);
+  root.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  focusFirst();
+});
+})();
+</script>
+</body>
+</html>

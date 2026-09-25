@@ -1,0 +1,19 @@
+{
+  "_note": "PUBLIC values only (this file is committed). Never put secrets, API keys or tokens here. Empty legal values render as a visible 'to be completed' marker on the legal pages; `python3 build_site.py --production` refuses to build until they are set.",
+  "legalName": "Anissa Sabrina Briki",
+  "legalStatus": "EI",
+  "contactEmail": "hello@raiseylab.com",
+  "postalAddress": "7 avenue Secrétan, 75019 Paris, France",
+  "host": "GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States",
+  "retention": "24 months",
+  "siteUrl": "https://raiseylab.com",
+  "basePath": "/",
+  "customDomain": "raiseylab.com",
+  "formEndpoint": "",
+  "founderName": "Anissa Sabrina Briki",
+  "founderPhotoFinal": true,
+  "socialProfiles": [],
+  "emailProvider": "GitHub, Inc. (website hosting), Cloudflare, Inc. (form processing), Resend, Inc. (email delivery) and OVH SAS (email hosting)",
+  "_domainsNote": "raiseylab.com is the ONLY canonical domain. raiseylab.fr will later redirect to it (registrar/DNS-level 301, not a second site). raiseylab.club is reserved for another project: never use it here.",
+  "newsletterEnabled": false
+}

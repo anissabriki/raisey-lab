@@ -1,0 +1,60 @@
+# Deploys the static site to GitHub Pages. NOT active until this folder is pushed to a GitHub repo
+# and Settings → Pages → Source is set to "GitHub Actions". Uses no secrets: only public repository *variables*.
+name: Deploy to GitHub Pages
+
+on:
+  # Manual only until launch (run it from the Actions tab). To deploy on every push to main again, restore:
+  # push:
+  #   branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so sitemap <lastmod> can use real commit dates
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Protects the approved "How we build your presence" section from accidental edits.
+      - name: Verify the locked services section
+        run: python3 _locked/verify.py
+
+      # Public settings only. Set them in: Settings → Secrets and variables → Actions → *Variables* (not Secrets).
+      - name: 'Build (production gates: fails if launch requirements are missing)'
+        env:
+          FORM_ENDPOINT: ${{ vars.FORM_ENDPOINT }}
+          CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          BASE_PATH: ${{ vars.BASE_PATH }}
+          PREVIEW_DEPLOY: ${{ vars.PREVIEW_DEPLOY }}
+        run: python3 build_site.py --production
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

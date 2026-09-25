@@ -1,0 +1,24 @@
+# Raisey Lab form endpoint. PUBLIC configuration only — the Resend API key is a secret:
+#   npx wrangler secret put RESEND_API_KEY
+name = "raisey-forms"
+main = "src/index.mjs"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://raiseylab.com,https://www.raiseylab.com"
+FROM_EMAIL = "Raisey Lab <hello@raiseylab.com>"
+TO_EMAIL = "hello@raiseylab.com"
+SITE_URL = "https://raiseylab.com"
+
+# Exact rate limits (5 submissions/min per IP, 2 Scan-results emails/min per recipient): one Durable Object counter per key.
+[[durable_objects.bindings]]
+name = "LIMITER"
+class_name = "RateLimiter"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RateLimiter"]
+
+[observability]
+enabled = true

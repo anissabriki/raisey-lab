@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Patient Has Already Met You: The Aesthetic Patient Journey</title>
+<meta name="description" content="Search, reviews, Instagram, TikTok, YouTube: aesthetic patients reach a decision by different paths. Three questions to build a digital strategy around.">
+<meta name="theme-color" content="#f3eee6">
+<link rel="canonical" href="https://raiseylab.com/insights/aesthetic-medicine-patient-journey/">
+<meta property="og:url" content="https://raiseylab.com/insights/aesthetic-medicine-patient-journey/">
+<meta property="og:title" content="Your Patient Has Already Met You: The Aesthetic Patient Journey">
+<meta property="og:description" content="Search, reviews, Instagram, TikTok, YouTube: aesthetic patients reach a decision by different paths. Three questions to build a digital strategy around.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Raisey Lab">
+<meta property="og:locale" content="en_GB">
+
+<link rel="preload" href="../../fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* ============ FONTS (self-hosted) ============ */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url(../../fonts/fraunces-latin-opsz-normal.woff2) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:100 900;font-display:swap;src:url(../../fonts/fraunces-latin-opsz-italic.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-style:normal;font-display:swap;src:url(../../fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:500;font-style:normal;font-display:swap;src:url(../../fonts/inter-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-style:normal;font-display:swap;src:url(../../fonts/inter-latin-600-normal.woff2) format('woff2')}
+
+/* Metric-matched fallbacks: the system font is resized to the web font's metrics so the swap causes no layout shift. */
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia');size-adjust:119.4%;ascent-override:81.9%;descent-override:21.4%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';font-style:italic;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:118.7%;ascent-override:82.4%;descent-override:21.5%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback';src:local('Arial');size-adjust:108.8%;ascent-override:89%;descent-override:22.2%;line-gap-override:0%}
+
+/* ============ TOKENS (visual system unchanged) ============ */
+:root{
+  /* Raisey Lab palette (art direction 2026-09, from the approved founder visuals): ivory architecture, black tailoring,
+     espresso shadows, deep burgundy typography; lavender + pale clinical blue as the digital/medical counterpoint. No pink. */
+  --rl-ivory:#f3eee6; --rl-optical:#faf8f4; --rl-stone:#e7e0d6; --rl-stone-line:#d9cfc4; --rl-stone-strong:#c2b6aa;
+  --rl-burgundy:#4f1a2a; --rl-burgundy-deep:#3a111d; --rl-ink:#1c1819; --rl-espresso:#211915; --rl-muted:#6b625e;
+  --rl-lavender:#d5cfdd; --rl-lavender-pale:#e8e5ec; --rl-lavender-ink:#5d5670; --rl-blue:#dde6ea; --rl-blue-powder:#c9d5db; --rl-blue-ink:#3f5963;
+  --rl-on-dark:#f3eee6; --rl-on-dark-2:#bdb2a6; --rl-line-dark:#3b302b;
+  --cream:#f3eee6; --blush:#e7e0d6; --paper:#faf8f4;
+  --p-red:#4f1a2a; --p-red-ink:#4f1a2a; --p-red-lt:#d5cfdd; --p-soft-lilac:#d5cfdd; --p-pale-lilac:#e8e5ec; --p-powder:#c2b6aa; --p-icy:#dde6ea; --p-plum:#1c1819; --p-burgundy:#4f1a2a; --p-graphite:#1c1819;
+  --aub:#1c1819; --aub-2:#2c2422; --rasp:#4f1a2a; --rasp-d:#1c1819;
+  --ink:#1c1819; --muted:#6b625e; --line:#d9cfc4; --line-strong:#c2b6aa;
+  --on-aub:#f3eee6; --on-aub-2:#bdb2a6; --line-aub:#3b302b;
+  --lilac:#d5cfdd; --lilac-d:#c4bdd0; --lime:#d2db98; --mauve:#5d5670;
+  --err:#8c2a3a; --white:#fff; --placeholder:#8f8680;
+  --rose-tint:#e7e0d6; --rose-ink:#4f1a2a; --rose-solid:#4f1a2a;
+  --lav-tint:#d5cfdd; --lav-ink:#5d5670; --lav-solid:#5d5670;
+  --gold-tint:#dde6ea; --gold-ink:#3f5963; --gold-solid:#3f5963;
+  --sage-tint:#e8e5ec; --sage-ink:#1c1819; --sage-solid:#1c1819;
+  --radius-card:26px; --radius-tile:14px; --radius-pill:999px;
+  --dusty:#e7e0d6; --deep-rose:#c2b6aa; --optical:#faf8f4; --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace; --ring-est:#5f7a6d; --ring-pot:#7c7598; --ring-elev:#4f1a2a;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,'Times New Roman',serif;
+  --sans:'Inter','Inter Fallback',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --gutter:clamp(20px,4.6vw,72px); --max:1360px; --head:72px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--head);-webkit-text-size-adjust:100%;scrollbar-color:var(--mauve) var(--cream)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,h5,p,ul,ol,figure,blockquote{margin:0;padding:0}
+ul,ol{list-style:none}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:500;font-optical-sizing:auto;letter-spacing:-.018em;text-wrap:balance}
+p{text-wrap:pretty}
+::selection{background:var(--rasp);color:var(--white)}
+input,textarea,select{caret-color:var(--rasp)}
+a,button,label,input,select,textarea,summary{touch-action:manipulation}
+html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
+:focus-visible{outline:2px solid var(--rasp);outline-offset:3px}
+.dark :focus-visible{outline-color:var(--on-aub)}
+[hidden]{display:none!important}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hp{position:absolute!important;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}   /* anti-spam honeypot: invisible to people, filled by bots */
+.skip{position:absolute;left:var(--gutter);top:-80px;z-index:100;background:var(--aub);color:var(--on-aub);padding:12px 18px;font-size:13px;text-decoration:none}
+.skip:focus{top:10px}
+.muted{color:var(--muted)}
+.dark{background:var(--p-burgundy);color:var(--on-aub)}
+.dark .muted{color:var(--on-aub-2)}
+.eyebrow{font:600 12px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--p-red-ink)}
+.dark .eyebrow{color:var(--p-pale-lilac)}
+.sec{padding-block:clamp(72px,10vw,144px)}
+.h2{font-size:clamp(2.2rem,1.1rem + 3.8vw,4.4rem);line-height:1.05}
+.lede{font-size:clamp(1.05rem,.98rem + .35vw,1.3rem);line-height:1.6;color:var(--muted);max-width:40em}
+
+/* section index label: wayfinding "02  Raisey Review" */
+.sl{display:flex;align-items:baseline;gap:18px;margin-bottom:clamp(28px,4vw,52px);font:600 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.sl .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.sl .t{color:var(--ink)}
+.sl .r{margin-left:auto;color:var(--muted);letter-spacing:.14em;font-weight:500;text-align:right}
+.dark .sl .n,.dark .sl .r{color:var(--on-aub-2)}
+@media (max-width:640px){.sl{flex-wrap:wrap;row-gap:4px}.sl .r{flex-basis:100%;margin-left:0;padding-left:calc(2ch + 18px);text-align:left}}
+.dark .sl .t{color:var(--on-aub)}
+
+/* arrows, drawn */
+.ar{display:inline-block;width:18px;height:10px;flex:none;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 10' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M1 5h15M12 1l4 4-4 4'/></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 10' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M1 5h15M12 1l4 4-4 4'/></svg>") center/contain no-repeat;
+  transition:transform .4s var(--ease)}
+
+/* buttons: raspberry, squared */
+.btn{--b:var(--rasp);--f:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:52px;padding:15px 30px;background:var(--b);color:var(--f);border:1px solid var(--b);border-radius:var(--radius-pill);font:600 15px/1.2 var(--sans);letter-spacing:.01em;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background-color .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+/* 🔒 LOCKED 2026-09-22, revised 2026-09-22 · CTA colour/shape system — see memory presence-lab-locked-sections.
+   owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
+.svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+@media (hover:hover){.btn:hover{--b:var(--rasp-d)}}
+@media (hover:hover){.btn:hover .ar{transform:translateX(5px)}}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+@media (max-width:420px){.btn{white-space:normal;text-align:left;max-width:100%;padding-inline:20px}}
+.tl{display:inline-flex;align-items:center;gap:10px;min-height:44px;font:600 14px/1.2 var(--sans);text-decoration:none;border-bottom:1.5px solid currentColor;padding-block:6px}
+/* CTA colour hierarchy (scoped away from the locked services CTA) */
+/* light primary: only the hero's own inline CTA — the quieter first interaction */
+.hero-cta .btn{--b:var(--p-soft-lilac);--f:var(--p-graphite);border-color:var(--p-soft-lilac)}
+/* deep burgundy = the one recurring conversion colour everywhere else it repeats */
+.head-cta,.rv-cta .btn,.scan .btn,#contact .btn,#founding .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy)}
+.rv-cta .btn,.scan .btn,#contact .btn,#founding .btn{min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* a CTA ever placed on a burgundy panel must invert, never burgundy-on-burgundy */
+.dark .btn{--b:var(--optical);--f:var(--p-plum);border-color:var(--optical)}
+@media (hover:hover){.tl:hover .ar{transform:translateX(5px)}}
+
+.langsw{display:inline-flex;align-items:center;gap:2px;font:600 12px/1 var(--sans);letter-spacing:.14em}
+.langsw a,.langsw span{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:44px;text-decoration:none;color:var(--muted)}
+.langsw [aria-current]{color:var(--ink)}
+.langsw i{width:1px;height:14px;background:var(--line-strong)}
+.langsw a:hover{color:var(--rasp)}
+.langsw.m{display:none;margin-top:18px}
+@media (max-width:1000px){.langsw.h{display:none}.mobile .langsw.m{display:inline-flex}}
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line)}
+.bar{height:var(--head);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:inline-flex;align-items:center;min-height:44px;gap:12px;text-decoration:none;font:600 22px/1 var(--serif);letter-spacing:-.01em;white-space:nowrap}
+.brand{text-transform:uppercase;letter-spacing:.07em}   /* RAISEY LAB wordmark test (preview) */
+.nav ul{display:flex;gap:clamp(18px,2.6vw,40px)}
+/* six nav items at 1001–1159px: use the nav's own 18px minimum gap, keep labels on one line and the logo mark at full size */
+@media (min-width:1001px) and (max-width:1159px){.nav ul{gap:18px}}
+.nav a{white-space:nowrap}
+.nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:500 14px/1 var(--sans);color:var(--ink)}
+.nav a::after{content:'';position:absolute;left:0;right:0;bottom:8px;height:1.5px;background:var(--rasp);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a.on::after{transform:scaleX(1)}
+@media (hover:hover){.nav a:hover::after{transform:scaleX(1)}}
+.head-cta{min-height:44px;padding:11px 22px;font-size:14px}
+.menu-btn{display:none;align-items:center;gap:10px;background:none;border:0;color:var(--ink);min-height:44px;min-width:44px;padding:0 4px 0 12px;margin-right:-4px;cursor:pointer;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.menu-btn svg{overflow:visible}
+.menu-btn .l1,.menu-btn .l2{transform-box:fill-box;transform-origin:center;transition:transform .4s var(--ease)}
+.menu-btn[aria-expanded=true] .l1{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded=true] .l2{transform:translateY(-4px) rotate(-45deg)}
+.mobile{position:absolute;left:0;right:0;top:100%;background:var(--cream);border-bottom:1px solid var(--line);padding:6px 0 28px}
+.mobile li+li{border-top:1px solid var(--line)}
+.mobile a.l{display:block;padding:16px 0;font:500 30px/1.1 var(--serif);text-decoration:none}
+.mobile .btn{margin-top:22px}
+@media (max-width:1000px){.nav,.head-cta{display:none}.menu-btn{display:inline-flex}}
+
+.site-footer{border-top:1px solid var(--line);padding-block:clamp(36px,5vw,64px) max(28px,env(safe-area-inset-bottom));margin-top:clamp(48px,7vw,96px)}
+.f-row{display:grid;gap:20px;align-items:center}
+.f-row nav ul{display:flex;flex-wrap:wrap;gap:0 28px}
+.f-row nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
+@media (hover:hover){.f-row nav a:hover{color:var(--rasp)}}
+.f-legal{margin-top:clamp(20px,3vw,32px);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
+.f-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-underline-offset:.3em}
+@media (min-width:900px){.f-row{grid-template-columns:1fr auto}}
+@media (prefers-reduced-motion:reduce){.btn .ar,.tl .ar,.opt .mk,.opt .tx,.nav a::after,.track>span,.menu-btn .l1,.menu-btn .l2,.input,.btn{transition:none}}
+@media print{.site-header{display:none}}
+
+/* ================= RAISEY LAB ART DIRECTION (2026-09) =================
+   Editorial studio × aesthetic medicine: ivory breathing room, burgundy anchor, ink authority, espresso dark moments,
+   lavender + clinical blue for the Raisey Scan. Layout first; image crops are reviewed in a second pass. */
+body{background:var(--rl-ivory)}
+::selection{background:var(--rl-burgundy);color:var(--rl-optical)}
+/* wordmark: the new logo direction (widely spaced editorial capitals). The & monogram will be added from the official SVG. */
+.brand{font-weight:400;letter-spacing:.3em;gap:0}
+.site-header .brand{font-size:17px}
+/* hero: tension through typography and burgundy, not colour */
+.hero{background:var(--rl-ivory)}
+.hero h1{color:var(--rl-ink)}
+.hero h1 .pun em{color:var(--rl-burgundy);font-weight:300}
+.eyebrow{letter-spacing:.24em}
+.arcs .a1{stroke:var(--rl-lavender)} .arcs .a2{stroke:var(--rl-blue-powder)} .arcs .a3{stroke:var(--rl-burgundy)} .arcs .dot{fill:var(--rl-ink)}
+.hero-cta .btn{--b:var(--rl-lavender);--f:var(--rl-ink);border-color:var(--rl-lavender)}
+/* Raisey Scan: the cooler diagnostic world */
+.review{background:var(--rl-lavender-pale)}
+.review .h2{color:var(--rl-burgundy)}
+.review .dim-index li{background:var(--rl-blue)}
+.review .dim-index .dn{color:var(--rl-blue-ink)}
+/* approach: ivory with the burgundy anchor panel */
+.trio .it .num,.trio .it:nth-child(2) .num,.trio .it:nth-child(3) .num{color:var(--rl-lavender)}
+/* services: stone + optical cream (colours only; the locked component itself is unchanged) */
+.svc-sec{background:var(--rl-optical)}
+/* work / studies: an editorial index on clinical blue */
+#work{background:var(--rl-blue)}
+#work .case{background:transparent;border:0;border-top:1px solid var(--rl-ink);border-radius:0;box-shadow:none;padding:22px 0 8px}
+#work .path b{background:transparent;color:var(--rl-ink);border:1px solid color-mix(in srgb,var(--rl-ink) 38%,transparent);border-radius:999px;font-family:var(--mono);font-weight:500;letter-spacing:.12em}
+#work .path .ar{color:var(--rl-muted)}
+#work .st-head .n{color:var(--rl-burgundy)}
+/* founder: ivory, photography does the work */
+.founder-sec{background:var(--rl-ivory)}
+/* dark editorial moment: founding partners on espresso with the sofa portrait */
+#founding{background:var(--rl-espresso);color:var(--rl-on-dark);
+  --ink:var(--rl-on-dark);--muted:var(--rl-on-dark-2);--line:var(--rl-line-dark);--line-strong:#54463f;--p-burgundy:var(--rl-on-dark);--p-red-ink:#d9c7c2;--p-plum:var(--rl-on-dark)}
+#founding .fp-h h2 .b,#founding .fp-close .st em{color:#d9c7c2;font-weight:300}
+#founding .fp-photo{min-height:0}
+#founding .fp-photo figure{margin:0}
+#founding .fp-photo img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;background:#2c2422}
+#founding .fp-photo .mono{position:static;margin-top:12px;color:var(--rl-on-dark-2)}
+#founding .btn{--b:var(--rl-on-dark);--f:var(--rl-ink);border-color:var(--rl-on-dark)}
+/* contact: ivory + burgundy panel */
+#contact .c-panel{background:var(--rl-burgundy)}
+.site-footer{background:var(--rl-ivory)}
+
+/* ---- Founder: editorial profile (credentials | manifesto | portrait insert) ---- */
+.founder.fx{display:grid;align-items:start;row-gap:0;column-gap:clamp(40px,5vw,88px);
+  grid-template-columns:minmax(0,1fr);grid-template-areas:"fig" "head" "story" "side" "cta"}
+.fx .f-portrait{grid-area:fig;margin:0 0 clamp(52px,12vw,64px);max-width:none;align-self:start}
+.fx .f-portrait img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;background:var(--rl-stone)}
+.fx .f-cap{margin-top:clamp(32px,3.6vw,52px);padding-bottom:clamp(16px,2vw,28px);font:400 clamp(1.3rem,1rem + .9vw,1.8rem)/1.22 var(--serif);letter-spacing:-.01em;color:var(--rl-burgundy)}
+.fx .f-cap span,.fx .f-cap em{display:block}
+.fx .f-cap em{font-style:italic}
+.fx .f-head{grid-area:head;max-width:32em}
+.fx .f-head h2{font-size:clamp(2.3rem,1rem + 3.4vw,3.9rem);line-height:1.02;letter-spacing:-.03em;color:var(--rl-ink)}
+.fx .f-head p{margin-top:clamp(18px,2.4vw,28px)}
+.fx .pq{font:italic 400 clamp(1.2rem,1rem + .6vw,1.5rem)/1.35 var(--serif);color:var(--rl-burgundy)}
+.fx .f-story{grid-area:story;max-width:32em;margin-top:clamp(22px,2.6vw,32px);display:grid;gap:14px}
+.fx .f-story p{color:var(--rl-muted)}
+.fx .who{margin-top:10px;padding-top:14px;border-top:1px solid var(--rl-stone-line);font:600 12px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+.fx .who .muted{color:var(--rl-muted)}
+.fx .f-side{grid-area:side;margin-top:clamp(40px,8vw,56px);min-height:0}
+.fx .journey{border-top:1px solid var(--rl-ink)}
+.fx .ch .cn{color:var(--rl-burgundy)}
+.fx .ch .cv{color:var(--rl-ink);max-height:88px}
+.fx .ch h3{color:var(--rl-ink)}
+.fx .f-quote{margin-top:22px;font:italic 400 clamp(1.25rem,1rem + .8vw,1.7rem)/1.15 var(--serif);color:var(--rl-ink)}
+.fx .f-cta{grid-area:cta;margin-top:clamp(28px,5vw,40px)}
+@media (min-width:640px) and (max-width:1099px){
+  .founder.fx{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);grid-template-areas:"head fig" "story fig" "cta fig" "side side"}
+  .fx .f-portrait{margin:0}
+  .fx .f-cta{margin-top:24px}
+  .fx .f-side{margin-top:clamp(48px,6vw,72px)}
+  .fx .journey{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:28px}
+  .fx .ch{border-bottom:0}
+}
+@media (min-width:1100px){
+  .founder.fx{grid-template-columns:minmax(0,26fr) minmax(0,40fr) minmax(0,34fr);column-gap:clamp(40px,3.6vw,56px);grid-template-areas:"side head fig" "side story fig" "side cta fig"}
+  .fx .f-portrait{margin:0 calc(-1 * var(--gutter)) 0 0}   /* into the right margin: a full-page image beside the article */
+  .fx .f-cap{padding-right:var(--gutter)}
+  .fx .f-side{margin-top:0;display:flex;flex-direction:column;justify-content:space-between;align-self:stretch;gap:32px}
+  .fx .journey{grid-template-columns:minmax(0,1fr)}
+  .fx .f-cta{margin-top:28px}
+}
+
+.field{min-width:0}
+.field{display:grid;gap:8px;align-content:start}
+.field>label{font:600 14px/1.4 var(--sans);color:var(--ink)}
+.field .o{font-weight:400;color:var(--muted)}
+.input{width:100%;min-height:54px;padding:14px 16px;background:var(--paper);border:1px solid var(--line-strong);border-radius:0;font:400 16px/1.4 var(--sans);color:var(--ink);transition:border-color .2s,background-color .2s}
+.input::placeholder{color:var(--placeholder)}
+.input:focus-visible{outline:2px solid var(--rasp);outline-offset:1px;border-color:var(--rasp);background:var(--white)}
+.input[aria-invalid=true]{border-color:var(--err);box-shadow:inset 0 0 0 1px var(--err)}
+.field.bad .err{display:block}
+/* Insights */
+.ins{padding-block:clamp(40px,6vw,88px) clamp(56px,8vw,112px)}
+.ins .wrap{max-width:1080px}
+.crumbs{font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:clamp(20px,3.4vw,40px)}
+.crumbs ol{display:flex;flex-wrap:wrap;gap:0 10px;list-style:none;padding:0;margin:0}
+.crumbs li+li::before{content:"/";margin-right:10px;color:var(--muted)}
+.crumbs a{color:var(--muted);text-decoration:none;display:inline-flex;min-height:44px;align-items:center}
+.crumbs a:hover,.crumbs a:focus-visible{color:var(--rasp)}
+.crumbs [aria-current]{display:inline-flex;min-height:44px;align-items:center;color:var(--ink)}
+.ins-label{font:600 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--p-red-ink)}
+.ins-num{display:block;font-family:var(--serif);font-weight:400;line-height:.9;color:var(--muted);font-variant-numeric:lining-nums}
+.ins-meta{font-size:14px;color:var(--muted)}
+.ins-hero h1{font-size:clamp(2.4rem,1rem + 4.4vw,4.6rem);line-height:1.03;letter-spacing:-.03em;max-width:13em}
+.ins-lead{margin-top:clamp(20px,3vw,32px);max-width:40em;font-size:clamp(1.05rem,.98rem + .35vw,1.3rem);line-height:1.6;color:var(--ink)}
+.ins-feat{position:relative;margin-top:clamp(48px,7vw,96px);padding-block:clamp(32px,4.4vw,56px);border-top:1px solid var(--line-strong);display:grid;gap:14px 48px}
+@media (min-width:900px){.ins-feat{grid-template-columns:minmax(0,3fr) minmax(0,9fr)}}
+.ins-feat .ins-num{font-size:clamp(4rem,2rem + 6vw,7.5rem)}
+.ins-feat h2{font-size:clamp(2rem,1.2rem + 2.6vw,3.4rem);line-height:1.06;letter-spacing:-.025em;margin-top:14px;max-width:17em}
+.ins-feat p.ex{margin-top:16px;max-width:40em;color:var(--muted);font-size:clamp(1rem,.96rem + .2vw,1.12rem)}
+.ins-feat .ins-meta{margin-top:14px}
+.ins-feat .more{display:inline-flex;align-items:center;gap:10px;min-height:44px;margin-top:10px;font:600 14px/1.2 var(--sans);color:var(--ink);border-bottom:1.5px solid currentColor}
+.ins-feat h2 a,.ins-row h2 a{color:var(--ink);text-decoration:none;transition:color .3s var(--ease)}
+.ins-feat h2 a::after,.ins-row h2 a::after{content:"";position:absolute;inset:0}
+.ins-feat h2 a:focus-visible,.ins-row h2 a:focus-visible{outline:none}
+.ins-feat:has(a:focus-visible),.ins-row:has(a:focus-visible){outline:2px solid var(--rasp);outline-offset:4px}
+.ins-feat:hover h2 a,.ins-feat:focus-within h2 a,.ins-feat:hover .more,.ins-feat:focus-within .more{color:var(--rasp)}
+.ins-list{list-style:none;padding:0;margin:0}
+.ins-row{position:relative;display:grid;grid-template-columns:clamp(64px,9vw,128px) minmax(0,1fr) 40px;gap:6px clamp(16px,3vw,40px);padding-block:clamp(24px,3.2vw,40px);border-top:1px solid var(--line-strong)}
+.ins-row .ins-num{font-size:clamp(2.4rem,1.5rem + 2.4vw,3.6rem)}
+.ins-row h2{font-size:clamp(1.45rem,1.1rem + 1.2vw,2.15rem);line-height:1.12;letter-spacing:-.02em;margin-top:8px;max-width:22em}
+.ins-row p.ex{margin-top:10px;max-width:44em;color:var(--muted);font-size:16px}
+.ins-row .ins-meta{margin-top:10px;font-size:13px}
+.ins-row .go{align-self:center;justify-self:end;display:inline-flex;color:var(--rasp);opacity:0;transform:translateX(-12px);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.ins-row:hover h2 a,.ins-row:focus-within h2 a{color:var(--rasp)}
+.ins-row:hover .go,.ins-row:focus-within .go{opacity:1;transform:none}
+@media (max-width:699px){.ins-row{grid-template-columns:minmax(0,1fr)}.ins-row .go{display:none}.ins-row .ins-num{margin-bottom:10px}}
+.ins-next{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding-block:clamp(22px,2.8vw,32px);border-top:1px dashed var(--line-strong);color:var(--muted)}
+.ins-next .ins-label{color:var(--muted)}
+.ins-next .t{font-family:var(--serif);font-size:clamp(1.2rem,1rem + .7vw,1.55rem);line-height:1.2;color:var(--muted)}
+.ins-sub{margin-top:clamp(56px,7vw,96px);padding-top:clamp(28px,3.4vw,40px);border-top:1px solid var(--line-strong);max-width:680px}
+.ins-sub .l{font-family:var(--serif);font-size:clamp(1.3rem,1.05rem + .8vw,1.75rem);line-height:1.25;color:var(--ink)}
+.ins-sub .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.ins-sub .input{flex:1 1 260px;width:auto}
+.ins-sub .status{margin-top:12px;font-size:14px;color:var(--muted);min-height:1.4em}
+.ins-sub .status[data-s=error]{color:var(--err,#a3243b)}
+.ins-sub .done{font-family:var(--serif);font-size:clamp(1.15rem,1rem + .5vw,1.4rem);color:var(--ink);margin-top:18px}
+.ins-sub .priv{margin-top:6px;font-size:13px;color:var(--muted)}
+.ins-sub .priv a{color:var(--muted)}
+.ins-explore{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:18px;font-size:14px;color:var(--muted);text-underline-offset:.3em}
+.ins-explore:hover,.ins-explore:focus-visible{color:var(--rasp)}
+.ins-explore-row{margin-top:clamp(40px,5vw,64px)}
+.ins .btn,.art-end .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy)}
+.art-end .btn{min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+.art-head{max-width:900px}
+.art-head .ins-label{display:block}
+.art-head h1{font-size:clamp(2.2rem,1rem + 3.6vw,3.9rem);line-height:1.05;letter-spacing:-.028em;margin-top:16px}
+.art-stand{margin-top:clamp(18px,2.6vw,28px);max-width:36em;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.55;color:var(--ink)}
+.art-head .ins-meta{margin-top:18px}
+.art-fig{max-width:560px;margin:clamp(32px,4vw,48px) 0 0}
+.art-fig img{display:block;width:100%;height:auto;aspect-ratio:2/3;background:var(--blush)}
+.art-body{max-width:680px;margin-top:clamp(40px,5vw,64px);font-size:clamp(17px,1rem + .2vw,19px);line-height:1.7;color:var(--ink)}
+.art-body>*+*{margin-top:1.15em}
+.art-body h2{font-size:clamp(1.5rem,1.15rem + 1vw,2rem);line-height:1.16;letter-spacing:-.02em;margin-top:2.2em}
+.art-body h2+*{margin-top:.75em}
+.art-body blockquote{margin-block:1.9em;padding-left:clamp(18px,2.4vw,28px);border-left:1.5px solid var(--p-red);font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,1.1rem + .9vw,1.8rem);line-height:1.35;color:var(--p-red-ink)}
+.art-body a{color:var(--ink);text-decoration-line:underline;text-decoration-thickness:1px;text-decoration-color:var(--muted);text-underline-offset:.22em;transition:color .2s}
+.art-body a:hover,.art-body a:focus-visible{color:var(--rasp);text-decoration-color:var(--rasp)}
+.art-src{max-width:680px;margin-top:clamp(40px,5vw,56px);padding-top:20px;border-top:1px solid var(--line);font-size:14px;line-height:1.6;color:var(--muted)}
+.art-src h2{font:600 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.art-src ul{list-style:none;padding:0;margin-top:10px;display:grid;gap:8px}
+.art-src a{color:var(--muted);text-underline-offset:.2em}
+.art-src a:hover,.art-src a:focus-visible{color:var(--rasp)}
+.art-end{max-width:680px;margin-top:clamp(40px,5vw,64px);padding-top:clamp(28px,3.4vw,40px);border-top:1px solid var(--line-strong)}
+.art-end .q{font-family:var(--serif);font-size:clamp(1.3rem,1.05rem + .8vw,1.75rem);line-height:1.25;margin-bottom:20px}
+.art-end .tl{font-size:15px}
+.art-end .soon{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px}
+.art-end .soon .t{font-family:var(--serif);font-size:clamp(1.3rem,1.05rem + .8vw,1.75rem);line-height:1.2}
+.art-end .sub{margin-top:20px;font-size:15px;color:var(--muted)}
+.art-end .sub a{color:var(--muted);text-underline-offset:.3em;white-space:nowrap}
+.art-end .sub a:hover,.art-end .sub a:focus-visible{color:var(--rasp)}
+.art-pn{max-width:900px;margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--line-strong);display:grid;gap:0 32px}
+@media (min-width:700px){.art-pn{grid-template-columns:1fr 1fr}}
+.art-pn>*{display:block;padding-block:20px;text-decoration:none;color:var(--ink)}
+.art-pn .d{display:block;font:600 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.art-pn .t{font-family:var(--serif);font-size:clamp(1.15rem,1rem + .5vw,1.4rem);line-height:1.2;transition:color .3s var(--ease)}
+.art-pn a:hover .t,.art-pn a:focus-visible .t{color:var(--rasp)}
+.art-pn .nx{text-align:right}
+@media (max-width:699px){.art-pn .nx{text-align:left;border-top:1px solid var(--line)}}
+.art-pn .soon,.art-pn .soon .t{color:var(--muted)}
+.art-back{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;font:600 14px/1.2 var(--sans);color:var(--ink);text-underline-offset:.3em}
+.art-back:hover,.art-back:focus-visible{color:var(--rasp)}
+@media (prefers-reduced-motion:reduce){.ins-row .go,.ins-feat h2 a,.ins-row h2 a,.art-pn .t{transition:none}.ins-row .go{transform:none}}
+
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "headline": "Your Patient Has Already Met You Before Entering Your Clinic",
+   "description": "Search, reviews, Instagram, TikTok, YouTube: aesthetic patients reach a decision by different paths. Three questions to build a digital strategy around.",
+   "author": {
+    "@type": "Person",
+    "name": "Anissa Briki",
+    "jobTitle": "Founder"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Raisey Lab",
+    "url": "https://raiseylab.com/"
+   },
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://raiseylab.com/insights/aesthetic-medicine-patient-journey/"
+   },
+   "inLanguage": "en",
+   "wordCount": 905
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://raiseylab.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Insights",
+     "item": "https://raiseylab.com/insights/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Your Patient Has Already Met You",
+     "item": "https://raiseylab.com/insights/aesthetic-medicine-patient-journey/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="../../index.html#studio" aria-label="Raisey Lab">Raisey Lab</a>
+    <nav class="nav" aria-label="Main"><ul><li><a href="../../index.html#studio">Studio</a></li><li><a href="../../index.html#raisey-scan">Raisey Scan</a></li><li><a href="../../index.html#services">Services</a></li><li><a href="../../index.html#work">Work</a></li><li><a href="../../index.html#about">About</a></li><li><a class="on" href="../../insights/index.html" aria-current="true">Insights</a></li></ul></nav>
+    <div style="display:flex;align-items:center;gap:16px"><div class="langsw h" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><i aria-hidden="true"></i><a href="../../fr/index.html" hreflang="fr" lang="fr" aria-label="Français">FR</a></div><a class="btn head-cta" href="../../index.html#raisey-scan">Start your Scan <i class="ar"></i></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
+    </div>
+  </div>
+  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul><li><a class="l" href="../../index.html#studio">Studio</a></li><li><a class="l" href="../../index.html#raisey-scan">Raisey Scan</a></li><li><a class="l" href="../../index.html#services">Services</a></li><li><a class="l" href="../../index.html#work">Work</a></li><li><a class="l" href="../../index.html#about">About</a></li><li><a class="l on" href="../../insights/index.html" aria-current="true">Insights</a></li></ul><div class="langsw m" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><i aria-hidden="true"></i><a href="../../fr/index.html" hreflang="fr" lang="fr" aria-label="Français">FR</a></div><a class="btn" href="../../index.html#raisey-scan">Start your Scan <i class="ar"></i></a></div></div>
+</header>
+<main id="main" class="ins"><div class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Insights</a></li><li><span aria-current="page">Your Patient Has Already Met You</span></li></ol></nav>
+<article data-article="aesthetic-medicine-patient-journey">
+<header class="art-head">
+<p class="ins-label">Insight 02 · PATIENT JOURNEY</p>
+<h1>Your Patient Has Already Met You Before Entering Your Clinic</h1>
+<p class="art-stand">The patient journey no longer starts at the clinic. For many patients, it starts with a search.</p>
+<!-- TODO: publication date (not displayed until set) -->
+<p class="ins-meta">By Anissa Briki, Founder · 5 min read</p><!-- TODO: confirm the byline name with the client before launch -->
+</header>
+<div class="art-body">
+<p>Think about the last restaurant you chose. Perhaps someone recommended it; perhaps you simply needed somewhere for dinner. Either way, you probably didn’t just walk in. You searched, looked at the rating, read a few reviews, checked the photos. Maybe you went to Instagram to get a feel for the place, or to TikTok to see what other people were saying. Without quite realising it, you had formed an opinion before you ever stepped through the door.</p>
+<p>We do this with restaurants, hotels and spas. More and more, people do it with aesthetic medicine too.</p>
+<h2>The decision has moved online</h2>
+<p>The journey used to feel fairly linear: a recommendation, an appointment, an experience. Now there are many small moments between hearing a name and making a decision.</p>
+<p>A recommendation may still start it. Then might come a search, a Google Business Profile, the website, a few reviews, an interview or an educational video, a return to Instagram, another search, and only then, perhaps, a booking. Not every patient takes every step, and no two take them in the same order.</p>
+<p>The shift isn’t just that people spend more time online. Digital platforms have become part of the decision itself.</p>
+<h2>There is no single patient journey</h2>
+<p>A common mistake is to assume that everyone discovers you in the same place. They don’t.</p>
+<p>One doctor’s audience may watch long-form educational content on YouTube. Another’s may find them mainly through Instagram. Some patients first come across a treatment or a technique on TikTok, long before they search for a practitioner. Someone else types “aesthetic doctor near me” into Google Maps and begins there.</p>
+<p>There are many journeys, not one. So digital strategy shouldn’t begin with “We need to post more on Instagram.” It should begin with three questions.</p>
+<p><strong>Who is your patient? Where do they search? What do they need in order to trust you?</strong></p>
+<h2>Each platform plays a different role</h2>
+<p>Being present everywhere doesn’t mean doing the same thing everywhere. Broadly, TikTok can create discovery. Instagram can build familiarity and desire. Google captures intent, the moment someone is actively looking. A Google Business Profile adds reassurance through reviews, ratings, photographs and practical details. YouTube can build depth and authority. The website is where it all has to make sense.</p>
+<p>These are tendencies, not rules, and they shift from one audience and market to another. But no platform replaces the others. Together, they form an ecosystem.</p>
+<h2>Every touchpoint reduces uncertainty, or adds to it</h2>
+<p>Imagine discovering a doctor through a TikTok video. You like the way she explains things, so you look her up on Instagram, and the content feels coherent. You search her name and the reviews reassure you. On the website the treatments are clearly explained, the visual identity feels considered, and booking is simple. Each interaction confirms the one before.</p>
+<p>Now imagine the same journey with a single break in it: an outdated website, no recent reviews, a feed that says something different from the videos. Doubt enters, and the search continues, often somewhere else.</p>
+<blockquote><p>Each touchpoint reduces uncertainty, or adds to it.</p></blockquote>
+<h2>The relationship begins before the appointment</h2>
+<p>The relationship between a doctor and a patient no longer necessarily begins when they meet. A prospective patient may have watched the doctor explain the very concern she has. She may have read about <a href="../aesthetic-medicine-skin-quality-language/index.html">their approach to natural results</a>, seen how they answer questions, understood why they favour one approach over another. She may have followed them quietly for six months.</p>
+<p>So when she finally books, she isn’t meeting a complete stranger. A relationship has already begun. It isn’t a medical relationship yet, but it is a relationship with the doctor’s expertise, <a href="../why-i-created-raisey-lab/index.html">point of view and presence</a>.</p>
+<h2>Don’t be everywhere. Be where your patients are.</h2>
+<p>A doctor doesn’t need TikTok, Instagram, YouTube, LinkedIn and whatever platform appears tomorrow. Presence without purpose creates noise.</p>
+<p>The three questions do the work here. <em>Who is your patient?</em> Think about her concerns, her stage of life and <a href="../international-aesthetic-medicine-culture/index.html">her relationship with aesthetic treatment</a>. <em>Where does she search,</em> and what is she asking when she does? <em>What does she need in order to trust you?</em> That means knowing what reassures her, what makes her hesitate, which content helps her understand your approach, and which touchpoints bring her closer to an appointment.</p>
+<p>The answers differ from one practice to the next. A dermatologist whose patients research a skin condition in depth needs a different presence from a practice whose patients discover treatments through short video. The aim isn’t to be everywhere. It is to have the right presence, in the right places, for the right people.</p>
+<h2>The clinic starts before the clinic</h2>
+<p>For aesthetic practices, the digital experience has become an extension of the physical one. Your Google Business Profile isn’t just a listing, your website isn’t just a brochure, and your Instagram isn’t just a feed. Together they form the first chapters of the patient experience.</p>
+<p>Long before someone sits in your consultation room, those chapters are already answering her questions. Do I understand this doctor? Do I trust their approach? Is this for someone like me? Would I feel comfortable here?</p>
+<p>By the time she walks through the door, much of the decision may already have been made.</p>
+<blockquote><p>Your patients are already making decisions online, whether or not you take part in that journey.</p></blockquote>
+</div>
+
+<div class="art-end"><p class="q">Understand your patient journey.</p><a class="btn" href="../../index.html#contact" data-interest="presence-review">Request a Raisey Lab Review <i class="ar"></i></a></div>
+</article>
+<nav class="art-pn" aria-label="Insights series"><a class="pv" href="../why-i-created-raisey-lab/index.html"><span class="d">← Previous · 01</span><span class="t">Why I Created Raisey Lab</span></a><a class="nx" href="../international-aesthetic-medicine-culture/index.html"><span class="d">Next · 03 →</span><span class="t">Beauty Has No Passport</span></a></nav>
+<a class="art-back" href="../index.html">← All Insights</a>
+</div></main>
+<footer class="site-footer"><div class="wrap">
+  <div class="f-row"><a class="brand" href="../../index.html#studio" style="font-size:20px">Raisey Lab</a>
+  <nav aria-label="Footer"><ul><li><a href="../../index.html#studio">Studio</a></li><li><a href="../../index.html#raisey-scan">Raisey Scan</a></li><li><a href="../../index.html#services">Services</a></li><li><a href="../../index.html#work">Work</a></li><li><a href="../../index.html#about">About</a></li><li><a href="../../insights/index.html">Insights</a></li><li><a href="../../index.html#contact">Contact</a></li></ul></nav></div>
+  <p class="f-legal"><a class="lg" href="../../privacy.html">Privacy Policy</a><a class="lg" href="../../privacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Raisey Lab. All rights reserved.</span></p>
+</div></footer>
+<script>
+(function(){const mb=document.querySelector('.menu-btn'),mp=document.getElementById('mobile-nav');
+document.getElementById('yr').textContent=new Date().getFullYear();
+const set=o=>{mb.setAttribute('aria-expanded',String(o));mb.querySelector('.mt').textContent=o?'Close':'Menu';mp.hidden=!o};
+mb.addEventListener('click',()=>set(mb.getAttribute('aria-expanded')!=='true'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mp.hidden){set(false);mb.focus()}});
+mp.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
+matchMedia('(min-width:1001px)').addEventListener('change',m=>{if(m.matches)set(false)});})();
+</script>
+</body>
+</html>
