@@ -73,7 +73,7 @@ def main():
     # ---------- 02 review ----------
     sub('<h2 class="h2" id="rv-h">How far could your practice rise?</h2>', '<h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>')
     sub('Six dimensions, four minutes, a first read straight away. Discover where your visibility, authority and patient journey have the greatest room to rise. No email required.',
-        'Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en visibilité, autorité et expérience patient.')
+        'Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en matière de visibilité, d’autorité et d’expérience patient.')
     sub('aria-label="The six dimensions of the Raisey Scan"', 'aria-label="Les six dimensions du Raisey Scan"')
     for a, b in [('Medical Authority', 'Autorité médicale'), ('Digital Authority', 'Autorité digitale'), ('Brand Expression', 'Expression de marque'),
                  ('Discoverability', 'Visibilité'), ('Content Potential', 'Potentiel éditorial'), ('Patient Journey</span>', 'Parcours patient</span>')]:
@@ -88,7 +88,8 @@ def main():
     sub('The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.',
         'Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.')
     sub('</svg>Scan complete</p>', '</svg>Scan terminé</p>')
-    sub('Where should we send your full Scan results?', 'Où souhaitez-vous recevoir les résultats complets de votre Scan ?')
+    sub('Where should we send your full Scan results?', 'Recevez votre Raisey Scan personnalisé.')
+    sub('const SCAN_EMAIL_GATE = false;', 'const SCAN_EMAIL_GATE = true;')
     sub('Your full Raisey Scan results will be sent to this address. If you’d like to go further, the next step is a first conversation.',
         'Les résultats complets de votre Raisey Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier échange.')
     sub('Doctor or clinic name <span', 'Nom du praticien ou de la clinique <span')
@@ -132,13 +133,13 @@ def main():
     sub('<span class="t">Our approach</span>', '<span class="t">Notre approche</span>')
     sub('<span class="bl">Be found.</span> <span class="bl">Be trusted.</span> <span class="bl">Be chosen.</span>',
         '<span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span>')
-    sub('Built to help your practice rise.', 'Conçu pour que votre cabinet s’élève.')
+    sub('Built to help your practice rise.', 'Une présence plus forte pour un cabinet plus influent.')
     sub('<h3>Be found</h3><p>Raise your visibility across search, local and social, where patients are already looking.</p>',
-        '<h3>Être trouvé</h3><p>Élevez votre visibilité sur la recherche, en local et sur les réseaux, là où vos patients cherchent déjà.</p>')
+        '<h3>Être trouvé</h3><p>Visible sur la recherche, en local et sur les réseaux — là où vos patients cherchent déjà.</p>')
     sub('<h3>Be trusted</h3><p>Let the authority you’ve earned be recognised at first glance.</p>',
-        '<h3>Inspirer confiance</h3><p>Faites reconnaître l’autorité que vous avez acquise, dès le premier regard.</p>')
+        '<h3>Inspirer confiance</h3><p>Une présence digitale qui exprime, dès le premier regard, votre expertise et votre autorité.</p>')
     sub('<h3>Be chosen</h3><p>Strengthen trust at every step, and turn attention into consultations and long-term loyalty.</p>',
-        '<h3>Être choisi</h3><p>Renforcez la confiance à chaque étape, et transformez l’attention en consultations, puis en fidélité.</p>')
+        '<h3>Être choisi</h3><p>Un parcours patient qui transforme l’hésitation en consultation, puis la consultation en fidélité.</p>')
 
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')

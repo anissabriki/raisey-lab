@@ -1005,6 +1005,7 @@ body{background:var(--rl-ivory)}
 // Set to your form endpoint (e.g. Formspree/Basin). While empty, forms say so instead of pretending to send.
 const FORM_ENDPOINT = '';
 const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
+const SCAN_EMAIL_GATE = false;   // true = results are revealed only after the email step (French site)
 const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1086,6 +1087,7 @@ document.querySelectorAll('form.lead').forEach(form=>{
     try{
       await send(p);
       [...form.children].forEach(c=>{c.hidden=c!==thanks}); thanks.hidden=false; thanks.focus();
+      form.dispatchEvent(new CustomEvent('lead:sent'));
     }catch(err){
       status.dataset.s='error'; status.textContent=(err.message==='not-connected'&&DEV)?COPY.form.notConnected:form.dataset.variant==='scan'?(CONTACT_EMAIL?COPY.form.sendScanEmail.replace('{email}',CONTACT_EMAIL):COPY.form.sendScan):COPY.form.send+(CONTACT_EMAIL?COPY.form.orEmail.replace('{email}',CONTACT_EMAIL):'');
       btn.disabled=false; btn.firstChild.textContent=label;
@@ -1194,12 +1196,12 @@ function result(){
       <p class="diag-line">${esc(R.diag[c.overall])}</p>
       ${signal}
     </div>
-    <div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>
+    ${SCAN_EMAIL_GATE?'':`<div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>`}
     <div class="basis-notes"><p class="note">${esc(R.transp)}</p><p class="note">${esc(R.disclaimer)}</p></div>
     <button class="back" type="button" data-restart>${esc(S.restart)}</button>
   </div>`;
-  stage.querySelector('[data-req]').addEventListener('click',openRequest);
-  stage.querySelector('[data-restart]').addEventListener('click',()=>{Object.keys(ans).forEach(k=>delete ans[k]);Object.keys(other).forEach(k=>delete other[k]);request.hidden=true;hideGlance();go(0)});
+  const rq=stage.querySelector('[data-req]'); if(rq) rq.addEventListener('click',openRequest);
+  stage.querySelector('[data-restart]').addEventListener('click',()=>{Object.keys(ans).forEach(k=>delete ans[k]);Object.keys(other).forEach(k=>delete other[k]);request.hidden=true;resetScanForm();hideGlance();go(0)});
 }
 function openRequest(){
   const c=compute(); sform.__scan={answers:ans,other,tier:c.overall,dimensions:c.d,scores:c.f};
@@ -1207,7 +1209,17 @@ function openRequest(){
   const t=request.querySelector('[data-request-title]');
   t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); t.focus({preventScroll:true});
 }
-function go(n){ step=n; if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
+/* email gate (French site): the questions first, then the email step, then the results */
+function resetScanForm(){const th=sform.querySelector('.thanks'),b=sform.querySelector('button[type=submit]');[...sform.children].forEach(c=>{c.hidden=c===th});b.disabled=false;if(b.dataset.label)b.firstChild.textContent=b.dataset.label;sform.reset()}
+function gateStep(){
+  hideGlance(); request.hidden=true;
+  stage.innerHTML=`<div class="nav-row"><button class="back" type="button" data-back>${esc(S.back)}</button></div>`;
+  stage.querySelector('[data-back]').addEventListener('click',()=>{request.hidden=true;go(Q.length-1)});
+  openRequest();
+}
+sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}) });
+{const b=sform.querySelector('button[type=submit]'); b.dataset.label=b.firstChild.textContent}
+function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
 
 
 /* ---------- Selected Studies gallery: counter, arrows, keyboard and mouse drag (touch + trackpad scroll natively) ---------- */

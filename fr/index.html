@@ -688,7 +688,7 @@ body{background:var(--rl-ivory)}
     <p class="sl"><span class="n">02</span><span class="t">Raisey Scan</span></p>
     <div class="rv-head">
       <h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>
-      <p class="lede">Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en visibilité, autorité et expérience patient.</p>
+      <p class="lede">Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en matière de visibilité, d’autorité et d’expérience patient.</p>
     </div>
 
     <ol class="dim-index" id="dims6" aria-label="Les six dimensions du Raisey Scan">
@@ -722,7 +722,7 @@ body{background:var(--rl-ivory)}
       <div data-stage aria-live="polite"></div>
       <div class="req-box" data-request hidden>
         <p class="done"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Scan terminé</p>
-        <h3 tabindex="-1" data-request-title>Où souhaitez-vous recevoir les résultats complets de votre Scan ?</h3>
+        <h3 tabindex="-1" data-request-title>Recevez votre Raisey Scan personnalisé.</h3>
         <p class="muted" style="max-width:52ch">Les résultats complets de votre Raisey Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier échange.</p>
         <form class="lead form" id="scan-form" data-variant="scan" novalidate>
           <div class="hp" aria-hidden="true"><label for="sf-website_url">Laissez ce champ vide</label><input id="sf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
@@ -747,13 +747,13 @@ body{background:var(--rl-ivory)}
     <div class="approach">
       <div class="ap-l">
         <h2 id="ap-h"><span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span></h2>
-        <p class="lede">Conçu pour que votre cabinet s’élève.</p>
+        <p class="lede">Une présence plus forte pour un cabinet plus influent.</p>
       </div>
       <div class="dark ap-panel">
         <div class="trio">
-          <div class="it"><span class="num">01</span><h3>Être trouvé</h3><p>Élevez votre visibilité sur la recherche, en local et sur les réseaux, là où vos patients cherchent déjà.</p></div>
-          <div class="it"><span class="num">02</span><h3>Inspirer confiance</h3><p>Faites reconnaître l’autorité que vous avez acquise, dès le premier regard.</p></div>
-          <div class="it"><span class="num">03</span><h3>Être choisi</h3><p>Renforcez la confiance à chaque étape, et transformez l’attention en consultations, puis en fidélité.</p></div>
+          <div class="it"><span class="num">01</span><h3>Être trouvé</h3><p>Visible sur la recherche, en local et sur les réseaux — là où vos patients cherchent déjà.</p></div>
+          <div class="it"><span class="num">02</span><h3>Inspirer confiance</h3><p>Une présence digitale qui exprime, dès le premier regard, votre expertise et votre autorité.</p></div>
+          <div class="it"><span class="num">03</span><h3>Être choisi</h3><p>Un parcours patient qui transforme l’hésitation en consultation, puis la consultation en fidélité.</p></div>
         </div>
       </div>
     </div>
@@ -1005,6 +1005,7 @@ body{background:var(--rl-ivory)}
 // Set to your form endpoint (e.g. Formspree/Basin). While empty, forms say so instead of pretending to send.
 const FORM_ENDPOINT = '';
 const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
+const SCAN_EMAIL_GATE = true;   // true = results are revealed only after the email step (French site)
 const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1086,6 +1087,7 @@ document.querySelectorAll('form.lead').forEach(form=>{
     try{
       await send(p);
       [...form.children].forEach(c=>{c.hidden=c!==thanks}); thanks.hidden=false; thanks.focus();
+      form.dispatchEvent(new CustomEvent('lead:sent'));
     }catch(err){
       status.dataset.s='error'; status.textContent=(err.message==='not-connected'&&DEV)?COPY.form.notConnected:form.dataset.variant==='scan'?(CONTACT_EMAIL?COPY.form.sendScanEmail.replace('{email}',CONTACT_EMAIL):COPY.form.sendScan):COPY.form.send+(CONTACT_EMAIL?COPY.form.orEmail.replace('{email}',CONTACT_EMAIL):'');
       btn.disabled=false; btn.firstChild.textContent=label;
@@ -1194,12 +1196,12 @@ function result(){
       <p class="diag-line">${esc(R.diag[c.overall])}</p>
       ${signal}
     </div>
-    <div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>
+    ${SCAN_EMAIL_GATE?'':`<div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>`}
     <div class="basis-notes"><p class="note">${esc(R.transp)}</p><p class="note">${esc(R.disclaimer)}</p></div>
     <button class="back" type="button" data-restart>${esc(S.restart)}</button>
   </div>`;
-  stage.querySelector('[data-req]').addEventListener('click',openRequest);
-  stage.querySelector('[data-restart]').addEventListener('click',()=>{Object.keys(ans).forEach(k=>delete ans[k]);Object.keys(other).forEach(k=>delete other[k]);request.hidden=true;hideGlance();go(0)});
+  const rq=stage.querySelector('[data-req]'); if(rq) rq.addEventListener('click',openRequest);
+  stage.querySelector('[data-restart]').addEventListener('click',()=>{Object.keys(ans).forEach(k=>delete ans[k]);Object.keys(other).forEach(k=>delete other[k]);request.hidden=true;resetScanForm();hideGlance();go(0)});
 }
 function openRequest(){
   const c=compute(); sform.__scan={answers:ans,other,tier:c.overall,dimensions:c.d,scores:c.f};
@@ -1207,7 +1209,17 @@ function openRequest(){
   const t=request.querySelector('[data-request-title]');
   t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); t.focus({preventScroll:true});
 }
-function go(n){ step=n; if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
+/* email gate (French site): the questions first, then the email step, then the results */
+function resetScanForm(){const th=sform.querySelector('.thanks'),b=sform.querySelector('button[type=submit]');[...sform.children].forEach(c=>{c.hidden=c===th});b.disabled=false;if(b.dataset.label)b.firstChild.textContent=b.dataset.label;sform.reset()}
+function gateStep(){
+  hideGlance(); request.hidden=true;
+  stage.innerHTML=`<div class="nav-row"><button class="back" type="button" data-back>${esc(S.back)}</button></div>`;
+  stage.querySelector('[data-back]').addEventListener('click',()=>{request.hidden=true;go(Q.length-1)});
+  openRequest();
+}
+sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}) });
+{const b=sform.querySelector('button[type=submit]'); b.dataset.label=b.firstChild.textContent}
+function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
 
 
 /* ---------- Selected Studies gallery: counter, arrows, keyboard and mouse drag (touch + trackpad scroll natively) ---------- */
