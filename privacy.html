@@ -235,6 +235,29 @@ body{background:var(--rl-ivory)}
 #founding .fp-photo img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;background:#2c2422}
 #founding .fp-photo .mono{position:static;margin-top:12px;color:var(--rl-on-dark-2)}
 #founding .btn{--b:var(--rl-on-dark);--f:var(--rl-ink);border-color:var(--rl-on-dark)}
+/* ---- Founding partners, mobile (< 900 px): two-line heading + swipe carousel of the three benefits; desktop unchanged ---- */
+.fp-nav{display:none}
+@media (max-width:899px){
+  #founding{overflow-x:clip}
+  #founding .fp-lab{display:grid;gap:6px}
+  #founding .fp-lab .n,#founding .fp-lab .fp-dash{display:none}
+  #founding .fp-lab .t{display:grid;gap:6px}
+  #founding .fp-lab .fp-lt{font:400 clamp(1.45rem,1.1rem + 1.6vw,1.8rem)/1.1 var(--serif);letter-spacing:-.01em;text-transform:none}
+  #founding .fp-lab .nb{color:var(--muted)}
+  #founding .fp-perks{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;
+    margin-right:calc(50% - 50vw);padding-right:max(var(--gutter),calc(50vw - 50%));outline:none}
+  #founding .fp-perks::-webkit-scrollbar{display:none}
+  #founding .fp-perks:focus-visible{outline:2px solid var(--rl-on-dark);outline-offset:6px}
+  #founding .fp-perks .it{flex:0 0 84vw;max-width:520px;scroll-snap-align:start;padding:18px 0 4px;gap:10px}
+  #founding .fp-perks h3{text-wrap:balance}
+  #founding .fp-perks p{font-size:15px;line-height:1.5;max-width:none}
+  .fp-nav{display:flex;align-items:center;justify-content:space-between;margin-top:18px;font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--rl-on-dark)}
+  .fp-nav .cs-count{text-align:left;min-width:0}
+  .fp-nav .cs-count .t{color:var(--rl-on-dark-2)}
+  .fp-arrows{display:flex;gap:10px}
+  .fp-nav .cs-btn{color:var(--rl-on-dark);border-color:color-mix(in srgb,var(--rl-on-dark) 35%,transparent)}
+  .fp-nav .cs-btn:hover:not(:disabled){color:var(--rl-on-dark);border-color:var(--rl-on-dark)}
+}
 /* contact: ivory + burgundy panel */
 #contact .c-panel{background:var(--rl-burgundy)}
 .site-footer{background:var(--rl-ivory)}

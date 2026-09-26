@@ -247,7 +247,10 @@ def main():
     sub('<figcaption class="f-cap"><span>You built it.</span> <em>We raise it.</em></figcaption>', '<figcaption class="f-cap"><span>Même expertise.</span> <em>Un rayonnement plus large.</em></figcaption>')
 
     # ---------- 07 founding partners ----------
-    sub('<span class="t">Founding partners — <span class="nb">Paris · London · Dubai</span></span>', '<span class="t">Partenaires fondateurs — <span class="nb">Paris · Londres · Dubaï</span></span>')
+    sub('<span class="t"><span class="fp-lt">Founding partners</span><span class="fp-dash"> — </span><span class="nb">Paris · London · Dubai</span></span>', '<span class="t"><span class="fp-lt">Partenaires fondateurs</span><span class="fp-dash"> — </span><span class="nb">Paris · Londres · Dubaï</span></span>')
+    sub('aria-label="Founding partner benefits. Swipe, or use the arrows."', 'aria-label="Avantages partenaires fondateurs. Faites défiler, ou utilisez les flèches."')
+    sub('aria-label="Previous"', 'aria-label="Précédent"')
+    sub('aria-label="Next"', 'aria-label="Suivant"')
     sub('<span class="a">A closer way</span> <span class="b">of working.</span>', '<span class="a">Une manière de travailler</span> <span class="b">plus proche.</span>')
     sub('Six practices. Direct collaboration.<br>Growth built around your practice.', 'Six cabinets. Une collaboration directe.<br>Une croissance pensée autour de votre cabinet.')
     sub('Raisey Lab is opening its first six partnerships. Each collaboration begins with a conversation to understand your practice, positioning and priorities — followed by a personalised Raisey Review to define what to raise, and in what order.',
