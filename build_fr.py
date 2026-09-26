@@ -36,11 +36,11 @@ def main():
     sub('<title>Raisey Lab — Digital presence for aesthetic doctors &amp; clinics</title>',
         '<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>')
     sub('content="Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics. Start with the free 4-minute Raisey Scan."',
-        'content="Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques. Commencez par le Raisey Scan gratuit en 4 minutes."')
+        'content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent, à laquelle ils font confiance, et qu’ils choisissent. Commencez par un Raisey Scan gratuit."')
     sub('<meta property="og:title" content="Raisey Lab — You built the expertise. We raise its presence.">',
         '<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">')
     sub('content="Visibility, authority and growth for aesthetic doctors and clinics. Paris · London · Dubai."',
-        'content="Visibilité, autorité et croissance pour les médecins et cliniques esthétiques. Paris · Londres · Dubaï."')
+        'content="Présence digitale pour médecins et cliniques esthétiques. Paris · Londres · Dubaï."')
     fr = fr.replace('href="data:image/svg+xml', 'href="data:image/svg+xml')  # favicon is inline, unchanged
     fr = fr.replace('href="fonts/', 'href="../fonts/').replace('url(fonts/', 'url(../fonts/')
     fr = re.sub(r'(?<![\w/.])images/', '../images/', fr)
@@ -143,13 +143,13 @@ def main():
 
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
-    sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous élevons</span><span class="l2">votre <em>présence.</em></span>')
+    sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span>')
     sub('From visibility to patient experience, we connect the digital touchpoints that shape how your practice is found, perceived and chosen.',
         'De la visibilité à l’expérience patient, nous relions les points de contact digitaux qui décident de la façon dont votre cabinet est trouvé, perçu et choisi.')
     sub('<p class="mc"><span>Be found.</span><span>Be trusted.</span><span>Be chosen.</span></p>', '<p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>')
-    sub('<span class="nm">Visibility</span>', '<span class="nm">Visibilité</span>')
+    sub('<span class="nm">Visibility</span>', '<span class="nm">Présence digitale</span>')
     sub('Search · Google · Social · Reputation', 'Recherche · Google · Réseaux · Réputation')
-    sub('Raise your visibility where patients are already looking.', 'Élevez votre visibilité là où vos patients cherchent déjà.')
+    sub('Raise your visibility where patients are already looking.', 'Soyez visible là où vos patients cherchent déjà.')
     sub('<p class="p-stg">Be found</p>', '<p class="p-stg">Être trouvé</p>')
     sub('<li>Local search &amp; SEO</li><li>Google Business Profile</li><li>Social presence</li><li>Reviews &amp; reputation</li>',
         '<li>Référencement local et SEO</li><li>Fiche Google Business</li><li>Réseaux sociaux</li><li>Avis et e-réputation</li>')
@@ -159,9 +159,9 @@ def main():
     sub('<p class="p-stg">Build trust, shape the experience</p>', '<p class="p-stg">Inspirer confiance, soigner l’expérience</p>')
     sub('<li>Positioning &amp; brand direction</li><li>Website design &amp; build</li><li>Booking &amp; patient journey</li><li>SEO foundations</li>',
         '<li>Positionnement et identité de marque</li><li>Conception et développement du site</li><li>Prise de rendez-vous et parcours patient</li><li>Bases SEO</li>')
-    sub('<span class="nm">Sustained Visibility</span>', '<span class="nm">Visibilité durable</span>')
+    sub('<span class="nm">Sustained Visibility</span>', '<span class="nm">Présence continue</span>')
     sub('Content · Social · Google · Reputation', 'Contenu · Réseaux · Google · Réputation')
-    sub('Keep your practice visible, relevant and rising after launch.', 'Gardez votre cabinet visible, pertinent et en progression, bien après le lancement.')
+    sub('Keep your practice visible, relevant and rising after launch.', 'Gardez votre présence visible, pertinente et cohérente, bien après le lancement.')
     sub('<p class="p-stg">Stay visible</p>', '<p class="p-stg">Rester visible</p>')
     sub('<li>Editorial content</li><li>Social presence</li><li>Google &amp; reviews</li><li>Performance reporting</li>',
         '<li>Contenu éditorial</li><li>Réseaux sociaux</li><li>Google et avis</li><li>Suivi des performances</li>')
@@ -173,12 +173,12 @@ def main():
         '<li>Stratégie de croissance</li><li>Analytics et reporting</li><li>Marque personnelle</li><li>Contenus d’expertise</li>')
     sub('Discuss this <i class="ar"></i>', 'En parler <i class="ar"></i>')
     sub('<p class="eb">Not sure where to start?</p>', '<p class="eb">Vous ne savez pas par où commencer ?</p>')
-    sub('<h3>See what you can raise.</h3>', '<h3>Découvrez ce que vous pouvez élever.</h3>')
+    sub('<h3>See what you can raise.</h3>', '<h3>Découvrez ce que révèlent vos réponses.</h3>')
     sub('Start my Raisey Scan <i class="ar"></i></a>\n    </div>\n  </div>\n</section>', 'Démarrer mon Raisey Scan <i class="ar"></i></a>\n    </div>\n  </div>\n</section>')
 
     # ---------- 05 studies ----------
     sub('<h2 id="work-h">Raisey Selected Studies</h2><span class="r">Independent strategic analyses</span>',
-        '<h2 id="work-h">Études sélectionnées Raisey</h2><span class="r">Analyses stratégiques indépendantes</span>')
+        '<h2 id="work-h">Études de présence sélectionnées</h2><span class="r">Analyses stratégiques indépendantes</span>')
     studies = [
         ('A Senior Dermatologist, 20 Years in Practice', 'Un dermatologue reconnu, 20 ans de carrière', 'Direction: Authority to Visibility to Legacy', 'Orientation : Autorité, Visibilité, Héritage',
          ['Authority', 'Visibility', 'Legacy'], ['Autorité', 'Visibilité', 'Héritage'],
@@ -212,11 +212,11 @@ def main():
         new = grp(ch_fr)
         sub(old, new)
         sub('<p>' + p_en + '</p>', '<p>' + p_fr + '</p>')
-    sub('aria-label="Raisey Selected Studies. Swipe, or use the arrow keys."', 'aria-label="Études sélectionnées Raisey. Faites défiler, ou utilisez les flèches du clavier."')
+    sub('aria-label="Raisey Selected Studies. Swipe, or use the arrow keys."', 'aria-label="Études de présence sélectionnées. Faites défiler, ou utilisez les flèches du clavier."')
     sub('aria-label="Previous study"', 'aria-label="Étude précédente"')
     sub('aria-label="Next study"', 'aria-label="Étude suivante"')
     sub('Independent Studies are Raisey Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
-        'Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
+        'Les Études de présence sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en présence digitale. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
 
     # ---------- 06 founder ----------
     sub('<span class="t">Founder</span>', '<span class="t">Fondatrice</span>')
@@ -234,7 +234,7 @@ def main():
     sub('<p class="cs">Digital growth&nbsp;· Beauty&nbsp;· Luxury</p>', '<p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>')
     sub('<h3>Paris&nbsp;· London&nbsp;· International</h3>', '<h3>Paris&nbsp;· Londres&nbsp;· International</h3>')
     sub('<p class="cs">Multi-market experience</p>', '<p class="cs">Expérience multi-marchés</p>')
-    sub('<figcaption class="f-cap"><span>You built it.</span> <em>We raise it.</em></figcaption>', '<figcaption class="f-cap"><span>Vous l\'avez bâti.</span> <em>Nous l\'élevons.</em></figcaption>')
+    sub('<figcaption class="f-cap"><span>You built it.</span> <em>We raise it.</em></figcaption>', '<figcaption class="f-cap"><span>Même expertise.</span> <em>Un rayonnement plus large.</em></figcaption>')
 
     # ---------- 07 founding partners ----------
     sub('<span class="t">Founding partners — <span class="nb">Paris · London · Dubai</span></span>', '<span class="t">Partenaires fondateurs — <span class="nb">Paris · Londres · Dubaï</span></span>')
@@ -244,20 +244,20 @@ def main():
         'Raisey Lab ouvre ses six premiers partenariats. Chaque collaboration commence par un échange pour comprendre votre pratique, votre positionnement et vos priorités — suivi d’un Raisey Review personnalisé pour définir ce qu’il faut élever, et dans quel ordre.')
     sub('<span class="m">Practices<br>only</span><span class="d">Founding<br>Partners</span>', '<span class="m">Six cabinets<br>seulement</span><span class="d">Partenaires<br>fondateurs</span>')
     sub('<b>01</b> — Know what to raise</span><h3>Your Raisey Review</h3><p>We look at what you’ve built, where it stands today, and what deserves to be raised next.</p>',
-        '<b>01</b> — Savoir ce qu’il faut élever</span><h3>Votre Raisey Review</h3><p>Nous regardons ce que vous avez bâti, où il en est aujourd’hui, et ce qui mérite d’être élevé ensuite.</p>')
+        '<b>01</b> — Partir de la bonne analyse</span><h3>Votre Raisey Review</h3><p>Après un premier échange, nous analysons l’état réel de votre présence digitale et définissons les écarts, les opportunités et les recommandations.</p>')
     sub('<b>02</b> — Built around your practice</span><h3>Founding Partner Conditions</h3><p>No predefined package. Your priorities, scope and strategy are shaped around what your practice actually needs, with preferred conditions reserved for our first six partners.</p>',
         '<b>02</b> — Sur mesure pour votre cabinet</span><h3>Conditions partenaire fondateur</h3><p>Pas d’offre toute faite. Vos priorités, votre périmètre et votre stratégie sont définis selon ce dont votre cabinet a réellement besoin, avec des conditions privilégiées réservées à nos six premiers partenaires.</p>')
     sub('<b>03</b> — Direct collaboration</span><h3>Work directly with the founder</h3><p>Strategy, creative direction and key decisions are handled directly with the founder of Raisey Lab — from the first conversation to implementation.</p>',
         '<b>03</b> — Un échange direct</span><h3>Travaillez directement avec la fondatrice</h3><p>Stratégie, direction créative et décisions clés se traitent directement avec la fondatrice de Raisey Lab — du premier échange jusqu’à la mise en œuvre.</p>')
     sub('<p class="lb">Founding partnership</p>', '<p class="lb">Partenariat fondateur</p>')
-    sub('<span>Your expertise is already established.</span> <em>Now let’s raise it.</em>', '<span>Votre expertise est déjà établie.</span> <em>Élevons-la maintenant.</em>')
+    sub('<span>Your expertise is already established.</span> <em>Now let’s raise it.</em>', '<span>Votre expertise est déjà établie.</span> <em>Construisons la présence qui lui ressemble.</em>')
     sub('Six founding partnerships across <span class="nb">Paris · London · Dubai.</span>', 'Six partenariats fondateurs entre <span class="nb">Paris · Londres · Dubaï.</span>')
     sub('Become a founding partner <i class="ar"></i>', 'Devenir partenaire fondateur <i class="ar"></i>')
     sub('<span>Raisey Scan</span><span>First conversation</span><span>Raisey Review</span><span>Transformation</span><span>Ongoing Growth</span>', '<span>Raisey Scan</span><span>Premier échange</span><span>Raisey Review</span><span>Transformation</span><span>Croissance continue</span>')
 
     # ---------- 08 contact ----------
-    sub('<span class="t">Let’s raise what you’ve built</span>', '<span class="t">Élevons ce que vous avez bâti</span>')
-    sub('<h2 id="c-h">Tell us what<br> you’ve built.</h2>', '<h2 id="c-h">Dites-nous ce que<br> vous avez bâti.</h2>')
+    sub('<span class="t">Let’s raise what you’ve built</span>', '<span class="t">Construisons votre présence</span>')
+    sub('<h2 id="c-h">Tell us what<br> you’ve built.</h2>', '<h2 id="c-h">Parlons de votre cabinet.</h2>')
     sub('Tell us a little about your clinic and we’ll reply within two business days to arrange a first conversation.', 'Présentez-nous votre clinique en quelques lignes : nous vous répondons sous deux jours ouvrés pour convenir d’un premier échange.')
     sub('<label for="cf-name">Name <span', '<label for="cf-name">Nom <span')
     sub('placeholder="Dr. Amara Okafor" autocomplete="name" required data-err="Please add your name."', 'placeholder="Dr Marie Dupont" autocomplete="name" required data-err="Merci d’indiquer votre nom."')
@@ -270,13 +270,13 @@ def main():
     sub('Required. Everything else is optional. We use these details only to reply to your enquiry and to arrange a first conversation. <a class="link" href="privacy.html">Privacy Policy</a>',
         'Obligatoire. Le reste est facultatif. Ces informations servent uniquement à répondre à votre demande et à convenir d’un premier échange. <a class="link" href="confidentialite.html">Politique de confidentialité</a>')
     sub('<h3>Thank you. We’ll be in touch within two business days.</h3><p class="muted">Your message is with us.</p>', '<h3>Merci. Nous vous répondons sous deux jours ouvrés.</h3><p class="muted">Votre message est bien arrivé.</p>')
-    sub('<h3>Expertise, elevated.</h3>', '<h3>L’expertise, élevée.</h3>')
+    sub('<h3>Expertise, elevated.</h3>', '<h3>Un avenir plus visible pour votre cabinet.</h3>')
     sub('<p class="mantra"><span>Be found</span><span>Be trusted</span><span>Be chosen</span></p>', '<p class="mantra"><span>Être trouvé</span><span>Inspirer confiance</span><span>Être choisi</span></p>')
 
     # ---------- footer ----------
     sub('<li><a href="#contact">Contact</a></li>', '<li><a href="#contact">Contact</a></li>')
     sub('<a class="lg" href="privacy.html">Privacy Policy</a><a class="lg" href="privacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Raisey Lab. All rights reserved.</span>',
-        '<a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · L’expertise, élevée. © <span id="yr">2026</span> Raisey Lab. Tous droits réservés.</span>')
+        '<a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Raisey Lab. Tous droits réservés.</span>')
 
     # ---------- JS copy ----------
     copy_fr = r'''const COPY = {

@@ -183,7 +183,7 @@ def page(lang):
 ''' % dict(date=date, name=name, addr=addr, email=email, ret=ret, host=host, prov=prov, pub=pub, siren_row=siren_row)
         foot_legal = '<a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a>'
         rights = 'Tous droits réservés.'
-        tag = 'L’expertise, élevée.'
+        tag = 'Un standard plus élevé de présence digitale.'
         places = 'Paris · Londres · Dubaï'
         skip, lang_attr = 'Aller au contenu', 'fr'
         menu_open, menu_close = 'Menu', 'Fermer'

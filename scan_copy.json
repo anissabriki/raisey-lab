@@ -193,43 +193,43 @@
    "medical": {
     "established": [
      "Vos réponses suggèrent que vous voyez votre expertise comme la première chose qu’un nouveau patient comprend de vous.",
-     "L’enjeu pourrait être de la porter de façon cohérente partout où vous apparaissez."
+     "La vraie question : dans quelle mesure cela se vérifie partout où vous apparaissez."
     ],
     "potential": [
      "Vos réponses suggèrent que ce qui ressort d’abord, ce sont vos traitements, plus que votre expertise elle-même.",
-     "Il y a peut-être de la place pour que votre autorité médicale passe au premier plan, devant la liste des traitements."
+     "Cela peut indiquer que votre autorité médicale a de la place pour passer au premier plan."
     ],
     "elevate": [
      "Vos réponses laissent penser que la première impression est surtout pratique, varie selon l’endroit où l’on vous trouve, ou reste difficile à cerner.",
-     "Cela peut indiquer une marge pour affirmer votre autorité médicale, afin qu’elle soit la première chose que l’on comprend de vous."
+     "Cela peut indiquer que votre autorité médicale ne passe pas encore autant au premier plan qu’elle le pourrait."
     ]
    },
    "digital": {
     "established": [
-     "Vos réponses suggèrent que votre fiche Google et vos avis patients sont suivis activement.",
+     "Vos réponses suggèrent que votre présence Google et vos avis patients sont suivis activement.",
      "C’est un vrai atout, et un atout facile à négliger avec le temps."
     ],
     "potential": [
-     "Vos réponses suggèrent que votre fiche Google et vos avis ont été travaillés activement il y a quelques mois.",
-     "Il y a peut-être de la marge pour renforcer la confiance avec un rythme plus régulier."
+     "Vos réponses suggèrent que votre présence Google et vos avis ont été travaillés activement il y a quelques mois.",
+     "Les bases sont peut-être là, avec de la place pour un rythme plus régulier."
     ],
     "elevate": [
-     "Vos réponses laissent penser que votre fiche Google et vos avis patients ne sont pas gérés activement en ce moment.",
-     "Il y a peut-être de la marge pour renforcer la confiance, là où les futurs patients vous consultent avant de vous contacter."
+     "Vos réponses laissent penser que votre présence Google et vos avis patients ne sont pas gérés activement en ce moment.",
+     "Cela peut indiquer une marge de progression sur un signal que les futurs patients peuvent consulter avant de vous contacter."
     ]
    },
    "brand": {
     "established": [
-     "Vos réponses suggèrent que votre image en ligne reflète, selon vous, votre cabinet tel qu’il est aujourd’hui.",
+     "Vos réponses suggèrent que votre présence en ligne reflète, selon vous, votre cabinet tel qu’il est aujourd’hui.",
      "Cet alignement est un vrai atout."
     ],
     "potential": [
-     "Vos réponses suggèrent que votre image en ligne reflète globalement votre cabinet, avec certains éléments qui ont vieilli.",
-     "Il y a peut-être de la marge pour affiner votre positionnement, afin que l’image rattrape le cabinet."
+     "Vos réponses suggèrent que votre présence en ligne reflète globalement votre cabinet, avec certains éléments qui ont vieilli.",
+     "Cela peut indiquer une image qui n’a pas tout à fait rattrapé le cabinet."
     ],
     "elevate": [
      "Vos réponses laissent penser que votre image en ligne ne reflète pas encore pleinement votre cabinet, ou que vous n’avez pas encore eu l’occasion d’y réfléchir.",
-     "Cela peut indiquer une marge pour affiner votre positionnement, et réduire l’écart entre le cabinet que vous dirigez et l’impression qu’il donne."
+     "Cela peut indiquer un écart entre le cabinet que vous dirigez et l’impression qu’il donne."
     ]
    },
    "search": {
@@ -239,11 +239,11 @@
     ],
     "potential": [
      "Vos réponses suggèrent que vous avez une bonne intuition de la manière dont vos nouveaux patients vous découvrent, sans pour autant la suivre avec précision.",
-     "Il y a peut-être de la marge pour transformer cette intuition en connaissance claire, et gagner en visibilité là où cela compte."
+     "Cela peut indiquer une marge pour transformer cette intuition en connaissance plus claire."
     ],
     "elevate": [
      "Vos réponses laissent penser que vos nouveaux patients vous découvrent surtout par le bouche-à-oreille, par plusieurs canaux, ou par des chemins que vous ne pouvez pas tout à fait retracer.",
-     "Cela peut indiquer une marge pour gagner en visibilité, en commençant par mieux comprendre comment on vous trouve."
+     "Cela peut indiquer que la façon dont on vous découvre reste encore floue."
     ]
    },
    "content": {
@@ -253,11 +253,11 @@
     ],
     "potential": [
      "Vos réponses suggèrent que vos contenus réunissent de vrais ingrédients, comme un point de vue ou des thèmes récurrents, sans former encore une stratégie éditoriale pleinement délibérée.",
-     "Il y a peut-être de la marge pour donner une direction claire à ce potentiel, et asseoir votre autorité par ce que vous publiez."
+     "Cela peut indiquer un potentiel bien présent, mais pas encore pleinement structuré."
     ],
     "elevate": [
      "Vos réponses laissent penser que vos contenus s’expriment rarement, ou qu’ils suivent davantage les traitements, l’actualité ou l’air du temps qu’une ligne éditoriale définie.",
-     "Cela peut indiquer un potentiel inexploité : exprimer ce que vous pensez, avec une direction claire, pourrait asseoir votre autorité."
+     "Cela peut indiquer un potentiel inexploité : exprimer ce que vous pensez, et lui donner une direction claire."
     ]
    },
    "journey": {
@@ -267,25 +267,25 @@
     ],
     "potential": [
      "Vos réponses suggèrent que certaines étapes du parcours sont bien maîtrisées, tandis que d’autres reposent sur l’habitude ou sur l’effort manuel.",
-     "Il y a peut-être de la marge pour fluidifier le parcours patient, du premier contact à la relation dans la durée."
+     "Cela peut indiquer une base solide, avec de la marge pour rendre le chemin plus cohérent, du premier contact à la relation dans la durée."
     ],
     "elevate": [
      "Vos réponses laissent penser que le parcours repose sur des appels ou des messages, sur un suivi manuel, ou sur aucun suivi structuré.",
-     "Cela peut indiquer une marge pour structurer le parcours patient, afin que l’intérêt comme les relations existantes aient toujours un chemin clair."
+     "Cela peut indiquer que l’intérêt, comme les relations existantes, n’ont pas toujours un chemin clair devant eux."
     ]
    }
   },
   "diag": {
-   "established": "Vos réponses suggèrent des fondations qui jouent déjà en votre faveur. L’enjeu pourrait être de les porter plus loin : un cabinet distinctif, cohérent et visible là où cela compte.",
-   "potential": "Vos réponses suggèrent de solides fondations. Il y a peut-être de la marge pour renforcer la confiance, affiner votre positionnement et soigner davantage l’expérience patient qui en découle.",
-   "elevate": "Vos réponses suggèrent qu’une grande partie de ce que vous avez bâti n’est pas encore visible. Il y a peut-être une vraie marge pour gagner en visibilité et en autorité, afin que de nouveaux patients vous trouvent, vous fassent confiance et vous choisissent."
+   "established": "Vos réponses suggèrent une présence digitale déjà solide. L’enjeu : la garder distinctive et cohérente, et la faire travailler encore plus pour votre cabinet.",
+   "potential": "Vos réponses suggèrent de solides fondations. L’enjeu : les transformer en une expérience patient plus distinctive, plus rassurante et plus cohérente.",
+   "elevate": "Vos réponses suggèrent une présence digitale encore à ses débuts. L’enjeu : poser les fondations qui aideront de nouveaux patients à vous trouver, à vous faire confiance et à vous choisir."
   },
   "sig": {
    "label": "Votre signal le plus fort :",
-   "none": "Tout cabinet commence quelque part. Vos réponses laissent entrevoir une vraie marge pour faire rayonner ce que vous avez bâti."
+   "none": "Toute présence commence quelque part. Vos réponses laissent entrevoir une vraie occasion d’en bâtir une à la hauteur de votre expertise."
   },
   "basis": "Basé sur vos réponses · Pas sur un audit de votre présence digitale",
-  "transp": "Le Raisey Scan repose uniquement sur vos réponses. Il n’examine ni votre site, ni votre fiche Google, ni vos réseaux sociaux : cela se fait lors du Raisey Review.",
+  "transp": "Le Raisey Scan repose uniquement sur vos réponses. Il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux : cela se fait lors du Raisey Review.",
   "request": "Recevoir mon Scan complet",
   "obj": {
    "patients": "Vous souhaitez accueillir davantage de patients qualifiés. Nous voudrions comprendre qui vous recevez aujourd’hui, et qui vous aimeriez recevoir davantage.",
@@ -315,24 +315,25 @@
   },
   "email": {
    "subject": "Les résultats de votre Raisey Scan",
-   "preheader": "Où vous en êtes aujourd’hui, et ce qui peut aller plus loin.",
+   "preheader": "Votre profil sur six dimensions, et les signaux qui le composent.",
    "hello": "Bonjour,",
-   "lead": "Vos réponses révèlent où vous en êtes — et ce qui peut aller plus loin.",
-   "intro": "Votre Raisey Scan met en lumière les signaux qui ressortent de vos réponses à travers six dimensions : autorité, visibilité, expression de marque, contenu et parcours patient.",
-   "disc": "Il repose sur vos réponses et ne constitue pas un audit de votre écosystème digital.",
-   "hOverall": "Où vous en êtes aujourd’hui",
+   "lead": "",
+   "intro": "Voici les résultats complets de votre Raisey Scan, établis à partir de vos réponses. Il lit ce que vous nous avez dit : il révèle des signaux, pas une stratégie.",
+   "disc": "",
+   "hOverall": "Votre vue d’ensemble",
    "hDims": "Vos six dimensions",
    "hStrong": "Vos signaux les plus forts",
-   "hRoom": "Là où il y a le plus de marge pour aller plus loin",
+   "hRoom": "Là où il y a davantage de marge pour élever votre présence",
    "hContext": "Le contexte que vous avez partagé",
    "ctxNote": "Ces réponses ne modifient pas vos scores. Elles nous donnent du contexte pour échanger.",
    "hNext": "La suite",
    "trio": [
-    "Le Scan révèle le potentiel.",
-    "Le Raisey Review révèle comment l’élever."
+    "Le Scan révèle les signaux.",
+    "L’échange nous donne le contexte.",
+    "Le Raisey Review définit ce dont votre présence a besoin ensuite."
    ],
-   "timing": "Après un premier échange, nous regardons ce que vous avez bâti, où il en est aujourd’hui, et ce qui mérite d’être élevé ensuite.",
-   "cta": "Démarrer l’échange",
+   "timing": "Le calendrier de votre Raisey Review se fixe ensemble, après notre premier échange.",
+   "cta": "Échanger sur mes résultats",
    "ctaNote": "Nous vous répondons sous deux jours ouvrés.",
    "footAuto": "Une première lecture automatisée, pas une mesure médicale, clinique ou scientifique.",
    "footWhy": "Vous recevez cet e-mail unique parce que vous avez demandé les résultats de votre Raisey Scan sur le site de Raisey Lab. Nous ne vous ajouterons à aucune liste de diffusion.",

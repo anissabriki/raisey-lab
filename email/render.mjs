@@ -77,10 +77,12 @@ export function renderEmail(copy, payload, opts = {}) {
 ${P(d.full + (d.note ? ' ' + d.note : ''), { ...muted, margin: '0' })}</td></tr>`;
   const body = [
     K.brand({ margin: '0 0 28px' }),                                        // wordmark (e.sign = "Raisey Lab")
-    P(e.hello),
-    P(e.lead, { family: K.SERIF, size: 22, lh: 29, margin: '0 0 14px' }),      // editorial lead: what you can raise
-    P(e.intro),
-    P(e.disc, { ...muted, size: 13, lh: 20, margin: '0 0 4px' }),             // disclaimer: clear but secondary
+    ...(e.lead
+      ? [P(e.hello),
+         P(e.lead, { family: K.SERIF, size: 22, lh: 29, margin: '0 0 14px' }),   // editorial lead: what you can raise
+         P(e.intro),
+         P(e.disc, { ...muted, size: 13, lh: 20, margin: '0 0 4px' })]           // disclaimer: clear but secondary
+      : [K.label(T(c.basis), { margin: '0 0 26px' }), P(e.hello), P(e.intro)]),   // French: original Presence-era structure
     K.h2(T(e.hOverall)),
     `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding:0 0 8px">${K.badge(m.tierLabel, m.tier)}</td></tr></table>`,
     P(m.overall),
@@ -100,7 +102,7 @@ ${P(d.full + (d.note ? ' ' + d.note : ''), { ...muted, margin: '0' })}</td></tr>
   ].join('\n');
   const html = K.doc({ lang, title: subject, preheader, body });
   const COL = lang === 'fr' ? NB + ': ' : ': ';   // French typography: no-break space before a colon
-  const text = [e.sign.toUpperCase(), '', T(e.hello), '', T(e.lead), '', T(e.intro), T(e.disc), '',
+  const text = [e.sign.toUpperCase(), ...(e.lead ? ['', T(e.hello), '', T(e.lead), '', T(e.intro), T(e.disc), ''] : [T(c.basis).toUpperCase(), '', T(e.hello), '', T(e.intro), '']),
     T(e.hOverall).toUpperCase(), m.tierLabel + '. ' + T(m.overall), '',
     T(e.hDims).toUpperCase(), ...m.dims.map(d => `- ${d.name} (${d.status})${COL}${T(d.full + (d.note ? ' ' + d.note : ''))}`), '',
     ...(m.strong.length ? [T(e.hStrong).toUpperCase(), ...m.strong.map(d => `- ${d.name}${COL}${T(d.s1)}`), ''] : []),
