@@ -241,6 +241,15 @@ body{background:var(--rl-ivory)}
   #work .case.is-open .cs-more .ar{transform:rotate(-90deg)}
   #work .cs-more[hidden]{display:none}
 }
+/* strategic pathway: always ONE line — compact pills, one shared size for all 6 cards (fitted by script to the longest chain) */
+#work .case p.path{font-size:var(--tag-fs,11px);flex-wrap:nowrap;gap:.32em;white-space:nowrap}
+#work .path .st{gap:.32em}
+#work .path > *{flex:none}
+#work .case > *{min-width:0}
+#work .case p.path{overflow:hidden;max-width:100%}
+@media (max-width:419px){#work .path b{letter-spacing:.03em;padding:.6em .5em}#work .case p.path,#work .path .st{gap:.24em}}
+#work .path b{padding:.6em .64em;letter-spacing:.07em}
+#work .path .ar{width:.95em;height:.6em}
 #work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
 .cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
@@ -289,6 +298,10 @@ body{background:var(--rl-ivory)}
 }
 /* tighter hand-off from the dark Founding section into 08 */
 #founding.sec{padding-bottom:clamp(48px,5.6vw,80px)}
+/* section 08: editorial rhythm — eyebrow closer to the headline, no dead space before the footer */
+#contact.sec{padding-bottom:clamp(40px,4.4vw,64px)}
+#contact .sl{margin-bottom:clamp(18px,2.2vw,30px)}
+#contact + .site-footer,.site-footer{margin-top:0}
 /* contact: ivory + burgundy panel */
 #contact .c-panel{background:var(--rl-burgundy)}
 .site-footer{background:var(--rl-ivory)}
