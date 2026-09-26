@@ -60,7 +60,7 @@ def main():
     sub('<span class="mt">Menu</span>', '<span class="mt">Menu</span>')
 
     # ---------- hero ----------
-    sub('Aesthetic medicine — Visibility · Authority · Growth', 'Médecine esthétique — Visibilité · Autorité · Croissance')
+    sub('<span class="eb-a">Aesthetic medicine —</span> <span class="eb-b">Visibility · Authority · Growth</span>', '<span class="eb-a">Médecine esthétique —</span> <span class="eb-b">Visibilité · Autorité · Croissance</span>')
     h1_old = re.search(r'<h1 class="rise" style="--i:1">.*?</h1>', fr, re.S).group(0)
     fr = fr.replace(h1_old, typo('<h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>'))
     sub('Your expertise, reputation and experience already exist. Raisey Lab raises their visibility, authority and trust, so the right patients choose you.',
