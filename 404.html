@@ -196,20 +196,25 @@ body{background:var(--rl-ivory)}
 #work .st-head .n{color:var(--rl-burgundy)}
 /* ---- Selected Studies: editorial horizontal gallery (one study per slide; swipe, arrows, trackpad, drag) ---- */
 #work{overflow-x:clip}
-#work .cases{--csgap:clamp(22px,3vw,40px);display:flex;gap:var(--csgap);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+#work .cases{--csgap:clamp(16px,1.6vw,22px);display:flex;gap:var(--csgap);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
   margin-right:calc(50% - 50vw);padding-right:max(var(--gutter),calc(50vw - 50%));scroll-padding-left:0;outline:none;touch-action:pan-x pan-y}
 #work .cases::-webkit-scrollbar{display:none}
 #work .cases:focus-visible{outline:2px solid var(--rl-burgundy);outline-offset:6px}
 #work .case{flex:0 0 calc(100vw - 2*var(--gutter) - 40px);scroll-snap-align:start;transition:opacity .45s var(--ease)}
 #work .cases[data-ready] .case:not(.is-active){opacity:.42}
-/* tablet: 2 full cards, desktop: 3 full cards side by side (no cropped preview); mobile keeps 1 card + a glimpse */
-@media (min-width:700px){#work .cases{margin-right:0;padding-right:0}#work .case{flex-basis:calc((100% - var(--csgap)) / 2)}}
-@media (min-width:1000px){#work .case{flex-basis:calc((100% - 2 * var(--csgap)) / 3)}}
+/* study cards: framed columns; widths from the section's content width (container units) so the next card shows as a glimpse */
+#work .wrap{container-type:inline-size}
+#work .case{flex-basis:calc(100cqw - 40px);border:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent);border-radius:6px;
+  background:color-mix(in srgb,var(--rl-optical) 32%,transparent);padding:clamp(20px,2vw,26px) clamp(18px,1.8vw,24px) clamp(22px,2.2vw,28px);gap:14px}
+@media (min-width:700px){#work .case{flex-basis:calc((100cqw - var(--csgap)) / 2)}}
+@media (min-width:1000px){#work .case{flex-basis:calc((100cqw - 2 * var(--csgap)) / 3)}}
+#work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+.cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
 #work .cases.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
 #work .cases.is-drag .case{transition:none}
 .cs-nav{display:flex;align-items:center;gap:16px;margin-top:clamp(22px,3vw,34px);font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--rl-ink)}
-.cs-count{min-width:7.6em;text-align:center;font-variant-numeric:tabular-nums}
+.cs-count{min-width:5.2em;text-align:center;font-variant-numeric:tabular-nums}
 .cs-count .t{color:var(--rl-muted)}
 .cs-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid color-mix(in srgb,var(--rl-ink) 30%,transparent);background:transparent;color:var(--rl-ink);cursor:pointer;transition:border-color .2s,opacity .2s}
 .cs-btn:hover:not(:disabled){border-color:var(--rl-burgundy);color:var(--rl-burgundy)}

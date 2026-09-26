@@ -544,20 +544,25 @@ body{background:var(--rl-ivory)}
 #work .st-head .n{color:var(--rl-burgundy)}
 /* ---- Selected Studies: editorial horizontal gallery (one study per slide; swipe, arrows, trackpad, drag) ---- */
 #work{overflow-x:clip}
-#work .cases{--csgap:clamp(22px,3vw,40px);display:flex;gap:var(--csgap);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+#work .cases{--csgap:clamp(16px,1.6vw,22px);display:flex;gap:var(--csgap);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
   margin-right:calc(50% - 50vw);padding-right:max(var(--gutter),calc(50vw - 50%));scroll-padding-left:0;outline:none;touch-action:pan-x pan-y}
 #work .cases::-webkit-scrollbar{display:none}
 #work .cases:focus-visible{outline:2px solid var(--rl-burgundy);outline-offset:6px}
 #work .case{flex:0 0 calc(100vw - 2*var(--gutter) - 40px);scroll-snap-align:start;transition:opacity .45s var(--ease)}
 #work .cases[data-ready] .case:not(.is-active){opacity:.42}
-/* tablet: 2 full cards, desktop: 3 full cards side by side (no cropped preview); mobile keeps 1 card + a glimpse */
-@media (min-width:700px){#work .cases{margin-right:0;padding-right:0}#work .case{flex-basis:calc((100% - var(--csgap)) / 2)}}
-@media (min-width:1000px){#work .case{flex-basis:calc((100% - 2 * var(--csgap)) / 3)}}
+/* study cards: framed columns; widths from the section's content width (container units) so the next card shows as a glimpse */
+#work .wrap{container-type:inline-size}
+#work .case{flex-basis:calc(100cqw - 40px);border:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent);border-radius:6px;
+  background:color-mix(in srgb,var(--rl-optical) 32%,transparent);padding:clamp(20px,2vw,26px) clamp(18px,1.8vw,24px) clamp(22px,2.2vw,28px);gap:14px}
+@media (min-width:700px){#work .case{flex-basis:calc((100cqw - var(--csgap)) / 2)}}
+@media (min-width:1000px){#work .case{flex-basis:calc((100cqw - 2 * var(--csgap)) / 3)}}
+#work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+.cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
 #work .cases.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
 #work .cases.is-drag .case{transition:none}
 .cs-nav{display:flex;align-items:center;gap:16px;margin-top:clamp(22px,3vw,34px);font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--rl-ink)}
-.cs-count{min-width:7.6em;text-align:center;font-variant-numeric:tabular-nums}
+.cs-count{min-width:5.2em;text-align:center;font-variant-numeric:tabular-nums}
 .cs-count .t{color:var(--rl-muted)}
 .cs-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid color-mix(in srgb,var(--rl-ink) 30%,transparent);background:transparent;color:var(--rl-ink);cursor:pointer;transition:border-color .2s,opacity .2s}
 .cs-btn:hover:not(:disabled){border-color:var(--rl-burgundy);color:var(--rl-burgundy)}
@@ -832,41 +837,47 @@ body{background:var(--rl-ivory)}
 <!-- ============ 05 · SELECTED PRESENCE STUDIES ============ -->
 <section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="st-head"><span class="n">05</span><h2 id="work-h">Études de présence sélectionnées</h2><span class="r">Analyses stratégiques indépendantes</span></div>
-    <div class="cases" tabindex="0" role="group" aria-label="Études de présence sélectionnées. Faites défiler, ou utilisez les flèches du clavier.">
+    <div class="st-head"><span class="n">05</span><h2 id="work-h">Études sélectionnées Raisey</h2><span class="r">Analyses stratégiques indépendantes</span></div>
+    <div class="cases" tabindex="0" role="group" aria-label="Études sélectionnées Raisey. Faites défiler, ou utilisez les flèches du clavier.">
       <article class="case" data-c="rose">
+        <p class="cs-lab"><span class="cs-no">01</span> Dermatologue reconnu</p>
         <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
         <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
         <p>Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.</p>
       </article>
       <article class="case" data-c="lav">
+        <p class="cs-lab"><span class="cs-no">02</span> Cabinet confidentiel</p>
         <h3>Un cabinet esthétique confidentiel, à mi-parcours</h3>
         <p class="path" aria-label="Orientation : Réputation, Positionnement, Premium"><span class="st"><b>Réputation</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Positionnement</b><i class="ar" aria-hidden="true"></i></span><b>Premium</b></p>
         <p>Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.</p>
       </article>
       <article class="case" data-c="gold">
+        <p class="cs-lab"><span class="cs-no">03</span> Infirmière en pratique avancée</p>
         <h3>Une infirmière en pratique avancée qui construit sa patientèle</h3>
         <p class="path" aria-label="Orientation : Confiance, Autorité, Marque"><span class="st"><b>Confiance</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><b>Marque</b></p>
         <p>De bons avis, mais aucun fil conducteur. L’étude : structurer les signaux de confiance en un récit cohérent transforme des preuves éparses en une vraie marque, choisie par les patients en toute connaissance de cause.</p>
       </article>
       <article class="case" data-c="sage">
+        <p class="cs-lab"><span class="cs-no">04</span> Spécialiste de niche</p>
         <h3>Un spécialiste de niche pour un geste rare</h3>
         <p class="path" aria-label="Orientation : Expertise, Visibilité, Acquisition"><span class="st"><b>Expertise</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Acquisition</b></p>
         <p>Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.</p>
       </article>
       <article class="case" data-c="rose">
+        <p class="cs-lab"><span class="cs-no">05</span> Vision clinique</p>
         <h3>Un médecin à la vision clinique affirmée</h3>
         <p class="path" aria-label="Orientation : Point de vue, Contenu, Réputation"><span class="st"><b>Point de vue</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Contenu</b><i class="ar" aria-hidden="true"></i></span><b>Réputation</b></p>
         <p>De vraies convictions sur la manière de pratiquer un traitement — mais aucune n’est publique. L’étude : un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.</p>
       </article>
       <article class="case" data-c="lav">
+        <p class="cs-lab"><span class="cs-no">06</span> Consultant hospitalier</p>
         <h3>Un consultant rattaché à un hôpital</h3>
         <p class="path" aria-label="Orientation : Institution, Voix, Influence"><span class="st"><b>Institution</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Voix</b><i class="ar" aria-hidden="true"></i></span><b>Influence</b></p>
         <p>Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.</p>
       </article>
     </div>
     <div class="cs-nav" data-cs-nav><button type="button" class="cs-btn" data-cs-prev aria-label="Étude précédente"><i class="ar" aria-hidden="true"></i></button><span class="cs-count" aria-live="polite"><b data-cs-i>01</b> <span class="t">/ <span data-cs-n>06</span></span></span><button type="button" class="cs-btn" data-cs-next aria-label="Étude suivante"><i class="ar" aria-hidden="true"></i></button></div>
-    <p class="disc">Les Études de présence sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en présence digitale. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
+    <p class="disc">Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
   </div>
 </section>
 
@@ -1228,12 +1239,12 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   nav.querySelector('[data-cs-n]').textContent=pad(n);
   const rm=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
   let i=0, vis=1;
-  const measure=()=>{const w=track.clientWidth;vis=Math.max(1,cards.filter(c=>c.offsetLeft-cards[0].offsetLeft+c.offsetWidth<=w+2).length)};
+  const box=track.parentElement; const measure=()=>{const cs=getComputedStyle(box),w=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);vis=Math.max(1,cards.filter(c=>c.offsetLeft-cards[0].offsetLeft+c.offsetWidth<=w+2).length)};
   const maxI=()=>Math.max(0,n-vis);
   const idx=()=>{if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) return maxI();
     const x=track.scrollLeft;let best=0,d=Infinity;cards.forEach((c,k)=>{const dd=Math.abs(c.offsetLeft-cards[0].offsetLeft-x);if(dd<d){d=dd;best=k}});return Math.min(best,maxI())};
   const paint=()=>{i=idx();cards.forEach((c,k)=>{const on=k>=i&&k<i+vis;c.classList.toggle('is-active',on);c.setAttribute('aria-hidden',String(!on))});
-    cur.textContent=vis>1?pad(i+1)+'–'+pad(i+vis):pad(i+1);prev.disabled=i===0;next.disabled=i>=maxI()};
+    cur.textContent=pad(i+1);prev.disabled=i===0;next.disabled=i>=maxI()};
   const go=k=>{k=Math.max(0,Math.min(maxI(),k));track.scrollTo({left:cards[k].offsetLeft-cards[0].offsetLeft,behavior:rm()?'auto':'smooth'})};
   prev.addEventListener('click',()=>go(i-1)); next.addEventListener('click',()=>go(i+1));
   track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(i+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(i-1)}});

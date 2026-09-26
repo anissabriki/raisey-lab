@@ -178,7 +178,7 @@ def main():
 
     # ---------- 05 studies ----------
     sub('<h2 id="work-h">Raisey Selected Studies</h2><span class="r">Independent strategic analyses</span>',
-        '<h2 id="work-h">Études de présence sélectionnées</h2><span class="r">Analyses stratégiques indépendantes</span>')
+        '<h2 id="work-h">Études sélectionnées Raisey</h2><span class="r">Analyses stratégiques indépendantes</span>')
     studies = [
         ('A Senior Dermatologist, 20 Years in Practice', 'Un dermatologue reconnu, 20 ans de carrière', 'Direction: Authority to Visibility to Legacy', 'Orientation : Autorité, Visibilité, Héritage',
          ['Authority', 'Visibility', 'Legacy'], ['Autorité', 'Visibilité', 'Héritage'],
@@ -212,11 +212,17 @@ def main():
         new = grp(ch_fr)
         sub(old, new)
         sub('<p>' + p_en + '</p>', '<p>' + p_fr + '</p>')
-    sub('aria-label="Raisey Selected Studies. Swipe, or use the arrow keys."', 'aria-label="Études de présence sélectionnées. Faites défiler, ou utilisez les flèches du clavier."')
+    sub('aria-label="Raisey Selected Studies. Swipe, or use the arrow keys."', 'aria-label="Études sélectionnées Raisey. Faites défiler, ou utilisez les flèches du clavier."')
     sub('aria-label="Previous study"', 'aria-label="Étude précédente"')
     sub('aria-label="Next study"', 'aria-label="Étude suivante"')
+    sub('</span> Senior dermatologist</p>', '</span> Dermatologue reconnu</p>')
+    sub('</span> Boutique practice</p>', '</span> Cabinet confidentiel</p>')
+    sub('</span> Nurse prescriber</p>', '</span> Infirmière en pratique avancée</p>')
+    sub('</span> Niche specialist</p>', '</span> Spécialiste de niche</p>')
+    sub('</span> Clinical point of view</p>', '</span> Vision clinique</p>')
+    sub('</span> Hospital consultant</p>', '</span> Consultant hospitalier</p>')
     sub('Independent Studies are Raisey Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
-        'Les Études de présence sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en présence digitale. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
+        'Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
 
     # ---------- 06 founder ----------
     sub('<span class="t">Founder</span>', '<span class="t">Fondatrice</span>')
