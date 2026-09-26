@@ -151,6 +151,10 @@ def main():
     sub('Search · Google · Social · Reputation', 'Recherche · Google · Réseaux · Réputation')
     sub('Raise your visibility where patients are already looking.', 'Soyez visible là où vos patients cherchent déjà.')
     sub('<p class="p-stg">Be found</p>', '<p class="p-stg">Être trouvé</p>')
+    sub('<span class="stg">Be found</span>', '<span class="stg">Être trouvé</span>')
+    sub('<span class="stg">Build trust, shape the experience</span>', '<span class="stg">Inspirer confiance, soigner l’expérience</span>')
+    sub('<span class="stg">Stay visible</span>', '<span class="stg">Rester visible</span>')
+    sub('<span class="stg">Build authority</span>', '<span class="stg">Bâtir l’autorité</span>')
     sub('<li>Local search &amp; SEO</li><li>Google Business Profile</li><li>Social presence</li><li>Reviews &amp; reputation</li>',
         '<li>Référencement local et SEO</li><li>Fiche Google Business</li><li>Réseaux sociaux</li><li>Avis et e-réputation</li>')
     sub('<span class="nm">Website &amp; Patient Journey</span>', '<span class="nm">Site web et parcours patient</span>')

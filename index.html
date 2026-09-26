@@ -361,7 +361,15 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
   .r-btn .mn::before{display:none}
   .r-btn .n{font-size:1.3rem}
   .r-btn .nm{font-size:1.4rem}
+  /* owner-approved 2026-09-26: descriptor + keywords stay visible when collapsed; the arrow opens description, services and CTA */
+  .r-btn{align-items:start}
+  .r-btn .n{padding-top:.18em}
+  .r-btn .mn{gap:6px}
+  .r-btn .stg{display:block;font:600 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--rasp);margin-top:2px}
+  .r-btn .sup{display:block;font-size:11px;letter-spacing:.14em}
+  .r-body .p-stg,.r-body .p-sup{display:none}
 }
+@media (min-width:720px){.r-btn .stg{display:none}}
 @media (min-width:720px){
   .r-btn .sup,.r-btn .ds{display:block}
   .r-body .p-sup,.r-body .p-ds{display:none}
@@ -781,7 +789,7 @@ body{background:var(--rl-ivory)}
         <li class="row" data-k="digital" data-open="false">
           <h3><button class="r-btn" type="button" id="b-digital" aria-expanded="false" aria-controls="p-digital">
             <span class="n">01</span>
-            <span class="mn"><span class="nm">Visibility</span><span class="sup">Search · Google · Social · Reputation</span><span class="ds">Raise your visibility where patients are already looking.</span></span>
+            <span class="mn"><span class="nm">Visibility</span><span class="stg">Be found</span><span class="sup">Search · Google · Social · Reputation</span><span class="ds">Raise your visibility where patients are already looking.</span></span>
             <span class="go" aria-hidden="true"><i class="ar"></i></span>
           </button></h3>
           <div class="r-panel" id="p-digital" role="region" aria-labelledby="b-digital"><div class="r-in"><div class="r-body">
@@ -793,7 +801,7 @@ body{background:var(--rl-ivory)}
         <li class="row" data-k="website" data-open="false">
           <h3><button class="r-btn" type="button" id="b-website" aria-expanded="false" aria-controls="p-website">
             <span class="n">02</span>
-            <span class="mn"><span class="nm">Website &amp; Patient Journey</span><span class="sup">Positioning · UX/UI · Booking · SEO foundations</span><span class="ds">Turn expertise into an online experience patients can understand and trust.</span></span>
+            <span class="mn"><span class="nm">Website &amp; Patient Journey</span><span class="stg">Build trust, shape the experience</span><span class="sup">Positioning · UX/UI · Booking · SEO foundations</span><span class="ds">Turn expertise into an online experience patients can understand and trust.</span></span>
             <span class="go" aria-hidden="true"><i class="ar"></i></span>
           </button></h3>
           <div class="r-panel" id="p-website" role="region" aria-labelledby="b-website"><div class="r-in"><div class="r-body">
@@ -805,7 +813,7 @@ body{background:var(--rl-ivory)}
         <li class="row" data-k="ongoing" data-open="false">
           <h3><button class="r-btn" type="button" id="b-ongoing" aria-expanded="false" aria-controls="p-ongoing">
             <span class="n">03</span>
-            <span class="mn"><span class="nm">Sustained Visibility</span><span class="sup">Content · Social · Google · Reputation</span><span class="ds">Keep your practice visible, relevant and rising after launch.</span></span>
+            <span class="mn"><span class="nm">Sustained Visibility</span><span class="stg">Stay visible</span><span class="sup">Content · Social · Google · Reputation</span><span class="ds">Keep your practice visible, relevant and rising after launch.</span></span>
             <span class="go" aria-hidden="true"><i class="ar"></i></span>
           </button></h3>
           <div class="r-panel" id="p-ongoing" role="region" aria-labelledby="b-ongoing"><div class="r-in"><div class="r-body">
@@ -817,7 +825,7 @@ body{background:var(--rl-ivory)}
         <li class="row" data-k="growth" data-open="false">
           <h3><button class="r-btn" type="button" id="b-growth" aria-expanded="false" aria-controls="p-growth">
             <span class="n">04</span>
-            <span class="mn"><span class="nm">Growth &amp; Authority</span><span class="sup">Strategy · Analytics · Personal Brand · Content</span><span class="ds">Turn visibility into lasting authority and measurable growth.</span></span>
+            <span class="mn"><span class="nm">Growth &amp; Authority</span><span class="stg">Build authority</span><span class="sup">Strategy · Analytics · Personal Brand · Content</span><span class="ds">Turn visibility into lasting authority and measurable growth.</span></span>
             <span class="go" aria-hidden="true"><i class="ar"></i></span>
           </button></h3>
           <div class="r-panel" id="p-growth" role="region" aria-labelledby="b-growth"><div class="r-in"><div class="r-body">

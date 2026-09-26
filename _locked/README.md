@@ -32,3 +32,6 @@ mid CTA eyebrow "Not sure where to start?" → "What could you raise first?". La
 ## RISE/RAISE copy audit v2 · 2026-09-25 (owner-approved "OK v2")
 Mid CTA wording only, EN + FR: eyebrow "What could you raise first?" → "Not sure where to start?", heading "See what your answers reveal." → "See what you can raise."
 Layout, styling, CSS and JS unchanged; services.html snapshot + checksum refreshed.
+
+## Mobile collapsed rows · 2026-09-26 (owner-requested)
+Below 720 px only: each collapsed row now always shows the burgundy descriptor (e.g. "Be found" / "Être trouvé") and the keyword line under the service name; the arrow opens description, detailed services and CTA. Desktop unchanged. services.html + services.css snapshots and checksums refreshed.
