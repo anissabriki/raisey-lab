@@ -36,7 +36,7 @@ def main():
     sub('<title>Raisey Lab — Digital presence for aesthetic doctors &amp; clinics</title>',
         '<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>')
     sub('content="Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics. Start with the free 4-minute Raisey Scan."',
-        'content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent, à laquelle ils font confiance, et qu’ils choisissent. Commencez par un Raisey Scan gratuit."')
+        'content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent et choisissent. Commencez par un Raisey Scan gratuit."')
     sub('<meta property="og:title" content="Raisey Lab — You built the expertise. We raise its presence.">',
         '<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">')
     sub('content="Visibility, authority and growth for aesthetic doctors and clinics. Paris · London · Dubai."',
@@ -226,6 +226,12 @@ def main():
     sub('</span> Clinical point of view</p>', '</span> Vision clinique</p>')
     sub('</span> Hospital consultant</p>', '</span> Consultant hospitalier</p>')
     fr = fr.replace('data-more="Read analysis" data-less="Close">Read analysis <i', 'data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i')
+    sub('alt="Bright aesthetic treatment room with a treatment chair and a round mirror"', 'alt="Salle de soins esthétique lumineuse avec un fauteuil de soin et un miroir rond"')
+    sub('alt="Close-up of lips and skin in soft natural light"', 'alt="Gros plan sur des lèvres et une peau en lumière naturelle douce"')
+    sub('alt="Clinic reception desk in pale wood and stone tones"', 'alt="Accueil de clinique aux tons de bois clair et de pierre"')
+    sub('alt="Treatment tray with instruments beside a treatment chair"', 'alt="Plateau d’instruments à côté d’un fauteuil de soin"')
+    sub('alt="Conference room with a screen reading “Aesthetic Medicine Today”"', 'alt="Salle de conférence avec un écran « Aesthetic Medicine Today »"')
+    sub('alt="Laptop showing an aesthetic practice website on a sunlit desk"', 'alt="Ordinateur portable affichant le site d’un cabinet esthétique sur un bureau ensoleillé"')
     sub('Independent Studies are Raisey Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
         'Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
 

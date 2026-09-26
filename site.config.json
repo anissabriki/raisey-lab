@@ -15,5 +15,24 @@
   "socialProfiles": [],
   "emailProvider": "GitHub, Inc. (website hosting), Cloudflare, Inc. (form processing), Resend, Inc. (email delivery) and OVH SAS (email hosting)",
   "_domainsNote": "raiseylab.com is the ONLY canonical domain. raiseylab.fr will later redirect to it (registrar/DNS-level 301, not a second site). raiseylab.club is reserved for another project: never use it here.",
-  "newsletterEnabled": false
+  "newsletterEnabled": false,
+  "positioning": "Raisey Lab is a digital strategy and growth studio specialising in aesthetic medicine. It helps aesthetic doctors and clinics strengthen their digital presence, visibility, authority, reputation, patient journey and growth.",
+  "positioningFr": "Raisey Lab est un studio de stratégie digitale et de croissance spécialisé en médecine esthétique. Il aide les médecins et cliniques esthétiques à renforcer leur présence digitale, leur visibilité, leur autorité, leur réputation, leur parcours patient et leur croissance.",
+  "knowsAbout": [
+    "Aesthetic medicine",
+    "Digital presence",
+    "Online visibility",
+    "Medical authority",
+    "Online reputation",
+    "Patient journey",
+    "Digital strategy",
+    "Growth strategy"
+  ],
+  "insightsPublished": {
+    "_note": "Real first public publication on raiseylab.com (production go-live). Never backdate.",
+    "why-i-created-raisey-lab": "2026-09-26",
+    "aesthetic-medicine-patient-journey": "2026-09-26",
+    "aesthetic-medicine-skin-quality-language": "2026-09-26",
+    "international-aesthetic-medicine-culture": "2026-09-26"
+  }
 }

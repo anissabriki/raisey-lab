@@ -9,6 +9,7 @@ Copy is rendered exactly as written in content/insights.md; only typographic quo
 Reading time = words / 220, rounded up, computed here and hard-coded in the pages.
 Canonical, og:url and JSON-LD use siteUrl from site.config.json (or env SITE_URL) when it is set.
 """
+import datetime
 import html, json, math, os, re, shutil
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -164,7 +165,8 @@ def parse():
              'seo_title': meta['seo title'], 'description': meta['meta description'],
              'excerpt': meta.get('excerpt (listing and featured)') or meta['excerpt (listing)'],
              'title': re.search(r'^\*\*Title:\*\* (.+)$', chunk, re.M).group(1).strip(),
-             'standfirst': re.search(r'^\*\*Standfirst:\*\* (.+)$', chunk, re.M).group(1).strip()}
+             'standfirst': re.search(r'^\*\*Standfirst:\*\* (.+)$', chunk, re.M).group(1).strip(),
+             'publish': meta.get('publish date', '')}   # optional YYYY-MM-DD: the article is only built from that date on
         body = chunk[chunk.index('**Standfirst:**'):].split('\n', 1)[1]
         body, _, rest = body.partition('\n*CTA:*')
         a['cta'] = rest.split('\n', 1)[0].strip()
@@ -269,7 +271,10 @@ def ld_graph(*nodes):
     return {'@context': 'https://schema.org', '@graph': list(nodes)}
 
 
-PUBLISHER = {'@type': 'Organization', 'name': 'Raisey Lab', 'url': ROOT_URL}
+PUBLISHER = {'@type': 'Organization', '@id': ROOT_URL + '#organization', 'name': 'Raisey Lab', 'url': ROOT_URL,
+             'logo': {'@type': 'ImageObject', 'url': ROOT_URL + 'icon-192.png', 'width': 192, 'height': 192}}
+AUTHOR = {'@type': 'Person', '@id': ROOT_URL + '#founder', 'name': (cfg.get('founderName') or 'Anissa Sabrina Briki'), 'alternateName': BYLINE, 'jobTitle': 'Founder'}
+PUBLISHED = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
 
 
 # ---------------------------------------------------------------- pages
@@ -335,7 +340,8 @@ def article(a, arts):
         html.escape(smart(a['title'])), html.escape(smart(a['standfirst'])), BYLINE, a['minutes'], FOUNDER_FIG if a['slug'] == 'why-i-created-raisey-lab' else '', '\n'.join(blocks), src, end, pn)
     url = ROOT_URL + path
     ld = ld_graph({'@type': 'Article', 'headline': smart(a['title']), 'description': a['description'],
-                   'author': {'@type': 'Person', 'name': BYLINE, 'jobTitle': 'Founder'}, 'publisher': PUBLISHER,
+                   'author': AUTHOR, 'publisher': PUBLISHER, 'image': ROOT_URL + 'images/og.jpg',
+                   **({'datePublished': PUBLISHED[a['slug']], 'dateModified': PUBLISHED[a['slug']]} if a['slug'] in PUBLISHED else {}),
                    'mainEntityOfPage': {'@type': 'WebPage', '@id': url}, 'inLanguage': 'en', 'wordCount': a['words']},
                   breadcrumb_ld([('', 'Home'), ('insights/', 'Insights'), (path, a['short'])]))
     return path, shell(2, a['seo_title'], a['description'], path, 'article', body, ld)
@@ -399,6 +405,12 @@ f.addEventListener('submit',async e=>{
 
 def build():
     arts = parse()
+    today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+    held = [x for x in arts if x.get('publish') and x['publish'] > today]          # scheduled: not live yet, so not built
+    arts = [x for x in arts if x not in held]
+    for x in held: print('scheduled (not built until %s): %s' % (x['publish'], x['slug']))
+    for x in arts:
+        if x.get('publish'): PUBLISHED.setdefault(x['slug'], x['publish'])        # the real date it goes live
     shutil.rmtree('insights', ignore_errors=True)
     pages = [listing(arts)] + [article(a, arts) for a in arts]
     for path, h in pages:

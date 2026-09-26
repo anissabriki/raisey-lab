@@ -15,6 +15,7 @@ then runs safety gates (locked section, broken or case-mismatched links, secret 
 reciprocity, noindex on legal pages, sitemap content, launch requirements).
 The approved design is never touched: dist HTML differs from the source only by the injected values above.
 """
+import glob
 import html
 import json, os, re, shutil, subprocess, sys
 from urllib.parse import urlparse
@@ -91,20 +92,31 @@ def clean_hrefs(h):
     return re.sub(r'href="([^"#]*?)index\.html((?:#[^"]*)?)"', lambda m: 'href="%s%s"' % (m.group(1) or './', m.group(2)), h)
 
 
-def make_jsonld(p, origin, base):
+def make_jsonld(p, origin, base, h=''):
     root = origin + base
     page = root + HOME[p]
+    en = LANG[p] == 'en'
+    meta = lambda pat: html.unescape((re.findall(pat, h) or [''])[0])
     org = {'@type': 'Organization', '@id': root + '#organization', 'name': 'Raisey Lab', 'url': root,
+           'description': cfg.get('positioning') if en else (cfg.get('positioningFr') or cfg.get('positioning')),
+           'logo': {'@type': 'ImageObject', 'url': root + 'icon-192.png', 'width': 192, 'height': 192},
+           'image': root + 'images/og.jpg',
+           'knowsAbout': cfg.get('knowsAbout') or [],
            'areaServed': [{'@type': 'City', 'name': c} for c in CITIES], 'founder': {'@id': root + '#founder'}}
     if email:
         org['email'] = email
     if socials:
         org['sameAs'] = socials
-    person = {'@type': 'Person', '@id': root + '#founder', 'name': founder,
-              'jobTitle': 'Founder' if LANG[p] == 'en' else 'Fondatrice', 'worksFor': {'@id': root + '#organization'}}
-    site_ = {'@type': 'WebSite', '@id': page + '#website', 'url': page, 'name': 'Raisey Lab', 'inLanguage': LANG[p],
+    person = {'@type': 'Person', '@id': root + '#founder', 'name': founder, 'alternateName': 'Anissa Briki',
+              'jobTitle': 'Founder' if en else 'Fondatrice', 'worksFor': {'@id': root + '#organization'},
+              'image': root + 'images/founder-about-768.jpg', 'knowsAbout': cfg.get('knowsAbout') or []}
+    site_ = {'@type': 'WebSite', '@id': root + '#website', 'url': root, 'name': 'Raisey Lab', 'inLanguage': ['en', 'fr'],
              'publisher': {'@id': root + '#organization'}}
-    return {'@context': 'https://schema.org', '@graph': [org, person, site_]}
+    webpage = {'@type': 'WebPage', '@id': page + '#webpage', 'url': page, 'name': meta(r'<title>(.*?)</title>'),
+               'description': meta(r'<meta name="description" content="([^"]*)"'), 'inLanguage': LANG[p],
+               'isPartOf': {'@id': root + '#website'}, 'about': {'@id': root + '#organization'},
+               'primaryImageOfPage': {'@type': 'ImageObject', 'url': root + 'images/og.jpg'}}
+    return {'@context': 'https://schema.org', '@graph': [org, person, site_, webpage]}
 
 
 def render_seo(p, h, origin, base):
@@ -113,10 +125,11 @@ def render_seo(p, h, origin, base):
     if p in HOME and origin:
         root = origin + base
         tags = ('<link rel="canonical" href="%s">\n<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="fr" href="%s">\n'
-                '<link rel="alternate" hreflang="x-default" href="%s">\n<meta property="og:url" content="%s">\n') % (
-            root + HOME[p], root, root + 'fr/', root, root + HOME[p])
+                '<link rel="alternate" hreflang="x-default" href="%s">\n<meta property="og:url" content="%s">\n'
+                '<meta property="og:site_name" content="Raisey Lab">\n<meta property="og:locale" content="%s">\n<meta property="og:locale:alternate" content="%s">\n') % (
+            root + HOME[p], root, root + 'fr/', root, root + HOME[p], 'en_GB' if LANG[p] == 'en' else 'fr_FR', 'fr_FR' if LANG[p] == 'en' else 'en_GB')
         h = h.replace('<link rel="preload"', tags + '<link rel="preload"', 1)
-        ld = json.dumps(make_jsonld(p, origin, base), ensure_ascii=False, indent=1).replace('</', '<\\/')
+        ld = json.dumps(make_jsonld(p, origin, base, h), ensure_ascii=False, indent=1).replace('</', '<\\/')
         h = h.replace('</head>', '<script type="application/ld+json">\n%s\n</script>\n</head>' % ld, 1)
     # Social preview image (absolute URL) on every page that has Open Graph tags; Twitter/X reads og:* plus the card type.
     if origin and 'property="og:title"' in h and 'og:image' not in h and os.path.exists('images/og.jpg'):
@@ -137,7 +150,7 @@ def make_sitemap(origin, base, mods):
     alts = ('<xhtml:link rel="alternate" hreflang="en" href="%s"/><xhtml:link rel="alternate" hreflang="fr" href="%sfr/"/>'
             '<xhtml:link rel="alternate" hreflang="x-default" href="%s"/>') % (root, root, root)
     urls = ''.join('  <url><loc>%s</loc>%s%s</url>\n' % (root + HOME[p], ('<lastmod>%s</lastmod>' % mods[p]) if mods.get(p) else '', alts) for p in HOME)
-    urls += ''.join('  <url><loc>%s</loc></url>\n' % (root + p[:-len('index.html')]) for p in INSIGHTS)
+    urls += ''.join('  <url><loc>%s</loc>%s</url>\n' % (root + p[:-len('index.html')], ('<lastmod>%s</lastmod>' % mods[p]) if mods.get(p) else '') for p in INSIGHTS)
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
             'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '</urlset>\n')
 
@@ -168,7 +181,7 @@ def seo_check(pages, sitemap, origin, base, where):
             try:
                 ld = json.loads(blocks[0].replace('<\\/', '</'))
                 types = sorted(n['@type'] for n in ld['@graph'])
-                if types != ['Organization', 'Person', 'WebSite']:
+                if types != ['Organization', 'Person', 'WebPage', 'WebSite']:
                     bad.append('%s %s: unexpected JSON-LD types %s' % (where, p, types))
                 if FORBIDDEN_LD.search(blocks[0]):
                     bad.append('%s %s: JSON-LD contains a forbidden claim (address, LocalBusiness, rating, review, offer...)' % (where, p))
@@ -261,7 +274,7 @@ if domain and not PREVIEW:                        # a preview must never claim t
     open('dist/CNAME', 'w').write(domain + '\n')
 if site:
     open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nSitemap: %s%ssitemap.xml\n' % (site, base))
-    sitemap = make_sitemap(site, base, {p: git_date(p) for p in HOME})
+    sitemap = make_sitemap(site, base, {p: git_date(p) for p in list(HOME) + INSIGHTS})
     open('dist/sitemap.xml', 'w').write(sitemap)
     errors.extend(seo_check(built, sitemap, site, base, 'dist'))
 else:
@@ -271,6 +284,22 @@ else:
 TEST = 'https://selftest.invalid'
 probe = {p: render_seo(p, clean_hrefs(open(p, encoding='utf-8').read()), TEST, '/') for p in PAGES}
 errors.extend(seo_check(probe, make_sitemap(TEST, '/', {}), TEST, '/', 'selftest'))
+
+# JSON-LD gate: every block must parse, and key entities must carry their required fields (only truthful, configured data)
+for f in sorted(glob.glob('dist/**/*.html', recursive=True)):
+    for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>', open(f, encoding='utf-8').read(), re.S):
+        try:
+            g = json.loads(blk.replace('<\\/', '</'))
+        except Exception as e:
+            errors.append('JSON-LD: invalid JSON in %s (%s)' % (f, e)); continue
+        for node in g.get('@graph', [g]):
+            t = node.get('@type'); need = {'Organization': ['name', 'url', 'logo', 'description'], 'Person': ['name'], 'WebSite': ['url', 'name'],
+                                          'WebPage': ['url', 'name', 'inLanguage'], 'Article': ['headline', 'author', 'publisher', 'image'],
+                                          'BreadcrumbList': ['itemListElement']}.get(t, [])
+            miss = [k for k in need if not node.get(k)]
+            if miss: errors.append('JSON-LD: %s in %s missing %s' % (t, f, ', '.join(miss)))
+            if t in ('LocalBusiness', 'ProfessionalService') or node.get('address'):
+                errors.append('JSON-LD: no LocalBusiness / address allowed (%s)' % f)
 
 if not os.path.exists('images/og.jpg'):
     warnings.append('ASSET: no images/og.jpg (1200x630): link previews will have no image')
