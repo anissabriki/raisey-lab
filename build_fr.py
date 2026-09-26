@@ -47,7 +47,7 @@ def main():
     fr = re.sub(r'href="(favicon|apple-touch-icon)', r'href="../\1', fr)
 
     # ---------- chrome ----------
-    fr = fr.replace('alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait with the Raisey Lab signature"', 'alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la signature Raisey Lab"')
+    fr = fr.replace('alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”"', 'alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »"')
     fr = fr.replace('<label for="sf-website_url">Leave this field empty</label>', '<label for="sf-website_url">Laissez ce champ vide</label>').replace('<label for="cf-website_url">Leave this field empty</label>', '<label for="cf-website_url">Laissez ce champ vide</label>')
     fr = fr.replace('href="insights/index.html">Insights<', 'href="../insights/index.html" hreflang="en">Insights<')   # Insights are in English
     sub('<a class="skip" href="#main">Skip to content</a>', '<a class="skip" href="#main">Aller au contenu</a>')
@@ -62,18 +62,18 @@ def main():
     # ---------- hero ----------
     sub('Aesthetic medicine — Visibility · Authority · Growth', 'Médecine esthétique — Visibilité · Autorité · Croissance')
     h1_old = re.search(r'<h1 class="rise" style="--i:1">.*?</h1>', fr, re.S).group(0)
-    fr = fr.replace(h1_old, typo('<h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous élevons<br> sa présence.</em></span></h1>'))
+    fr = fr.replace(h1_old, typo('<h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>'))
     sub('Your expertise, reputation and experience already exist. Raisey Lab raises their visibility, authority and trust, so the right patients choose you.',
-        'Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab en élève la visibilité, l’autorité et la confiance, pour que les bons patients vous choisissent.')
+        'Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab leur donne la visibilité et l’autorité qu’elles méritent, pour que les bons patients puissent vous trouver, vous faire confiance et vous choisir.')
     sub('Start my Raisey Scan <i class="ar"></i></a>\n      <a class="tl" href="#approach">Discover the studio</a>',
         'Démarrer mon Raisey Scan <i class="ar"></i></a>\n      <a class="tl" href="#approach">Découvrir le studio</a>')
     sub('aria-label="Paris, London, Dubai"><span>Paris</span><span>London</span><span>Dubai</span>',
         'aria-label="Paris, Londres, Dubaï"><span>Paris</span><span>Londres</span><span>Dubaï</span>')
 
     # ---------- 02 review ----------
-    sub('<h2 class="h2" id="rv-h">How far could your practice rise?</h2>', '<h2 class="h2" id="rv-h">Jusqu’où votre cabinet peut-il s’élever ?</h2>')
+    sub('<h2 class="h2" id="rv-h">How far could your practice rise?</h2>', '<h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>')
     sub('Six dimensions, four minutes, a first read straight away. Discover where your visibility, authority and patient journey have the greatest room to rise. No email required.',
-        'Six dimensions, quatre minutes, une première lecture immédiate. Découvrez où votre visibilité, votre autorité et votre parcours patient ont le plus de marge pour s’élever. Sans e-mail.')
+        'Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en visibilité, autorité et expérience patient.')
     sub('aria-label="The six dimensions of the Raisey Scan"', 'aria-label="Les six dimensions du Raisey Scan"')
     for a, b in [('Medical Authority', 'Autorité médicale'), ('Digital Authority', 'Autorité digitale'), ('Brand Expression', 'Expression de marque'),
                  ('Discoverability', 'Visibilité'), ('Content Potential', 'Potentiel éditorial'), ('Patient Journey</span>', 'Parcours patient</span>')]:
@@ -211,12 +211,15 @@ def main():
         new = grp(ch_fr)
         sub(old, new)
         sub('<p>' + p_en + '</p>', '<p>' + p_fr + '</p>')
+    sub('aria-label="Raisey Selected Studies. Swipe, or use the arrow keys."', 'aria-label="Études sélectionnées Raisey. Faites défiler, ou utilisez les flèches du clavier."')
+    sub('aria-label="Previous study"', 'aria-label="Étude précédente"')
+    sub('aria-label="Next study"', 'aria-label="Étude suivante"')
     sub('Independent Studies are Raisey Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
         'Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
 
     # ---------- 06 founder ----------
     sub('<span class="t">Founder</span>', '<span class="t">Fondatrice</span>')
-    sub('alt="Anissa Sabrina Briki, founder of Raisey Lab: close-up portrait on a cream background, with the Raisey Lab signature “Strategy, growth, experience for aesthetic practices”"', 'alt="Anissa Sabrina Briki, fondatrice de Raisey Lab : portrait rapproché sur fond crème, avec la signature Raisey Lab « Strategy, growth, experience for aesthetic practices »"')
+    sub('alt="Anissa Sabrina Briki, founder of Raisey Lab: close-up portrait on a cream background, captioned “Founder, Anissa” and “Strategy, growth, experience for aesthetic practices”"', 'alt="Anissa Sabrina Briki, fondatrice de Raisey Lab : portrait rapproché sur fond crème, avec les mentions « Founder, Anissa » et « Strategy, growth, experience for aesthetic practices »"')
     sub('Built from inside aesthetic medicine.', 'Née au cœur de la médecine esthétique.')
     sub('<p><span class="pq">“Exceptional medical expertise does not, on its own, create an exceptional digital presence.”</span></p>',
         '<p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>')

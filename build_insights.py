@@ -276,7 +276,7 @@ PUBLISHER = {'@type': 'Organization', 'name': 'Raisey Lab', 'url': ROOT_URL}
 # Secondary, editorial founder portrait (final approved asset): shown whole (2:3) in the founder's own essay.
 FOUNDER_FIG = ('<figure class="art-fig"><picture><source type="image/webp" srcset="../../images/founder-story-480.webp 480w, '
                '../../images/founder-story-768.webp 768w, ../../images/founder-story-1024.webp 1024w" sizes="(max-width:600px) calc(100vw - 40px), 560px">'
-               '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait with the Raisey Lab signature" '
+               '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”" '
                'decoding="async" width="1024" height="1536"></picture></figure>\n')
 
 def article(a, arts):

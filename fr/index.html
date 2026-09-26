@@ -542,6 +542,29 @@ body{background:var(--rl-ivory)}
 #work .path b{background:transparent;color:var(--rl-ink);border:1px solid color-mix(in srgb,var(--rl-ink) 38%,transparent);border-radius:999px;font-family:var(--mono);font-weight:500;letter-spacing:.12em}
 #work .path .ar{color:var(--rl-muted)}
 #work .st-head .n{color:var(--rl-burgundy)}
+/* ---- Selected Studies: editorial horizontal gallery (one study per slide; swipe, arrows, trackpad, drag) ---- */
+#work{overflow-x:clip}
+#work .cases{display:flex;gap:clamp(22px,3.4vw,48px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+  margin-right:calc(50% - 50vw);padding-right:max(var(--gutter),calc(50vw - 50%));scroll-padding-left:0;outline:none;touch-action:pan-x pan-y}
+#work .cases::-webkit-scrollbar{display:none}
+#work .cases:focus-visible{outline:2px solid var(--rl-burgundy);outline-offset:6px}
+#work .case{flex:0 0 calc(100vw - 2*var(--gutter) - 40px);scroll-snap-align:start;transition:opacity .45s var(--ease)}
+#work .cases[data-ready] .case:not(.is-active){opacity:.42}
+@media (min-width:700px){#work .case{flex-basis:min(620px,calc(100vw - 2*var(--gutter) - 140px))}}
+@media (min-width:1000px){
+  #work .case{flex-basis:min(1080px,calc(100vw - 2*var(--gutter) - 180px));grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,64px);row-gap:18px;padding:30px 0 14px}
+  #work .case h3{grid-row:1 / span 2;align-self:start}
+}
+@media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
+#work .cases.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+#work .cases.is-drag .case{transition:none}
+.cs-nav{display:flex;align-items:center;gap:16px;margin-top:clamp(22px,3vw,34px);font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--rl-ink)}
+.cs-count{min-width:5.2em;text-align:center;font-variant-numeric:tabular-nums}
+.cs-count .t{color:var(--rl-muted)}
+.cs-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid color-mix(in srgb,var(--rl-ink) 30%,transparent);background:transparent;color:var(--rl-ink);cursor:pointer;transition:border-color .2s,opacity .2s}
+.cs-btn:hover:not(:disabled){border-color:var(--rl-burgundy);color:var(--rl-burgundy)}
+.cs-btn:disabled{opacity:.3;cursor:default}
+.cs-btn[data-cs-prev] .ar{transform:scaleX(-1)}
 /* founder: ivory, photography does the work */
 .founder-sec{background:var(--rl-ivory)}
 /* dark editorial moment: founding partners on espresso with the sofa portrait */
@@ -649,8 +672,8 @@ body{background:var(--rl-ivory)}
   </svg>
   <div class="wrap">
     <p class="eyebrow rise" style="--i:0">Médecine esthétique — Visibilité · Autorité · Croissance</p>
-    <h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous élevons<br> sa présence.</em></span></h1>
-    <p class="lede rise" style="--i:2">Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab en élève la visibilité, l’autorité et la confiance, pour que les bons patients vous choisissent.</p>
+    <h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>
+    <p class="lede rise" style="--i:2">Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab leur donne la visibilité et l’autorité qu’elles méritent, pour que les bons patients puissent vous trouver, vous faire confiance et vous choisir.</p>
     <div class="hero-cta rise" style="--i:3">
       <a class="btn" href="#raisey-scan" data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
       <a class="tl" href="#approach">Découvrir le studio</a>
@@ -664,8 +687,8 @@ body{background:var(--rl-ivory)}
   <div class="wrap">
     <p class="sl"><span class="n">02</span><span class="t">Raisey Scan</span></p>
     <div class="rv-head">
-      <h2 class="h2" id="rv-h">Jusqu’où votre cabinet peut-il s’élever ?</h2>
-      <p class="lede">Six dimensions, quatre minutes, une première lecture immédiate. Découvrez où votre visibilité, votre autorité et votre parcours patient ont le plus de marge pour s’élever. Sans e-mail.</p>
+      <h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>
+      <p class="lede">Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en visibilité, autorité et expérience patient.</p>
     </div>
 
     <ol class="dim-index" id="dims6" aria-label="Les six dimensions du Raisey Scan">
@@ -812,7 +835,7 @@ body{background:var(--rl-ivory)}
 <section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
     <div class="st-head"><span class="n">05</span><h2 id="work-h">Études sélectionnées Raisey</h2><span class="r">Analyses stratégiques indépendantes</span></div>
-    <div class="cases">
+    <div class="cases" tabindex="0" role="group" aria-label="Études sélectionnées Raisey. Faites défiler, ou utilisez les flèches du clavier.">
       <article class="case" data-c="rose">
         <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
         <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
@@ -844,6 +867,7 @@ body{background:var(--rl-ivory)}
         <p>Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.</p>
       </article>
     </div>
+    <div class="cs-nav" data-cs-nav><button type="button" class="cs-btn" data-cs-prev aria-label="Étude précédente"><i class="ar" aria-hidden="true"></i></button><span class="cs-count" aria-live="polite"><b data-cs-i>01</b> <span class="t">/ <span data-cs-n>06</span></span></span><button type="button" class="cs-btn" data-cs-next aria-label="Étude suivante"><i class="ar" aria-hidden="true"></i></button></div>
     <p class="disc">Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
   </div>
 </section>
@@ -853,7 +877,7 @@ body{background:var(--rl-ivory)}
   <div class="wrap">
     <p class="sl"><span class="n">06</span><span class="t">Fondatrice</span></p>
     <div class="founder fx">
-      <figure class="f-portrait"><picture><source type="image/webp" srcset="../images/founder-about-480.webp 480w, ../images/founder-about-768.webp 768w, ../images/founder-about-1024.webp 1024w" sizes="(max-width:639px) calc(100vw - 40px), (max-width:899px) 46vw, 380px"><img src="../images/founder-about-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab : portrait rapproché sur fond crème, avec la signature Raisey Lab « Strategy, growth, experience for aesthetic practices »" loading="lazy" decoding="async" width="1024" height="1536"></picture><figcaption class="f-cap"><span>Vous l'avez bâti.</span> <em>Nous l'élevons.</em></figcaption></figure>
+      <figure class="f-portrait"><picture><source type="image/webp" srcset="../images/founder-about-480.webp 480w, ../images/founder-about-768.webp 768w, ../images/founder-about-1024.webp 1024w" sizes="(max-width:639px) calc(100vw - 40px), (max-width:899px) 46vw, 380px"><img src="../images/founder-about-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab : portrait rapproché sur fond crème, avec les mentions « Founder, Anissa » et « Strategy, growth, experience for aesthetic practices »" loading="lazy" decoding="async" width="1024" height="1536"></picture><figcaption class="f-cap"><span>Vous l'avez bâti.</span> <em>Nous l'élevons.</em></figcaption></figure>
       <div class="f-head">
         <h2 id="fnd-h">Née au cœur de la médecine esthétique.</h2>
         <p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>
@@ -902,7 +926,7 @@ body{background:var(--rl-ivory)}
         <p>Raisey Lab ouvre ses six premiers partenariats. Chaque collaboration commence par un échange pour comprendre votre pratique, votre positionnement et vos priorités — suivi d’un Raisey Review personnalisé pour définir ce qu’il faut élever, et dans quel ordre.</p>
       </div>
       <div class="fp-06 fp-photo">
-        <figure><picture><source type="image/webp" srcset="../images/founder-story-480.webp 480w, ../images/founder-story-768.webp 768w, ../images/founder-story-1024.webp 1024w" sizes="(max-width:899px) calc(100vw - 40px), 40vw"><img src="../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la signature Raisey Lab" loading="lazy" decoding="async" width="1024" height="1536"></picture></figure>
+        <figure><picture><source type="image/webp" srcset="../images/founder-story-480.webp 480w, ../images/founder-story-768.webp 768w, ../images/founder-story-1024.webp 1024w" sizes="(max-width:899px) calc(100vw - 40px), 40vw"><img src="../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Raisey Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »" loading="lazy" decoding="async" width="1024" height="1536"></picture></figure>
         <p class="mono" aria-hidden="true"><span class="m">Six cabinets<br>seulement</span><span class="d">Partenaires<br>fondateurs</span></p>
       </div>
     </div>
@@ -1185,6 +1209,30 @@ function openRequest(){
 }
 function go(n){ step=n; if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
 
+
+/* ---------- Selected Studies gallery: counter, arrows, keyboard and mouse drag (touch + trackpad scroll natively) ---------- */
+(function(){
+  const track=document.querySelector('#work .cases'), nav=document.querySelector('[data-cs-nav]'); if(!track||!nav) return;
+  const cards=[...track.querySelectorAll('.case')], n=cards.length, pad=v=>String(v).padStart(2,'0');
+  const cur=nav.querySelector('[data-cs-i]'), prev=nav.querySelector('[data-cs-prev]'), next=nav.querySelector('[data-cs-next]');
+  nav.querySelector('[data-cs-n]').textContent=pad(n);
+  const rm=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i=0;
+  const idx=()=>{const x=track.scrollLeft;let best=0,d=Infinity;cards.forEach((c,k)=>{const dd=Math.abs(c.offsetLeft-track.offsetLeft-x);if(dd<d){d=dd;best=k}});
+    if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) best=Math.max(best,n-1);return best};
+  const paint=()=>{i=idx();cards.forEach((c,k)=>{c.classList.toggle('is-active',k===i);c.setAttribute('aria-hidden',String(k!==i))});
+    cur.textContent=pad(i+1);prev.disabled=i===0;next.disabled=i===n-1};
+  const go=k=>{k=Math.max(0,Math.min(n-1,k));track.scrollTo({left:cards[k].offsetLeft-track.offsetLeft,behavior:rm()?'auto':'smooth'})};
+  prev.addEventListener('click',()=>go(i-1)); next.addEventListener('click',()=>go(i+1));
+  track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(i+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(i-1)}});
+  let raf=0; track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(paint)},{passive:true});
+  /* mouse drag (desktop); touch and trackpad use native scrolling */
+  let sx=0,sl=0,s0=0,drag=false,moved=false;
+  track.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;drag=true;moved=false;sx=e.clientX;sl=track.scrollLeft;s0=i});
+  addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-sx;if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add('is-drag')} if(moved)track.scrollLeft=sl-dx});
+  addEventListener('pointerup',()=>{if(!drag)return;drag=false;if(!moved)return;const dx=track.scrollLeft-sl;let k=idx();if(k===s0&&Math.abs(dx)>60)k=s0+(dx>0?1:-1);k=Math.max(0,Math.min(n-1,k));const x=cards[k].offsetLeft-track.offsetLeft;track.scrollTo({left:x,behavior:rm()?'auto':'smooth'});setTimeout(()=>track.classList.remove('is-drag'),rm()?0:420)});
+  track.setAttribute('data-ready',''); paint(); addEventListener('resize',paint);
+})();
 
 /* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */
 (function(){
