@@ -260,7 +260,7 @@ open('dist/.nojekyll', 'w').close()
 if domain and not PREVIEW:                        # a preview must never claim the custom domain
     open('dist/CNAME', 'w').write(domain + '\n')
 if site:
-    open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\nSitemap: %s%ssitemap.xml\n' % (site, base))
+    open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nSitemap: %s%ssitemap.xml\n' % (site, base))
     sitemap = make_sitemap(site, base, {p: git_date(p) for p in HOME})
     open('dist/sitemap.xml', 'w').write(sitemap)
     errors.extend(seo_check(built, sitemap, site, base, 'dist'))
