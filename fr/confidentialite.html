@@ -210,6 +210,8 @@ body{background:var(--rl-ivory)}
   background:color-mix(in srgb,var(--rl-optical) 32%,transparent);padding:clamp(20px,2vw,26px) clamp(18px,1.8vw,24px) clamp(22px,2.2vw,28px);gap:14px}
 @media (min-width:700px){#work .case{flex-basis:calc((100cqw - var(--csgap)) / 2)}}
 @media (min-width:1000px){#work .case{flex-basis:calc((100cqw - 2 * var(--csgap)) / 3)}}
+.cs-img{display:block;margin:0 0 4px}
+.cs-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;-webkit-user-drag:none;user-select:none}
 #work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
 .cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
