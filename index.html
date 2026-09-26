@@ -569,6 +569,14 @@ body{background:var(--rl-ivory)}
 .cs-img{display:block;margin:0 0 4px}
 .cs-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;-webkit-user-drag:none;user-select:none}
 .cs-more{display:none}
+/* tablet/desktop: strict cross-card alignment — the track is a grid with 5 shared rows (image / label / title / tags / text)
+   and every card inherits them via subgrid, so each zone starts at the same Y in all 6 cards, whatever the title or tag length */
+@media (min-width:700px){
+  #work .cases{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-template-rows:repeat(5,auto);grid-auto-columns:calc((100cqw - var(--csgap)) / 2);row-gap:0}
+  #work .case{container-type:normal;grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:14px;align-content:start}   /* containment would disable subgrid */
+  #work .case > *{align-self:start}
+}
+@media (min-width:1000px){#work .cases{grid-auto-columns:calc((100cqw - 2 * var(--csgap)) / 3)}}
 /* mobile study cards: compact editorial format (shorter image, 4-line excerpt + "Read analysis"), desktop unchanged */
 @media (max-width:699px){
   #work .case{gap:9px;padding:14px 14px 16px}
