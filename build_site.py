@@ -146,13 +146,12 @@ def render_seo(p, h, origin, base):
 
 
 def make_sitemap(origin, base, mods):
+    """Standard sitemap: one <url> per indexable page, <loc> = exact canonical URL, <lastmod> on its own line.
+    hreflang alternates live in each page's <head> (not here): xhtml:link entries make browsers render the file as HTML."""
     root = origin + base
-    alts = ('<xhtml:link rel="alternate" hreflang="en" href="%s"/><xhtml:link rel="alternate" hreflang="fr" href="%sfr/"/>'
-            '<xhtml:link rel="alternate" hreflang="x-default" href="%s"/>') % (root, root, root)
-    urls = ''.join('  <url><loc>%s</loc>%s%s</url>\n' % (root + HOME[p], ('<lastmod>%s</lastmod>' % mods[p]) if mods.get(p) else '', alts) for p in HOME)
-    urls += ''.join('  <url><loc>%s</loc>%s</url>\n' % (root + p[:-len('index.html')], ('<lastmod>%s</lastmod>' % mods[p]) if mods.get(p) else '') for p in INSIGHTS)
-    return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
-            'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + urls + '</urlset>\n')
+    entries = [(root + HOME[p], mods.get(p)) for p in HOME] + [(root + p[:-len('index.html')], mods.get(p)) for p in INSIGHTS]
+    urls = ''.join('  <url>\n    <loc>%s</loc>\n%s  </url>\n' % (html.escape(u), ('    <lastmod>%s</lastmod>\n' % d) if d else '') for u, d in entries)
+    return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n'
 
 
 def seo_check(pages, sitemap, origin, base, where):
@@ -209,8 +208,8 @@ def seo_check(pages, sitemap, origin, base, where):
                 bad.append('%s %s: unexpected JSON-LD %s' % (where, p, types))
         except Exception as e:
             bad.append('%s %s: JSON-LD invalid (%s)' % (where, p, e))
-    if sitemap.count('hreflang="x-default"') != 2 or sitemap.count('hreflang="en"') != 2 or sitemap.count('hreflang="fr"') != 2:
-        bad.append('%s sitemap: every URL needs en, fr and x-default alternates' % where)
+    if 'xhtml' in sitemap or re.search(r'<loc>[^<]*\\d{4}-\\d{2}-\\d{2}', sitemap):
+        bad.append('%s sitemap: must be a plain standard sitemap (no xhtml links, no date inside <loc>)' % where)
     if 'privacy' in sitemap or 'confidentialite' in sitemap or '404' in sitemap:
         bad.append('%s sitemap: legal/404 pages must be excluded' % where)
     return bad
@@ -274,7 +273,17 @@ if domain and not PREVIEW:                        # a preview must never claim t
     open('dist/CNAME', 'w').write(domain + '\n')
 if site:
     open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nSitemap: %s%ssitemap.xml\n' % (site, base))
-    sitemap = make_sitemap(site, base, {p: git_date(p) for p in list(HOME) + INSIGHTS})
+    # lastmod = last significant change: home pages from their own history; an Insight from its source text,
+    # never earlier than the day it went live; the listing = its newest article
+    pub = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
+    mods = {p: git_date(p) for p in HOME}
+    for p in INSIGHTS:
+        slug = p.split('/')[1] if p.count('/') == 2 else ''
+        if slug: mods[p] = max(filter(None, [git_date('content/insights.md'), pub.get(slug, '')]), default='')
+    arts = [mods[p] for p in INSIGHTS if p.count('/') == 2 and mods.get(p)]
+    for p in INSIGHTS:
+        if p.count('/') == 1: mods[p] = max(arts, default=git_date(p))
+    sitemap = make_sitemap(site, base, mods)
     open('dist/sitemap.xml', 'w').write(sitemap)
     errors.extend(seo_check(built, sitemap, site, base, 'dist'))
 else:
