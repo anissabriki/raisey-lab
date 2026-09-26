@@ -212,6 +212,22 @@ body{background:var(--rl-ivory)}
 @media (min-width:1000px){#work .case{flex-basis:calc((100cqw - 2 * var(--csgap)) / 3)}}
 .cs-img{display:block;margin:0 0 4px}
 .cs-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;-webkit-user-drag:none;user-select:none}
+.cs-more{display:none}
+/* mobile study cards: compact editorial format (shorter image, 4-line excerpt + "Read analysis"), desktop unchanged */
+@media (max-width:699px){
+  #work .case{gap:9px;padding:14px 14px 16px}
+  #work .cs-img{margin-bottom:2px}
+  #work .cs-img img{aspect-ratio:12/5}
+  #work .case h3{font-size:1.35rem;line-height:1.14}
+  #work .case p.path{margin:2px 0}
+  #work .case p:not(.path):not(.cs-lab){font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  #work .case.is-open p:not(.path):not(.cs-lab){display:block;-webkit-line-clamp:unset;overflow:visible}
+  #work .cs-more{display:inline-flex;align-items:center;gap:10px;justify-self:start;min-height:36px;padding:0;background:none;border:0;border-bottom:1px solid currentColor;
+    font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-burgundy);cursor:pointer}
+  #work .cs-more .ar{width:14px;height:8px}
+  #work .case.is-open .cs-more .ar{transform:rotate(-90deg)}
+  #work .cs-more[hidden]{display:none}
+}
 #work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
 .cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}

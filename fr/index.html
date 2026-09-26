@@ -568,6 +568,22 @@ body{background:var(--rl-ivory)}
 @media (min-width:1000px){#work .case{flex-basis:calc((100cqw - 2 * var(--csgap)) / 3)}}
 .cs-img{display:block;margin:0 0 4px}
 .cs-img img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:3px;-webkit-user-drag:none;user-select:none}
+.cs-more{display:none}
+/* mobile study cards: compact editorial format (shorter image, 4-line excerpt + "Read analysis"), desktop unchanged */
+@media (max-width:699px){
+  #work .case{gap:9px;padding:14px 14px 16px}
+  #work .cs-img{margin-bottom:2px}
+  #work .cs-img img{aspect-ratio:12/5}
+  #work .case h3{font-size:1.35rem;line-height:1.14}
+  #work .case p.path{margin:2px 0}
+  #work .case p:not(.path):not(.cs-lab){font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  #work .case.is-open p:not(.path):not(.cs-lab){display:block;-webkit-line-clamp:unset;overflow:visible}
+  #work .cs-more{display:inline-flex;align-items:center;gap:10px;justify-self:start;min-height:36px;padding:0;background:none;border:0;border-bottom:1px solid currentColor;
+    font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-burgundy);cursor:pointer}
+  #work .cs-more .ar{width:14px;height:8px}
+  #work .case.is-open .cs-more .ar{transform:rotate(-90deg)}
+  #work .cs-more[hidden]{display:none}
+}
 #work .case p.cs-lab{display:flex;gap:1.2em;font:500 11px/1.45 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
 .cs-lab .cs-no{color:var(--rl-burgundy)}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
@@ -880,6 +896,7 @@ body{background:var(--rl-ivory)}
         <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
         <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
         <p>Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
       <article class="case" data-c="lav">
         <picture class="cs-img"><source type="image/webp" srcset="../images/study-2-480.webp 480w, ../images/study-2-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-2-800.jpg" alt="" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
@@ -887,6 +904,7 @@ body{background:var(--rl-ivory)}
         <h3>Un cabinet esthétique confidentiel, à mi-parcours</h3>
         <p class="path" aria-label="Orientation : Réputation, Positionnement, Premium"><span class="st"><b>Réputation</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Positionnement</b><i class="ar" aria-hidden="true"></i></span><b>Premium</b></p>
         <p>Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
       <article class="case" data-c="gold">
         <picture class="cs-img"><source type="image/webp" srcset="../images/study-3-480.webp 480w, ../images/study-3-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-3-800.jpg" alt="" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
@@ -894,6 +912,7 @@ body{background:var(--rl-ivory)}
         <h3>Une infirmière en pratique avancée qui construit sa patientèle</h3>
         <p class="path" aria-label="Orientation : Confiance, Autorité, Marque"><span class="st"><b>Confiance</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><b>Marque</b></p>
         <p>De bons avis, mais aucun fil conducteur. L’étude : structurer les signaux de confiance en un récit cohérent transforme des preuves éparses en une vraie marque, choisie par les patients en toute connaissance de cause.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
       <article class="case" data-c="sage">
         <picture class="cs-img"><source type="image/webp" srcset="../images/study-4-480.webp 480w, ../images/study-4-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-4-800.jpg" alt="" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
@@ -901,6 +920,7 @@ body{background:var(--rl-ivory)}
         <h3>Un spécialiste de niche pour un geste rare</h3>
         <p class="path" aria-label="Orientation : Expertise, Visibilité, Acquisition"><span class="st"><b>Expertise</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Acquisition</b></p>
         <p>Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
       <article class="case" data-c="rose">
         <picture class="cs-img"><source type="image/webp" srcset="../images/study-5-480.webp 480w, ../images/study-5-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-5-800.jpg" alt="" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
@@ -908,6 +928,7 @@ body{background:var(--rl-ivory)}
         <h3>Un médecin à la vision clinique affirmée</h3>
         <p class="path" aria-label="Orientation : Point de vue, Contenu, Réputation"><span class="st"><b>Point de vue</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Contenu</b><i class="ar" aria-hidden="true"></i></span><b>Réputation</b></p>
         <p>De vraies convictions sur la manière de pratiquer un traitement — mais aucune n’est publique. L’étude : un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
       <article class="case" data-c="lav">
         <picture class="cs-img"><source type="image/webp" srcset="../images/study-6-480.webp 480w, ../images/study-6-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-6-800.jpg" alt="" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
@@ -915,6 +936,7 @@ body{background:var(--rl-ivory)}
         <h3>Un consultant rattaché à un hôpital</h3>
         <p class="path" aria-label="Orientation : Institution, Voix, Influence"><span class="st"><b>Institution</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Voix</b><i class="ar" aria-hidden="true"></i></span><b>Influence</b></p>
         <p>Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
       </article>
     </div>
     <div class="cs-nav" data-cs-nav><button type="button" class="cs-btn" data-cs-prev aria-label="Étude précédente"><i class="ar" aria-hidden="true"></i></button><span class="cs-count" aria-live="polite"><b data-cs-i>01</b> <span class="t">/ <span data-cs-n>06</span></span></span><button type="button" class="cs-btn" data-cs-next aria-label="Étude suivante"><i class="ar" aria-hidden="true"></i></button></div>
@@ -1315,6 +1337,17 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   track.addEventListener('keydown',e=>{if(getComputedStyle(nav).display==='none')return;if(e.key==='ArrowRight'){e.preventDefault();go(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(i-1)}});
   let raf=0; track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(paint)},{passive:true});
   paint(); addEventListener('resize',paint);
+})();
+
+/* ---------- Selected Studies (mobile): "Read analysis" reveals the full excerpt; hidden when the text already fits ---------- */
+(function(){
+  const mq=matchMedia('(max-width:699px)');
+  const sync=()=>document.querySelectorAll('#work .case').forEach(c=>{const b=c.querySelector('.cs-more'),p=[...c.querySelectorAll('p')].pop();if(!b||!p)return;
+    if(!mq.matches||c.classList.contains('is-open')){b.hidden=!mq.matches;return}
+    b.hidden=p.scrollHeight<=p.clientHeight+2});
+  document.querySelectorAll('#work .cs-more').forEach(b=>b.addEventListener('click',()=>{const c=b.closest('.case'),open=!c.classList.contains('is-open');
+    c.classList.toggle('is-open',open);b.setAttribute('aria-expanded',String(open));b.firstChild.textContent=(open?b.dataset.less:b.dataset.more)+' '}));
+  sync(); addEventListener('resize',sync); if(document.fonts) document.fonts.ready.then(sync);
 })();
 
 /* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */

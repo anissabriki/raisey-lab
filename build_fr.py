@@ -225,6 +225,7 @@ def main():
     sub('</span> Niche specialist</p>', '</span> Spécialiste de niche</p>')
     sub('</span> Clinical point of view</p>', '</span> Vision clinique</p>')
     sub('</span> Hospital consultant</p>', '</span> Consultant hospitalier</p>')
+    fr = fr.replace('data-more="Read analysis" data-less="Close">Read analysis <i', 'data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i')
     sub('Independent Studies are Raisey Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
         'Les Études indépendantes sont la réflexion propre de Raisey Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
 
