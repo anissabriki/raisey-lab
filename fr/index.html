@@ -544,22 +544,20 @@ body{background:var(--rl-ivory)}
 #work .st-head .n{color:var(--rl-burgundy)}
 /* ---- Selected Studies: editorial horizontal gallery (one study per slide; swipe, arrows, trackpad, drag) ---- */
 #work{overflow-x:clip}
-#work .cases{display:flex;gap:clamp(22px,3.4vw,48px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+#work .cases{--csgap:clamp(22px,3vw,40px);display:flex;gap:var(--csgap);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
   margin-right:calc(50% - 50vw);padding-right:max(var(--gutter),calc(50vw - 50%));scroll-padding-left:0;outline:none;touch-action:pan-x pan-y}
 #work .cases::-webkit-scrollbar{display:none}
 #work .cases:focus-visible{outline:2px solid var(--rl-burgundy);outline-offset:6px}
 #work .case{flex:0 0 calc(100vw - 2*var(--gutter) - 40px);scroll-snap-align:start;transition:opacity .45s var(--ease)}
 #work .cases[data-ready] .case:not(.is-active){opacity:.42}
-@media (min-width:700px){#work .case{flex-basis:min(620px,calc(100vw - 2*var(--gutter) - 140px))}}
-@media (min-width:1000px){
-  #work .case{flex-basis:min(1080px,calc(100vw - 2*var(--gutter) - 180px));grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,64px);row-gap:18px;padding:30px 0 14px}
-  #work .case h3{grid-row:1 / span 2;align-self:start}
-}
+/* tablet: 2 full cards, desktop: 3 full cards side by side (no cropped preview); mobile keeps 1 card + a glimpse */
+@media (min-width:700px){#work .cases{margin-right:0;padding-right:0}#work .case{flex-basis:calc((100% - var(--csgap)) / 2)}}
+@media (min-width:1000px){#work .case{flex-basis:calc((100% - 2 * var(--csgap)) / 3)}}
 @media (hover:hover) and (pointer:fine){#work .cases{cursor:grab}}
 #work .cases.is-drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
 #work .cases.is-drag .case{transition:none}
 .cs-nav{display:flex;align-items:center;gap:16px;margin-top:clamp(22px,3vw,34px);font:500 12px/1 var(--mono);letter-spacing:.14em;color:var(--rl-ink)}
-.cs-count{min-width:5.2em;text-align:center;font-variant-numeric:tabular-nums}
+.cs-count{min-width:7.6em;text-align:center;font-variant-numeric:tabular-nums}
 .cs-count .t{color:var(--rl-muted)}
 .cs-btn{width:44px;height:44px;display:grid;place-items:center;border-radius:999px;border:1px solid color-mix(in srgb,var(--rl-ink) 30%,transparent);background:transparent;color:var(--rl-ink);cursor:pointer;transition:border-color .2s,opacity .2s}
 .cs-btn:hover:not(:disabled){border-color:var(--rl-burgundy);color:var(--rl-burgundy)}
@@ -1229,12 +1227,14 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   const cur=nav.querySelector('[data-cs-i]'), prev=nav.querySelector('[data-cs-prev]'), next=nav.querySelector('[data-cs-next]');
   nav.querySelector('[data-cs-n]').textContent=pad(n);
   const rm=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let i=0;
-  const idx=()=>{const x=track.scrollLeft;let best=0,d=Infinity;cards.forEach((c,k)=>{const dd=Math.abs(c.offsetLeft-track.offsetLeft-x);if(dd<d){d=dd;best=k}});
-    if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) best=Math.max(best,n-1);return best};
-  const paint=()=>{i=idx();cards.forEach((c,k)=>{c.classList.toggle('is-active',k===i);c.setAttribute('aria-hidden',String(k!==i))});
-    cur.textContent=pad(i+1);prev.disabled=i===0;next.disabled=i===n-1};
-  const go=k=>{k=Math.max(0,Math.min(n-1,k));track.scrollTo({left:cards[k].offsetLeft-track.offsetLeft,behavior:rm()?'auto':'smooth'})};
+  let i=0, vis=1;
+  const measure=()=>{const w=track.clientWidth;vis=Math.max(1,cards.filter(c=>c.offsetLeft-cards[0].offsetLeft+c.offsetWidth<=w+2).length)};
+  const maxI=()=>Math.max(0,n-vis);
+  const idx=()=>{if(track.scrollLeft+track.clientWidth>=track.scrollWidth-4) return maxI();
+    const x=track.scrollLeft;let best=0,d=Infinity;cards.forEach((c,k)=>{const dd=Math.abs(c.offsetLeft-cards[0].offsetLeft-x);if(dd<d){d=dd;best=k}});return Math.min(best,maxI())};
+  const paint=()=>{i=idx();cards.forEach((c,k)=>{const on=k>=i&&k<i+vis;c.classList.toggle('is-active',on);c.setAttribute('aria-hidden',String(!on))});
+    cur.textContent=vis>1?pad(i+1)+'–'+pad(i+vis):pad(i+1);prev.disabled=i===0;next.disabled=i>=maxI()};
+  const go=k=>{k=Math.max(0,Math.min(maxI(),k));track.scrollTo({left:cards[k].offsetLeft-cards[0].offsetLeft,behavior:rm()?'auto':'smooth'})};
   prev.addEventListener('click',()=>go(i-1)); next.addEventListener('click',()=>go(i+1));
   track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(i+1)} if(e.key==='ArrowLeft'){e.preventDefault();go(i-1)}});
   let raf=0; track.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(paint)},{passive:true});
@@ -1242,8 +1242,8 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   let sx=0,sl=0,s0=0,drag=false,moved=false;
   track.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse'||e.button!==0)return;drag=true;moved=false;sx=e.clientX;sl=track.scrollLeft;s0=i});
   addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-sx;if(!moved&&Math.abs(dx)>4){moved=true;track.classList.add('is-drag')} if(moved)track.scrollLeft=sl-dx});
-  addEventListener('pointerup',()=>{if(!drag)return;drag=false;if(!moved)return;const dx=track.scrollLeft-sl;let k=idx();if(k===s0&&Math.abs(dx)>60)k=s0+(dx>0?1:-1);k=Math.max(0,Math.min(n-1,k));const x=cards[k].offsetLeft-track.offsetLeft;track.scrollTo({left:x,behavior:rm()?'auto':'smooth'});setTimeout(()=>track.classList.remove('is-drag'),rm()?0:420)});
-  track.setAttribute('data-ready',''); paint(); addEventListener('resize',paint);
+  addEventListener('pointerup',()=>{if(!drag)return;drag=false;if(!moved)return;const dx=track.scrollLeft-sl;let k=idx();if(k===s0&&Math.abs(dx)>60)k=s0+(dx>0?1:-1);k=Math.max(0,Math.min(maxI(),k));const x=cards[k].offsetLeft-cards[0].offsetLeft;track.scrollTo({left:x,behavior:rm()?'auto':'smooth'});setTimeout(()=>track.classList.remove('is-drag'),rm()?0:420)});
+  track.setAttribute('data-ready',''); measure(); paint(); addEventListener('resize',()=>{measure();paint()});
 })();
 
 /* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */
