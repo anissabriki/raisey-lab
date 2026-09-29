@@ -33,10 +33,10 @@ def main():
 
     # ---------- head ----------
     sub('<html lang="en">', '<html lang="fr">')
-    sub('<title>Raisey Lab — Digital presence for aesthetic doctors &amp; clinics</title>',
-        '<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>')
-    sub('content="Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics. Start with the free 4-minute Raisey Scan."',
-        'content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent et choisissent. Commencez par un Raisey Scan gratuit."')
+    sub('<title>Raisey Lab — Aesthetic Medicine Digital Strategy</title>',
+        '<title>Raisey Lab — Stratégie digitale en médecine esthétique</title>')
+    sub('content="A digital strategy studio born inside aesthetic medicine. Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics."',
+        'content="Un studio de stratégie digitale né au cœur de la médecine esthétique. Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques."')
     sub('<meta property="og:title" content="Raisey Lab — You built the expertise. We raise its presence.">',
         '<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">')
     sub('content="Visibility, authority and growth for aesthetic doctors and clinics. Paris · London · Dubai."',
@@ -59,32 +59,62 @@ def main():
     sub('<nav aria-label="Footer">', '<nav aria-label="Pied de page">')
     sub('<span class="mt">Menu</span>', '<span class="mt">Menu</span>')
 
-    # ---------- hero ----------
-    sub('<span class="eb-a">Aesthetic medicine —</span> <span class="eb-b">Visibility · Authority · Growth</span>', '<span class="eb-a">Médecine esthétique —</span> <span class="eb-b">Visibilité · Autorité · Croissance</span>')
-    h1_old = re.search(r'<h1 class="rise" style="--i:1">.*?</h1>', fr, re.S).group(0)
-    fr = fr.replace(h1_old, typo('<h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>'))
-    sub('Your expertise, reputation and experience already exist. Raisey Lab raises their visibility, authority and trust, so the right patients choose you.',
-        'Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab leur donne la visibilité et l’autorité qu’elles méritent, pour que les bons patients puissent vous trouver, vous faire confiance et vous choisir.')
-    sub('Start my Raisey Scan <i class="ar"></i></a>\n      <a class="tl" href="#approach">Discover the studio</a>',
-        'Démarrer mon Raisey Scan <i class="ar"></i></a>\n      <a class="tl" href="#approach">Découvrir le studio</a>')
-    sub('aria-label="Paris, London, Dubai"><span>Paris</span><span>London</span><span>Dubai</span>',
-        'aria-label="Paris, Londres, Dubaï"><span>Paris</span><span>Londres</span><span>Dubaï</span>')
+    # ---------- hero + new homepage sequence (2026-09) ----------
+    sub('<p class="eyebrow rise" style="--i:0">Your digital presence, in focus.</p>', '<p class="eyebrow rise" style="--i:0">Votre présence digitale, en clair.</p>')
+    sub('<h1 id="hx-h" class="rise" style="--i:1">Your expertise<br> deserves<br> <em>to be seen.</em></h1>', '<h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>')
+    sub('We help aesthetic doctors and clinics build the visibility, authority and digital presence that turn medical expertise into patient trust.',
+        'Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.')
+    fr = fr.replace('Start my Raisey Scan <i class="ar"></i></a>\n        <p class="hx-micro">About 4 minutes · Free · No commitment</p>', 'Démarrer mon Raisey Scan <i class="ar"></i></a>\n        <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
+    fr = fr.replace('Start my Raisey Scan <i class="ar"></i></a>\n      <p class="hx-micro">About 4 minutes · Free · No commitment</p>', 'Démarrer mon Raisey Scan <i class="ar"></i></a>\n      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
+    sub('alt="Architectural detail of an aesthetic medicine clinic in warm natural light"', 'alt="Détail architectural d’une clinique de médecine esthétique dans une lumière naturelle chaude"')
+    sub('<ol class="hx-steps" aria-label="The patient journey"><li>Search</li><li>Discover</li><li>Trust</li><li>Choose</li></ol>', '<ol class="hx-steps" aria-label="Le parcours patient"><li>Recherche</li><li>Découverte</li><li>Confiance</li><li>Choix</li></ol>')
+    sub('Built with a deep understanding of<br> the aesthetic medicine landscape', 'Né d’une connaissance intime<br> de la médecine esthétique')
+    sub('<ul class="hx-fields"><li>Aesthetic medicine</li><li>Pharma &amp; laboratories</li><li>Global markets</li></ul>', '<ul class="hx-fields"><li>Médecine esthétique</li><li>Pharma et laboratoires</li><li>Marchés internationaux</li></ul>')
+    sub('<p class="hx-exp-h">Industry experience</p>', '<p class="hx-exp-h">Expérience du secteur</p>')
+    sub('alt="Quiet consultation room in an aesthetic medicine clinic"', 'alt="Salle de consultation calme dans une clinique de médecine esthétique"')
+    sub('<h2 id="hx-journey-h">The consultation isn’t<br> the beginning of the patient journey.</h2>', '<h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>')
+    sub('<p>Patients are choosing long <u>before</u> they enter your clinic.<br> We shape everything that happens <u>before</u> the appointment.</p>', '<p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>')
+    sub('<ol class="hx-path" aria-label="Where patients decide">', '<ol class="hx-path" aria-label="Là où les patients décident">')
+    for e_, f_ in [('Search', 'Recherche'), ('Website', 'Site web'), ('Reviews', 'Avis'), ('Doctor profile', 'Profil du médecin'), ('Booking', 'Réservation')]:
+        sub('<span>%s</span></li>' % e_, '<span>%s</span></li>' % f_)
+    sub('<h2 id="hx-pillars-h" class="hx-eb hx-center">How strong is your presence?</h2>', '<h2 id="hx-pillars-h" class="hx-eb hx-center">Quelle est la force de votre présence ?</h2>')
+    sub('<h3>Visibility</h3><p>SEO · Search<br> Being found<br> Digital presence</p>', '<h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé<br> Présence digitale</p>')
+    sub('<h3>Authority</h3><p>Expertise<br> Reputation<br> Trust</p>', '<h3>Autorité</h3><p>Expertise<br> Réputation<br> Confiance</p>')
+    sub('<h3>Brand</h3><p>Positioning<br> Identity<br> Differentiation</p>', '<h3>Marque</h3><p>Positionnement<br> Identité<br> Différenciation</p>')
+    sub('<h3>Patient Journey</h3><p>Website · UX<br> Conversion<br> Experience</p>', '<h3>Parcours patient</h3><p>Site web · UX<br> Conversion<br> Expérience</p>')
+    sub('<h3>Growth</h3><p>Acquisition<br> CRM<br> Retention</p>', '<h3>Croissance</h3><p>Acquisition<br> CRM<br> Fidélisation</p>')
+    sub('<p class="hx-eb">From diagnosis to direction.</p>', '<p class="hx-eb">De l’analyse à la direction.</p>')
+    sub('<h2 id="hx-studio-h">A strategic and creative studio for aesthetic doctors and clinics.</h2>', '<h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>')
+    sub('We combine industry expertise, data, strategy and high-end content to help you be found, trusted and chosen by the right patients.',
+        'Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.')
+    sub('<a class="tl" href="#services">Explore our services <i class="ar"></i></a>', '<a class="tl" href="#services">Découvrir nos services <i class="ar"></i></a>')
+    sub('alt="Architectural interior of an aesthetic medicine clinic"', 'alt="Intérieur architectural d’une clinique de médecine esthétique"')
+    sub('<div><dt>Visibility</dt><dd>Be found.</dd></div>\n      <div><dt>Authority</dt><dd>Be trusted.</dd></div>\n      <div><dt>Growth</dt><dd>Be chosen.</dd></div>',
+        '<div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>\n      <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>\n      <div><dt>Croissance</dt><dd>Être choisi.</dd></div>')
+    sub('<span class="sr-only" data-open="Show the approach in detail" data-close="Hide the approach in detail">Show the approach in detail</span>', '<span class="sr-only" data-open="Afficher l’approche en détail" data-close="Masquer l’approche en détail">Afficher l’approche en détail</span>')
+    sub('aria-label="Our approach in detail"', 'aria-label="Notre approche en détail"')
+    sub('<h3>Be found</h3><p>Exist where your patients are looking for you: search, local search, social and digital presence.</p><ul><li>SEO &amp; search</li><li>Local search</li><li>Digital visibility</li><li>Multi-channel presence</li></ul>',
+        '<h3>Être trouvé</h3><p>Exister là où vos patients vous cherchent : recherche, référencement local, réseaux et présence digitale.</p><ul><li>SEO &amp; recherche</li><li>Référencement local</li><li>Visibilité digitale</li><li>Présence multi-canaux</li></ul>')
+    sub('<h3>Be trusted</h3><p>Let patients perceive your expertise and your approach before the consultation.</p><ul><li>Positioning</li><li>Expert content</li><li>Brand &amp; identity</li><li>Reputation</li></ul>',
+        '<h3>Inspirer confiance</h3><p>Faire percevoir votre expertise et votre approche avant même la consultation.</p><ul><li>Positionnement</li><li>Contenus experts</li><li>Marque &amp; identité</li><li>Réputation</li></ul>')
+    sub('<h3>Be chosen</h3><p>Turn that trust into bookings, then into loyalty.</p><ul><li>Website &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Retention</li></ul>',
+        '<h3>Être choisi</h3><p>Transformer cette confiance en prise de rendez-vous, puis en fidélité.</p><ul><li>Site web &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Fidélisation</li></ul>')
+    sub('<p class="hx-eb">Ready to see the full picture?</p>', '<p class="hx-eb">Prêt à voir le tableau complet ?</p>')
+    sub('<h2 id="hx-final-h">Take the Raisey Scan.</h2>', '<h2 id="hx-final-h">Faites le Raisey Scan.</h2>')
+    sub('A clear, personalised reading of your answers across six dimensions, with priorities to act on.', 'Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.')
 
     # ---------- 02 review ----------
-    sub('<h2 class="h2" id="rv-h">How far could your practice rise?</h2>', '<h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>')
-    sub('Six dimensions, four minutes, a first read straight away. Discover where your visibility, authority and patient journey have the greatest room to rise. No email required.',
-        'Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en matière de visibilité, d’autorité et d’expérience patient.')
-    sub('aria-label="The six dimensions of the Raisey Scan"', 'aria-label="Les six dimensions du Raisey Scan"')
-    for a, b in [('Medical Authority', 'Autorité médicale'), ('Digital Authority', 'Autorité digitale'), ('Brand Expression', 'Expression de marque'),
-                 ('Discoverability', 'Visibilité'), ('Content Potential', 'Potentiel éditorial'), ('Patient Journey</span>', 'Parcours patient</span>')]:
-        sub('<span class="dt">' + a, '<span class="dt">' + b) if not a.endswith('</span>') else sub('<span class="dt">' + a, '<span class="dt">' + b)
     sub('<p class="eyebrow">Your Raisey Scan</p>', '<p class="eyebrow">Votre Raisey Scan</p>')
     sub('Your results at a glance.', 'Vos résultats en un coup d’œil.')
     sub('A first read of your answers across six key dimensions.<span class="basis">Based on your answers · Not an audit of your digital presence</span>', 'Une première lecture de vos réponses sur six dimensions clés.<span class="basis">Basé sur vos réponses · Pas sur un audit de votre présence digitale</span>')
     sub('Understanding your results', 'Comprendre vos résultats')
     sub('Each dimension is read on three levels.', 'Chaque dimension se lit sur trois niveaux.')
-    sub('Start the Raisey Scan <i class="ar"></i>', 'Lancer le Raisey Scan <i class="ar"></i>')
-    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes', 2)
+    sub('<button class="btn" type="button" id="takeDiag">Start my Raisey Scan <i class="ar"></i></button>\n      <p class="hx-micro">About 4 minutes · Free · No commitment</p>',
+        '<button class="btn" type="button" id="takeDiag">Démarrer mon Raisey Scan <i class="ar"></i></button>\n      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
+    sub('<p class="hx-intro">Six dimensions to understand how your expertise exists, stands out and converts across the digital ecosystem.</p>',
+        '<p class="hx-intro">Six dimensions pour comprendre comment votre expertise existe, se distingue et convertit dans l’écosystème digital.</p>')
+    sub('<h3>Editorial Potential</h3><p>Content<br> Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu<br> Thought leadership<br> Différenciation</p>')
+    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.',
         'Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.')
     sub('</svg>Scan complete</p>', '</svg>Scan terminé</p>')
@@ -129,23 +159,11 @@ def main():
             sys.exit('select not found: ' + sid)
         fr = pat.sub(lambda m: m.group(1) + opts + m.group(2), fr)
 
-    # ---------- 03 approach ----------
-    sub('<span class="t">Our approach</span>', '<span class="t">Notre approche</span>')
-    sub('<span class="bl">Be found.</span> <span class="bl">Be trusted.</span> <span class="bl">Be chosen.</span>',
-        '<span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span>')
-    sub('Built to help your practice rise.', 'Une présence plus forte pour un cabinet plus influent.')
-    sub('<h3>Be found</h3><p>Raise your visibility across search, local and social, where patients are already looking.</p>',
-        '<h3>Être trouvé</h3><p>Visible sur la recherche, en local et sur les réseaux — là où vos patients cherchent déjà.</p>')
-    sub('<h3>Be trusted</h3><p>Let the authority you’ve earned be recognised at first glance.</p>',
-        '<h3>Inspirer confiance</h3><p>Une présence digitale qui exprime, dès le premier regard, votre expertise et votre autorité.</p>')
-    sub('<h3>Be chosen</h3><p>Strengthen trust at every step, and turn attention into consultations and long-term loyalty.</p>',
-        '<h3>Être choisi</h3><p>Un parcours patient qui transforme l’hésitation en consultation, puis la consultation en fidélité.</p>')
-
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
     sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span>')
-    sub('From visibility to patient experience, we connect the digital touchpoints that shape how your practice is found, perceived and chosen.',
-        'De la visibilité à l’expérience patient, nous relions les points de contact digitaux qui décident de la façon dont votre cabinet est trouvé, perçu et choisi.')
+    sub('From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is found, perceived and chosen.',
+        'De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est trouvé, perçu et choisi.')
     sub('<p class="mc"><span>Be found.</span><span>Be trusted.</span><span>Be chosen.</span></p>', '<p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>')
     sub('<span class="nm">Visibility</span>', '<span class="nm">Présence digitale</span>')
     sub('Search · Google · Social · Reputation', 'Recherche · Google · Réseaux · Réputation')
@@ -246,6 +264,8 @@ def main():
         '<p>Mon expérience chez FILLMED Laboratories m’a plongée au cœur de la médecine esthétique — aux côtés des praticiens, au plus près des parcours patients et des enjeux de développement des cabinets.</p><p>Avant cela, chez Google et GroupM, j’ai construit mon expertise en stratégie et croissance digitale, entre beauté, luxe et marchés internationaux.</p><p>Raisey Lab est née à la rencontre de ces deux univers : la compréhension de la médecine esthétique et l’expertise du digital.</p>\n        <p>Aujourd’hui, j’accompagne chaque cabinet personnellement, avec une même ambition : élever sa visibilité et son autorité à la hauteur de son expertise.</p>')
     sub('<span class="muted">· Founder · Strategy &amp; Growth</span>', '<span class="muted">· Fondatrice · Stratégie &amp; Croissance</span>')
     sub('Talk to the founder <i class="ar"></i>', 'Échanger avec la fondatrice <i class="ar"></i>')
+    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Why I created Raisey Lab <i class="ar"></i></a>', '<a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Pourquoi j’ai créé Raisey Lab <i class="ar"></i></a>')
+    sub('<a class="tl" href="insights/aesthetic-medicine-patient-journey/">How patients really choose a practice <i class="ar"></i></a>', '<a class="tl" href="../insights/aesthetic-medicine-patient-journey/" hreflang="en">Comment les patients choisissent vraiment un praticien <i class="ar"></i></a>')
     sub('aria-label="Three worlds"', 'aria-label="Trois univers"')
     sub('<p class="cs">Aesthetic medicine</p>', '<p class="cs">Médecine esthétique</p>')
     sub('<p class="cs">Digital growth&nbsp;· Beauty&nbsp;· Luxury</p>', '<p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>')

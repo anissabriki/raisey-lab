@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>
-<meta name="description" content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent et choisissent. Commencez par un Raisey Scan gratuit.">
+<title>Raisey Lab — Stratégie digitale en médecine esthétique</title>
+<meta name="description" content="Un studio de stratégie digitale né au cœur de la médecine esthétique. Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques.">
 <meta name="theme-color" content="#f3eee6">
 <meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">
 <meta property="og:description" content="Présence digitale pour médecins et cliniques esthétiques. Paris · Londres · Dubaï.">
@@ -696,6 +696,159 @@ body{background:var(--rl-ivory)}
   .fx .journey{grid-template-columns:minmax(0,1fr)}
   .fx .f-cta{margin-top:28px}
 }
+
+/* =================== HOMEPAGE 2026-09 — conversion sequence (hero · landscape · journey · framework · studio · final CTA) =================== */
+.hx-eb{font:600 12px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--rl-burgundy)}
+.hx-center{text-align:center}
+.hx-read{margin-top:clamp(22px,2.6vw,32px)}
+.f-cta .f-read{margin-left:clamp(18px,2.4vw,32px)}
+.hx-micro{margin-top:12px;font-size:13px;color:var(--rl-muted)}
+.hx-media{margin:0;position:relative;overflow:hidden;background:var(--rl-stone)}
+.hx-media picture{position:absolute;inset:0}.hx-media img{display:block;width:100%;height:100%;object-fit:cover}
+.hx-hero-img img{object-position:40% 50%}
+.hx-ph{position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 20%,#efe7dc 0%,#e3d8ca 55%,#d6c9b8 100%)}
+.hx-ph::after{content:'Image';position:absolute;left:16px;bottom:12px;font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#a59886}
+/* hero */
+.hero.hx{padding:0;min-height:0;display:block}
+.hx-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-top:clamp(36px,6vw,64px);padding-bottom:clamp(36px,6vw,64px)}
+.hx-copy{display:grid;align-content:center;gap:0}
+.hero.hx .eyebrow{color:var(--rl-burgundy);margin-bottom:clamp(18px,2.4vw,28px)}
+.hero.hx h1{font:400 clamp(3rem,1.6rem + 5vw,5.6rem)/.98 var(--serif);letter-spacing:-.035em;color:var(--rl-ink)}
+.hero.hx h1 em{font-style:italic;font-weight:300;color:var(--rl-burgundy);letter-spacing:-.03em}
+.hero.hx .lede{margin-top:clamp(20px,2.6vw,30px);max-width:30em;font-size:clamp(1.02rem,.95rem + .3vw,1.18rem);line-height:1.55;color:var(--rl-muted)}
+.hx-cta{margin-top:clamp(26px,3vw,36px)}
+.hx-hero-img{aspect-ratio:4/5;min-height:360px}
+.hx-steps{position:absolute;right:clamp(14px,4vw,64px);top:14%;display:grid;gap:clamp(28px,4vw,46px);margin:0;padding:0;list-style:none}
+.hx-steps li{position:relative;font:500 11px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--rl-ink);text-align:right}
+.hx-steps li::before{content:'';position:absolute;right:calc(100% + 14px);top:50%;width:clamp(40px,5vw,72px);height:1px;background:color-mix(in srgb,var(--rl-ink) 35%,transparent)}
+@media (min-width:980px){
+  .hx-grid{grid-template-columns:minmax(0,48fr) minmax(0,52fr);gap:0;padding:0;padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));max-width:none;padding-right:0}
+  .hx-copy{padding:clamp(56px,7vw,96px) clamp(40px,5vw,80px) clamp(56px,7vw,96px) 0}
+  .hx-hero-img{aspect-ratio:auto;min-height:min(78vh,720px)}
+}
+/* landscape */
+.hx-land{border-top:1px solid var(--rl-stone-line);border-bottom:1px solid var(--rl-stone-line);padding-block:clamp(22px,3vw,34px)}
+.hx-land-grid{display:grid;gap:18px;align-items:center}
+.hx-land .hx-eb{font-size:11px;margin:0}
+.hx-fields{display:flex;flex-wrap:wrap;gap:10px 0;margin:0;padding:0;list-style:none}
+.hx-fields li{white-space:nowrap;font:400 clamp(1rem,.86rem + .42vw,1.2rem)/1.2 var(--serif);color:var(--rl-ink);padding-right:clamp(16px,2.4vw,32px);margin-right:clamp(16px,2.4vw,32px);border-right:1px solid var(--rl-stone-line)}
+.hx-fields li:last-child{border-right:0;margin-right:0;padding-right:0}
+.hx-exp{font:500 11px/1.8 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--rl-muted)}
+.hx-exp-h{color:var(--rl-ink)}
+@media (min-width:980px){.hx-fields{flex-wrap:wrap;justify-content:center;row-gap:8px}.hx-fields li{padding-right:clamp(12px,1.5vw,24px);margin-right:clamp(12px,1.5vw,24px);font-size:clamp(.98rem,.7rem + .45vw,1.15rem)}.hx-land-grid{grid-template-columns:minmax(0,2.8fr) minmax(0,5.6fr) minmax(0,2.4fr)}.hx-exp{border-left:1px solid var(--rl-stone-line);padding-left:clamp(20px,2.4vw,32px)}}
+/* patient journey */
+.hx-journey{display:grid;grid-template-columns:minmax(0,1fr)}
+.hx-journey-img{aspect-ratio:4/3}
+.hx-journey-copy{padding:clamp(40px,6vw,80px) var(--gutter)}
+.hx-studio h2{text-wrap:balance;max-width:13em}
+.hx-journey h2,.hx-studio h2,.hx-final h2{font:400 clamp(2rem,1.2rem + 2.6vw,3.3rem)/1.06 var(--serif);letter-spacing:-.025em;color:var(--rl-ink)}
+.hx-journey-copy > p{margin-top:18px;color:var(--rl-muted);font-size:clamp(1rem,.95rem + .2vw,1.1rem);line-height:1.6;max-width:34em}
+.hx-journey-copy u{text-decoration-thickness:1px;text-underline-offset:3px}
+.hx-path{display:flex;gap:0;margin:clamp(28px,3.4vw,44px) 0 0;padding:0 0 6px;list-style:none;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+.hx-path::-webkit-scrollbar{display:none}
+.hx-path li{flex:0 0 auto;display:grid;justify-items:center;gap:10px;min-width:78px;scroll-snap-align:start;position:relative;padding-right:clamp(26px,3vw,46px)}
+.hx-path li:not(:last-child)::after{content:'';position:absolute;right:0;top:15px;width:clamp(18px,2.2vw,34px);height:1px;background:color-mix(in srgb,var(--rl-ink) 40%,transparent)}
+.hx-path li:last-child{padding-right:0}
+.hx-path svg{width:30px;height:30px;color:var(--rl-burgundy)}
+.hx-path span{font:500 12.5px/1.2 var(--sans);color:var(--rl-ink);white-space:nowrap}
+@media (min-width:980px){.hx-journey{grid-template-columns:minmax(0,31fr) minmax(0,69fr)}.hx-journey-img{aspect-ratio:auto;min-height:100%}
+  .hx-journey-copy{padding:clamp(48px,5vw,72px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(48px,5vw,72px) clamp(40px,4vw,64px)}
+  .hx-path{justify-content:space-between;overflow:visible}.hx-path li{padding-right:0}.hx-path li:not(:last-child)::after{right:-28%;width:34%}}
+/* framework */
+@media (max-width:979px){   /* mobile journey per owner mock 2026-09-29: wide image, flowing lede, full-width read link */
+  .hx-journey-img{aspect-ratio:2/1}
+  .hx-journey-copy{padding-block:clamp(26px,6vw,40px) clamp(30px,7vw,48px)}
+  .hx-journey h2{font-size:clamp(1.55rem,1.1rem + 2.2vw,2.6rem)}
+  .hx-journey-copy > p br{display:none}
+  .hx-journey .hx-path{display:none}
+  .hx-journey .hx-read .tl{display:flex;justify-content:space-between;width:100%;font-weight:500;font-size:14px;gap:12px;border-bottom-width:1px;padding-block:10px 12px}
+}
+.hx-intro{max-width:44em;margin:clamp(14px,1.8vw,20px) auto 0;text-align:center;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.6;color:var(--rl-muted)}
+.hx-pillars .rv-cta{flex-direction:column;justify-content:center;align-items:center;gap:0}
+.hx-pillars .rv-cta[hidden]{display:none}
+.hx-pillars .scan,.hx-pillars .glance{text-align:left}
+.hx-pillars .glance{margin-top:clamp(28px,4vw,48px)}
+.hx-pillars .scan{margin-top:clamp(24px,3vw,40px)}
+.hx-pillars{background:linear-gradient(180deg,#ebe6ee 0%,#efe6e8 100%);padding-block:clamp(44px,6vw,80px)}
+.hx-five{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 10px;margin:clamp(30px,4vw,48px) 0 0;padding:0;list-style:none}
+.hx-five li{display:grid;grid-template-columns:1.1em minmax(0,1fr);grid-template-rows:auto 1fr;column-gap:10px;align-items:start;font-size:clamp(2.3rem,2rem + 1.4vw,3.4rem)}   /* em sizes the number column */
+.hx-n{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--rl-muted)}
+.hx-five .hx-n{grid-row:1 / span 2;font:300 1em/.9 var(--serif);letter-spacing:-.03em;color:#998593}
+.hx-five h3{font:400 clamp(1.02rem,.95rem + .3vw,1.2rem)/1.2 var(--serif);color:var(--rl-ink);letter-spacing:-.005em;padding-top:.12em}
+.hx-five p{margin-top:6px;font-size:13px;line-height:1.55;color:var(--rl-muted)}
+.hx-pillars .hx-cta{margin-top:clamp(34px,4.4vw,52px);display:grid;justify-items:center}
+@media (max-width:359px){.hx-five{grid-template-columns:minmax(0,1fr)}}
+@media (min-width:700px){.hx-five{grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 36px;max-width:980px;margin-inline:auto}}
+/* studio */
+.hx-studio{display:grid;grid-template-columns:minmax(0,1fr)}
+.hx-studio-copy{padding:clamp(44px,6vw,80px) var(--gutter);display:grid;gap:18px;align-content:center}
+.hx-studio-copy > p:not(.hx-eb){color:var(--rl-muted);line-height:1.6;max-width:32em}
+.hx-studio-copy .tl{justify-self:start}
+.hx-studio-img{aspect-ratio:4/3}
+.hx-trio{margin:0;padding:clamp(28px,4vw,48px) var(--gutter);display:grid;gap:0}
+.hx-trio div{padding:18px 0;border-bottom:1px solid var(--rl-stone-line)}
+.hx-trio div:last-child{border-bottom:0}
+.hx-trio dt{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--rl-muted)}
+.hx-trio dd{margin:8px 0 0;font:400 clamp(1.6rem,1.2rem + 1.2vw,2.2rem)/1.1 var(--serif);color:var(--rl-burgundy)}
+@media (min-width:980px){.hx-studio{grid-template-columns:minmax(0,44fr) minmax(0,33fr) minmax(0,23fr)}
+  .hx-studio-copy{padding:clamp(56px,6vw,88px) clamp(32px,4vw,56px) clamp(56px,6vw,88px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}
+  .hx-studio-img{aspect-ratio:auto;min-height:100%}.hx-trio{align-content:center;padding:clamp(40px,4vw,56px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(40px,4vw,56px) clamp(28px,3vw,44px)}}
+/* studio: editorial fold-out (the arrow reveals the methodology layer; content always in the DOM for crawlers) */
+.hx-trio dl{margin:0}
+.hx-fold-btn{justify-self:start;margin-top:clamp(18px,2.4vw,30px);width:40px;height:40px;display:grid;place-items:center;padding:0;background:none;border:0;color:var(--rl-ink);cursor:pointer}
+.hx-fold-btn:focus-visible{outline:1px solid var(--rl-burgundy);outline-offset:4px}
+.hx-fold-ar{width:26px;height:26px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.hx-fold-btn[aria-expanded=true] .hx-fold-ar{transform:rotate(180deg)}
+@media (hover:hover){.hx-fold-btn:hover{color:var(--rl-burgundy)}}
+.hx-fold{grid-column:1 / -1;display:grid;grid-template-rows:0fr;visibility:hidden;opacity:0;transform:translateY(-10px);
+  transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .5s ease,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s linear .55s;border-top:1px solid transparent}
+.hx-fold.is-open{grid-template-rows:1fr;visibility:visible;opacity:1;transform:none;transition-delay:0s;border-top-color:var(--rl-stone-line)}
+.hx-fold-in{overflow:hidden;min-height:0}
+.hx-fold-list{list-style:none;margin:0;display:grid;gap:0;padding:clamp(28px,4vw,52px) var(--gutter) clamp(36px,5vw,64px)}
+.hx-fold-list > li{display:grid;gap:10px;align-content:start;padding:22px 0;border-bottom:1px solid var(--rl-stone-line)}
+.hx-fold-list > li:last-child{border-bottom:0}
+.hx-fold-list svg{width:30px;height:30px;color:var(--rl-burgundy)}
+.hx-fold-list h3{font:400 clamp(1.5rem,1.2rem + .9vw,1.9rem)/1.1 var(--serif);color:var(--rl-burgundy)}
+.hx-fold-list p{font-size:15px;line-height:1.55;color:var(--rl-muted);max-width:26em}
+.hx-fold-list ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+@media (min-width:760px){.hx-fold-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:0}
+  .hx-fold-list > li{border-bottom:0;padding:0 clamp(20px,2.6vw,40px)}.hx-fold-list > li+li{border-left:1px solid var(--rl-stone-line)}.hx-fold-list > li:first-child{padding-left:0}}
+@media (min-width:980px){.hx-fold-list{padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));padding-right:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}}
+@media (prefers-reduced-motion:reduce){.hx-fold,.hx-fold.is-open,.hx-fold-ar{transition:none}}
+/* =================== SERVICES 2026-09 — editorial image bands (owner-requested; accordion behaviour unchanged) =================== */
+.svc-sec{background:var(--rl-ivory)}
+.svc-l{background:var(--rl-ivory)}
+.svc-l .mc{display:none}
+.svc-r .rows{display:grid;gap:6px}
+.svc-r .row{position:relative;border-bottom:0;background:var(--rl-ivory)}
+.svc-r .row h3{position:relative;isolation:isolate;overflow:hidden}
+.svc-r .row h3::before{content:'';position:absolute;inset:0;z-index:-2;background:var(--svc-img) center/cover no-repeat}
+.svc-r .row h3::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(243,238,230,.94) 0%,rgba(243,238,230,.82) 42%,rgba(243,238,230,.18) 78%,rgba(243,238,230,0) 100%)}
+.svc-r .r-btn{min-height:clamp(128px,14vw,168px);align-items:center;padding:clamp(22px,2.6vw,32px) clamp(18px,2.4vw,32px)}
+.svc-r .r-btn .mn::before{display:block;top:0;height:100%}
+.svc-r .r-btn .stg,.svc-r .r-btn .ds{display:none}
+.svc-r .r-btn .sup{display:block;font-size:11px;letter-spacing:.2em;color:var(--rl-ink)}
+.svc-r .r-btn .nm{color:var(--rl-ink)}
+.svc-r .r-btn .mn{padding-right:14px}
+.svc-r .r-btn .n{color:var(--rl-ink)}
+.svc-r .r-btn .go{background:rgba(250,248,244,.55);border-color:color-mix(in srgb,var(--rl-ink) 45%,transparent)}
+.svc-r .r-body{padding:clamp(20px,2.4vw,28px) clamp(18px,2.4vw,32px) clamp(24px,3vw,34px) calc(var(--nw) + var(--pl) + clamp(18px,2.4vw,32px))}
+.svc-r .r-body .p-stg,.svc-r .r-body .p-sup,.svc-r .r-body .p-ds{display:block}
+.svc-r .r-body .p-sup{display:none}
+@media (max-width:719px){
+  .svc-r{padding-left:0;padding-right:0}
+  .svc-r .r-btn{grid-template-columns:var(--nw) minmax(0,1fr) 44px;padding:26px var(--gutter)}
+  .svc-r .r-body{padding:18px var(--gutter) 26px}
+  .svc-cta{padding-inline:var(--gutter);justify-items:center;text-align:center}
+}
+@media (min-width:1000px){.svc-sec{grid-template-columns:36fr 64fr}}
+/* final CTA */
+.hx-final{position:relative;overflow:hidden;padding-block:clamp(56px,8vw,112px)}
+.hx-final-bg{position:absolute;inset:0;background:radial-gradient(90% 120% at 15% 30%,#f4ede4 0%,#ecdfd6 45%,#e6dfe9 100%)}
+.hx-final-grid{position:relative;display:grid;gap:28px;align-items:end}
+.hx-final .hx-eb{margin-bottom:12px}
+.hx-final-grid p:not(.hx-eb):not(.hx-micro){margin-top:14px;color:var(--rl-muted);max-width:32em;line-height:1.6}
+@media (min-width:980px){.hx-final-grid{grid-template-columns:minmax(0,1fr) auto}.hx-final .hx-cta{text-align:center}}
 </style>
 </head>
 <body>
@@ -740,43 +893,68 @@ body{background:var(--rl-ivory)}
 
 <main id="main">
 
-<!-- ============ 01 · STUDIO ============ -->
-<section class="hero" id="studio" aria-label="Raisey Lab">
-  <svg class="arcs" viewBox="0 0 400 400" aria-hidden="true">
-    <g data-depth="3"><path class="a1" pathLength="1" d="M200 30a170 170 0 1 0 170 170" stroke-width="15"/></g>
-    <g data-depth="7"><path class="a2" pathLength="1" d="M282.7 130.6A108 108 0 1 0 282.7 269.4" stroke-width="15"/></g>
-    <g data-depth="12"><path class="a3" pathLength="1" d="M234.5 171.1A45 45 0 1 0 234.5 228.9" stroke-width="15"/><circle class="dot" cx="222" cy="200" r="14"/></g>
-  </svg>
-  <div class="wrap">
-    <p class="eyebrow rise" style="--i:0"><span class="eb-a">Médecine esthétique —</span> <span class="eb-b">Visibilité · Autorité · Croissance</span></p>
-    <h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>
-    <p class="lede rise" style="--i:2">Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab leur donne la visibilité et l’autorité qu’elles méritent, pour que les bons patients puissent vous trouver, vous faire confiance et vous choisir.</p>
-    <div class="hero-cta rise" style="--i:3">
-      <a class="btn" href="#raisey-scan" data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
-      <a class="tl" href="#approach">Découvrir le studio</a>
+<!-- ============ 01 · STUDIO (hero) ============ -->
+<section class="hero hx" id="studio" aria-labelledby="hx-h">
+  <div class="wrap hx-grid">
+    <div class="hx-copy">
+      <p class="eyebrow rise" style="--i:0">Votre présence digitale, en clair.</p>
+      <h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>
+      <p class="lede rise" style="--i:2">Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.</p>
+      <div class="hx-cta rise" style="--i:3">
+        <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+        <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+      </div>
     </div>
-    <p class="hero-foot rise" style="--i:4" aria-label="Paris, Londres, Dubaï"><span>Paris</span><span>Londres</span><span>Dubaï</span></p>
+    <figure class="hx-media hx-hero-img" data-slot="hero">
+      <picture><source type="image/webp" srcset="../images/home-hero-480.webp 480w, ../images/home-hero-890.webp 890w" sizes="(max-width:979px) calc(100vw - 40px), 52vw"><img src="../images/home-hero-890.jpg" alt="Détail architectural d’une clinique de médecine esthétique dans une lumière naturelle chaude" width="890" height="1096" fetchpriority="high" decoding="async"></picture>
+      <ol class="hx-steps" aria-label="Le parcours patient"><li>Recherche</li><li>Découverte</li><li>Confiance</li><li>Choix</li></ol>
+    </figure>
   </div>
 </section>
 
-<!-- ============ 02 · PRESENCE SCAN ============ -->
-<section class="sec review" id="raisey-scan" aria-labelledby="rv-h">
-  <div class="wrap">
-    <p class="sl"><span class="n">02</span><span class="t">Raisey Scan</span></p>
-    <div class="rv-head">
-      <h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>
-      <p class="lede">Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en matière de visibilité, d’autorité et d’expérience patient.</p>
-    </div>
+<!-- ============ LANDSCAPE ============ -->
+<section class="hx-land" aria-labelledby="hx-land-h">
+  <div class="wrap hx-land-grid">
+    <h2 id="hx-land-h" class="hx-eb">Né d’une connaissance intime<br> de la médecine esthétique</h2>
+    <ul class="hx-fields"><li>Médecine esthétique</li><li>Pharma et laboratoires</li><li>Marchés internationaux</li></ul>
+    <div class="hx-exp"><p class="hx-exp-h">Expérience du secteur</p><p>FILLMED Laboratories · Google · GroupM</p></div>
+  </div>
+</section>
 
-    <ol class="dim-index" id="dims6" aria-label="Les six dimensions du Raisey Scan">
-      <li><span class="dn">01</span><span class="dt">Autorité médicale</span></li>
-      <li><span class="dn">02</span><span class="dt">Autorité digitale</span></li>
-      <li><span class="dn">03</span><span class="dt">Expression de marque</span></li>
-      <li><span class="dn">04</span><span class="dt">Visibilité</span></li>
-      <li><span class="dn">05</span><span class="dt">Potentiel éditorial</span></li>
-      <li><span class="dn">06</span><span class="dt">Parcours patient</span></li>
+<!-- ============ PATIENT JOURNEY ============ -->
+<section class="hx-journey" aria-labelledby="hx-journey-h">
+  <figure class="hx-media hx-journey-img" data-slot="journey">
+    <picture><source type="image/webp" srcset="../images/home-journey-480.webp 480w, ../images/home-journey-960.webp 960w, ../images/home-journey-1420.webp 1420w" sizes="(max-width:979px) 100vw, 31vw"><img src="../images/home-journey-960.jpg" alt="Salle de consultation calme dans une clinique de médecine esthétique" width="960" height="749" loading="lazy" decoding="async"></picture>
+  </figure>
+  <div class="hx-journey-copy">
+    <h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>
+    <p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>
+    <ol class="hx-path" aria-label="Là où les patients décident">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><span>Recherche</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12.5" rx="1.2"/><path d="M8.5 20h7M12 16.5V20"/></g></svg><span>Site web</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.8"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></svg><span>Instagram</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.6 2.55 5.3 5.8.8-4.2 4.05 1 5.75L12 16.75 6.85 19.5l1-5.75L3.65 9.7l5.8-.8Z"/></g></svg><span>Avis</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><span>Profil du médecin</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></g></svg><span>Réservation</span></li>
     </ol>
+    <p class="hx-read"><a class="tl" href="../insights/aesthetic-medicine-patient-journey/" hreflang="en">Comment les patients choisissent vraiment un praticien <i class="ar"></i></a></p>
+  </div>
+</section>
 
+<!-- ============ PRESENCE FRAMEWORK ============ -->
+<section class="hx-pillars" id="raisey-scan" aria-labelledby="hx-pillars-h">
+  <div class="wrap">
+    <h2 id="hx-pillars-h" class="hx-eb hx-center">Quelle est la force de votre présence ?</h2>
+    <p class="hx-intro">Six dimensions pour comprendre comment votre expertise existe, se distingue et convertit dans l’écosystème digital.</p>
+    <ol class="hx-five">
+      <li><span class="hx-n">01</span><h3>Marque</h3><p>Positionnement<br> Identité<br> Différenciation</p></li>
+      <li><span class="hx-n">02</span><h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé<br> Présence digitale</p></li>
+      <li><span class="hx-n">03</span><h3>Autorité</h3><p>Expertise<br> Réputation<br> Confiance</p></li>
+      <li><span class="hx-n">04</span><h3>Potentiel éditorial</h3><p>Contenu<br> Thought leadership<br> Différenciation</p></li>
+      <li><span class="hx-n">05</span><h3>Parcours patient</h3><p>Site web · UX<br> Conversion<br> Expérience</p></li>
+      <li><span class="hx-n">06</span><h3>Croissance</h3><p>Acquisition<br> CRM<br> Fidélisation</p></li>
+    </ol>
+    <div class="rv-cta hx-cta hx-center">
+      <button class="btn" type="button" id="takeDiag">Démarrer mon Raisey Scan <i class="ar"></i></button>
+      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+    </div>
+    <noscript><p class="muted" style="margin-top:20px">Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.</p></noscript>
     <div class="glance" id="glance" hidden>
       <p class="eyebrow">Votre Raisey Scan</p>
       <h3 class="g-h" tabindex="-1" data-glance-title>Vos résultats en un coup d’œil.</h3>
@@ -788,13 +966,6 @@ body{background:var(--rl-ivory)}
         <ul id="legend"></ul>
       </div>
     </div>
-
-    <div class="rv-cta">
-      <button class="btn" type="button" id="takeDiag">Lancer le Raisey Scan <i class="ar"></i></button>
-      <p class="pl">Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes</p>
-    </div>
-    <noscript><p class="muted" style="margin-top:20px">Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.</p></noscript>
-
     <div class="scan" id="scan" data-scan hidden>
       <div data-stage aria-live="polite"></div>
       <div class="req-box" data-request hidden>
@@ -817,22 +988,32 @@ body{background:var(--rl-ivory)}
   </div>
 </section>
 
-<!-- ============ 03 · OUR APPROACH ============ -->
-<section class="sec" id="approach" aria-labelledby="ap-h">
-  <div class="wrap">
-    <p class="sl"><span class="n">03</span><span class="t">Notre approche</span></p>
-    <div class="approach">
-      <div class="ap-l">
-        <h2 id="ap-h"><span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span></h2>
-        <p class="lede">Une présence plus forte pour un cabinet plus influent.</p>
-      </div>
-      <div class="dark ap-panel">
-        <div class="trio">
-          <div class="it"><span class="num">01</span><h3>Être trouvé</h3><p>Visible sur la recherche, en local et sur les réseaux — là où vos patients cherchent déjà.</p></div>
-          <div class="it"><span class="num">02</span><h3>Inspirer confiance</h3><p>Une présence digitale qui exprime, dès le premier regard, votre expertise et votre autorité.</p></div>
-          <div class="it"><span class="num">03</span><h3>Être choisi</h3><p>Un parcours patient qui transforme l’hésitation en consultation, puis la consultation en fidélité.</p></div>
-        </div>
-      </div>
+<!-- ============ STUDIO INTRODUCTION ============ -->
+<section class="hx-studio" aria-labelledby="hx-studio-h">
+  <div class="hx-studio-copy">
+    <p class="hx-eb">De l’analyse à la direction.</p>
+    <h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>
+    <p>Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.</p>
+    <a class="tl" href="#services">Découvrir nos services <i class="ar"></i></a>
+  </div>
+  <figure class="hx-media hx-studio-img" data-slot="studio">
+    <picture><source type="image/webp" srcset="../images/home-studio-480.webp 480w, ../images/home-studio-960.webp 960w, ../images/home-studio-1393.webp 1393w" sizes="(max-width:979px) 100vw, 33vw"><img src="../images/home-studio-960.jpg" alt="Intérieur architectural d’une clinique de médecine esthétique" width="960" height="778" loading="lazy" decoding="async"></picture>
+  </figure>
+  <div class="hx-trio">
+    <dl>
+      <div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>
+      <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>
+      <div><dt>Croissance</dt><dd>Être choisi.</dd></div>
+    </dl>
+    <button class="hx-fold-btn" type="button" aria-expanded="false" aria-controls="hx-fold"><span class="sr-only" data-open="Afficher l’approche en détail" data-close="Masquer l’approche en détail">Afficher l’approche en détail</span><svg class="hx-fold-ar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15.5M6.5 14 12 19.5 17.5 14" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+  <div class="hx-fold" id="hx-fold" role="region" aria-label="Notre approche en détail">
+    <div class="hx-fold-in">
+      <ol class="hx-fold-list">
+        <li><span class="hx-n hx-fn">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Être trouvé</h3><p>Exister là où vos patients vous cherchent : recherche, référencement local, réseaux et présence digitale.</p><ul><li>SEO &amp; recherche</li><li>Référencement local</li><li>Visibilité digitale</li><li>Présence multi-canaux</li></ul></li>
+        <li><span class="hx-n hx-fn">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Inspirer confiance</h3><p>Faire percevoir votre expertise et votre approche avant même la consultation.</p><ul><li>Positionnement</li><li>Contenus experts</li><li>Marque &amp; identité</li><li>Réputation</li></ul></li>
+        <li><span class="hx-n hx-fn">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Être choisi</h3><p>Transformer cette confiance en prise de rendez-vous, puis en fidélité.</p><ul><li>Site web &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Fidélisation</li></ul></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -844,13 +1025,13 @@ body{background:var(--rl-ivory)}
     <div class="svc-l-in">
       <p class="lab">Notre expertise</p>
       <h2 id="svc-h"><span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span></h2>
-      <p class="lede-l">De la visibilité à l’expérience patient, nous relions les points de contact digitaux qui décident de la façon dont votre cabinet est trouvé, perçu et choisi.</p>
+      <p class="lede-l">De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est trouvé, perçu et choisi.</p>
       <p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>
     </div>
   </div>
   <div class="svc-r">
     <ol class="rows">
-        <li class="row" data-k="digital" data-open="false">
+        <li class="row" data-k="digital" data-open="false" style="--svc-img:url(../images/svc-1.webp)">
           <h3><button class="r-btn" type="button" id="b-digital" aria-expanded="false" aria-controls="p-digital">
             <span class="n">01</span>
             <span class="mn"><span class="nm">Présence digitale</span><span class="stg">Être trouvé</span><span class="sup">Recherche · Google · Réseaux · Réputation</span><span class="ds">Soyez visible là où vos patients cherchent déjà.</span></span>
@@ -862,7 +1043,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-digital">En parler <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="website" data-open="false">
+        <li class="row" data-k="website" data-open="false" style="--svc-img:url(../images/svc-2.webp)">
           <h3><button class="r-btn" type="button" id="b-website" aria-expanded="false" aria-controls="p-website">
             <span class="n">02</span>
             <span class="mn"><span class="nm">Site web et parcours patient</span><span class="stg">Inspirer confiance, soigner l’expérience</span><span class="sup">Positionnement · UX/UI · Rendez-vous · Bases SEO</span><span class="ds">Faites de votre expertise une expérience en ligne que les patients comprennent — et en laquelle ils ont confiance.</span></span>
@@ -874,7 +1055,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-website">En parler <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="ongoing" data-open="false">
+        <li class="row" data-k="ongoing" data-open="false" style="--svc-img:url(../images/svc-3.webp)">
           <h3><button class="r-btn" type="button" id="b-ongoing" aria-expanded="false" aria-controls="p-ongoing">
             <span class="n">03</span>
             <span class="mn"><span class="nm">Présence continue</span><span class="stg">Rester visible</span><span class="sup">Contenu · Réseaux · Google · Réputation</span><span class="ds">Gardez votre présence visible, pertinente et cohérente, bien après le lancement.</span></span>
@@ -886,7 +1067,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-ongoing">En parler <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="growth" data-open="false">
+        <li class="row" data-k="growth" data-open="false" style="--svc-img:url(../images/svc-4.webp)">
           <h3><button class="r-btn" type="button" id="b-growth" aria-expanded="false" aria-controls="p-growth">
             <span class="n">04</span>
             <span class="mn"><span class="nm">Croissance et autorité</span><span class="stg">Bâtir l’autorité</span><span class="sup">Stratégie · Analytics · Marque personnelle · Contenu</span><span class="ds">Transformez votre visibilité en autorité durable et en croissance mesurable.</span></span>
@@ -1005,7 +1186,7 @@ body{background:var(--rl-ivory)}
           </li>
         </ol>
       </div>
-      <p class="f-cta"><a class="tl" href="#contact" data-interest="founder">Échanger avec la fondatrice <i class="ar"></i></a></p>
+      <p class="f-cta"><a class="tl" href="#contact" data-interest="founder">Échanger avec la fondatrice <i class="ar"></i></a> <a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Pourquoi j’ai créé Raisey Lab <i class="ar"></i></a></p>
     </div>
   </div>
 </section>
@@ -1081,6 +1262,22 @@ body{background:var(--rl-ivory)}
   </div>
 </section>
 
+
+<!-- ============ FINAL CTA ============ -->
+<section class="hx-final" aria-labelledby="hx-final-h">
+  <div class="hx-final-bg" data-slot="final" aria-hidden="true"></div>
+  <div class="wrap hx-final-grid">
+    <div>
+      <p class="hx-eb">Prêt à voir le tableau complet ?</p>
+      <h2 id="hx-final-h">Faites le Raisey Scan.</h2>
+      <p>Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.</p>
+    </div>
+    <div class="hx-cta">
+      <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -1380,6 +1577,16 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   const fit=()=>{let fs=innerWidth<700?10.5:11.5; const set=v=>sec.style.setProperty('--tag-fs',v+'px'); set(fs);
     while(fs>7&&paths.some(p=>p.scrollWidth>p.clientWidth+.5)){fs-=.25;set(fs)}};
   fit(); let t=0; addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(fit,120)}); if(document.fonts) document.fonts.ready.then(fit);
+})();
+
+/* ---------- Studio fold-out: arrow reveals / hides the methodology layer (Esc and outside click close it) ---------- */
+(function(){
+  const btn=document.querySelector('.hx-fold-btn'), panel=document.getElementById('hx-fold'); if(!btn||!panel) return;
+  const label=btn.querySelector('.sr-only');
+  const set=open=>{panel.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',String(open));label.textContent=open?label.dataset.close:label.dataset.open};
+  btn.addEventListener('click',e=>{e.stopPropagation();set(!panel.classList.contains('is-open'))});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open')){set(false);btn.focus()}});
+  document.addEventListener('click',e=>{if(panel.classList.contains('is-open')&&!panel.contains(e.target)&&!btn.contains(e.target)) set(false)});
 })();
 
 /* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */

@@ -112,11 +112,17 @@ def make_jsonld(p, origin, base, h=''):
               'image': root + 'images/founder-about-768.jpg', 'knowsAbout': cfg.get('knowsAbout') or []}
     site_ = {'@type': 'WebSite', '@id': root + '#website', 'url': root, 'name': 'Raisey Lab', 'inLanguage': ['en', 'fr'],
              'publisher': {'@id': root + '#organization'}}
+    # Services: read from the page's own visible Services rows (name + one-line description), so schema never claims more than the page shows
+    rows = re.findall(r'<span class="nm">(.*?)</span>.*?<span class="ds">(.*?)</span>', h, re.S)
+    services = [{'@type': 'Service', '@id': page + '#service-%d' % k, 'name': html.unescape(re.sub(r'<[^>]+>', '', n)).strip(),
+                 'description': html.unescape(re.sub(r'<[^>]+>', '', d)).strip(), 'provider': {'@id': root + '#organization'},
+                 'audience': {'@type': 'Audience', 'audienceType': 'Aesthetic doctors and clinics' if en else 'Médecins et cliniques esthétiques'}}
+                for k, (n, d) in enumerate(rows, 1)]
     webpage = {'@type': 'WebPage', '@id': page + '#webpage', 'url': page, 'name': meta(r'<title>(.*?)</title>'),
                'description': meta(r'<meta name="description" content="([^"]*)"'), 'inLanguage': LANG[p],
                'isPartOf': {'@id': root + '#website'}, 'about': {'@id': root + '#organization'},
                'primaryImageOfPage': {'@type': 'ImageObject', 'url': root + 'images/og.jpg'}}
-    return {'@context': 'https://schema.org', '@graph': [org, person, site_, webpage]}
+    return {'@context': 'https://schema.org', '@graph': [org, person, site_, webpage] + services}
 
 
 def render_seo(p, h, origin, base):
@@ -180,7 +186,7 @@ def seo_check(pages, sitemap, origin, base, where):
             try:
                 ld = json.loads(blocks[0].replace('<\\/', '</'))
                 types = sorted(n['@type'] for n in ld['@graph'])
-                if types != ['Organization', 'Person', 'WebPage', 'WebSite']:
+                if [t for t in types if t != 'Service'] != ['Organization', 'Person', 'WebPage', 'WebSite'] or types.count('Service') not in (0, 4):
                     bad.append('%s %s: unexpected JSON-LD types %s' % (where, p, types))
                 if FORBIDDEN_LD.search(blocks[0]):
                     bad.append('%s %s: JSON-LD contains a forbidden claim (address, LocalBusiness, rating, review, offer...)' % (where, p))
@@ -354,8 +360,8 @@ for dirpath, _, files in os.walk('dist'):
             if re.search(r'\b3[ -]minutes?\b|Environ 3\b', plain):
                 errors.append('outdated duration ("3 minutes") in ' + full + ' (the Scan is about 4 minutes)')
             if f in ('index.html',) and dirpath in ('dist', 'dist/fr'):
-                if len(re.findall(r'<li><span class="dn">', plain)) != 6:
-                    errors.append('the Scan must list exactly six dimensions in ' + full)
+                if len(re.findall(r'<li><span class="hx-n">', plain)) != 6:
+                    errors.append('the Raisey Scan section must present exactly six dimensions in ' + full)
                 if len(re.findall(r"\{id:'[a-z]+',dim:'[a-z]+',facet:'[a-zA-Z]+',t:'single'", plain)) != 9 or len(re.findall(r"\{id:'(?:growth|treatments)',t:'multi'", plain)) != 2:
                     errors.append('the Scan must have 9 scored questions + 2 context-only questions in ' + full)
             if re.search(r'href="[^"]*index\.html', txt):
