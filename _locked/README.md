@@ -43,3 +43,7 @@ EN: "From visibility to patient experience, we build the digital strategy that s
 
 ## Image-band layout · 2026-09-29 (owner-requested redesign, mobile + desktop, EN + FR)
 Each row gets a background image (inline --svc-img), rows become editorial image bands (name + keywords + circular arrow; descriptor/description stay in the panel). Accordion behaviour unchanged. Override CSS lives outside the locked block; snapshot + checksums refreshed.
+
+
+## Heading whitespace · 2026-09-29 (owner-approved, action 7)
+One space added between `<span class="l1">` and `<span class="l2">` in the Services H2 (EN + FR) so text extraction reads "How we raise your presence" instead of "raiseyour". Both spans are display:block: no visual change (verified by pixel comparison). services.html snapshot + checksum refreshed.

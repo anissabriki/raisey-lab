@@ -31,6 +31,7 @@ LISTING = {
     'next_no': '05', 'next_title': 'A Good Doctor Knows When to Say No',
     'subscribe': 'Receive new Insights as they’re published.',
     'thanks': 'Thank you — you’ll receive the next Insight.',
+    'scan': 'Start with the Raisey Scan',
     'explore': 'Or explore how we work with practices',
 }
 
@@ -94,7 +95,12 @@ CSS = '''
 .ins-sub .priv a{color:var(--muted)}
 .ins-explore{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:18px;font-size:14px;color:var(--muted);text-underline-offset:.3em}
 .ins-explore:hover,.ins-explore:focus-visible{color:var(--rasp)}
-.ins-explore-row{margin-top:clamp(40px,5vw,64px)}
+.ins-explore-row{margin-top:clamp(40px,5vw,64px);display:flex;flex-wrap:wrap;align-items:center;column-gap:14px}
+.ins-explore-row .ins-explore{margin-top:0}
+.ins-dot{color:var(--muted)}
+.ins-meta .nw{white-space:nowrap}
+.ins-by{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.25em}
+.ins-by:hover,.ins-by:focus-visible{color:var(--rasp)}
 .ins .btn,.art-end .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy)}
 .art-end .btn{min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
 .art-head{max-width:900px}
@@ -284,6 +290,14 @@ FOUNDER_FIG = ('<figure class="art-fig"><picture><source type="image/webp" srcse
                '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”" '
                'decoding="async" width="1024" height="1536"></picture></figure>\n')
 
+def pubdate(a):
+    """ · 26 September 2026 — shown only when the article has a real publication date (the same one as datePublished)."""
+    d = PUBLISHED.get(a['slug'])
+    if not d: return ''
+    x = datetime.date.fromisoformat(d)
+    return ' · <time datetime="%s">%d %s</time>' % (d, x.day, x.strftime('%B %Y'))
+
+
 def article(a, arts):
     i = arts.index(a)
     link = lambda u: ('../%s/index.html' % u.split('/insights/')[1].strip('/')) if u.startswith('/insights/') else u
@@ -298,10 +312,13 @@ def article(a, arts):
     home = '../../index.html'
     no = int(a['no'])
     if no == 1:
-        end = '<p><a class="tl" href="%s#services">Explore our approach <i class="ar"></i></a></p>' % home
+        end = ('<p><a class="tl" href="%s#services">Explore our approach <i class="ar"></i></a></p>'
+               '<p class="sub">Or see where your practice stands: <a href="%s#raisey-scan">Take the Raisey Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 2:
         end = ('<p class="q">Understand your patient journey.</p>'
-               '<a class="btn" href="%s#contact" data-interest="presence-review">Request a Raisey Lab Review <i class="ar"></i></a>' % home)
+               '<a class="btn" href="%s#contact" data-interest="presence-review">Request a Raisey Lab Review <i class="ar"></i></a>'
+               '<p class="sub">Or start with a diagnosis: the free Raisey Scan reads your practice across six dimensions, in about 4 minutes. '
+               '<a href="%s#raisey-scan">Take the Raisey Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 3:
         end = ('<p class="q">Growing your practice across markets?</p>'
                '<p><a class="tl" href="%s#services">Discover Brand &amp; Digital Strategy <i class="ar"></i></a></p>' % home)
@@ -325,8 +342,7 @@ def article(a, arts):
 <p class="ins-label">Insight %s · %s</p>
 <h1>%s</h1>
 <p class="art-stand">%s</p>
-<!-- TODO: publication date (not displayed until set) -->
-<p class="ins-meta">By %s, Founder · %d min read</p><!-- TODO: confirm the byline name with the client before launch -->
+<p class="ins-meta">By <a class="ins-by" href="../../index.html#about">%s</a>, Founder%s · <span class="nw">%d min read</span></p>
 </header>
 %s<div class="art-body">
 %s
@@ -337,7 +353,7 @@ def article(a, arts):
 <nav class="art-pn" aria-label="Insights series">%s</nav>
 <a class="art-back" href="../index.html">← All Insights</a>''' % (
         crumbs([(home, 'Home'), ('../index.html', 'Insights'), (None, a['short'])]), a['slug'], a['no'], html.escape(a['theme']),
-        html.escape(smart(a['title'])), html.escape(smart(a['standfirst'])), BYLINE, a['minutes'], FOUNDER_FIG if a['slug'] == 'why-i-created-raisey-lab' else '', '\n'.join(blocks), src, end, pn)
+        html.escape(smart(a['title'])), html.escape(smart(a['standfirst'])), BYLINE, pubdate(a), a['minutes'], FOUNDER_FIG if a['slug'] == 'why-i-created-raisey-lab' else '', '\n'.join(blocks), src, end, pn)
     url = ROOT_URL + path
     ld = ld_graph({'@type': 'Article', 'headline': smart(a['title']), 'description': a['description'],
                    'author': AUTHOR, 'publisher': PUBLISHER, 'image': ROOT_URL + 'images/og.jpg',
@@ -360,7 +376,7 @@ def listing(arts):
     rows = ''.join('''<li class="ins-row"><span class="ins-num" aria-hidden="true">%s</span><div><p class="ins-label">%s</p>
 <h2><a href="%s/index.html"><span class="sr-only">%s. </span>%s</a></h2><p class="ex">%s</p><p class="ins-meta">%d min read</p></div><span class="go" aria-hidden="true"><i class="ar"></i></span></li>
 ''' % (a['no'], html.escape(a['theme']), a['slug'], a['no'], html.escape(smart(a['title'])), html.escape(smart(a['excerpt'])), a['minutes']) for a in arts)
-    subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="../privacy.html">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a>\n</section>' % (LISTING['subscribe'], LISTING['thanks'], LISTING['explore'])) if NEWSLETTER else ('<p class="ins-explore-row"><a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a></p>' % LISTING['explore'])
+    subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="../privacy.html">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a>\n</section>' % (LISTING['subscribe'], LISTING['thanks'], LISTING['explore'])) if NEWSLETTER else ('<p class="ins-explore-row"><a class="ins-explore" href="../index.html#raisey-scan">%s <span aria-hidden="true">→</span></a> <span class="ins-dot" aria-hidden="true">·</span> <a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a></p>' % (LISTING['scan'], LISTING['explore']))
     body = '''%s
 <header class="ins-hero"><h1>%s</h1><p class="ins-lead">%s</p></header>
 %s
