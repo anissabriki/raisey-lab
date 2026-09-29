@@ -810,6 +810,33 @@ body{background:var(--rl-ivory)}
   .hx-fold-list > li{border-bottom:0;padding:0 clamp(20px,2.6vw,40px)}.hx-fold-list > li+li{border-left:1px solid var(--rl-stone-line)}.hx-fold-list > li:first-child{padding-left:0}}
 @media (min-width:980px){.hx-fold-list{padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));padding-right:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}}
 @media (prefers-reduced-motion:reduce){.hx-fold,.hx-fold.is-open,.hx-fold-ar{transition:none}}
+/* =================== SERVICES 2026-09 — editorial image bands (owner-requested; accordion behaviour unchanged) =================== */
+.svc-sec{background:var(--rl-ivory)}
+.svc-l{background:var(--rl-ivory)}
+.svc-l .mc{display:none}
+.svc-r .rows{display:grid;gap:6px}
+.svc-r .row{position:relative;border-bottom:0;background:var(--rl-ivory)}
+.svc-r .row h3{position:relative;isolation:isolate;overflow:hidden}
+.svc-r .row h3::before{content:'';position:absolute;inset:0;z-index:-2;background:var(--svc-img) center/cover no-repeat}
+.svc-r .row h3::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(243,238,230,.94) 0%,rgba(243,238,230,.82) 42%,rgba(243,238,230,.18) 78%,rgba(243,238,230,0) 100%)}
+.svc-r .r-btn{min-height:clamp(128px,14vw,168px);align-items:center;padding:clamp(22px,2.6vw,32px) clamp(18px,2.4vw,32px)}
+.svc-r .r-btn .mn::before{display:block;top:0;height:100%}
+.svc-r .r-btn .stg,.svc-r .r-btn .ds{display:none}
+.svc-r .r-btn .sup{display:block;font-size:11px;letter-spacing:.2em;color:var(--rl-ink)}
+.svc-r .r-btn .nm{color:var(--rl-ink)}
+.svc-r .r-btn .mn{padding-right:14px}
+.svc-r .r-btn .n{color:var(--rl-ink)}
+.svc-r .r-btn .go{background:rgba(250,248,244,.55);border-color:color-mix(in srgb,var(--rl-ink) 45%,transparent)}
+.svc-r .r-body{padding:clamp(20px,2.4vw,28px) clamp(18px,2.4vw,32px) clamp(24px,3vw,34px) calc(var(--nw) + var(--pl) + clamp(18px,2.4vw,32px))}
+.svc-r .r-body .p-stg,.svc-r .r-body .p-sup,.svc-r .r-body .p-ds{display:block}
+.svc-r .r-body .p-sup{display:none}
+@media (max-width:719px){
+  .svc-r{padding-left:0;padding-right:0}
+  .svc-r .r-btn{grid-template-columns:var(--nw) minmax(0,1fr) 44px;padding:26px var(--gutter)}
+  .svc-r .r-body{padding:18px var(--gutter) 26px}
+  .svc-cta{padding-inline:var(--gutter);justify-items:center;text-align:center}
+}
+@media (min-width:1000px){.svc-sec{grid-template-columns:36fr 64fr}}
 /* final CTA */
 .hx-final{position:relative;overflow:hidden;padding-block:clamp(56px,8vw,112px)}
 .hx-final-bg{position:absolute;inset:0;background:radial-gradient(90% 120% at 15% 30%,#f4ede4 0%,#ecdfd6 45%,#e6dfe9 100%)}
@@ -911,12 +938,12 @@ body{background:var(--rl-ivory)}
     <h2 id="hx-pillars-h" class="hx-eb hx-center">How strong is your presence?</h2>
     <p class="hx-intro">Six dimensions to understand how your expertise exists, stands out and converts across the digital ecosystem.</p>
     <ol class="hx-five">
-      <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibility</h3><p>SEO · Search<br> Discoverability</p></li>
-      <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Authority</h3><p>Expertise · Content<br> Reputation</p></li>
-      <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Brand</h3><p>Positioning<br> Visual identity</p></li>
-      <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Patient Journey</h3><p>Website · UX<br> Conversion</p></li>
-      <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Growth</h3><p>Acquisition · CRM<br> Retention</p></li>
-      <li><span class="hx-n">06</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V14a5.5 5.5 0 0 1 4-5.3"/><path d="M13 18.5V14a5.5 5.5 0 0 1 4-5.3"/><rect x="4.4" y="13.6" width="4.6" height="4.9" rx="1"/><rect x="12.4" y="13.6" width="4.6" height="4.9" rx="1"/><path d="M4 5h16" opacity=".55"/></g></svg><h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p></li>
+      <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Brand</h3><p>Positioning · Identity<br> Differentiation</p></li>
+      <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibility</h3><p>SEO · Search<br> Being found</p></li>
+      <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Authority</h3><p>Expertise · Reputation<br> Trust</p></li>
+      <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V14a5.5 5.5 0 0 1 4-5.3"/><path d="M13 18.5V14a5.5 5.5 0 0 1 4-5.3"/><rect x="4.4" y="13.6" width="4.6" height="4.9" rx="1"/><rect x="12.4" y="13.6" width="4.6" height="4.9" rx="1"/><path d="M4 5h16" opacity=".55"/></g></svg><h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p></li>
+      <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Patient Journey</h3><p>Website · UX<br> Conversion</p></li>
+      <li><span class="hx-n">06</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Growth</h3><p>Acquisition · CRM<br> Retention</p></li>
     </ol>
     <div class="rv-cta hx-cta hx-center">
       <button class="btn" type="button" id="takeDiag">Start my Raisey Scan <i class="ar"></i></button>
@@ -999,7 +1026,7 @@ body{background:var(--rl-ivory)}
   </div>
   <div class="svc-r">
     <ol class="rows">
-        <li class="row" data-k="digital" data-open="false">
+        <li class="row" data-k="digital" data-open="false" style="--svc-img:url(images/svc-1.webp)">
           <h3><button class="r-btn" type="button" id="b-digital" aria-expanded="false" aria-controls="p-digital">
             <span class="n">01</span>
             <span class="mn"><span class="nm">Visibility</span><span class="stg">Be found</span><span class="sup">Search · Google · Social · Reputation</span><span class="ds">Raise your visibility where patients are already looking.</span></span>
@@ -1011,7 +1038,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-digital">Discuss this <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="website" data-open="false">
+        <li class="row" data-k="website" data-open="false" style="--svc-img:url(images/svc-2.webp)">
           <h3><button class="r-btn" type="button" id="b-website" aria-expanded="false" aria-controls="p-website">
             <span class="n">02</span>
             <span class="mn"><span class="nm">Website &amp; Patient Journey</span><span class="stg">Build trust, shape the experience</span><span class="sup">Positioning · UX/UI · Booking · SEO foundations</span><span class="ds">Turn expertise into an online experience patients can understand and trust.</span></span>
@@ -1023,7 +1050,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-website">Discuss this <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="ongoing" data-open="false">
+        <li class="row" data-k="ongoing" data-open="false" style="--svc-img:url(images/svc-3.webp)">
           <h3><button class="r-btn" type="button" id="b-ongoing" aria-expanded="false" aria-controls="p-ongoing">
             <span class="n">03</span>
             <span class="mn"><span class="nm">Sustained Visibility</span><span class="stg">Stay visible</span><span class="sup">Content · Social · Google · Reputation</span><span class="ds">Keep your practice visible, relevant and rising after launch.</span></span>
@@ -1035,7 +1062,7 @@ body{background:var(--rl-ivory)}
             <a class="tl" href="#contact" data-interest="service-ongoing">Discuss this <i class="ar"></i></a>
           </div></div></div>
         </li>
-        <li class="row" data-k="growth" data-open="false">
+        <li class="row" data-k="growth" data-open="false" style="--svc-img:url(images/svc-4.webp)">
           <h3><button class="r-btn" type="button" id="b-growth" aria-expanded="false" aria-controls="p-growth">
             <span class="n">04</span>
             <span class="mn"><span class="nm">Growth &amp; Authority</span><span class="stg">Build authority</span><span class="sup">Strategy · Analytics · Personal Brand · Content</span><span class="ds">Turn visibility into lasting authority and measurable growth.</span></span>

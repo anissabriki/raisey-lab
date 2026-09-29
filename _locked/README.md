@@ -39,3 +39,7 @@ Below 720 px only: each collapsed row now always shows the burgundy descriptor (
 
 ## Services lede · 2026-09-29 (owner-approved SEO wording)
 EN: "From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is found, perceived and chosen." FR mirrored. Text only; snapshot + checksum refreshed.
+
+
+## Image-band layout · 2026-09-29 (owner-requested redesign, mobile + desktop, EN + FR)
+Each row gets a background image (inline --svc-img), rows become editorial image bands (name + keywords + circular arrow; descriptor/description stay in the panel). Accordion behaviour unchanged. Override CSS lives outside the locked block; snapshot + checksums refreshed.
