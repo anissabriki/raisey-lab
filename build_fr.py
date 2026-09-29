@@ -33,10 +33,10 @@ def main():
 
     # ---------- head ----------
     sub('<html lang="en">', '<html lang="fr">')
-    sub('<title>Raisey Lab — Digital presence for aesthetic doctors &amp; clinics</title>',
-        '<title>Raisey Lab — Présence digitale pour médecins et cliniques esthétiques</title>')
-    sub('content="Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics. Start with the free 4-minute Raisey Scan."',
-        'content="Raisey Lab fait de l’expertise médicale une présence digitale que les patients trouvent et choisissent. Commencez par un Raisey Scan gratuit."')
+    sub('<title>Raisey Lab — Aesthetic Medicine Digital Strategy</title>',
+        '<title>Raisey Lab — Stratégie digitale en médecine esthétique</title>')
+    sub('content="A digital strategy studio born inside aesthetic medicine. Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics."',
+        'content="Un studio de stratégie digitale né au cœur de la médecine esthétique. Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques."')
     sub('<meta property="og:title" content="Raisey Lab — You built the expertise. We raise its presence.">',
         '<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">')
     sub('content="Visibility, authority and growth for aesthetic doctors and clinics. Paris · London · Dubai."',
@@ -169,8 +169,8 @@ def main():
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
     sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span>')
-    sub('From visibility to patient experience, we connect the digital touchpoints that shape how your practice is found, perceived and chosen.',
-        'De la visibilité à l’expérience patient, nous relions les points de contact digitaux qui décident de la façon dont votre cabinet est trouvé, perçu et choisi.')
+    sub('From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is found, perceived and chosen.',
+        'De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est trouvé, perçu et choisi.')
     sub('<p class="mc"><span>Be found.</span><span>Be trusted.</span><span>Be chosen.</span></p>', '<p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>')
     sub('<span class="nm">Visibility</span>', '<span class="nm">Présence digitale</span>')
     sub('Search · Google · Social · Reputation', 'Recherche · Google · Réseaux · Réputation')
@@ -271,6 +271,8 @@ def main():
         '<p>Mon expérience chez FILLMED Laboratories m’a plongée au cœur de la médecine esthétique — aux côtés des praticiens, au plus près des parcours patients et des enjeux de développement des cabinets.</p><p>Avant cela, chez Google et GroupM, j’ai construit mon expertise en stratégie et croissance digitale, entre beauté, luxe et marchés internationaux.</p><p>Raisey Lab est née à la rencontre de ces deux univers : la compréhension de la médecine esthétique et l’expertise du digital.</p>\n        <p>Aujourd’hui, j’accompagne chaque cabinet personnellement, avec une même ambition : élever sa visibilité et son autorité à la hauteur de son expertise.</p>')
     sub('<span class="muted">· Founder · Strategy &amp; Growth</span>', '<span class="muted">· Fondatrice · Stratégie &amp; Croissance</span>')
     sub('Talk to the founder <i class="ar"></i>', 'Échanger avec la fondatrice <i class="ar"></i>')
+    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Why I created Raisey Lab <i class="ar"></i></a>', '<a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Pourquoi j’ai créé Raisey Lab <i class="ar"></i></a>')
+    sub('<a class="tl" href="insights/aesthetic-medicine-patient-journey/">How patients really choose a practice <i class="ar"></i></a>', '<a class="tl" href="../insights/aesthetic-medicine-patient-journey/" hreflang="en">Comment les patients choisissent vraiment un praticien <i class="ar"></i></a>')
     sub('aria-label="Three worlds"', 'aria-label="Trois univers"')
     sub('<p class="cs">Aesthetic medicine</p>', '<p class="cs">Médecine esthétique</p>')
     sub('<p class="cs">Digital growth&nbsp;· Beauty&nbsp;· Luxury</p>', '<p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>')
