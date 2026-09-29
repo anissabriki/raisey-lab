@@ -96,20 +96,17 @@ def main():
     sub('A clear, personalised reading of your answers across six dimensions, with priorities to act on.', 'Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.')
 
     # ---------- 02 review ----------
-    sub('<h2 class="h2" id="rv-h">How far could your practice rise?</h2>', '<h2 class="h2" id="rv-h">Que révèle votre présence digitale ?</h2>')
-    sub('Six dimensions, four minutes, a first read straight away. Discover where your visibility, authority and patient journey have the greatest room to rise. No email required.',
-        'Six dimensions. Quatre minutes. Une première lecture immédiate.<br> Mesurez l’écart entre l’expertise que vous avez construite et la présence que vos patients perçoivent. Identifiez vos priorités en matière de visibilité, d’autorité et d’expérience patient.')
-    sub('aria-label="The six dimensions of the Raisey Scan"', 'aria-label="Les six dimensions du Raisey Scan"')
-    for a, b in [('Medical Authority', 'Autorité médicale'), ('Digital Authority', 'Autorité digitale'), ('Brand Expression', 'Expression de marque'),
-                 ('Discoverability', 'Visibilité'), ('Content Potential', 'Potentiel éditorial'), ('Patient Journey</span>', 'Parcours patient</span>')]:
-        sub('<span class="dt">' + a, '<span class="dt">' + b) if not a.endswith('</span>') else sub('<span class="dt">' + a, '<span class="dt">' + b)
     sub('<p class="eyebrow">Your Raisey Scan</p>', '<p class="eyebrow">Votre Raisey Scan</p>')
     sub('Your results at a glance.', 'Vos résultats en un coup d’œil.')
     sub('A first read of your answers across six key dimensions.<span class="basis">Based on your answers · Not an audit of your digital presence</span>', 'Une première lecture de vos réponses sur six dimensions clés.<span class="basis">Basé sur vos réponses · Pas sur un audit de votre présence digitale</span>')
     sub('Understanding your results', 'Comprendre vos résultats')
     sub('Each dimension is read on three levels.', 'Chaque dimension se lit sur trois niveaux.')
-    sub('Start the Raisey Scan <i class="ar"></i>', 'Lancer le Raisey Scan <i class="ar"></i>')
-    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes', 2)
+    sub('<button class="btn" type="button" id="takeDiag">Start my Raisey Scan <i class="ar"></i></button>\n      <p class="hx-micro">About 4 minutes · Free · No commitment</p>',
+        '<button class="btn" type="button" id="takeDiag">Démarrer mon Raisey Scan <i class="ar"></i></button>\n      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
+    sub('<p class="hx-intro">Six dimensions to understand how your expertise exists, stands out and converts across the digital ecosystem.</p>',
+        '<p class="hx-intro">Six dimensions pour comprendre comment votre expertise existe, se distingue et convertit dans l’écosystème digital.</p>')
+    sub('<h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu · Thought leadership<br> Différenciation</p>')
+    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.',
         'Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.')
     sub('</svg>Scan complete</p>', '</svg>Scan terminé</p>')

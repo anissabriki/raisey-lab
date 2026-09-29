@@ -755,16 +755,25 @@ body{background:var(--rl-ivory)}
   .hx-journey-copy{padding:clamp(48px,5vw,72px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(48px,5vw,72px) clamp(40px,4vw,64px)}
   .hx-path{justify-content:space-between;overflow:visible}.hx-path li{padding-right:0}.hx-path li:not(:last-child)::after{right:-28%;width:34%}}
 /* framework */
+.hx-intro{max-width:44em;margin:clamp(14px,1.8vw,20px) auto 0;text-align:center;font-size:clamp(.95rem,.9rem + .2vw,1.05rem);line-height:1.6;color:var(--rl-muted)}
+.hx-pillars .rv-cta{flex-direction:column;justify-content:center;align-items:center;gap:0}
+.hx-pillars .rv-cta[hidden]{display:none}
+.hx-pillars .scan,.hx-pillars .glance{text-align:left}
+.hx-pillars .glance{margin-top:clamp(28px,4vw,48px)}
+.hx-pillars .scan{margin-top:clamp(24px,3vw,40px)}
 .hx-pillars{background:linear-gradient(180deg,#ebe6ee 0%,#efe6e8 100%);padding-block:clamp(44px,6vw,80px)}
 .hx-five{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 0;margin:clamp(28px,4vw,44px) 0 0;padding:0;list-style:none}
-.hx-five li{display:grid;justify-items:center;text-align:center;gap:8px;padding:0 12px}
-.hx-five li:last-child{grid-column:1 / -1}
+.hx-five{grid-auto-rows:auto}
+.hx-five li{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:8px;align-content:start;justify-items:center;text-align:center;padding:0 12px}   /* number / icon / title / descriptor share rows across a line */
 .hx-n{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--rl-muted)}
 .hx-five svg{width:40px;height:40px;color:var(--rl-burgundy);margin:4px 0 6px}
 .hx-five h3{font:500 1.08rem/1.2 var(--sans);color:var(--rl-ink);letter-spacing:0}
 .hx-five p{font-size:14px;line-height:1.55;color:var(--rl-muted)}
 .hx-pillars .hx-cta{margin-top:clamp(34px,4.4vw,52px);display:grid;justify-items:center}
-@media (min-width:760px){.hx-five{grid-template-columns:repeat(5,minmax(0,1fr));gap:0}.hx-five li:last-child{grid-column:auto}.hx-five li+li{border-left:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent)}}
+.hx-five li:nth-child(2n){border-left:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent)}
+@media (max-width:359px){.hx-five{grid-template-columns:minmax(0,1fr)}.hx-five li:nth-child(2n){border-left:0}}
+@media (min-width:700px){.hx-five{grid-template-columns:repeat(3,minmax(0,1fr));gap:38px 0}.hx-five li:nth-child(2n){border-left:0}.hx-five li:not(:nth-child(3n+1)){border-left:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent)}}
+@media (min-width:1100px){.hx-five{grid-template-columns:repeat(6,minmax(0,1fr));gap:0}.hx-five li{padding:0 10px}.hx-five li:not(:nth-child(3n+1)),.hx-five li:nth-child(4){border-left:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent)}}
 /* studio */
 .hx-studio{display:grid;grid-template-columns:minmax(0,1fr)}
 .hx-studio-copy{padding:clamp(44px,6vw,80px) var(--gutter);display:grid;gap:18px;align-content:center}
@@ -875,41 +884,23 @@ body{background:var(--rl-ivory)}
 </section>
 
 <!-- ============ PRESENCE FRAMEWORK ============ -->
-<section class="hx-pillars" aria-labelledby="hx-pillars-h">
+<section class="hx-pillars" id="raisey-scan" aria-labelledby="hx-pillars-h">
   <div class="wrap">
     <h2 id="hx-pillars-h" class="hx-eb hx-center">How strong is your presence?</h2>
+    <p class="hx-intro">Six dimensions to understand how your expertise exists, stands out and converts across the digital ecosystem.</p>
     <ol class="hx-five">
       <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibility</h3><p>SEO · Search<br> Discoverability</p></li>
       <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Authority</h3><p>Expertise · Content<br> Reputation</p></li>
       <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Brand</h3><p>Positioning<br> Visual identity</p></li>
       <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Patient Journey</h3><p>Website · UX<br> Conversion</p></li>
       <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Growth</h3><p>Acquisition · CRM<br> Retention</p></li>
+      <li><span class="hx-n">06</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V14a5.5 5.5 0 0 1 4-5.3"/><path d="M13 18.5V14a5.5 5.5 0 0 1 4-5.3"/><rect x="4.4" y="13.6" width="4.6" height="4.9" rx="1"/><rect x="12.4" y="13.6" width="4.6" height="4.9" rx="1"/><path d="M4 5h16" opacity=".55"/></g></svg><h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p></li>
     </ol>
-    <div class="hx-cta hx-center">
-      <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Start my Raisey Scan <i class="ar"></i></a>
+    <div class="rv-cta hx-cta hx-center">
+      <button class="btn" type="button" id="takeDiag">Start my Raisey Scan <i class="ar"></i></button>
       <p class="hx-micro">About 4 minutes · Free · No commitment</p>
     </div>
-  </div>
-</section>
-
-<!-- ============ 02 · PRESENCE SCAN ============ -->
-<section class="sec review" id="raisey-scan" aria-labelledby="rv-h">
-  <div class="wrap">
-    <p class="sl"><span class="n">02</span><span class="t">Raisey Scan</span></p>
-    <div class="rv-head">
-      <h2 class="h2" id="rv-h">How far could your practice rise?</h2>
-      <p class="lede">Six dimensions, four minutes, a first read straight away. Discover where your visibility, authority and patient journey have the greatest room to rise. No email required.</p>
-    </div>
-
-    <ol class="dim-index" id="dims6" aria-label="The six dimensions of the Raisey Scan">
-      <li><span class="dn">01</span><span class="dt">Medical Authority</span></li>
-      <li><span class="dn">02</span><span class="dt">Digital Authority</span></li>
-      <li><span class="dn">03</span><span class="dt">Brand Expression</span></li>
-      <li><span class="dn">04</span><span class="dt">Discoverability</span></li>
-      <li><span class="dn">05</span><span class="dt">Content Potential</span></li>
-      <li><span class="dn">06</span><span class="dt">Patient Journey</span></li>
-    </ol>
-
+    <noscript><p class="muted" style="margin-top:20px">The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.</p></noscript>
     <div class="glance" id="glance" hidden>
       <p class="eyebrow">Your Raisey Scan</p>
       <h3 class="g-h" tabindex="-1" data-glance-title>Your results at a glance.</h3>
@@ -921,13 +912,6 @@ body{background:var(--rl-ivory)}
         <ul id="legend"></ul>
       </div>
     </div>
-
-    <div class="rv-cta">
-      <button class="btn" type="button" id="takeDiag">Start the Raisey Scan <i class="ar"></i></button>
-      <p class="pl">Free · Automated · Based on your answers · About 4 minutes</p>
-    </div>
-    <noscript><p class="muted" style="margin-top:20px">The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.</p></noscript>
-
     <div class="scan" id="scan" data-scan hidden>
       <div data-stage aria-live="polite"></div>
       <div class="req-box" data-request hidden>

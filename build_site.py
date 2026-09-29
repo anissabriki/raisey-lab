@@ -360,8 +360,8 @@ for dirpath, _, files in os.walk('dist'):
             if re.search(r'\b3[ -]minutes?\b|Environ 3\b', plain):
                 errors.append('outdated duration ("3 minutes") in ' + full + ' (the Scan is about 4 minutes)')
             if f in ('index.html',) and dirpath in ('dist', 'dist/fr'):
-                if len(re.findall(r'<li><span class="dn">', plain)) != 6:
-                    errors.append('the Scan must list exactly six dimensions in ' + full)
+                if len(re.findall(r'<li><span class="hx-n">', plain)) != 6:
+                    errors.append('the Raisey Scan section must present exactly six dimensions in ' + full)
                 if len(re.findall(r"\{id:'[a-z]+',dim:'[a-z]+',facet:'[a-zA-Z]+',t:'single'", plain)) != 9 or len(re.findall(r"\{id:'(?:growth|treatments)',t:'multi'", plain)) != 2:
                     errors.append('the Scan must have 9 scored questions + 2 context-only questions in ' + full)
             if re.search(r'href="[^"]*index\.html', txt):
