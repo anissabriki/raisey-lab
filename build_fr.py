@@ -159,18 +159,6 @@ def main():
             sys.exit('select not found: ' + sid)
         fr = pat.sub(lambda m: m.group(1) + opts + m.group(2), fr)
 
-    # ---------- 03 approach ----------
-    sub('<span class="t">Our approach</span>', '<span class="t">Notre approche</span>')
-    sub('<span class="bl">Be found.</span> <span class="bl">Be trusted.</span> <span class="bl">Be chosen.</span>',
-        '<span class="bl">Être trouvé.</span> <span class="bl">Inspirer confiance.</span> <span class="bl">Être choisi.</span>')
-    sub('Built to help your practice rise.', 'Une présence plus forte pour un cabinet plus influent.')
-    sub('<h3>Be found</h3><p>Raise your visibility across search, local and social, where patients are already looking.</p>',
-        '<h3>Être trouvé</h3><p>Visible sur la recherche, en local et sur les réseaux — là où vos patients cherchent déjà.</p>')
-    sub('<h3>Be trusted</h3><p>Let the authority you’ve earned be recognised at first glance.</p>',
-        '<h3>Inspirer confiance</h3><p>Une présence digitale qui exprime, dès le premier regard, votre expertise et votre autorité.</p>')
-    sub('<h3>Be chosen</h3><p>Strengthen trust at every step, and turn attention into consultations and long-term loyalty.</p>',
-        '<h3>Être choisi</h3><p>Un parcours patient qui transforme l’hésitation en consultation, puis la consultation en fidélité.</p>')
-
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
     sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span>')
