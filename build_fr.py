@@ -74,15 +74,12 @@ def main():
     sub('alt="Quiet consultation room in an aesthetic medicine clinic"', 'alt="Salle de consultation calme dans une clinique de médecine esthétique"')
     sub('<h2 id="hx-journey-h">The consultation isn’t<br> the beginning of the patient journey.</h2>', '<h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>')
     sub('<p>Patients are choosing long <u>before</u> they enter your clinic.<br> We shape everything that happens <u>before</u> the appointment.</p>', '<p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>')
-    sub('<ol class="hx-path" aria-label="Where patients decide">', '<ol class="hx-path" aria-label="Là où les patients décident">')
-    for e_, f_ in [('Search', 'Recherche'), ('Website', 'Site web'), ('Reviews', 'Avis'), ('Doctor profile', 'Profil du médecin'), ('Booking', 'Réservation')]:
-        sub('<span>%s</span></li>' % e_, '<span>%s</span></li>' % f_)
     sub('<h2 id="hx-pillars-h" class="hx-eb hx-center">How strong is your presence?</h2>', '<h2 id="hx-pillars-h" class="hx-eb hx-center">Quelle est la force de votre présence ?</h2>')
-    sub('<h3>Visibility</h3><p>SEO · Search<br> Being found<br> Digital presence</p>', '<h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé<br> Présence digitale</p>')
-    sub('<h3>Authority</h3><p>Expertise<br> Reputation<br> Trust</p>', '<h3>Autorité</h3><p>Expertise<br> Réputation<br> Confiance</p>')
-    sub('<h3>Brand</h3><p>Positioning<br> Identity<br> Differentiation</p>', '<h3>Marque</h3><p>Positionnement<br> Identité<br> Différenciation</p>')
-    sub('<h3>Patient Journey</h3><p>Website · UX<br> Conversion<br> Experience</p>', '<h3>Parcours patient</h3><p>Site web · UX<br> Conversion<br> Expérience</p>')
-    sub('<h3>Growth</h3><p>Acquisition<br> CRM<br> Retention</p>', '<h3>Croissance</h3><p>Acquisition<br> CRM<br> Fidélisation</p>')
+    sub('<h3>Visibility</h3><p>SEO · Search<br> Discoverability</p>', '<h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p>')
+    sub('<h3>Authority</h3><p>Expertise · Content<br> Reputation</p>', '<h3>Autorité</h3><p>Expertise · Contenu<br> Réputation</p>')
+    sub('<h3>Brand</h3><p>Positioning<br> Visual identity</p>', '<h3>Marque</h3><p>Positionnement<br> Identité visuelle</p>')
+    sub('<h3>Patient Journey</h3><p>Website · UX<br> Conversion</p>', '<h3>Parcours patient</h3><p>Site web · UX<br> Conversion</p>')
+    sub('<h3>Growth</h3><p>Acquisition · CRM<br> Retention</p>', '<h3>Croissance</h3><p>Acquisition · CRM<br> Fidélisation</p>')
     sub('<p class="hx-eb">From diagnosis to direction.</p>', '<p class="hx-eb">De l’analyse à la direction.</p>')
     sub('<h2 id="hx-studio-h">A strategic and creative studio for aesthetic doctors and clinics.</h2>', '<h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>')
     sub('We combine industry expertise, data, strategy and high-end content to help you be found, trusted and chosen by the right patients.',
@@ -113,7 +110,7 @@ def main():
         '<button class="btn" type="button" id="takeDiag">Démarrer mon Raisey Scan <i class="ar"></i></button>\n      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
     sub('<p class="hx-intro">Six dimensions to understand how your expertise exists, stands out and converts across the digital ecosystem.</p>',
         '<p class="hx-intro">Six dimensions pour comprendre comment votre expertise existe, se distingue et convertit dans l’écosystème digital.</p>')
-    sub('<h3>Editorial Potential</h3><p>Content<br> Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu<br> Thought leadership<br> Différenciation</p>')
+    sub('<h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu · Thought leadership<br> Différenciation</p>')
     sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('The Raisey Scan needs JavaScript. You can request a first conversation in the last section below.',
         'Le Raisey Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.')
