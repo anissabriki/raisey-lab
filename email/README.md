@@ -1,4 +1,4 @@
-# Presence Scan results email
+# Raisey Scan results email
 
 `render.mjs` turns **structured scores** into the results email (HTML + plain text) in EN or FR. It is a pure function with no dependencies, so it runs unchanged in Node, a Cloudflare Worker, a Lambda or a Netlify/Vercel function.
 
