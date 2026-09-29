@@ -36,7 +36,7 @@ def main():
     sub('<title>Raisey Lab — Aesthetic Medicine Digital Strategy</title>',
         '<title>Raisey Lab — Stratégie digitale en médecine esthétique</title>')
     sub('content="A digital strategy studio born inside aesthetic medicine. Raisey Lab raises the visibility, authority and patient journey of aesthetic doctors and clinics."',
-        'content="Un studio de stratégie digitale né au cœur de la médecine esthétique. Raisey Lab élève la visibilité, l’autorité et le parcours patient des médecins et cliniques esthétiques."')
+        'content="Raisey Lab, studio de stratégie digitale né de la médecine esthétique : visibilité, autorité et parcours patient des médecins et cliniques esthétiques."')
     sub('<meta property="og:title" content="Raisey Lab — You built the expertise. We raise its presence.">',
         '<meta property="og:title" content="Raisey Lab — Vous avez l’expertise. Nous élevons sa présence.">')
     sub('content="Visibility, authority and growth for aesthetic doctors and clinics. Paris · London · Dubai."',
@@ -70,7 +70,9 @@ def main():
     sub('<ol class="hx-steps" aria-label="The patient journey"><li>Search</li><li>Discover</li><li>Trust</li><li>Choose</li></ol>', '<ol class="hx-steps" aria-label="Le parcours patient"><li>Recherche</li><li>Découverte</li><li>Confiance</li><li>Choix</li></ol>')
     sub('Built with a deep understanding of<br> the aesthetic medicine landscape', 'Né d’une connaissance intime<br> de la médecine esthétique')
     sub('<ul class="hx-fields"><li>Aesthetic medicine</li><li>Pharma &amp; laboratories</li><li>Global markets</li></ul>', '<ul class="hx-fields"><li>Médecine esthétique</li><li>Pharma et laboratoires</li><li>Marchés internationaux</li></ul>')
-    sub('<p class="hx-exp-h">Industry experience</p>', '<p class="hx-exp-h">Expérience du secteur</p>')
+    sub('<p class="hx-exp-h">Founder’s professional background</p>', '<p class="hx-exp-h">Parcours de la fondatrice</p>')
+    sub('Anissa Sabrina Briki’s roles before founding Raisey Lab. These are not client references. <a href="#about">Meet the founder <span aria-hidden="true">→</span></a>',
+        'Postes occupés par Anissa Sabrina Briki avant de fonder Raisey Lab. Il ne s’agit pas de références clients. <a href="#about">Découvrir la fondatrice <span aria-hidden="true">→</span></a>')
     sub('alt="Quiet consultation room in an aesthetic medicine clinic"', 'alt="Salle de consultation calme dans une clinique de médecine esthétique"')
     sub('<h2 id="hx-journey-h">The consultation isn’t<br> the beginning of the patient journey.</h2>', '<h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>')
     sub('<p>Patients are choosing long <u>before</u> they enter your clinic.<br> We shape everything that happens <u>before</u> the appointment.</p>', '<p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>')
@@ -158,7 +160,7 @@ def main():
 
     # ---------- 04 services (localized derivative of the locked English component) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
-    sub('<span class="l1">How we raise</span><span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span><span class="l2">votre <em>présence.</em></span>')
+    sub('<span class="l1">How we raise</span> <span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span> <span class="l2">votre <em>présence.</em></span>')
     sub('From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is found, perceived and chosen.',
         'De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est trouvé, perçu et choisi.')
     sub('<p class="mc"><span>Be found.</span><span>Be trusted.</span><span>Be chosen.</span></p>', '<p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>')
