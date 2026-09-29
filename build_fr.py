@@ -89,8 +89,16 @@ def main():
         'Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.')
     sub('<a class="tl" href="#services">Explore our services <i class="ar"></i></a>', '<a class="tl" href="#services">Découvrir nos services <i class="ar"></i></a>')
     sub('alt="Architectural interior of an aesthetic medicine clinic"', 'alt="Intérieur architectural d’une clinique de médecine esthétique"')
-    sub('<div><dt>Visibility</dt><dd>Be found.</dd></div>\n    <div><dt>Authority</dt><dd>Be trusted.</dd></div>\n    <div><dt>Growth</dt><dd>Be chosen.</dd></div>',
-        '<div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>\n    <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>\n    <div><dt>Croissance</dt><dd>Être choisi.</dd></div>')
+    sub('<div><dt>Visibility</dt><dd>Be found.</dd></div>\n      <div><dt>Authority</dt><dd>Be trusted.</dd></div>\n      <div><dt>Growth</dt><dd>Be chosen.</dd></div>',
+        '<div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>\n      <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>\n      <div><dt>Croissance</dt><dd>Être choisi.</dd></div>')
+    sub('<span class="sr-only" data-open="Show the approach in detail" data-close="Hide the approach in detail">Show the approach in detail</span>', '<span class="sr-only" data-open="Afficher l’approche en détail" data-close="Masquer l’approche en détail">Afficher l’approche en détail</span>')
+    sub('aria-label="Our approach in detail"', 'aria-label="Notre approche en détail"')
+    sub('<h3>Be found</h3><p>Exist where your patients are looking for you: search, local search, social and digital presence.</p><ul><li>SEO &amp; search</li><li>Local search</li><li>Digital visibility</li><li>Multi-channel presence</li></ul>',
+        '<h3>Être trouvé</h3><p>Exister là où vos patients vous cherchent : recherche, référencement local, réseaux et présence digitale.</p><ul><li>SEO &amp; recherche</li><li>Référencement local</li><li>Visibilité digitale</li><li>Présence multi-canaux</li></ul>')
+    sub('<h3>Be trusted</h3><p>Let patients perceive your expertise and your approach before the consultation.</p><ul><li>Positioning</li><li>Expert content</li><li>Brand &amp; identity</li><li>Reputation</li></ul>',
+        '<h3>Inspirer confiance</h3><p>Faire percevoir votre expertise et votre approche avant même la consultation.</p><ul><li>Positionnement</li><li>Contenus experts</li><li>Marque &amp; identité</li><li>Réputation</li></ul>')
+    sub('<h3>Be chosen</h3><p>Turn that trust into bookings, then into loyalty.</p><ul><li>Website &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Retention</li></ul>',
+        '<h3>Être choisi</h3><p>Transformer cette confiance en prise de rendez-vous, puis en fidélité.</p><ul><li>Site web &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Fidélisation</li></ul>')
     sub('<p class="hx-eb">Ready to see the full picture?</p>', '<p class="hx-eb">Prêt à voir le tableau complet ?</p>')
     sub('<h2 id="hx-final-h">Take the Raisey Scan.</h2>', '<h2 id="hx-final-h">Faites le Raisey Scan.</h2>')
     sub('A clear, personalised reading of your answers across six dimensions, with priorities to act on.', 'Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.')

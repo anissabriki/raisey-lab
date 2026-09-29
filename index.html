@@ -788,6 +788,28 @@ body{background:var(--rl-ivory)}
 @media (min-width:980px){.hx-studio{grid-template-columns:minmax(0,44fr) minmax(0,33fr) minmax(0,23fr)}
   .hx-studio-copy{padding:clamp(56px,6vw,88px) clamp(32px,4vw,56px) clamp(56px,6vw,88px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}
   .hx-studio-img{aspect-ratio:auto;min-height:100%}.hx-trio{align-content:center;padding:clamp(40px,4vw,56px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(40px,4vw,56px) clamp(28px,3vw,44px)}}
+/* studio: editorial fold-out (the arrow reveals the methodology layer; content always in the DOM for crawlers) */
+.hx-trio dl{margin:0}
+.hx-fold-btn{justify-self:start;margin-top:clamp(18px,2.4vw,30px);width:40px;height:40px;display:grid;place-items:center;padding:0;background:none;border:0;color:var(--rl-ink);cursor:pointer}
+.hx-fold-btn:focus-visible{outline:1px solid var(--rl-burgundy);outline-offset:4px}
+.hx-fold-ar{width:26px;height:26px;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.hx-fold-btn[aria-expanded=true] .hx-fold-ar{transform:rotate(180deg)}
+@media (hover:hover){.hx-fold-btn:hover{color:var(--rl-burgundy)}}
+.hx-fold{grid-column:1 / -1;display:grid;grid-template-rows:0fr;visibility:hidden;opacity:0;transform:translateY(-10px);
+  transition:grid-template-rows .55s cubic-bezier(.2,.7,.2,1),opacity .5s ease,transform .55s cubic-bezier(.2,.7,.2,1),visibility 0s linear .55s;border-top:1px solid transparent}
+.hx-fold.is-open{grid-template-rows:1fr;visibility:visible;opacity:1;transform:none;transition-delay:0s;border-top-color:var(--rl-stone-line)}
+.hx-fold-in{overflow:hidden;min-height:0}
+.hx-fold-list{list-style:none;margin:0;display:grid;gap:0;padding:clamp(28px,4vw,52px) var(--gutter) clamp(36px,5vw,64px)}
+.hx-fold-list > li{display:grid;gap:10px;align-content:start;padding:22px 0;border-bottom:1px solid var(--rl-stone-line)}
+.hx-fold-list > li:last-child{border-bottom:0}
+.hx-fold-list svg{width:30px;height:30px;color:var(--rl-burgundy)}
+.hx-fold-list h3{font:400 clamp(1.5rem,1.2rem + .9vw,1.9rem)/1.1 var(--serif);color:var(--rl-burgundy)}
+.hx-fold-list p{font-size:15px;line-height:1.55;color:var(--rl-muted);max-width:26em}
+.hx-fold-list ul{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font:500 11px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-ink)}
+@media (min-width:760px){.hx-fold-list{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:0}
+  .hx-fold-list > li{border-bottom:0;padding:0 clamp(20px,2.6vw,40px)}.hx-fold-list > li+li{border-left:1px solid var(--rl-stone-line)}.hx-fold-list > li:first-child{padding-left:0}}
+@media (min-width:980px){.hx-fold-list{padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));padding-right:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}}
+@media (prefers-reduced-motion:reduce){.hx-fold,.hx-fold.is-open,.hx-fold-ar{transition:none}}
 /* final CTA */
 .hx-final{position:relative;overflow:hidden;padding-block:clamp(56px,8vw,112px)}
 .hx-final-bg{position:absolute;inset:0;background:radial-gradient(90% 120% at 15% 30%,#f4ede4 0%,#ecdfd6 45%,#e6dfe9 100%)}
@@ -945,11 +967,23 @@ body{background:var(--rl-ivory)}
   <figure class="hx-media hx-studio-img" data-slot="studio">
     <picture><source type="image/webp" srcset="images/home-studio-480.webp 480w, images/home-studio-960.webp 960w, images/home-studio-1393.webp 1393w" sizes="(max-width:979px) 100vw, 33vw"><img src="images/home-studio-960.jpg" alt="Architectural interior of an aesthetic medicine clinic" width="960" height="778" loading="lazy" decoding="async"></picture>
   </figure>
-  <dl class="hx-trio">
-    <div><dt>Visibility</dt><dd>Be found.</dd></div>
-    <div><dt>Authority</dt><dd>Be trusted.</dd></div>
-    <div><dt>Growth</dt><dd>Be chosen.</dd></div>
-  </dl>
+  <div class="hx-trio">
+    <dl>
+      <div><dt>Visibility</dt><dd>Be found.</dd></div>
+      <div><dt>Authority</dt><dd>Be trusted.</dd></div>
+      <div><dt>Growth</dt><dd>Be chosen.</dd></div>
+    </dl>
+    <button class="hx-fold-btn" type="button" aria-expanded="false" aria-controls="hx-fold"><span class="sr-only" data-open="Show the approach in detail" data-close="Hide the approach in detail">Show the approach in detail</span><svg class="hx-fold-ar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15.5M6.5 14 12 19.5 17.5 14" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+  <div class="hx-fold" id="hx-fold" role="region" aria-label="Our approach in detail">
+    <div class="hx-fold-in">
+      <ol class="hx-fold-list">
+        <li><span class="hx-n hx-fn">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Be found</h3><p>Exist where your patients are looking for you: search, local search, social and digital presence.</p><ul><li>SEO &amp; search</li><li>Local search</li><li>Digital visibility</li><li>Multi-channel presence</li></ul></li>
+        <li><span class="hx-n hx-fn">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Be trusted</h3><p>Let patients perceive your expertise and your approach before the consultation.</p><ul><li>Positioning</li><li>Expert content</li><li>Brand &amp; identity</li><li>Reputation</li></ul></li>
+        <li><span class="hx-n hx-fn">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Be chosen</h3><p>Turn that trust into bookings, then into loyalty.</p><ul><li>Website &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Retention</li></ul></li>
+      </ol>
+    </div>
+  </div>
 </section>
 
 <!-- ============ 03 · OUR APPROACH ============ -->
@@ -1531,6 +1565,16 @@ function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n
   const fit=()=>{let fs=innerWidth<700?10.5:11.5; const set=v=>sec.style.setProperty('--tag-fs',v+'px'); set(fs);
     while(fs>7&&paths.some(p=>p.scrollWidth>p.clientWidth+.5)){fs-=.25;set(fs)}};
   fit(); let t=0; addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(fit,120)}); if(document.fonts) document.fonts.ready.then(fit);
+})();
+
+/* ---------- Studio fold-out: arrow reveals / hides the methodology layer (Esc and outside click close it) ---------- */
+(function(){
+  const btn=document.querySelector('.hx-fold-btn'), panel=document.getElementById('hx-fold'); if(!btn||!panel) return;
+  const label=btn.querySelector('.sr-only');
+  const set=open=>{panel.classList.toggle('is-open',open);btn.setAttribute('aria-expanded',String(open));label.textContent=open?label.dataset.close:label.dataset.open};
+  btn.addEventListener('click',e=>{e.stopPropagation();set(!panel.classList.contains('is-open'))});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open')){set(false);btn.focus()}});
+  document.addEventListener('click',e=>{if(panel.classList.contains('is-open')&&!panel.contains(e.target)&&!btn.contains(e.target)) set(false)});
 })();
 
 /* ---------- hero CCC graphic (art direction, not the logo): barely-there pointer parallax (off for reduced motion / touch) ---------- */
