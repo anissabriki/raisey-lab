@@ -60,7 +60,7 @@ def main():
     sub('<span class="mt">Menu</span>', '<span class="mt">Menu</span>')
 
     # ---------- hero + new homepage sequence (2026-09) ----------
-    sub('<p class="eyebrow rise" style="--i:0">When aesthetic meets digital.</p>', '<p class="eyebrow rise" style="--i:0">Quand l’esthétique rencontre le digital.</p>')
+    sub('<p class="eyebrow rise" style="--i:0">When aesthetic meets digital.</p>', '<p class="eyebrow rise" style="--i:0">Quand la médecine esthétique rencontre le digital.</p>')
     sub('<h1 id="hx-h" class="rise" style="--i:1">Your expertise<br> deserves<br> <em>to be seen.</em></h1>', '<h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>')
     sub('We help aesthetic doctors and clinics build the visibility, authority and digital presence that turn medical expertise into patient trust.',
         'Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.')
