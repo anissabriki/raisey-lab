@@ -696,6 +696,94 @@ body{background:var(--rl-ivory)}
   .fx .journey{grid-template-columns:minmax(0,1fr)}
   .fx .f-cta{margin-top:28px}
 }
+
+/* =================== HOMEPAGE 2026-09 — conversion sequence (hero · landscape · journey · framework · studio · final CTA) =================== */
+.hx-eb{font:600 12px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--rl-burgundy)}
+.hx-center{text-align:center}
+.hx-micro{margin-top:12px;font-size:13px;color:var(--rl-muted)}
+.hx-media{margin:0;position:relative;overflow:hidden;background:var(--rl-stone)}
+.hx-media picture{position:absolute;inset:0}.hx-media img{display:block;width:100%;height:100%;object-fit:cover}
+.hx-hero-img img{object-position:40% 50%}
+.hx-ph{position:absolute;inset:0;background:radial-gradient(120% 90% at 30% 20%,#efe7dc 0%,#e3d8ca 55%,#d6c9b8 100%)}
+.hx-ph::after{content:'Image';position:absolute;left:16px;bottom:12px;font:500 10px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#a59886}
+/* hero */
+.hero.hx{padding:0;min-height:0;display:block}
+.hx-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-top:clamp(36px,6vw,64px);padding-bottom:clamp(36px,6vw,64px)}
+.hx-copy{display:grid;align-content:center;gap:0}
+.hero.hx .eyebrow{color:var(--rl-burgundy);margin-bottom:clamp(18px,2.4vw,28px)}
+.hero.hx h1{font:400 clamp(3rem,1.6rem + 5vw,5.6rem)/.98 var(--serif);letter-spacing:-.035em;color:var(--rl-ink)}
+.hero.hx h1 em{font-style:italic;font-weight:300;color:var(--rl-burgundy);letter-spacing:-.03em}
+.hero.hx .lede{margin-top:clamp(20px,2.6vw,30px);max-width:30em;font-size:clamp(1.02rem,.95rem + .3vw,1.18rem);line-height:1.55;color:var(--rl-muted)}
+.hx-cta{margin-top:clamp(26px,3vw,36px)}
+.hx-hero-img{aspect-ratio:4/5;min-height:360px}
+.hx-steps{position:absolute;right:clamp(14px,4vw,64px);top:14%;display:grid;gap:clamp(28px,4vw,46px);margin:0;padding:0;list-style:none}
+.hx-steps li{position:relative;font:500 11px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase;color:var(--rl-ink);text-align:right}
+.hx-steps li::before{content:'';position:absolute;right:calc(100% + 14px);top:50%;width:clamp(40px,5vw,72px);height:1px;background:color-mix(in srgb,var(--rl-ink) 35%,transparent)}
+@media (min-width:980px){
+  .hx-grid{grid-template-columns:minmax(0,48fr) minmax(0,52fr);gap:0;padding:0;padding-left:max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)));max-width:none;padding-right:0}
+  .hx-copy{padding:clamp(56px,7vw,96px) clamp(40px,5vw,80px) clamp(56px,7vw,96px) 0}
+  .hx-hero-img{aspect-ratio:auto;min-height:min(78vh,720px)}
+}
+/* landscape */
+.hx-land{border-top:1px solid var(--rl-stone-line);border-bottom:1px solid var(--rl-stone-line);padding-block:clamp(22px,3vw,34px)}
+.hx-land-grid{display:grid;gap:18px;align-items:center}
+.hx-land .hx-eb{font-size:11px;margin:0}
+.hx-fields{display:flex;flex-wrap:wrap;gap:10px 0;margin:0;padding:0;list-style:none}
+.hx-fields li{white-space:nowrap;font:400 clamp(1rem,.86rem + .42vw,1.2rem)/1.2 var(--serif);color:var(--rl-ink);padding-right:clamp(16px,2.4vw,32px);margin-right:clamp(16px,2.4vw,32px);border-right:1px solid var(--rl-stone-line)}
+.hx-fields li:last-child{border-right:0;margin-right:0;padding-right:0}
+.hx-exp{font:500 11px/1.8 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--rl-muted)}
+.hx-exp-h{color:var(--rl-ink)}
+@media (min-width:980px){.hx-fields{flex-wrap:wrap;justify-content:center;row-gap:8px}.hx-fields li{padding-right:clamp(12px,1.5vw,24px);margin-right:clamp(12px,1.5vw,24px);font-size:clamp(.98rem,.7rem + .45vw,1.15rem)}.hx-land-grid{grid-template-columns:minmax(0,2.8fr) minmax(0,5.6fr) minmax(0,2.4fr)}.hx-exp{border-left:1px solid var(--rl-stone-line);padding-left:clamp(20px,2.4vw,32px)}}
+/* patient journey */
+.hx-journey{display:grid;grid-template-columns:minmax(0,1fr)}
+.hx-journey-img{aspect-ratio:4/3}
+.hx-journey-copy{padding:clamp(40px,6vw,80px) var(--gutter)}
+.hx-studio h2{text-wrap:balance;max-width:13em}
+.hx-journey h2,.hx-studio h2,.hx-final h2{font:400 clamp(2rem,1.2rem + 2.6vw,3.3rem)/1.06 var(--serif);letter-spacing:-.025em;color:var(--rl-ink)}
+.hx-journey-copy > p{margin-top:18px;color:var(--rl-muted);font-size:clamp(1rem,.95rem + .2vw,1.1rem);line-height:1.6;max-width:34em}
+.hx-journey-copy u{text-decoration-thickness:1px;text-underline-offset:3px}
+.hx-path{display:flex;gap:0;margin:clamp(28px,3.4vw,44px) 0 0;padding:0 0 6px;list-style:none;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity}
+.hx-path::-webkit-scrollbar{display:none}
+.hx-path li{flex:0 0 auto;display:grid;justify-items:center;gap:10px;min-width:78px;scroll-snap-align:start;position:relative;padding-right:clamp(26px,3vw,46px)}
+.hx-path li:not(:last-child)::after{content:'';position:absolute;right:0;top:15px;width:clamp(18px,2.2vw,34px);height:1px;background:color-mix(in srgb,var(--rl-ink) 40%,transparent)}
+.hx-path li:last-child{padding-right:0}
+.hx-path svg{width:30px;height:30px;color:var(--rl-burgundy)}
+.hx-path span{font:500 12.5px/1.2 var(--sans);color:var(--rl-ink);white-space:nowrap}
+@media (min-width:980px){.hx-journey{grid-template-columns:minmax(0,31fr) minmax(0,69fr)}.hx-journey-img{aspect-ratio:auto;min-height:100%}
+  .hx-journey-copy{padding:clamp(48px,5vw,72px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(48px,5vw,72px) clamp(40px,4vw,64px)}
+  .hx-path{justify-content:space-between;overflow:visible}.hx-path li{padding-right:0}.hx-path li:not(:last-child)::after{right:-28%;width:34%}}
+/* framework */
+.hx-pillars{background:linear-gradient(180deg,#ebe6ee 0%,#efe6e8 100%);padding-block:clamp(44px,6vw,80px)}
+.hx-five{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 0;margin:clamp(28px,4vw,44px) 0 0;padding:0;list-style:none}
+.hx-five li{display:grid;justify-items:center;text-align:center;gap:8px;padding:0 12px}
+.hx-five li:last-child{grid-column:1 / -1}
+.hx-n{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--rl-muted)}
+.hx-five svg{width:40px;height:40px;color:var(--rl-burgundy);margin:4px 0 6px}
+.hx-five h3{font:500 1.08rem/1.2 var(--sans);color:var(--rl-ink);letter-spacing:0}
+.hx-five p{font-size:14px;line-height:1.55;color:var(--rl-muted)}
+.hx-pillars .hx-cta{margin-top:clamp(34px,4.4vw,52px);display:grid;justify-items:center}
+@media (min-width:760px){.hx-five{grid-template-columns:repeat(5,minmax(0,1fr));gap:0}.hx-five li:last-child{grid-column:auto}.hx-five li+li{border-left:1px solid color-mix(in srgb,var(--rl-ink) 14%,transparent)}}
+/* studio */
+.hx-studio{display:grid;grid-template-columns:minmax(0,1fr)}
+.hx-studio-copy{padding:clamp(44px,6vw,80px) var(--gutter);display:grid;gap:18px;align-content:center}
+.hx-studio-copy > p:not(.hx-eb){color:var(--rl-muted);line-height:1.6;max-width:32em}
+.hx-studio-copy .tl{justify-self:start}
+.hx-studio-img{aspect-ratio:4/3}
+.hx-trio{margin:0;padding:clamp(28px,4vw,48px) var(--gutter);display:grid;gap:0}
+.hx-trio div{padding:18px 0;border-bottom:1px solid var(--rl-stone-line)}
+.hx-trio div:last-child{border-bottom:0}
+.hx-trio dt{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--rl-muted)}
+.hx-trio dd{margin:8px 0 0;font:400 clamp(1.6rem,1.2rem + 1.2vw,2.2rem)/1.1 var(--serif);color:var(--rl-burgundy)}
+@media (min-width:980px){.hx-studio{grid-template-columns:minmax(0,44fr) minmax(0,33fr) minmax(0,23fr)}
+  .hx-studio-copy{padding:clamp(56px,6vw,88px) clamp(32px,4vw,56px) clamp(56px,6vw,88px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}
+  .hx-studio-img{aspect-ratio:auto;min-height:100%}.hx-trio{align-content:center;padding:clamp(40px,4vw,56px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(40px,4vw,56px) clamp(28px,3vw,44px)}}
+/* final CTA */
+.hx-final{position:relative;overflow:hidden;padding-block:clamp(56px,8vw,112px)}
+.hx-final-bg{position:absolute;inset:0;background:radial-gradient(90% 120% at 15% 30%,#f4ede4 0%,#ecdfd6 45%,#e6dfe9 100%)}
+.hx-final-grid{position:relative;display:grid;gap:28px;align-items:end}
+.hx-final .hx-eb{margin-bottom:12px}
+.hx-final-grid p:not(.hx-eb):not(.hx-micro){margin-top:14px;color:var(--rl-muted);max-width:32em;line-height:1.6}
+@media (min-width:980px){.hx-final-grid{grid-template-columns:minmax(0,1fr) auto}.hx-final .hx-cta{text-align:center}}
 </style>
 </head>
 <body>
@@ -740,22 +828,64 @@ body{background:var(--rl-ivory)}
 
 <main id="main">
 
-<!-- ============ 01 · STUDIO ============ -->
-<section class="hero" id="studio" aria-label="Raisey Lab">
-  <svg class="arcs" viewBox="0 0 400 400" aria-hidden="true">
-    <g data-depth="3"><path class="a1" pathLength="1" d="M200 30a170 170 0 1 0 170 170" stroke-width="15"/></g>
-    <g data-depth="7"><path class="a2" pathLength="1" d="M282.7 130.6A108 108 0 1 0 282.7 269.4" stroke-width="15"/></g>
-    <g data-depth="12"><path class="a3" pathLength="1" d="M234.5 171.1A45 45 0 1 0 234.5 228.9" stroke-width="15"/><circle class="dot" cx="222" cy="200" r="14"/></g>
-  </svg>
-  <div class="wrap">
-    <p class="eyebrow rise" style="--i:0"><span class="eb-a">Médecine esthétique —</span> <span class="eb-b">Visibilité · Autorité · Croissance</span></p>
-    <h1 class="rise" style="--i:1">Vous avez<br> l’expertise.<br> <span class="pun"><em>Nous la rendons<br> visible.</em></span></h1>
-    <p class="lede rise" style="--i:2">Votre expertise, votre réputation et votre expérience existent déjà. Raisey Lab leur donne la visibilité et l’autorité qu’elles méritent, pour que les bons patients puissent vous trouver, vous faire confiance et vous choisir.</p>
-    <div class="hero-cta rise" style="--i:3">
-      <a class="btn" href="#raisey-scan" data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
-      <a class="tl" href="#approach">Découvrir le studio</a>
+<!-- ============ 01 · STUDIO (hero) ============ -->
+<section class="hero hx" id="studio" aria-labelledby="hx-h">
+  <div class="wrap hx-grid">
+    <div class="hx-copy">
+      <p class="eyebrow rise" style="--i:0">Votre présence digitale, en clair.</p>
+      <h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>
+      <p class="lede rise" style="--i:2">Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.</p>
+      <div class="hx-cta rise" style="--i:3">
+        <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+        <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+      </div>
     </div>
-    <p class="hero-foot rise" style="--i:4" aria-label="Paris, Londres, Dubaï"><span>Paris</span><span>Londres</span><span>Dubaï</span></p>
+    <figure class="hx-media hx-hero-img" data-slot="hero">
+      <picture><source type="image/webp" srcset="../images/home-hero-480.webp 480w, ../images/home-hero-890.webp 890w" sizes="(max-width:979px) calc(100vw - 40px), 52vw"><img src="../images/home-hero-890.jpg" alt="Détail architectural d’une clinique de médecine esthétique dans une lumière naturelle chaude" width="890" height="1096" fetchpriority="high" decoding="async"></picture>
+      <ol class="hx-steps" aria-label="Le parcours patient"><li>Recherche</li><li>Découverte</li><li>Confiance</li><li>Choix</li></ol>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ LANDSCAPE ============ -->
+<section class="hx-land" aria-labelledby="hx-land-h">
+  <div class="wrap hx-land-grid">
+    <h2 id="hx-land-h" class="hx-eb">Né d’une connaissance intime<br> de la médecine esthétique</h2>
+    <ul class="hx-fields"><li>Médecine esthétique</li><li>Pharma et laboratoires</li><li>Marchés internationaux</li></ul>
+    <div class="hx-exp"><p class="hx-exp-h">Expérience du secteur</p><p>FILLMED Laboratories · Google · GroupM</p></div>
+  </div>
+</section>
+
+<!-- ============ PATIENT JOURNEY ============ -->
+<section class="hx-journey" aria-labelledby="hx-journey-h">
+  <figure class="hx-media hx-journey-img" data-slot="journey">
+    <picture><source type="image/webp" srcset="../images/home-journey-480.webp 480w, ../images/home-journey-960.webp 960w, ../images/home-journey-1420.webp 1420w" sizes="(max-width:979px) 100vw, 31vw"><img src="../images/home-journey-960.jpg" alt="Salle de consultation calme dans une clinique de médecine esthétique" width="960" height="749" loading="lazy" decoding="async"></picture>
+  </figure>
+  <div class="hx-journey-copy">
+    <h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>
+    <p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>
+    <ol class="hx-path" aria-label="Là où les patients décident">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><span>Recherche</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12.5" rx="1.2"/><path d="M8.5 20h7M12 16.5V20"/></g></svg><span>Site web</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.8"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></g></svg><span>Instagram</span></li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.6 2.55 5.3 5.8.8-4.2 4.05 1 5.75L12 16.75 6.85 19.5l1-5.75L3.65 9.7l5.8-.8Z"/></g></svg><span>Avis</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><span>Profil du médecin</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></g></svg><span>Réservation</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ PRESENCE FRAMEWORK ============ -->
+<section class="hx-pillars" aria-labelledby="hx-pillars-h">
+  <div class="wrap">
+    <h2 id="hx-pillars-h" class="hx-eb hx-center">Quelle est la force de votre présence ?</h2>
+    <ol class="hx-five">
+      <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p></li>
+      <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Autorité</h3><p>Expertise · Contenu<br> Réputation</p></li>
+      <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Marque</h3><p>Positionnement<br> Identité visuelle</p></li>
+      <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Parcours patient</h3><p>Site web · UX<br> Conversion</p></li>
+      <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Croissance</h3><p>Acquisition · CRM<br> Fidélisation</p></li>
+    </ol>
+    <div class="hx-cta hx-center">
+      <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+    </div>
   </div>
 </section>
 
@@ -815,6 +945,24 @@ body{background:var(--rl-ivory)}
       </div>
     </div>
   </div>
+</section>
+
+<!-- ============ STUDIO INTRODUCTION ============ -->
+<section class="hx-studio" aria-labelledby="hx-studio-h">
+  <div class="hx-studio-copy">
+    <p class="hx-eb">De l’analyse à la direction.</p>
+    <h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>
+    <p>Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.</p>
+    <a class="tl" href="#services">Découvrir nos services <i class="ar"></i></a>
+  </div>
+  <figure class="hx-media hx-studio-img" data-slot="studio">
+    <picture><source type="image/webp" srcset="../images/home-studio-480.webp 480w, ../images/home-studio-960.webp 960w, ../images/home-studio-1393.webp 1393w" sizes="(max-width:979px) 100vw, 33vw"><img src="../images/home-studio-960.jpg" alt="Intérieur architectural d’une clinique de médecine esthétique" width="960" height="778" loading="lazy" decoding="async"></picture>
+  </figure>
+  <dl class="hx-trio">
+    <div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>
+    <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>
+    <div><dt>Croissance</dt><dd>Être choisi.</dd></div>
+  </dl>
 </section>
 
 <!-- ============ 03 · OUR APPROACH ============ -->
@@ -1081,6 +1229,22 @@ body{background:var(--rl-ivory)}
   </div>
 </section>
 
+
+<!-- ============ FINAL CTA ============ -->
+<section class="hx-final" aria-labelledby="hx-final-h">
+  <div class="hx-final-bg" data-slot="final" aria-hidden="true"></div>
+  <div class="wrap hx-final-grid">
+    <div>
+      <p class="hx-eb">Prêt à voir le tableau complet ?</p>
+      <h2 id="hx-final-h">Faites le Raisey Scan.</h2>
+      <p>Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.</p>
+    </div>
+    <div class="hx-cta">
+      <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Raisey Scan <i class="ar"></i></a>
+      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
