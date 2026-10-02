@@ -23,15 +23,15 @@ NEWSLETTER = bool(cfg.get('newsletterEnabled'))            # Insights subscribe 
 BYLINE = 'Anissa Briki'                            # TODO: confirm the byline name with the client before launch
 
 LISTING = {
-    'title': 'Insights — Aesthetic Medicine, Brand & Digital | Raisey Lab',
+    'title': 'Insights — Aesthetic Medicine, Brand & Digital | Kinassay Lab',
     'description': 'Essays on aesthetic medicine, beauty culture, consumer behaviour and digital strategy, for aesthetic practices in London, Paris, Dubai and beyond.',
     'h1': 'Notes from inside aesthetic medicine.',
-    'lead': 'Raisey Lab Insights: essays on aesthetic medicine, beauty culture, consumer behaviour and digital strategy — for practices in London, Paris, Dubai and beyond.',
+    'lead': 'Kinassay Lab Insights: essays on aesthetic medicine, beauty culture, consumer behaviour and digital strategy — for practices in London, Paris, Dubai and beyond.',
     'featured': '02',
     'next_no': '05', 'next_title': 'A Good Doctor Knows When to Say No',
     'subscribe': 'Receive new Insights as they’re published.',
     'thanks': 'Thank you — you’ll receive the next Insight.',
-    'scan': 'Start with the Raisey Scan',
+    'scan': 'Start with the Kinassay Scan',
     'explore': 'Or explore how we work with practices',
 }
 
@@ -190,7 +190,7 @@ def parse():
 def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
     up = '../' * depth
     home = up + 'index.html'
-    nav = [('#studio', 'Studio'), ('#raisey-scan', 'Raisey Scan'), ('#services', 'Services'), ('#work', 'Work'), ('#about', 'About')]
+    nav = [('#studio', 'Studio'), ('#raisey-scan', 'Kinassay Scan'), ('#services', 'Services'), ('#work', 'Work'), ('#about', 'About')]
     ins = up + 'insights/index.html'
     nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t) for h, t in nav) + \
         '<li><a class="on" href="%s" aria-current="%s">Insights</a></li>' % (ins, 'page' if url_path == 'insights/' else 'true')
@@ -214,7 +214,7 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 %(seo)s<meta property="og:title" content="%(title)s">
 <meta property="og:description" content="%(desc)s">
 <meta property="og:type" content="%(ogt)s">
-<meta property="og:site_name" content="Raisey Lab">
+<meta property="og:site_name" content="Kinassay Lab">
 <meta property="og:locale" content="en_GB">
 %(icons)s
 <link rel="preload" href="%(up)sfonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -231,7 +231,7 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Raisey Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
     <nav class="nav" aria-label="Main"><ul>%(nav)s</ul></nav>
     <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">Start your Scan <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
@@ -243,9 +243,9 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 %(body)s
 </div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Raisey Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
   <nav aria-label="Footer"><ul>%(foot)s</ul></nav></div>
-  <p class="f-legal"><a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Raisey Lab. All rights reserved.</span></p>
+  <p class="f-legal"><a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span></p>
 </div></footer>
 <script>
 (function(){const mb=document.querySelector('.menu-btn'),mp=document.getElementById('mobile-nav');
@@ -277,7 +277,7 @@ def ld_graph(*nodes):
     return {'@context': 'https://schema.org', '@graph': list(nodes)}
 
 
-PUBLISHER = {'@type': 'Organization', '@id': ROOT_URL + '#organization', 'name': 'Raisey Lab', 'url': ROOT_URL,
+PUBLISHER = {'@type': 'Organization', '@id': ROOT_URL + '#organization', 'name': 'Kinassay Lab', 'url': ROOT_URL,
              'logo': {'@type': 'ImageObject', 'url': ROOT_URL + 'icon-192.png', 'width': 192, 'height': 192}}
 AUTHOR = {'@type': 'Person', '@id': ROOT_URL + '#founder', 'name': (cfg.get('founderName') or 'Anissa Sabrina Briki'), 'alternateName': BYLINE, 'jobTitle': 'Founder'}
 PUBLISHED = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
@@ -287,7 +287,7 @@ PUBLISHED = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if no
 # Secondary, editorial founder portrait (final approved asset): shown whole (2:3) in the founder's own essay.
 FOUNDER_FIG = ('<figure class="art-fig"><picture><source type="image/webp" srcset="../../images/founder-story-480.webp 480w, '
                '../../images/founder-story-768.webp 768w, ../../images/founder-story-1024.webp 1024w" sizes="(max-width:600px) calc(100vw - 40px), 560px">'
-               '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Raisey Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”" '
+               '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Kinassay Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”" '
                'decoding="async" width="1024" height="1536"></picture></figure>\n')
 
 def pubdate(a):
@@ -313,18 +313,18 @@ def article(a, arts):
     no = int(a['no'])
     if no == 1:
         end = ('<p><a class="tl" href="%s#services">Explore our approach <i class="ar"></i></a></p>'
-               '<p class="sub">Or see where your practice stands: <a href="%s#raisey-scan">Take the Raisey Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
+               '<p class="sub">Or see where your practice stands: <a href="%s#raisey-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 2:
         end = ('<p class="q">Understand your patient journey.</p>'
-               '<a class="btn" href="%s#contact" data-interest="presence-review">Request a Raisey Lab Review <i class="ar"></i></a>'
-               '<p class="sub">Or start with a diagnosis: the free Raisey Scan reads your practice across six dimensions, in about 4 minutes. '
-               '<a href="%s#raisey-scan">Take the Raisey Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
+               '<a class="btn" href="%s#contact" data-interest="presence-review">Request a Kinassay Lab Review <i class="ar"></i></a>'
+               '<p class="sub">Or start with a diagnosis: the free Kinassay Scan reads your practice across six dimensions, in about 4 minutes. '
+               '<a href="%s#raisey-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 3:
         end = ('<p class="q">Growing your practice across markets?</p>'
                '<p><a class="tl" href="%s#services">Discover Brand &amp; Digital Strategy <i class="ar"></i></a></p>' % home)
     else:
         end = ('<div class="soon"><span class="ins-label">%s · Coming next</span><span class="t">%s</span></div>'
-               '<p class="sub">What does your digital presence say about your philosophy? <a href="%s#contact">Request a Raisey Lab Review <span aria-hidden="true">→</span></a></p>'
+               '<p class="sub">What does your digital presence say about your philosophy? <a href="%s#contact">Request a Kinassay Lab Review <span aria-hidden="true">→</span></a></p>'
                % (LISTING['next_no'], html.escape(LISTING['next_title']), home))
     prev = arts[i - 1] if i else None
     nxt = arts[i + 1] if i + 1 < len(arts) else None

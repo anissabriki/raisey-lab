@@ -1,5 +1,5 @@
 /* 🔒 LOCKED · services accordion + diagnostic CTA behaviour: approved, do not change. */
-/* ---------- services: exclusive accordion; diagnostic CTA opens the Raisey Review ---------- */
+/* ---------- services: exclusive accordion; diagnostic CTA opens the Kinassay Review ---------- */
 (function(){
   const rows=[...document.querySelectorAll('.row')];
   rows.forEach(r=>{const b=r.querySelector('.r-btn');b.addEventListener('click',()=>{const was=b.getAttribute('aria-expanded')==='true';rows.forEach(o=>{o.dataset.open='false';o.querySelector('.r-btn').setAttribute('aria-expanded','false')});if(!was){r.dataset.open='true';b.setAttribute('aria-expanded','true')}})});

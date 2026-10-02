@@ -109,7 +109,7 @@
    "none": "Every practice starts somewhere. Your answers point to real room to raise what you have built."
   },
   "basis": "Based on your answers · Not an audit of your digital presence",
-  "transp": "The Raisey Scan is based on your answers only. It does not examine your website, Google Business Profile or social profiles: that happens in the Raisey Review.",
+  "transp": "The Kinassay Scan is based on your answers only. It does not examine your website, Google Business Profile or social profiles: that happens in the Kinassay Review.",
   "request": "Receive my full Scan",
   "obj": {
    "patients": "You’d like more qualified patients. We would want to understand who you welcome today, and who you would like to see more of.",
@@ -138,11 +138,11 @@
    "surgery": "Surgery"
   },
   "email": {
-   "subject": "Your Raisey Scan results",
+   "subject": "Your Kinassay Scan results",
    "preheader": "Where you stand today, and what you can raise next.",
    "hello": "Hello,",
    "lead": "Your answers reveal where you stand — and what you can raise next.",
-   "intro": "Your Raisey Scan highlights the signals across six dimensions of your digital ecosystem, from authority and visibility to content and patient journey.",
+   "intro": "Your Kinassay Scan highlights the signals across six dimensions of your digital ecosystem, from authority and visibility to content and patient journey.",
    "disc": "It is based on your answers, not an audit of your actual digital presence.",
    "hOverall": "Where you stand today",
    "hDims": "Your six dimensions",
@@ -153,15 +153,15 @@
    "hNext": "What happens next",
    "trio": [
     "The Scan shows where there may be room to rise.",
-    "The Raisey Review determines what to raise — and how."
+    "The Kinassay Review determines what to raise — and how."
    ],
    "timing": "After a first conversation, we look at what you’ve built, where it stands today, and what deserves to be raised next.",
    "cta": "Start the conversation",
    "ctaNote": "We reply within two business days.",
    "footAuto": "An automated first read, not a medical, clinical or scientific measure.",
-   "footWhy": "You are receiving this one-off email because you asked for your Raisey Scan results on the Raisey Lab website. We will not add you to a mailing list.",
+   "footWhy": "You are receiving this one-off email because you asked for your Kinassay Scan results on the Kinassay Lab website. We will not add you to a mailing list.",
    "privacy": "Privacy Policy",
-   "sign": "Raisey Lab"
+   "sign": "Kinassay Lab"
   },
   "nuance": {
    "content": {
@@ -285,7 +285,7 @@
    "none": "Toute présence commence quelque part. Vos réponses laissent entrevoir une vraie occasion d’en bâtir une à la hauteur de votre expertise."
   },
   "basis": "Basé sur vos réponses · Pas sur un audit de votre présence digitale",
-  "transp": "Le Raisey Scan repose uniquement sur vos réponses. Il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux : cela se fait lors du Raisey Review.",
+  "transp": "Le Kinassay Scan repose uniquement sur vos réponses. Il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux : cela se fait lors du Kinassay Review.",
   "request": "Recevoir mon Scan complet",
   "obj": {
    "patients": "Vous souhaitez accueillir davantage de patients qualifiés. Nous voudrions comprendre qui vous recevez aujourd’hui, et qui vous aimeriez recevoir davantage.",
@@ -314,11 +314,11 @@
    "surgery": "Chirurgie"
   },
   "email": {
-   "subject": "Les résultats de votre Raisey Scan",
+   "subject": "Les résultats de votre Kinassay Scan",
    "preheader": "Votre profil sur six dimensions, et les signaux qui le composent.",
    "hello": "Bonjour,",
    "lead": "",
-   "intro": "Voici les résultats complets de votre Raisey Scan, établis à partir de vos réponses. Il lit ce que vous nous avez dit : il révèle des signaux, pas une stratégie.",
+   "intro": "Voici les résultats complets de votre Kinassay Scan, établis à partir de vos réponses. Il lit ce que vous nous avez dit : il révèle des signaux, pas une stratégie.",
    "disc": "",
    "hOverall": "Votre vue d’ensemble",
    "hDims": "Vos six dimensions",
@@ -330,15 +330,15 @@
    "trio": [
     "Le Scan révèle les signaux.",
     "L’échange nous donne le contexte.",
-    "Le Raisey Review définit ce dont votre présence a besoin ensuite."
+    "Le Kinassay Review définit ce dont votre présence a besoin ensuite."
    ],
-   "timing": "Le calendrier de votre Raisey Review se fixe ensemble, après notre premier échange.",
+   "timing": "Le calendrier de votre Kinassay Review se fixe ensemble, après notre premier échange.",
    "cta": "Échanger sur mes résultats",
    "ctaNote": "Nous vous répondons sous deux jours ouvrés.",
    "footAuto": "Une première lecture automatisée, pas une mesure médicale, clinique ou scientifique.",
-   "footWhy": "Vous recevez cet e-mail unique parce que vous avez demandé les résultats de votre Raisey Scan sur le site de Raisey Lab. Nous ne vous ajouterons à aucune liste de diffusion.",
+   "footWhy": "Vous recevez cet e-mail unique parce que vous avez demandé les résultats de votre Kinassay Scan sur le site de Kinassay Lab. Nous ne vous ajouterons à aucune liste de diffusion.",
    "privacy": "Politique de confidentialité",
-   "sign": "Raisey Lab"
+   "sign": "Kinassay Lab"
   },
   "nuance": {
    "content": {

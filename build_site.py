@@ -97,7 +97,7 @@ def make_jsonld(p, origin, base, h=''):
     page = root + HOME[p]
     en = LANG[p] == 'en'
     meta = lambda pat: html.unescape((re.findall(pat, h) or [''])[0])
-    org = {'@type': 'Organization', '@id': root + '#organization', 'name': 'Raisey Lab', 'url': root,
+    org = {'@type': 'Organization', '@id': root + '#organization', 'name': 'Kinassay Lab', 'url': root,
            'description': cfg.get('positioning') if en else (cfg.get('positioningFr') or cfg.get('positioning')),
            'logo': {'@type': 'ImageObject', 'url': root + 'icon-192.png', 'width': 192, 'height': 192},
            'image': root + 'images/og.jpg',
@@ -110,7 +110,7 @@ def make_jsonld(p, origin, base, h=''):
     person = {'@type': 'Person', '@id': root + '#founder', 'name': founder, 'alternateName': 'Anissa Briki',
               'jobTitle': 'Founder' if en else 'Fondatrice', 'worksFor': {'@id': root + '#organization'},
               'image': root + 'images/founder-about-768.jpg', 'knowsAbout': cfg.get('knowsAbout') or []}
-    site_ = {'@type': 'WebSite', '@id': root + '#website', 'url': root, 'name': 'Raisey Lab', 'inLanguage': ['en', 'fr'],
+    site_ = {'@type': 'WebSite', '@id': root + '#website', 'url': root, 'name': 'Kinassay Lab', 'inLanguage': ['en', 'fr'],
              'publisher': {'@id': root + '#organization'}}
     # Services: read from the page's own visible Services rows (name + one-line description), so schema never claims more than the page shows
     rows = re.findall(r'<span class="nm">(.*?)</span>.*?<span class="ds">(.*?)</span>', h, re.S)
@@ -132,7 +132,7 @@ def render_seo(p, h, origin, base):
         root = origin + base
         tags = ('<link rel="canonical" href="%s">\n<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="fr" href="%s">\n'
                 '<link rel="alternate" hreflang="x-default" href="%s">\n<meta property="og:url" content="%s">\n'
-                '<meta property="og:site_name" content="Raisey Lab">\n<meta property="og:locale" content="%s">\n<meta property="og:locale:alternate" content="%s">\n') % (
+                '<meta property="og:site_name" content="Kinassay Lab">\n<meta property="og:locale" content="%s">\n<meta property="og:locale:alternate" content="%s">\n') % (
             root + HOME[p], root, root + 'fr/', root, root + HOME[p], 'en_GB' if LANG[p] == 'en' else 'fr_FR', 'fr_FR' if LANG[p] == 'en' else 'en_GB')
         h = h.replace('<link rel="preload"', tags + '<link rel="preload"', 1)
         ld = json.dumps(make_jsonld(p, origin, base, h), ensure_ascii=False, indent=1).replace('</', '<\\/')
@@ -140,8 +140,8 @@ def render_seo(p, h, origin, base):
     # Social preview image (absolute URL) on every page that has Open Graph tags; Twitter/X reads og:* plus the card type.
     if origin and 'property="og:title"' in h and 'og:image' not in h and os.path.exists('images/og.jpg'):
         fr = '<html lang="fr"' in h
-        alt = ('Raisey Lab : « You built it. We raise it. » Visibilité, autorité, confiance, croissance.' if fr
-               else 'Raisey Lab: “You built it. We raise it.” Visibility, authority, trust, growth.')
+        alt = ('Kinassay Lab : « You built it. We raise it. » Visibilité, autorité, confiance, croissance.' if fr
+               else 'Kinassay Lab: “You built it. We raise it.” Visibility, authority, trust, growth.')
         img = ('<meta property="og:image" content="%simages/og.jpg">\n<meta property="og:image:width" content="1200">\n'
                '<meta property="og:image:height" content="630">\n<meta property="og:image:type" content="image/jpeg">\n'
                '<meta property="og:image:alt" content="%s">\n<meta name="twitter:card" content="summary_large_image">\n'
@@ -354,14 +354,14 @@ for dirpath, _, files in os.walk('dist'):
         if f.endswith('.html'):
             plain = re.sub(r'<!--.*?-->|/\*.*?\*/', '', txt, flags=re.S)             # comments are not shipped copy
             if re.search(r'diagnostic', plain, re.I):
-                errors.append('retired term "diagnostic" in ' + full + ' (the assessment is the Raisey Scan)')
-            if re.search(r'(?:Presence|Raisey) Review[^.<>]{0,40}(free|gratuit|minutes|e-?mail|instant|automat|3\s?[–-]\s?5)|(free|gratuit|automat\w*|instant\w*)[^.<>]{0,40}(?:Presence|Raisey) Review', plain, re.I):
-                errors.append('"Raisey Review" described as free/automated/instant/emailed in ' + full + ' (only the Raisey Scan is)')
+                errors.append('retired term "diagnostic" in ' + full + ' (the assessment is the Kinassay Scan)')
+            if re.search(r'(?:Presence|Kinassay) Review[^.<>]{0,40}(free|gratuit|minutes|e-?mail|instant|automat|3\s?[–-]\s?5)|(free|gratuit|automat\w*|instant\w*)[^.<>]{0,40}(?:Presence|Kinassay) Review', plain, re.I):
+                errors.append('"Kinassay Review" described as free/automated/instant/emailed in ' + full + ' (only the Kinassay Scan is)')
             if re.search(r'\b3[ -]minutes?\b|Environ 3\b', plain):
                 errors.append('outdated duration ("3 minutes") in ' + full + ' (the Scan is about 4 minutes)')
             if f in ('index.html',) and dirpath in ('dist', 'dist/fr'):
                 if len(re.findall(r'<li><span class="hx-n">', plain)) != 6:
-                    errors.append('the Raisey Scan section must present exactly six dimensions in ' + full)
+                    errors.append('the Kinassay Scan section must present exactly six dimensions in ' + full)
                 if len(re.findall(r"\{id:'[a-z]+',dim:'[a-z]+',facet:'[a-zA-Z]+',t:'single'", plain)) != 9 or len(re.findall(r"\{id:'(?:growth|treatments)',t:'multi'", plain)) != 2:
                     errors.append('the Scan must have 9 scored questions + 2 context-only questions in ' + full)
             if re.search(r'href="[^"]*index\.html', txt):

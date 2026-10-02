@@ -68,7 +68,7 @@ def page(lang):
     today = datetime.date.fromisoformat(cfg.get('legalUpdated') or datetime.date.today().isoformat())   # last REAL change to the policy text, not the build date
     months_fr = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
     date = today.strftime('%-d %B %Y') if en else '%d %s %d' % (today.day, months_fr[today.month - 1], today.year)
-    nav = [('#studio', 'Studio', 'Studio'), ('#raisey-scan', 'Raisey Scan', 'Raisey Scan'), ('#services', 'Services', 'Services'),
+    nav = [('#studio', 'Studio', 'Studio'), ('#raisey-scan', 'Kinassay Scan', 'Kinassay Scan'), ('#services', 'Services', 'Services'),
            ('#work', 'Work', 'Études'), ('#about', 'About', 'À propos')]
     nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
     mob_html = ''.join('<li><a class="l" href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
@@ -86,33 +86,33 @@ def page(lang):
     cta = t('Start your Scan', 'Lancer mon Scan')
 
     if en:
-        title = 'Privacy Policy — Raisey Lab'
+        title = 'Privacy Policy — Kinassay Lab'
         body = '''
 <a class="back-home" href="index.html">← Back to the site</a>
 <h1>Privacy Policy</h1>
 <p class="upd">Last updated: %(date)s</p>
-<p>This page explains what personal data Raisey Lab collects when you take the Raisey Scan and ask for your results by email, or when you contact us, why, and what your rights are.</p>
+<p>This page explains what personal data Kinassay Lab collects when you take the Kinassay Scan and ask for your results by email, or when you contact us, why, and what your rights are.</p>
 
 <h2>Who is responsible</h2>
-<dl><dt>Data controller</dt><dd>%(name)s (Raisey Lab, founder: Anissa Sabrina Briki)</dd>
+<dl><dt>Data controller</dt><dd>%(name)s (Kinassay Lab, founder: Anissa Sabrina Briki)</dd>
 <dt>Address</dt><dd>%(addr)s</dd><dt>Privacy contact</dt><dd>%(email)s</dd></dl>
 
 <h2>What we collect</h2>
-<p>Only what you type into our two forms, the Raisey Scan results request and the contact form:</p>
-<ul><li><strong>Required:</strong> name of the doctor or clinic, email address, and (for the Raisey Scan results) your website or Instagram.</li>
+<p>Only what you type into our two forms, the Kinassay Scan results request and the contact form:</p>
+<ul><li><strong>Required:</strong> name of the doctor or clinic, email address, and (for the Kinassay Scan results) your website or Instagram.</li>
 <li><strong>Optional:</strong> specialty, phone number, and your message.</li>
 <li><strong>Your Scan answers and first insight</strong>, attached to your results request, so we can send your full Scan results and, if we speak, start the first conversation from where you are.</li>
-<li>Which button or service you came from (for example “Raisey Scan” or “founding partner”), so we can answer the right question.</li></ul>
-<p>The Raisey Scan runs in your browser and reads only your answers: it does not examine your website, Google presence or social profiles. Your answers are not sent or stored anywhere unless you request your full results by email.</p>
+<li>Which button or service you came from (for example “Kinassay Scan” or “founding partner”), so we can answer the right question.</li></ul>
+<p>The Kinassay Scan runs in your browser and reads only your answers: it does not examine your website, Google presence or social profiles. Your answers are not sent or stored anywhere unless you request your full results by email.</p>
 
 <h2>Why we use it, and on what basis</h2>
-<ul><li>To send you your complete Raisey Scan results by email and to reply to you: steps taken at your request (Article 6(1)(b) GDPR).</li>
-<li>To arrange and hold a first conversation and, if you go on to a Raisey Review, to prepare it, which includes looking at your practice’s public website and digital presence: steps taken at your request (Article 6(1)(b) GDPR).</li>
+<ul><li>To send you your complete Kinassay Scan results by email and to reply to you: steps taken at your request (Article 6(1)(b) GDPR).</li>
+<li>To arrange and hold a first conversation and, if you go on to a Kinassay Review, to prepare it, which includes looking at your practice’s public website and digital presence: steps taken at your request (Article 6(1)(b) GDPR).</li>
 <li>To follow up on that request with you as a professional contact: our legitimate interest (Article 6(1)(f) GDPR).</li></ul>
-<p>We do not send newsletters or marketing emails unless you ask us separately, and we do not use your data for profiling or automated decisions. The results email is a one-off message and does not add you to a mailing list. The Raisey Scan gives an automated reading of your answers only; it has no legal or similarly significant effect on you.</p>
+<p>We do not send newsletters or marketing emails unless you ask us separately, and we do not use your data for profiling or automated decisions. The results email is a one-off message and does not add you to a mailing list. The Kinassay Scan gives an automated reading of your answers only; it has no legal or similarly significant effect on you.</p>
 
 <h2>Who receives it</h2>
-<p>Only Raisey Lab. The providers that host this website, deliver form submissions to us and send your Scan results email (%(prov)s) process data on our instructions. We never sell your data. If a provider processes data outside the European Economic Area or the UK, we rely on appropriate safeguards such as the European Commission’s standard contractual clauses.</p>
+<p>Only Kinassay Lab. The providers that host this website, deliver form submissions to us and send your Scan results email (%(prov)s) process data on our instructions. We never sell your data. If a provider processes data outside the European Economic Area or the UK, we rely on appropriate safeguards such as the European Commission’s standard contractual clauses.</p>
 
 <h2>How long we keep it</h2>
 <p>We keep your request and our exchanges for %(ret)s after our last contact, then delete or anonymise them, unless you become a client, in which case we keep what the law requires.</p>
@@ -124,7 +124,7 @@ def page(lang):
 <p>This website does not use cookies, analytics, advertising pixels or third-party embeds, and its fonts are hosted on our own server. Because nothing is stored or tracked on your device, there is no cookie banner. If that ever changes, we will ask for your consent first and update this page.</p>
 
 <h2 id="legal-notice">Legal notice</h2>
-<dl><dt>Publisher</dt><dd>%(pub)s (Raisey Lab)</dd>
+<dl><dt>Publisher</dt><dd>%(pub)s (Kinassay Lab)</dd>
 %(siren_row)s<dt>Address</dt><dd>%(addr)s</dd>
 <dt>Publication director</dt><dd>Anissa Sabrina Briki</dd>
 <dt>Contact</dt><dd>%(email)s</dd>
@@ -137,33 +137,33 @@ def page(lang):
         skip, lang_attr = 'Skip to content', 'en'
         menu_open, menu_close = 'Menu', 'Close'
     else:
-        title = 'Politique de confidentialité — Raisey Lab'
+        title = 'Politique de confidentialité — Kinassay Lab'
         body = '''
 <a class="back-home" href="index.html">← Retour au site</a>
 <h1>Politique de confidentialité</h1>
 <p class="upd">Dernière mise à jour : %(date)s</p>
-<p>Cette page explique quelles données personnelles Raisey Lab collecte lorsque vous réalisez le Raisey Scan et demandez vos résultats par e-mail, ou que vous nous contactez, pourquoi, et quels sont vos droits.</p>
+<p>Cette page explique quelles données personnelles Kinassay Lab collecte lorsque vous réalisez le Kinassay Scan et demandez vos résultats par e-mail, ou que vous nous contactez, pourquoi, et quels sont vos droits.</p>
 
 <h2>Responsable du traitement</h2>
-<dl><dt>Responsable</dt><dd>%(name)s (Raisey Lab, fondatrice : Anissa Sabrina Briki)</dd>
+<dl><dt>Responsable</dt><dd>%(name)s (Kinassay Lab, fondatrice : Anissa Sabrina Briki)</dd>
 <dt>Adresse</dt><dd>%(addr)s</dd><dt>Contact confidentialité</dt><dd>%(email)s</dd></dl>
 
 <h2>Ce que nous collectons</h2>
-<p>Uniquement ce que vous saisissez dans nos deux formulaires, la demande de résultats du Raisey Scan et le formulaire de contact :</p>
-<ul><li><strong>Obligatoire :</strong> nom du praticien ou de la clinique, adresse e-mail et, pour les résultats du Raisey Scan, votre site web ou Instagram.</li>
+<p>Uniquement ce que vous saisissez dans nos deux formulaires, la demande de résultats du Kinassay Scan et le formulaire de contact :</p>
+<ul><li><strong>Obligatoire :</strong> nom du praticien ou de la clinique, adresse e-mail et, pour les résultats du Kinassay Scan, votre site web ou Instagram.</li>
 <li><strong>Facultatif :</strong> spécialité, numéro de téléphone et votre message.</li>
 <li><strong>Vos réponses au Scan et votre premier aperçu</strong>, joints à votre demande de résultats, pour que nous puissions vous envoyer vos résultats complets et, si nous échangeons, partir de votre situation lors du premier échange.</li>
-<li>Le bouton ou le service dont vous êtes parti (par exemple « Raisey Scan » ou « partenaire fondateur »), afin de répondre à la bonne question.</li></ul>
-<p>Le Raisey Scan s’exécute dans votre navigateur et ne lit que vos réponses : il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux. Vos réponses ne sont ni envoyées ni conservées, sauf si vous demandez vos résultats complets par e-mail.</p>
+<li>Le bouton ou le service dont vous êtes parti (par exemple « Kinassay Scan » ou « partenaire fondateur »), afin de répondre à la bonne question.</li></ul>
+<p>Le Kinassay Scan s’exécute dans votre navigateur et ne lit que vos réponses : il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux. Vos réponses ne sont ni envoyées ni conservées, sauf si vous demandez vos résultats complets par e-mail.</p>
 
 <h2>Pourquoi, et sur quelle base légale</h2>
-<ul><li>Pour vous envoyer par e-mail les résultats complets de votre Raisey Scan et vous répondre : mesures prises à votre demande (article 6.1.b du RGPD).</li>
-<li>Pour convenir d’un premier échange et le tenir puis, si vous poursuivez avec un Raisey Review, le préparer, ce qui comprend l’examen du site web public et de la présence digitale de votre cabinet : mesures prises à votre demande (article 6.1.b du RGPD).</li>
+<ul><li>Pour vous envoyer par e-mail les résultats complets de votre Kinassay Scan et vous répondre : mesures prises à votre demande (article 6.1.b du RGPD).</li>
+<li>Pour convenir d’un premier échange et le tenir puis, si vous poursuivez avec un Kinassay Review, le préparer, ce qui comprend l’examen du site web public et de la présence digitale de votre cabinet : mesures prises à votre demande (article 6.1.b du RGPD).</li>
 <li>Pour assurer le suivi de cette demande avec vous en tant que contact professionnel : notre intérêt légitime (article 6.1.f du RGPD).</li></ul>
-<p>Nous n’envoyons ni newsletter ni message commercial sans que vous nous le demandiez séparément, et nous n’utilisons pas vos données à des fins de profilage ou de décision automatisée. L’e-mail de résultats est un message unique : il ne vous ajoute à aucune liste de diffusion. Le Raisey Scan fournit une lecture automatisée de vos seules réponses ; elle n’a aucun effet juridique ni effet significatif similaire sur vous.</p>
+<p>Nous n’envoyons ni newsletter ni message commercial sans que vous nous le demandiez séparément, et nous n’utilisons pas vos données à des fins de profilage ou de décision automatisée. L’e-mail de résultats est un message unique : il ne vous ajoute à aucune liste de diffusion. Le Kinassay Scan fournit une lecture automatisée de vos seules réponses ; elle n’a aucun effet juridique ni effet significatif similaire sur vous.</p>
 
 <h2>Qui y a accès</h2>
-<p>Uniquement Raisey Lab. Les prestataires qui hébergent ce site, nous transmettent les formulaires et envoient l’e-mail de résultats de votre Scan (%(prov)s) traitent les données sur nos instructions. Nous ne vendons jamais vos données. Si un prestataire traite des données hors de l’Espace économique européen ou du Royaume-Uni, nous nous appuyons sur des garanties appropriées, comme les clauses contractuelles types de la Commission européenne.</p>
+<p>Uniquement Kinassay Lab. Les prestataires qui hébergent ce site, nous transmettent les formulaires et envoient l’e-mail de résultats de votre Scan (%(prov)s) traitent les données sur nos instructions. Nous ne vendons jamais vos données. Si un prestataire traite des données hors de l’Espace économique européen ou du Royaume-Uni, nous nous appuyons sur des garanties appropriées, comme les clauses contractuelles types de la Commission européenne.</p>
 
 <h2>Durée de conservation</h2>
 <p>Nous conservons votre demande et nos échanges pendant %(ret)s après notre dernier contact, puis nous les supprimons ou les anonymisons, sauf si vous devenez client : nous conservons alors ce que la loi impose.</p>
@@ -175,7 +175,7 @@ def page(lang):
 <p>Ce site n’utilise ni cookies, ni outil d’analyse, ni pixel publicitaire, ni contenu tiers intégré, et ses polices sont hébergées sur notre propre serveur. Comme rien n’est stocké ni suivi sur votre appareil, il n’y a pas de bandeau de cookies. Si cela devait changer, nous demanderions d’abord votre consentement et mettrions cette page à jour.</p>
 
 <h2 id="mentions">Mentions légales</h2>
-<dl><dt>Éditeur du site</dt><dd>%(pub)s (Raisey Lab)</dd>
+<dl><dt>Éditeur du site</dt><dd>%(pub)s (Kinassay Lab)</dd>
 %(siren_row)s<dt>Adresse</dt><dd>%(addr)s</dd>
 <dt>Directrice de la publication</dt><dd>Anissa Sabrina Briki</dd>
 <dt>Contact</dt><dd>%(email)s</dd>
@@ -215,7 +215,7 @@ def page(lang):
 <a class="skip" href="#main">%(skip)s</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Raisey Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Raisey Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
     <nav class="nav" aria-label="%(navlabel)s"><ul>%(nav)s</ul></nav>
     <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">%(cta)s <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">%(mo)s</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button></div>
@@ -224,9 +224,9 @@ def page(lang):
 </header>
 <main id="main" class="legal"><div class="wrap">%(body)s</div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Raisey Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
   <nav aria-label="%(footlabel)s"><ul>%(fnav)s</ul></nav></div>
-  <p class="f-legal">%(fl)s<span>%(places)s · %(tag)s © %(yr)d Raisey Lab. %(rights)s</span></p>
+  <p class="f-legal">%(fl)s<span>%(places)s · %(tag)s © %(yr)d Kinassay Lab. %(rights)s</span></p>
 </div></footer>
 <script>
 (function(){const mb=document.querySelector('.menu-btn'),mp=document.getElementById('mobile-nav');
@@ -254,7 +254,7 @@ def page404():
 <meta charset="utf-8">
 <base href="%(base)s">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found — Raisey Lab</title>
+<title>Page not found — Kinassay Lab</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f3eee6">
 %(icon)s
@@ -265,11 +265,11 @@ def page404():
 </head>
 <body>
 %(sprite)s
-<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Raisey Lab"><img class="brand-amp" src="images/raisey-ampersand.png" alt="" width="159" height="175">Raisey Lab</a></div></header>
+<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Kinassay Lab"><img class="brand-amp" src="images/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a></div></header>
 <main class="legal"><div class="wrap nf">
 <h1>This page doesn’t exist.</h1>
 <p>The link may be old or mistyped. You can go back to the site.</p>
-<p><a class="btn" href="index.html">Back to Raisey Lab <i class="ar"></i></a></p>
+<p><a class="btn" href="index.html">Back to Kinassay Lab <i class="ar"></i></a></p>
 <h2 lang="fr" style="border:0;padding-top:24px;margin-top:8px">Cette page n’existe pas.</h2>
 <p lang="fr">Le lien est peut-être ancien ou mal saisi. <a href="fr/index.html">Retourner au site en français</a>.</p>
 </div></main>

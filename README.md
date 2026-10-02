@@ -1,6 +1,6 @@
-# Raisey Lab — raiseylab.com
+# Kinassay Lab — raiseylab.com
 
-Source code of [raiseylab.com](https://raiseylab.com): **Raisey Lab**, a digital strategy studio for aesthetic medicine (Paris · London · Dubai), founded by Anissa Sabrina Briki. The **Raisey Scan** is a free self-assessment based on the visitor's answers — not an audit. The **Raisey Review** is a human strategic analysis that follows a first conversation.
+Source code of [raiseylab.com](https://raiseylab.com): **Kinassay Lab**, a digital strategy studio for aesthetic medicine (Paris · London · Dubai), founded by Anissa Sabrina Briki. The **Kinassay Scan** is a free self-assessment based on the visitor's answers — not an audit. The **Kinassay Review** is a human strategic analysis that follows a first conversation.
 
 ## Development
 
@@ -20,7 +20,7 @@ Static site. Open through any local server (`python3 -m http.server 8940`), then
 Production: see **DEPLOY.md** (GitHub Pages, launch checklist). `python3 build_site.py` builds `dist/`; `--production` enforces the launch gates.
 
 
-## Raisey Scan (copy, scoring, results email)
+## Kinassay Scan (copy, scoring, results email)
 | File | Role |
 |---|---|
 | `scan_copy.json` | Single source for the interpretations, objective lines, nuance sentences and email copy (EN + FR). Edit here, then run `python3 build_fr.py`. |

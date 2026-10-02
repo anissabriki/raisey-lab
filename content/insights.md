@@ -12,12 +12,12 @@ Use the text **exactly as written**. Don't rewrite, shorten or "improve" copy.
 
 - **Slug:** `why-i-created-raisey-lab`
 - **Theme:** FOUNDER
-- **Short title (breadcrumb):** Why I Created Raisey Lab
-- **SEO title:** Why I Created Raisey Lab: Performance, Perception and Trust
+- **Short title (breadcrumb):** Why I Created Kinassay Lab
+- **SEO title:** Why I Created Kinassay Lab: Performance, Perception and Trust
 - **Meta description:** From Google to luxury to aesthetic medicine: why aesthetic practices now need their expertise to be visible, understood and trusted online.
 - **Excerpt (listing):** Google taught me performance. Luxury taught me perception. Aesthetic medicine taught me trust. Why I built a consultancy where the three meet.
 
-**Title:** Why I Created Raisey Lab
+**Title:** Why I Created Kinassay Lab
 
 **Standfirst:** A new approach to digital presence in aesthetic medicine.
 
@@ -59,11 +59,11 @@ Being visible online doesn't mean becoming an influencer, speaking more loudly, 
 
 > Visibility gives expertise somewhere to exist online.
 
-#### Why Raisey Lab
+#### Why Kinassay Lab
 
 Looking back, each chapter of my career taught me part of the same lesson. Google taught me performance. Luxury taught me perception. Aesthetic medicine taught me trust.
 
-Raisey Lab sits where the three meet. It is not another social media agency, and its purpose is not to make clinics "look better" online. It works on the whole presence around a practice: brand, digital experience, acquisition, content, patient journey and growth.
+Kinassay Lab sits where the three meet. It is not another social media agency, and its purpose is not to make clinics "look better" online. It works on the whole presence around a practice: brand, digital experience, acquisition, content, patient journey and growth.
 
 The strongest practices need more than visibility. They need to be understood and trusted, and when the right patient starts looking, they need to be there.
 
@@ -144,7 +144,7 @@ By the time she walks through the door, much of the decision may already have be
 
 > Your patients are already making decisions online, whether or not you take part in that journey.
 
-*CTA:* Understand your patient journey. Request a Raisey Lab Review →
+*CTA:* Understand your patient journey. Request a Kinassay Lab Review →
 
 ---
 

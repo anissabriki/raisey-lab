@@ -12,11 +12,11 @@ Static site, no framework and no runtime dependencies: `index.html` (English, so
 
 ## Users
 
-Aesthetic doctors, surgeons, nurse prescribers and clinic owners in Paris, London, Dubai and wider international markets, with real medical expertise but a digital presence that does not yet reflect it. Job: take the Raisey Scan, then request a first conversation.
+Aesthetic doctors, surgeons, nurse prescribers and clinic owners in Paris, London, Dubai and wider international markets, with real medical expertise but a digital presence that does not yet reflect it. Job: take the Kinassay Scan, then request a first conversation.
 
 ## Product Purpose
 
-Raisey Lab (raiseylab.com) is a digital strategy studio for aesthetic medicine, founded by Anissa Sabrina Briki. It helps aesthetic doctors and clinics raise their visibility, authority and patient journey, so that medical expertise is found, trusted and chosen.
+Kinassay Lab (raiseylab.com) is a digital strategy studio for aesthetic medicine, founded by Anissa Sabrina Briki. It helps aesthetic doctors and clinics raise their visibility, authority and patient journey, so that medical expertise is found, trusted and chosen.
 
 ## Positioning
 
@@ -24,11 +24,11 @@ Raisey Lab (raiseylab.com) is a digital strategy studio for aesthetic medicine, 
 
 The journey, in this order; the names must never be confused:
 
-**Raisey Scan → results by email → first conversation → Raisey Review → recommendation → ongoing work**
+**Kinassay Scan → results by email → first conversation → Kinassay Review → recommendation → ongoing work**
 
-- **Raisey Scan**: free, automated, about 4 minutes, based ONLY on the visitor's answers. First reading on screen; complete results by email. It is **not an audit**: it never inspects the website, Google, social profiles, CRM or content.
+- **Kinassay Scan**: free, automated, about 4 minutes, based ONLY on the visitor's answers. First reading on screen; complete results by email. It is **not an audit**: it never inspects the website, Google, social profiles, CRM or content.
 - **First conversation**: a human conversation about the practice, positioning, objectives and priorities. A journey step, not a branded product.
-- **Raisey Review**: a personalised human strategic analysis prepared after the conversation, where the real digital ecosystem is examined. Never automated or emailed by the Scan.
+- **Kinassay Review**: a personalised human strategic analysis prepared after the conversation, where the real digital ecosystem is examined. Never automated or emailed by the Scan.
 
 ## Operating Context
 
@@ -36,8 +36,8 @@ Boutique, selective studio. Markets served: Paris, London, Dubai (not offices). 
 
 ## Capabilities and Constraints
 
-- Homepage: hero · founder's professional background · patient journey · the six dimensions + Raisey Scan · studio (Be found / Be trusted / Be chosen) · Services (locked) · Selected Studies (composite illustrations, never real clients) · Founder · Founding partners · Contact.
-- Two layers, never forced into a 1:1 mapping: the **six dimensions** are the Scan's diagnostic framework (Brand, Visibility, Authority, Editorial Potential, Patient Journey, Growth, in this order); the **four Services** explain how Raisey Lab acts on the findings.
+- Homepage: hero · founder's professional background · patient journey · the six dimensions + Kinassay Scan · studio (Be found / Be trusted / Be chosen) · Services (locked) · Selected Studies (composite illustrations, never real clients) · Founder · Founding partners · Contact.
+- Two layers, never forced into a 1:1 mapping: the **six dimensions** are the Scan's diagnostic framework (Brand, Visibility, Authority, Editorial Potential, Patient Journey, Growth, in this order); the **four Services** explain how Kinassay Lab acts on the findings.
 - Languages: English and French.
 - Scan results are qualitative (Established / Strong Potential / To Elevate), never a medical or clinical score.
 - No outcome guarantees, before/after claims, invented reviews, ratings, clients or credentials.
@@ -48,7 +48,7 @@ Ivory / burgundy / lilac palette, Fraunces + Inter, the & mark. The Services com
 
 ## Evidence on Hand
 
-Founder: Anissa Sabrina Briki. FILLMED Laboratories, Google and GroupM are the **founder's previous roles**, not Raisey Lab clients. No client testimonials, case studies, measured results or pricing are published; none may be invented.
+Founder: Anissa Sabrina Briki. FILLMED Laboratories, Google and GroupM are the **founder's previous roles**, not Kinassay Lab clients. No client testimonials, case studies, measured results or pricing are published; none may be invented.
 
 ## Product Principles
 

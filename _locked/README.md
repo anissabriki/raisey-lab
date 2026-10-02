@@ -47,3 +47,6 @@ Each row gets a background image (inline --svc-img), rows become editorial image
 
 ## Heading whitespace · 2026-09-29 (owner-approved, action 7)
 One space added between `<span class="l1">` and `<span class="l2">` in the Services H2 (EN + FR) so text extraction reads "How we raise your presence" instead of "raiseyour". Both spans are display:block: no visual change (verified by pixel comparison). services.html snapshot + checksum refreshed.
+
+## Kinassay Lab rename · 2026-10-02 (owner request "décline le site avec le nouveau nom")
+Brand name only: "Raisey Scan" → "Kinassay Scan" (CTA label) and "Raisey Review" → "Kinassay Review" (JS comment). Anchor #raisey-scan kept. Layout, styling, CSS and JS behaviour unchanged; services.html/services.js snapshots + checksums refreshed.
