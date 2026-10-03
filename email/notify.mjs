@@ -1,5 +1,5 @@
-// Internal lead notifications sent to hello@raiseylab.com (NOT the email the visitor receives).
-// Same Raisey Lab visual identity as the results email, laid out as an operational lead sheet.
+// Internal lead notifications sent to hello@kinassay.com (NOT the email the visitor receives).
+// Same Kinassay Lab visual identity as the results email, laid out as an operational lead sheet.
 // Everything the visitor typed is escaped; the Scan part is recomputed from scores only (validate/compose), never
 // taken from the browser. Reply-To on the actual message is set by the Worker to the lead's address.
 import * as K from './kit.mjs';
@@ -11,7 +11,7 @@ const { esc, C, SERIF, SANS } = K;
 const GROWTH = { patients: 'More qualified patients', visibility: 'My visibility', authority: 'My medical authority', social: 'My social presence',
   retention: 'Patient retention', treatment: 'A specific treatment or procedure', team: 'My clinic / team', market: 'A new location or market' };
 const INTEREST = { 'first-conversation': 'Request a first conversation', founder: 'Talk to the founder', 'founding-partner': 'Become a founding partner',
-  'presence-scan': 'Start the Raisey Scan', 'presence-review': 'Insights: request a Raisey Lab Review', 'service-digital': 'Service: Digital Presence',
+  'presence-scan': 'Start the Kinassay Scan', 'presence-review': 'Insights: request a Kinassay Lab Review', 'service-digital': 'Service: Digital Presence',
   'service-website': 'Service: Website & Patient Journey', 'service-ongoing': 'Service: Ongoing Presence', 'service-growth': 'Service: Growth & Authority' };
 const GROUP = { tier1: 'Physicians & surgeons', tier2: 'Nurse prescribers & nurses', tier3: 'Allied & dental', tier4: 'Other' };
 const LANG = { en: 'English', fr: 'French' };
@@ -59,9 +59,9 @@ function replyBlock(email, subject, phone) {
     K.p(`Or simply press Reply: this email’s Reply-To is ${mailLink(email)}.` + (phone ? ` Phone: ${telLink(phone)}.` : ''), { color: C.muted, size: 13, lh: 20, margin: '0' });
 }
 
-const footer = () => K.p('Internal notification from raiseylab.com · not sent to the lead.', { color: C.muted, size: 12, lh: 18, margin: '28px 0 0', borderTop: '1px solid ' + C.line, padTop: '14px' });
+const footer = () => K.p('Internal notification from kinassay.com · not sent to the lead.', { color: C.muted, size: 12, lh: 18, margin: '28px 0 0', borderTop: '1px solid ' + C.line, padTop: '14px' });
 
-/** NEW RAISEY SCAN — lead sheet with result, six dimensions and shared context. */
+/** NEW KINASSAY SCAN — lead sheet with result, six dimensions and shared context. */
 export function renderScanNotification(copy, payload, { receivedAt = new Date() } = {}) {
   const v = validate(payload, copy);
   if (!v.ok) throw new Error('invalid payload: ' + v.errors.join('; '));
@@ -81,9 +81,9 @@ export function renderScanNotification(copy, payload, { receivedAt = new Date() 
   const lines = arr => arr.length ? arr.map(esc).join('<br>') : '—';
   const trtList = data.treatments.includes('none') ? ['No specific treatment, the practice overall']
     : data.treatments.filter(k => k !== 'other').map(k => copy.en.trtLabels[k]).concat(data.treatments.includes('other') ? ['Other'] : []);
-  const replySubject = data.lang === 'fr' ? 'Votre Raisey Scan' : 'Your Raisey Scan';
+  const replySubject = data.lang === 'fr' ? 'Votre Kinassay Scan' : 'Your Kinassay Scan';
   const body = [
-    header('NEW RAISEY SCAN', name, `${mailLink(email)} · ${esc(LANG[data.lang])} · ${esc(date)}`),
+    header('NEW KINASSAY SCAN', name, `${mailLink(email)} · ${esc(LANG[data.lang])} · ${esc(date)}`),
     sheet([['Name / clinic', esc(name)], ['Email', mailLink(email)], ['Website / Instagram', webLink(web)], ['Specialty', esc(specialty)],
       ['Practitioner group', esc(group)], ['Language', esc(LANG[data.lang])], ['Received', esc(date)]]),
     K.h2('Overall result', { margin: '30px 0 10px' }),
@@ -99,8 +99,8 @@ export function renderScanNotification(copy, payload, { receivedAt = new Date() 
     replyBlock(email, replySubject, ''),
     footer(),
   ].join('\n');
-  const subject = `New Raisey Scan — ${name} · ${m.tierLabel}`.slice(0, 180);
-  const text = ['NEW RAISEY SCAN', '', `Name / clinic: ${name}`, `Email: ${email}`, `Website / Instagram: ${web}`, specialty && `Specialty: ${specialty}`, group && `Practitioner group: ${group}`,
+  const subject = `New Kinassay Scan — ${name} · ${m.tierLabel}`.slice(0, 180);
+  const text = ['NEW KINASSAY SCAN', '', `Name / clinic: ${name}`, `Email: ${email}`, `Website / Instagram: ${web}`, specialty && `Specialty: ${specialty}`, group && `Practitioner group: ${group}`,
     `Language: ${LANG[data.lang]}`, `Received: ${date}`, '', `OVERALL RESULT: ${m.tierLabel}`, m.overall, '', 'SIX DIMENSIONS', ...m.dims.flatMap((d, i) => [`- ${d.name}: ${d.status}`, '  ' + T(mp.dims[i].full + (mp.dims[i].note ? ' ' + mp.dims[i].note : ''))]), '',
     'SHARED CONTEXT', 'Wants to grow:', ...growth.map(g => '- ' + g), 'Treatments:', ...trtList.map(t => '- ' + t), ...(data.other ? ['Other (their words): ' + data.other] : []), ...(mp.ctx.length ? ['', 'As written in their results email:', ...mp.ctx.map(t => T(t))] : []), '', `Reply to lead: press Reply (Reply-To: ${email})`].filter(x => x !== false && x !== undefined).join('\n');
   return { subject, html: K.doc({ lang: 'en', title: subject, preheader: `${m.tierLabel} · ${email} · ${LANG[data.lang]}`, body }), text };
@@ -120,7 +120,7 @@ export function renderContactNotification(payload, { receivedAt = new Date() } =
       ['Practitioner group', esc(f.group)], ['Came from', esc(from)], ['Language', esc(LANG[f.lang])], ['Received', esc(date)]]),
     K.h2('Message', { margin: '30px 0 10px' }),
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td bgcolor="${C.panel}" style="background-color:${C.panel};border-left:3px solid ${C.accent};padding:16px 18px;font-family:${SANS};font-size:15px;line-height:23px;color:${C.ink};mso-line-height-rule:exactly">${msg}</td></tr></table>`,
-    replyBlock(f.email, f.lang === 'fr' ? 'Votre demande — Raisey Lab' : 'Your enquiry — Raisey Lab', f.phone),
+    replyBlock(f.email, f.lang === 'fr' ? 'Votre demande — Kinassay Lab' : 'Your enquiry — Kinassay Lab', f.phone),
     footer(),
   ].join('\n');
   const subject = `New enquiry — ${f.clinic} (${f.name})`.slice(0, 180);

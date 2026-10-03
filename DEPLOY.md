@@ -1,4 +1,4 @@
-# Deploying Raisey Lab to GitHub Pages
+# Deploying Kinassay Lab to GitHub Pages
 
 **Status: prepared, not deployed.** Nothing here runs until you push to GitHub and enable Pages.
 
@@ -42,7 +42,7 @@ Custom HTTP headers (the build adds a CSP + referrer `<meta>` instead), server c
 variables, form processing, password protection.
 
 
-## Raisey Scan results email (needs an external service before launch)
+## Kinassay Scan results email (needs an external service before launch)
 The site cannot email visitors by itself. `FORM_ENDPOINT` must be an endpoint that, for `source: "presence-scan"` submissions, (1) notifies the founder and (2) sends the visitor the results email using `email/render.mjs`. A plain form service (Formspree and similar) only notifies you; it does not send the results email.
 Requirements: an email provider (API key stored server-side only, never in this repository); a sending domain with SPF, DKIM and DMARC; server-side rendering from scores (never accept HTML from the browser); bot protection and rate limiting; the provider named in `site.config.json` -> `emailProvider` and in the privacy policy. The email is one-off and transactional: no mailing-list subscription. See `email/README.md` for the payload contract.
 

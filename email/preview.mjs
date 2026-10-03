@@ -9,7 +9,7 @@ import { SAMPLES } from './samples.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 const copy = JSON.parse(readFileSync(join(here, '..', 'scan_copy.json'), 'utf8'));
 mkdirSync(join(here, 'preview'), { recursive: true });
-let index = '<!doctype html><meta charset="utf-8"><title>Scan email previews</title><body style="font:16px Arial;margin:40px"><h1>Raisey Scan results email: previews</h1><ul>';
+let index = '<!doctype html><meta charset="utf-8"><title>Scan email previews</title><body style="font:16px Arial;margin:40px"><h1>Kinassay Scan results email: previews</h1><ul>';
 for (const [name, payload] of Object.entries(SAMPLES)) {
   const r = renderEmail(copy, payload, { ctaUrl: 'https://example.invalid/#contact', privacyUrl: 'https://example.invalid/privacy.html' });
   writeFileSync(join(here, 'preview', name + '.html'), r.html);

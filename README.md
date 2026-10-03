@@ -1,6 +1,6 @@
-# Kinassay Lab — raiseylab.com
+# Kinassay Lab — kinassay.com
 
-Source code of [raiseylab.com](https://raiseylab.com): **Kinassay Lab**, a digital strategy studio for aesthetic medicine (Paris · London · Dubai), founded by Anissa Sabrina Briki. The **Kinassay Scan** is a free self-assessment based on the visitor's answers — not an audit. The **Kinassay Review** is a human strategic analysis that follows a first conversation.
+Source code of [kinassay.com](https://kinassay.com): **Kinassay Lab**, a digital strategy studio for aesthetic medicine (Paris · London · Dubai), founded by Anissa Sabrina Briki. The **Kinassay Scan** is a free self-assessment based on the visitor's answers — not an audit. The **Kinassay Review** is a human strategic analysis that follows a first conversation.
 
 ## Development
 

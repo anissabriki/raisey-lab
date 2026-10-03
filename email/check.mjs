@@ -9,7 +9,7 @@ import { SAMPLES } from './samples.mjs';
 const copy = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', 'scan_copy.json'), 'utf8'));
 const bad = [];
 const FORBIDDEN = [/diagnostic/i, /search visibility/i, /you should/i, /vous devriez/i, /your website shows/i, /your online presence demonstrates/i,
-  /(?:presence|raisey) review\b[^.]{0,30}\b(sent|delivered|instant|automated|automatisé|envoyé|instantané)\b/i];
+  /(?:presence|raisey|kinassay) review\b[^.]{0,30}\b(sent|delivered|instant|automated|automatisé|envoyé|instantané)\b/i];
 for (const [name, payload] of Object.entries(SAMPLES)) {
   const r = renderEmail(copy, payload, { ctaUrl: 'https://x.invalid/', privacyUrl: 'https://x.invalid/p' });
   const lang = payload.lang, c = copy[lang];

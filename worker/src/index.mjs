@@ -1,7 +1,7 @@
-// Raisey Lab — form endpoint (Cloudflare Worker).
+// Kinassay Lab — form endpoint (Cloudflare Worker).
 // Receives the website's two forms and sends email through Resend:
-//   source "contact"        -> notification to TO_EMAIL (hello@raiseylab.com), Reply-To = the visitor
-//   source "presence-scan"  -> the visitor's Raisey Scan results (rendered here from scores only) + a notification to TO_EMAIL
+//   source "contact"        -> notification to TO_EMAIL (hello@kinassay.com), Reply-To = the visitor
+//   source "presence-scan"  -> the visitor's Kinassay Scan results (rendered here from scores only) + a notification to TO_EMAIL
 // ("presence-scan" is the payload label the site has always sent; it is internal, never shown to visitors.)
 //
 // Secrets: RESEND_API_KEY is a Cloudflare secret (`wrangler secret put RESEND_API_KEY`). It is never in this repository
@@ -126,7 +126,7 @@ export default {
 
     const to = String(env.TO_EMAIL || '').trim();
     const from = String(env.FROM_EMAIL || '').trim();
-    const site = String(env.SITE_URL || 'https://raiseylab.com').replace(/\/$/, '');
+    const site = String(env.SITE_URL || 'https://kinassay.com').replace(/\/$/, '');
 
     try {
       if (p.source === 'contact') {

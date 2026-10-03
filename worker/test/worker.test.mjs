@@ -5,11 +5,11 @@ globalThis.fetch = async (url, init) => { sent.push({ url, ...JSON.parse(init.bo
 // In-memory Durable Object namespace running the real RateLimiter class (one instance + storage per key)
 const doNamespace = () => { const objs = {}; return { idFromName: n => n, get: id => objs[id] || (objs[id] = (() => { const store = new Map();
   const o = new RateLimiter({ storage: { get: async k => store.get(k), put: async (k, v) => { store.set(k, v); } } }); return { fetch: u => o.fetch(new Request(u)) }; })()) }; };
-const mkEnv = (o = {}) => ({ RESEND_API_KEY: 're_test_dummy', ALLOWED_ORIGINS: 'https://raiseylab.com,https://www.raiseylab.com', FROM_EMAIL: 'Raisey Lab <hello@raiseylab.com>',
-  TO_EMAIL: 'hello@raiseylab.com', SITE_URL: 'https://raiseylab.com', LIMITER: doNamespace(), ...o });
+const mkEnv = (o = {}) => ({ RESEND_API_KEY: 're_test_dummy', ALLOWED_ORIGINS: 'https://kinassay.com,https://www.kinassay.com', FROM_EMAIL: 'Kinassay Lab <hello@kinassay.com>',
+  TO_EMAIL: 'hello@kinassay.com', SITE_URL: 'https://kinassay.com', LIMITER: doNamespace(), ...o });
 const ctx = { waitUntil: p => waits.push(p) };
 let ip = 0;
-const call = async (body, { env = mkEnv(), origin = 'https://raiseylab.com', method = 'POST', path = '/submit', type = 'application/json', sameIp = false } = {}) => {
+const call = async (body, { env = mkEnv(), origin = 'https://kinassay.com', method = 'POST', path = '/submit', type = 'application/json', sameIp = false } = {}) => {
   sent = []; waits = [];
   const headers = { Origin: origin, 'Content-Type': type, 'CF-Connecting-IP': sameIp ? '9.9.9.9' : '10.0.0.' + (++ip) };
   const r = await worker.fetch(new Request('https://raisey-forms.test' + path, { method, headers, body: method === 'POST' ? (typeof body === 'string' ? body : JSON.stringify(body)) : undefined }), env, ctx);
@@ -23,10 +23,10 @@ let pass = 0, fail = 0;
 const ok = (name, cond, info = '') => { cond ? pass++ : fail++; console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond || !info ? '' : '  → ' + info)); };
 
 // transport / CORS
-let r = await call(null, { method: 'OPTIONS' }); ok('preflight from raiseylab.com → 204 + CORS', r.status === 204 && r.acao === 'https://raiseylab.com');
+let r = await call(null, { method: 'OPTIONS' }); ok('preflight from kinassay.com → 204 + CORS', r.status === 204 && r.acao === 'https://kinassay.com');
 r = await call(null, { method: 'OPTIONS', origin: 'https://raiseylab.club' }); ok('preflight from raiseylab.club → 403', r.status === 403);
 r = await call(contact('en'), { origin: 'https://evil.example' }); ok('POST from unknown origin → 403, nothing sent', r.status === 403 && !r.sent.length);
-r = await call(contact('en'), { origin: 'https://www.raiseylab.com' }); ok('POST from www.raiseylab.com allowed', r.status === 200);
+r = await call(contact('en'), { origin: 'https://www.kinassay.com' }); ok('POST from www.kinassay.com allowed', r.status === 200);
 r = await call(null, { method: 'GET' }); ok('GET → 405', r.status === 405);
 r = await call(contact('en'), { path: '/' }); ok('wrong path → 404', r.status === 404);
 r = await call('name=x', { type: 'application/x-www-form-urlencoded' }); ok('non-JSON → 415', r.status === 415);
@@ -38,7 +38,7 @@ r = await call(contact('en'), { env: mkEnv({ RESEND_API_KEY: '' }) }); ok('missi
 for (const lang of ['en', 'fr']) {
   r = await call(contact(lang)); const m = r.sent[0] || {};
   ok(`contact ${lang}: 200, one email`, r.status === 200 && r.sent.length === 1, r.status + ' ' + r.body);
-  ok(`contact ${lang}: to hello@, from Raisey Lab <hello@>, reply-to visitor`, m.to?.[0] === 'hello@raiseylab.com' && m.from === 'Raisey Lab <hello@raiseylab.com>' && m.reply_to === 'visitor@example.org');
+  ok(`contact ${lang}: to hello@, from Kinassay Lab <hello@>, reply-to visitor`, m.to?.[0] === 'hello@kinassay.com' && m.from === 'Kinassay Lab <hello@kinassay.com>' && m.reply_to === 'visitor@example.org');
   ok(`contact ${lang}: HTML lead sheet + text carry every field`, /NEW ENQUIRY/.test(m.html) && ['Dr Test', 'Test Clinic', 'visitor@example.org', '0600000000', 'Dermatologist', 'Talk to the founder', 'second line', lang === 'fr' ? 'French' : 'English'].every(s => m.text.includes(s) && m.html.includes(s)) && m.html.includes('second line') && m.html.includes('Reply to lead'));
   ok(`contact ${lang}: API key only in Authorization header`, m.auth === 'Bearer re_test_dummy' && !JSON.stringify({ ...m, auth: 0 }).includes('re_test'));
 }
@@ -52,11 +52,11 @@ r = await call({ ...scan('en'), web: 'javascript:alert(1)' }); ok('website field
 for (const lang of ['en', 'fr']) {
   r = await call(scan(lang)); const [v, n] = r.sent;
   ok(`scan ${lang}: 200, visitor email + founder notification`, r.status === 200 && r.sent.length === 2, r.status + ' ' + r.body);
-  ok(`scan ${lang}: results to visitor, reply-to hello@`, v?.to?.[0] === 'visitor@example.org' && v.reply_to === 'hello@raiseylab.com' && v.from === 'Raisey Lab <hello@raiseylab.com>');
-  ok(`scan ${lang}: correct language subject + html + text`, (lang === 'fr' ? /Raisey Scan/.test(v.subject) && /résultats/.test(v.subject) : v.subject === 'Your Raisey Scan results') && v.html.includes('<html lang="' + lang + '"') && v.text.length > 500, v?.subject);
-  ok(`scan ${lang}: links point to raiseylab.com in the right language`, v.html.includes('https://raiseylab.com/' + (lang === 'fr' ? 'fr/#contact' : '#contact')) && v.html.includes(lang === 'fr' ? 'https://raiseylab.com/fr/confidentialite.html' : 'https://raiseylab.com/privacy.html'));
+  ok(`scan ${lang}: results to visitor, reply-to hello@`, v?.to?.[0] === 'visitor@example.org' && v.reply_to === 'hello@kinassay.com' && v.from === 'Kinassay Lab <hello@kinassay.com>');
+  ok(`scan ${lang}: correct language subject + html + text`, (lang === 'fr' ? /Kinassay Scan/.test(v.subject) && /résultats/.test(v.subject) : v.subject === 'Your Kinassay Scan results') && v.html.includes('<html lang="' + lang + '"') && v.text.length > 500, v?.subject);
+  ok(`scan ${lang}: links point to kinassay.com in the right language`, v.html.includes('https://kinassay.com/' + (lang === 'fr' ? 'fr/#contact' : '#contact')) && v.html.includes(lang === 'fr' ? 'https://kinassay.com/fr/confidentialite.html' : 'https://kinassay.com/privacy.html'));
   ok(`scan ${lang}: no placeholders / legacy brand`, !/\{\w+\}|undefined|NaN|Presence (Lab|Scan|Review)|example\.invalid/.test(v.html + v.text));
-  ok(`scan ${lang}: notification to hello@, reply-to visitor, HTML lead sheet (result, 6 dimensions, context, date, reply)`, n?.to?.[0] === 'hello@raiseylab.com' && n.reply_to === 'visitor@example.org' && /NEW RAISEY SCAN/.test(n.html) && n.html.includes('@testclinic') && ['Medical Authority','Digital Authority','Brand Expression','Discoverability','Content Potential','Patient Journey'].every(d => n.html.includes(d)) && n.html.includes('Other (their words)') && n.html.includes('lasers') && n.html.includes('(Paris)') && n.html.includes('Reply to lead') && n.text.includes('SIX DIMENSIONS'));
+  ok(`scan ${lang}: notification to hello@, reply-to visitor, HTML lead sheet (result, 6 dimensions, context, date, reply)`, n?.to?.[0] === 'hello@kinassay.com' && n.reply_to === 'visitor@example.org' && /NEW KINASSAY SCAN/.test(n.html) && n.html.includes('@testclinic') && ['Medical Authority','Digital Authority','Brand Expression','Discoverability','Content Potential','Patient Journey'].every(d => n.html.includes(d)) && n.html.includes('Other (their words)') && n.html.includes('lasers') && n.html.includes('(Paris)') && n.html.includes('Reply to lead') && n.text.includes('SIX DIMENSIONS'));
 }
 r = await call({ ...scan('en'), scan: { ...scan('en').scan, scores: { ...scores, medical: 9 } } }); ok('scan with out-of-range score → 400', r.status === 400 && !r.sent.length);
 r = await call({ ...scan('en'), web: '' }); ok('scan missing website → 400', r.status === 400);
@@ -68,7 +68,7 @@ r = await call({ ...scan('en'), source: 'other' }); ok('unknown source → 400',
 for (const lang of ['en', 'fr']) {
   for (const payload of [scan(lang), contact(lang)]) {
     r = await call(payload);
-    ok(`no legacy symbol ${lang} ${payload.source}: no <img>, no attachment, RAISEY LAB wordmark present`, r.sent.length >= 1 && r.sent.every(m => !/<img\b/i.test(m.html) && !m.attachments && /letter-spacing:\.3em;text-transform:uppercase[^>]*>Raisey Lab</.test(m.html)));
+    ok(`no legacy symbol ${lang} ${payload.source}: no <img>, no attachment, KINASSAY LAB wordmark present`, r.sent.length >= 1 && r.sent.every(m => !/<img\b/i.test(m.html) && !m.attachments && /letter-spacing:\.3em;text-transform:uppercase[^>]*>Kinassay Lab</.test(m.html)));
   }
 }
 

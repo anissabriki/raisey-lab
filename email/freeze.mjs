@@ -1,5 +1,5 @@
-// FROZEN email templates (owner approval, 25 Sept 2026): the visitor Raisey Scan results email, the internal NEW ENQUIRY
-// sheet and the internal NEW RAISEY SCAN sheet. This check renders each one from fixed inputs and compares a SHA-256
+// FROZEN email templates (owner approval, 25 Sept 2026): the visitor Kinassay Scan results email, the internal NEW ENQUIRY
+// sheet and the internal NEW KINASSAY SCAN sheet. This check renders each one from fixed inputs and compares a SHA-256
 // fingerprint with email/frozen.json. Any change to their HTML, text or subject fails the check.
 //   node email/freeze.mjs            verify (exit 1 if a frozen template changed)
 //   node email/freeze.mjs --update   re-snapshot ONLY after an explicit owner request to change a frozen template
@@ -21,14 +21,14 @@ const contact = lang => ({ source: 'contact', lang, name: 'Dr Sarah Cohen', clin
 const h = m => createHash('sha256').update(m.subject + '\n' + m.html + '\n' + m.text).digest('hex');
 const cur = {};
 for (const lang of ['en', 'fr']) {
-  const base = 'https://raiseylab.com/' + (lang === 'fr' ? 'fr/' : '');
+  const base = 'https://kinassay.com/' + (lang === 'fr' ? 'fr/' : '');
   cur['visitor-results-' + lang] = h(renderEmail(copy, scan(lang), { ctaUrl: base + '#contact', privacyUrl: base + (lang === 'fr' ? 'confidentialite.html' : 'privacy.html') }));
-  cur['internal-new-raisey-scan-' + lang] = h(renderScanNotification(copy, scan(lang), { receivedAt: at }));
+  cur['internal-new-kinassay-scan-' + lang] = h(renderScanNotification(copy, scan(lang), { receivedAt: at }));
   cur['internal-new-enquiry-' + lang] = h(renderContactNotification(contact(lang), { receivedAt: at }));
 }
 const file = join(here, 'frozen.json');
 if (process.argv.includes('--update')) { writeFileSync(file, JSON.stringify(cur, null, 1) + '\n'); console.log('frozen snapshot updated'); process.exit(0); }
 const frozen = JSON.parse(readFileSync(file, 'utf8'));
 const changed = Object.keys(cur).filter(k => cur[k] !== frozen[k]);
-console.log(changed.length ? 'FROZEN EMAIL TEMPLATE CHANGED: ' + changed.join(', ') : 'frozen email templates intact (6 renders: visitor results, NEW RAISEY SCAN, NEW ENQUIRY × EN/FR)');
+console.log(changed.length ? 'FROZEN EMAIL TEMPLATE CHANGED: ' + changed.join(', ') : 'frozen email templates intact (6 renders: visitor results, NEW KINASSAY SCAN, NEW ENQUIRY × EN/FR)');
 process.exit(changed.length ? 1 : 0);

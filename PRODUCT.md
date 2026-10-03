@@ -16,7 +16,7 @@ Aesthetic doctors, surgeons, nurse prescribers and clinic owners in Paris, Londo
 
 ## Product Purpose
 
-Kinassay Lab (raiseylab.com) is a digital strategy studio for aesthetic medicine, founded by Anissa Sabrina Briki. It helps aesthetic doctors and clinics raise their visibility, authority and patient journey, so that medical expertise is found, trusted and chosen.
+Kinassay Lab (kinassay.com) is a digital strategy studio for aesthetic medicine, founded by Anissa Sabrina Briki. It helps aesthetic doctors and clinics raise their visibility, authority and patient journey, so that medical expertise is found, trusted and chosen.
 
 ## Positioning
 

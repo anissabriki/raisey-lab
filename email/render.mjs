@@ -1,4 +1,4 @@
-// Renders the Raisey Scan results email (HTML + plain text) from STRUCTURED DATA ONLY.
+// Renders the Kinassay Scan results email (HTML + plain text) from STRUCTURED DATA ONLY.
 // Pure function, no dependencies: runs unchanged in Node, a Cloudflare Worker, a Lambda or a Netlify/Vercel function.
 //
 // SECURITY: the browser never sends HTML. It sends scores and answer keys; this file turns them into the email using the
@@ -76,7 +76,7 @@ export function renderEmail(copy, payload, opts = {}) {
 <td style="vertical-align:middle">${K.badge(d.status, d.lv)}</td></tr></table>
 ${P(d.full + (d.note ? ' ' + d.note : ''), { ...muted, margin: '0' })}</td></tr>`;
   const body = [
-    K.brand({ margin: '0 0 28px' }),                                        // wordmark (e.sign = "Raisey Lab")
+    K.brand({ margin: '0 0 28px' }),                                        // wordmark (e.sign = "Kinassay Lab")
     ...(e.lead
       ? [P(e.hello),
          P(e.lead, { family: K.SERIF, size: 22, lh: 29, margin: '0 0 14px' }),   // editorial lead: what you can raise

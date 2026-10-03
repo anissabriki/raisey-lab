@@ -1,11 +1,11 @@
-// Email-safe building blocks shared by the Raisey Scan results email and the internal lead notifications.
+// Email-safe building blocks shared by the Kinassay Scan results email and the internal lead notifications.
 // Built for Gmail (web/app), Outlook (Windows desktop/Word engine, web, mobile) and Apple Mail:
 // tables for layout, inline long-hand styles, bgcolor attributes, font fallbacks, an Outlook fixed-width (MSO) container,
 // table-based badges, a VML button for Outlook, and a hidden preheader. No web fonts, no flexbox/grid, no background images.
 
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-// Raisey Lab art direction (site tokens): ivory page, optical-cream card, stone lines, dark ink, burgundy anchor, pale-lavender panel.
+// Kinassay Lab art direction (site tokens): ivory page, optical-cream card, stone lines, dark ink, burgundy anchor, pale-lavender panel.
 export const C = { page: '#f3eee6', card: '#faf8f4', line: '#d9cfc4', ink: '#1c1819', muted: '#6b625e', accent: '#4f1a2a', white: '#ffffff', panel: '#e8e5ec' };
 export const SERIF = "Georgia,'Times New Roman',Times,serif";
 export const SANS = 'Arial,Helvetica,sans-serif';
@@ -13,10 +13,10 @@ export const TIER = { established: ['#dde6ea', '#3f5963'], potential: ['#e8e5ec'
 
 const WIDTH = 560;
 
-/** Brand signature: the RAISEY LAB wordmark in letter-spaced serif caps, like the site header. Text only: the old circular
+/** Brand signature: the KINASSAY LAB wordmark in letter-spaced serif caps, like the site header. Text only: the old circular
  *  symbol is deprecated, and the official & monogram will be added here once its final files are supplied. */
 export function brand({ size = 15, lh = 20, margin = '0 0 4px' } = {}) {
-  return `<p style="margin:${margin};font-family:${SERIF};font-size:${size}px;line-height:${lh}px;letter-spacing:.3em;text-transform:uppercase;color:${C.ink};mso-line-height-rule:exactly">Raisey Lab</p>`;
+  return `<p style="margin:${margin};font-family:${SERIF};font-size:${size}px;line-height:${lh}px;letter-spacing:.3em;text-transform:uppercase;color:${C.ink};mso-line-height-rule:exactly">Kinassay Lab</p>`;
 }
 
 /** Full HTML document: head resets + Outlook settings, hidden preheader, page background, centred card. */
