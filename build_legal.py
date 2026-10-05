@@ -101,7 +101,8 @@ def page(lang):
 <ul><li><strong>Required:</strong> name of the doctor or clinic, email address, and (for the Kinassay Scan results) your website or Instagram.</li>
 <li><strong>Optional:</strong> specialty, phone number, and your message.</li>
 <li><strong>Your Scan answers and first insight</strong>, attached to your results request, so we can send your full Scan results and, if we speak, start the first meeting from where you are.</li>
-<li>Which button or service you came from (for example “Kinassay Scan” or “founding partner”), so we can answer the right question.</li></ul>
+<li>Which button or service you came from (for example “Kinassay Scan” or “first meeting”), so we can answer the right question.</li>
+<li><strong>If you book a first meeting:</strong> the name, email address and time slot you enter on our booking calendar, which is provided by Google Calendar.</li></ul>
 <p>The Kinassay Scan runs in your browser and reads only your answers: it does not examine your website, Google presence or social profiles. Your answers are not sent or stored anywhere unless you request your full results by email.</p>
 
 <h2>Why we use it, and on what basis</h2>
@@ -111,7 +112,7 @@ def page(lang):
 <p>We do not send newsletters or marketing emails unless you ask us separately, and we do not use your data for profiling or automated decisions. The results email is a one-off message and does not add you to a mailing list. The Kinassay Scan gives an automated reading of your answers only; it has no legal or similarly significant effect on you.</p>
 
 <h2>Who receives it</h2>
-<p>Only Kinassay Lab. The providers that host this website, deliver form submissions to us and send your Scan results email (%(prov)s) process data on our instructions. We never sell your data. If a provider processes data outside the European Economic Area or the UK, we rely on appropriate safeguards such as the European Commission’s standard contractual clauses.</p>
+<p>Only Kinassay Lab. The providers that host this website, deliver form submissions to us and send your Scan results email (%(prov)s) process data on our instructions. Meeting bookings are handled by Google Calendar and video calls by Google Meet (Google Ireland Limited / Google LLC), which receive the details you enter when booking. We never sell your data. If a provider processes data outside the European Economic Area or the UK, we rely on appropriate safeguards such as the European Commission’s standard contractual clauses.</p>
 
 <h2>How long we keep it</h2>
 <p>We keep your request and our exchanges for %(ret)s after our last contact, then delete or anonymise them, unless you become a client, in which case we keep what the law requires.</p>
@@ -120,7 +121,7 @@ def page(lang):
 <p>You can ask to access, correct, erase, restrict or receive a copy of your data, and to object to its use, by writing to %(email)s. We reply within one month. You can also complain to your data-protection authority: in France the CNIL (cnil.fr), in the UK the ICO (ico.org.uk).</p>
 
 <h2>Cookies and tracking</h2>
-<p>This website does not use cookies, analytics, advertising pixels or third-party embeds, and its fonts are hosted on our own server. Because nothing is stored or tracked on your device, there is no cookie banner. If that ever changes, we will ask for your consent first and update this page.</p>
+<p>This website does not use cookies, analytics or advertising pixels, and its fonts are hosted on our own server. The only third-party content is our booking calendar (Google Calendar): it loads only when you click “Book a first meeting”, and from that point Google may use its own cookies, under Google’s privacy policy (policies.google.com/privacy). Nothing else is stored or tracked on your device, so there is no cookie banner. If that ever changes, we will ask for your consent first and update this page.</p>
 
 <h2 id="legal-notice">Legal notice</h2>
 <dl><dt>Publisher</dt><dd>%(pub)s (Kinassay Lab)</dd>
@@ -152,7 +153,8 @@ def page(lang):
 <ul><li><strong>Obligatoire :</strong> nom du praticien ou de la clinique, adresse e-mail et, pour les résultats du Kinassay Scan, votre site web ou Instagram.</li>
 <li><strong>Facultatif :</strong> spécialité, numéro de téléphone et votre message.</li>
 <li><strong>Vos réponses au Scan et votre premier aperçu</strong>, joints à votre demande de résultats, pour que nous puissions vous envoyer vos résultats complets et, si nous échangeons, partir de votre situation lors du premier rendez-vous.</li>
-<li>Le bouton ou le service dont vous êtes parti (par exemple « Kinassay Scan » ou « partenaire fondateur »), afin de répondre à la bonne question.</li></ul>
+<li>Le bouton ou le service dont vous êtes parti (par exemple « Kinassay Scan » ou « premier rendez-vous »), afin de répondre à la bonne question.</li>
+<li><strong>Si vous réservez un premier rendez-vous :</strong> le nom, l’adresse e-mail et le créneau que vous saisissez dans notre agenda de réservation, fourni par Google Agenda.</li></ul>
 <p>Le Kinassay Scan s’exécute dans votre navigateur et ne lit que vos réponses : il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux. Vos réponses ne sont ni envoyées ni conservées, sauf si vous demandez vos résultats complets par e-mail.</p>
 
 <h2>Pourquoi, et sur quelle base légale</h2>
@@ -162,7 +164,7 @@ def page(lang):
 <p>Nous n’envoyons ni newsletter ni message commercial sans que vous nous le demandiez séparément, et nous n’utilisons pas vos données à des fins de profilage ou de décision automatisée. L’e-mail de résultats est un message unique : il ne vous ajoute à aucune liste de diffusion. Le Kinassay Scan fournit une lecture automatisée de vos seules réponses ; elle n’a aucun effet juridique ni effet significatif similaire sur vous.</p>
 
 <h2>Qui y a accès</h2>
-<p>Uniquement Kinassay Lab. Les prestataires qui hébergent ce site, nous transmettent les formulaires et envoient l’e-mail de résultats de votre Scan (%(prov)s) traitent les données sur nos instructions. Nous ne vendons jamais vos données. Si un prestataire traite des données hors de l’Espace économique européen ou du Royaume-Uni, nous nous appuyons sur des garanties appropriées, comme les clauses contractuelles types de la Commission européenne.</p>
+<p>Uniquement Kinassay Lab. Les prestataires qui hébergent ce site, nous transmettent les formulaires et envoient l’e-mail de résultats de votre Scan (%(prov)s) traitent les données sur nos instructions. Les réservations de rendez-vous passent par Google Agenda et les visioconférences par Google Meet (Google Ireland Limited / Google LLC), qui reçoivent les informations saisies lors de la réservation. Nous ne vendons jamais vos données. Si un prestataire traite des données hors de l’Espace économique européen ou du Royaume-Uni, nous nous appuyons sur des garanties appropriées, comme les clauses contractuelles types de la Commission européenne.</p>
 
 <h2>Durée de conservation</h2>
 <p>Nous conservons votre demande et nos échanges pendant %(ret)s après notre dernier contact, puis nous les supprimons ou les anonymisons, sauf si vous devenez client : nous conservons alors ce que la loi impose.</p>
@@ -171,7 +173,7 @@ def page(lang):
 <p>Vous pouvez demander l’accès, la rectification, l’effacement, la limitation ou la portabilité de vos données, et vous opposer à leur utilisation, en écrivant à %(email)s. Nous répondons sous un mois. Vous pouvez également saisir votre autorité de protection des données : en France, la CNIL (cnil.fr) ; au Royaume-Uni, l’ICO (ico.org.uk).</p>
 
 <h2>Cookies et suivi</h2>
-<p>Ce site n’utilise ni cookies, ni outil d’analyse, ni pixel publicitaire, ni contenu tiers intégré, et ses polices sont hébergées sur notre propre serveur. Comme rien n’est stocké ni suivi sur votre appareil, il n’y a pas de bandeau de cookies. Si cela devait changer, nous demanderions d’abord votre consentement et mettrions cette page à jour.</p>
+<p>Ce site n’utilise ni cookies, ni outil d’analyse, ni pixel publicitaire, et ses polices sont hébergées sur notre propre serveur. Le seul contenu tiers est notre agenda de réservation (Google Agenda) : il ne se charge que lorsque vous cliquez sur « Réserver un premier rendez-vous », et Google peut alors utiliser ses propres cookies, selon sa politique de confidentialité (policies.google.com/privacy). Rien d’autre n’est stocké ni suivi sur votre appareil : il n’y a donc pas de bandeau cookies. Si cela change un jour, nous vous demanderons d’abord votre consentement et mettrons cette page à jour.</p>
 
 <h2 id="mentions">Mentions légales</h2>
 <dl><dt>Éditeur du site</dt><dd>%(pub)s (Kinassay Lab)</dd>

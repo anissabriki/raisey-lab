@@ -95,7 +95,7 @@ def main():
         'Le Kinassay Scan nécessite JavaScript. Vous pouvez réserver un premier rendez-vous dans la section suivante.')
     sub('</svg>Scan complete</p>', '</svg>Scan terminé</p>')
     sub('Where should we send your full Scan results?', 'Recevez votre Kinassay Scan personnalisé.')
-    sub('const SCAN_EMAIL_GATE = false;', 'const SCAN_EMAIL_GATE = true;')
+    # 2026-10: no email gate on the French site either: the first insight shows right after the questions (owner request)
     sub('Your full Kinassay Scan results will be sent to this address. If you’d like to go further, the next step is a first meeting.',
         'Les résultats complets de votre Kinassay Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier rendez-vous.')
     sub('Doctor or clinic name <span', 'Nom du praticien ou de la clinique <span')

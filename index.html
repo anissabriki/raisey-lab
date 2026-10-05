@@ -258,6 +258,13 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 .req-box h3{font-size:clamp(1.7rem,1.2rem + 1.4vw,2.4rem);line-height:1.12;margin-top:6px}
 .scan .btn{white-space:normal;text-align:left}
 
+.result .crit{display:grid;gap:8px;max-width:56ch;padding:16px 18px;border-left:2px solid var(--rl-burgundy);background:color-mix(in srgb,var(--paper) 70%,transparent)}
+.result .crit-k{font:600 12px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rl-burgundy)}
+.result .crit-k b{letter-spacing:.06em}
+.result .crit p:not(.crit-k){color:var(--ink)}
+.result .offer{display:grid;gap:14px;padding-top:clamp(20px,3vw,28px);border-top:1px solid var(--line-strong)}
+.result .offer .k{margin:0}
+.result .offer .tl{background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;color:var(--ink)}
 /* results at a glance (radar) */
 .glance{margin-top:clamp(32px,5vw,56px);display:grid;gap:14px;justify-items:center;text-align:center}
 .glance .eyebrow{justify-self:start;text-align:left}
@@ -1376,7 +1383,7 @@ document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('clic
       const openM=e=>{ if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1) return; e.preventDefault(); last=document.activeElement;
         if(!f.src) f.src=embed; m.hidden=false; document.documentElement.classList.add('bk-lock'); m.focus({preventScroll:true}); };
       const closeM=()=>{ if(m.hidden) return; m.hidden=true; document.documentElement.classList.remove('bk-lock'); if(last&&last.focus) last.focus({preventScroll:true}); };
-      links.forEach(a=>a.addEventListener('click',openM));
+      document.addEventListener('click',e=>{ if(e.target.closest('[data-book]')) openM(e); });   // delegated: also covers links added later (Scan results)
       m.querySelector('[data-bk-close]').addEventListener('click',closeM);
       m.addEventListener('click',e=>{ if(e.target===m) closeM(); });
       document.addEventListener('keydown',e=>{ if(!m.hidden&&e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); closeM(); } },true);
@@ -1516,18 +1523,26 @@ function question(){
   stage.querySelector('[data-back]').addEventListener('click',()=>go(step-1));
 }
 function strongest(d){let b=null;DIMS.forEach(k=>{if(b===null||d[k]>d[b])b=k});return levelOf(d[b])!=='elevate'?b:null}
+function weakest(d){let w=null;DIMS.forEach(k=>{if(w===null||d[k]<d[w])w=k});return levelOf(d[w])!=='established'?w:null}
+const XL=document.documentElement.lang==='fr'
+  ?{crit:'Votre axe le plus critique :',offer:'Pour aller plus loin',debrief:'Réserver mon débrief de 30 minutes',note:'30 minutes avec la fondatrice pour lire vos résultats ensemble · Gratuit · Sans engagement'}
+  :{crit:'Your most critical axis:',offer:'Go further',debrief:'Book my 30-minute debrief',note:'30 minutes with the founder to read your results together · Free · No commitment'};
 function result(){
   const c=compute(), t=COPY.tiers[c.overall], sk=strongest(c.d);
   showGlance(c);
   const signal=sk?`<p class="signal"><b>${esc(R.sig.label)} ${esc(R.dim[sk])}.</b> ${esc(R.I[sk][lvl(c.d[sk])][0])}</p>`:`<p class="signal">${esc(R.sig.none)}</p>`;
+  const wk=weakest(c.d), crit=wk?`<div class="crit"><p class="crit-k">${esc(XL.crit)} <b>${esc(R.dim[wk])}</b></p><p>${esc(R.I[wk][lvl(c.d[wk])].join(' '))}</p></div>`:'';
   stage.innerHTML=`<div class="result">
     <div class="lead-in">
       <h3 class="k" tabindex="-1" data-focus>${esc(R.title)}</h3>
       <p class="tier-name"><i class="dot" data-t="${c.overall}" aria-hidden="true"></i>${esc(t.label)}</p>
       <p class="diag-line">${esc(R.diag[c.overall])}</p>
       ${signal}
+      ${crit}
     </div>
-    ${SCAN_EMAIL_GATE?'':`<div class="cta-row"><button class="btn" type="button" data-req>${esc(R.request)} ${AR}</button></div>`}
+    <div class="offer"><p class="k">${esc(XL.offer)}</p>
+      <div class="cta-row"><a class="btn" href="#contact" data-book data-interest="first-conversation">${esc(XL.debrief)} ${AR}</a>${SCAN_EMAIL_GATE?'':`<button class="tl" type="button" data-req>${esc(R.request)} ${AR}</button>`}</div>
+      <p class="note">${esc(XL.note)}</p></div>
     <div class="basis-notes"><p class="note">${esc(R.transp)}</p><p class="note">${esc(R.disclaimer)}</p></div>
     <button class="back" type="button" data-restart>${esc(S.restart)}</button>
   </div>`;
