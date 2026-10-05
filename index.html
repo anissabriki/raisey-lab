@@ -111,7 +111,9 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 .btn:hover{transform:translateY(-1px)}
 /* 🔒 LOCKED 2026-09-22, revised 2026-09-22 · CTA colour/shape system — see memory presence-lab-locked-sections.
    owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
-.svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* owner-approved 2026-10-05: the Services Scan CTA is secondary to booking → quiet outline, like the Scan entry button */
+.svc-cta .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy);min-height:56px;padding:16px 30px;font-size:15px;gap:16px}
+@media (hover:hover){.svc-cta .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
 @media (hover:hover){.btn:hover{--b:var(--rasp-d)}}
 @media (hover:hover){.btn:hover .ar{transform:translateX(5px)}}
 .btn:active{transform:translateY(1px)}

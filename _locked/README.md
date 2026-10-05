@@ -53,3 +53,6 @@ Brand name only: "Raisey Scan" → "Kinassay Scan" (CTA label) and "Raisey Revie
 
 ## Homepage lead-gen restructure · 2026-10-05
 The locked services block is untouched (owner chose to keep it locked). Sections around it changed, so verify.py now ends the HTML snapshot at an explicit `<!-- 🔒 END LOCKED services -->` marker placed where the old studies marker was; the snapshot bytes and checksum are unchanged.
+
+## Services Scan CTA made secondary · 2026-10-05 (owner-approved "ok pour 6a")
+Outline style for `.svc-cta .btn` (scoped override outside `_locked/`, in the CTA colour block). Locked HTML/CSS/JS text unchanged; checksums unchanged.
