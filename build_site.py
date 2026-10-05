@@ -37,6 +37,7 @@ def get(key, env):
 form = get('formEndpoint', 'FORM_ENDPOINT')
 email = get('contactEmail', 'CONTACT_EMAIL')
 booking = get('bookingUrl', 'BOOKING_URL')   # public scheduling page for the first conversation (optional)
+cf_token = get('cfAnalyticsToken', 'CF_ANALYTICS_TOKEN')   # Cloudflare Web Analytics site token (public, cookieless)
 site = get('siteUrl', 'SITE_URL').rstrip('/')
 base = (get('basePath', 'BASE_PATH') or '/')
 domain = (cfg.get('customDomain') or '').strip()
@@ -255,8 +256,9 @@ form_origin = ''
 if form:
     u = urlparse(form)
     form_origin = '%s://%s' % (u.scheme, u.netloc)
-csp = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; "
-       "connect-src 'self'%s; base-uri 'self'; form-action 'none'" % ((' ' + form_origin) if form_origin else ''))
+csp = ("default-src 'none'; script-src 'unsafe-inline'%s; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; "
+       "connect-src 'self'%s%s; base-uri 'self'; form-action 'none'" % ((' https://static.cloudflareinsights.com' if cf_token else ''),
+                                                                     (' ' + form_origin) if form_origin else '', (' https://cloudflareinsights.com' if cf_token else '')))
 if booking:
     bu = urlparse(booking)
     csp += '; frame-src %s://%s' % (bu.scheme, bu.netloc)   # booking popup embeds the scheduling page
@@ -277,6 +279,8 @@ for p in PAGES:
         if n1 != 1 or n2 != 1 or n3 != 1:
             sys.exit('FAILED: could not inject form settings into ' + p)
     h = render_seo(p, clean_hrefs(h), site, base)
+    if cf_token and not PREVIEW and '</body>' in h:   # cookieless audience measurement, production only
+        h = h.replace('</body>', '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "%s"}\'></script>\n</body>' % html.escape(cf_token), 1)
     # CSP goes right after <meta charset> so it is in force before anything else is parsed
     h = h.replace('<meta charset="utf-8">\n', '<meta charset="utf-8">\n' + harden, 1)
     if 'Content-Security-Policy' not in h:

@@ -121,7 +121,7 @@ def page(lang):
 <p>You can ask to access, correct, erase, restrict or receive a copy of your data, and to object to its use, by writing to %(email)s. We reply within one month. You can also complain to your data-protection authority: in France the CNIL (cnil.fr), in the UK the ICO (ico.org.uk).</p>
 
 <h2>Cookies and tracking</h2>
-<p>This website does not use cookies, analytics or advertising pixels, and its fonts are hosted on our own server. The only third-party content is our booking calendar (Google Calendar): it loads only when you click “Book a first meeting”, and from that point Google may use its own cookies, under Google’s privacy policy (policies.google.com/privacy). Nothing else is stored or tracked on your device, so there is no cookie banner. If that ever changes, we will ask for your consent first and update this page.</p>
+<p>This website does not use cookies or advertising pixels, and its fonts are hosted on our own server. We measure visits with Cloudflare Web Analytics, which sets no cookies and does not track you across sites or build a profile of you: it only counts page views and their source. The only third-party content is our booking calendar (Google Calendar): it loads only when you click “Book a first meeting”, and from that point Google may use its own cookies, under Google’s privacy policy (policies.google.com/privacy). Nothing else is stored or tracked on your device, so there is no cookie banner. If that ever changes, we will ask for your consent first and update this page.</p>
 
 <h2 id="legal-notice">Legal notice</h2>
 <dl><dt>Publisher</dt><dd>%(pub)s (Kinassay Lab)</dd>
@@ -173,7 +173,7 @@ def page(lang):
 <p>Vous pouvez demander l’accès, la rectification, l’effacement, la limitation ou la portabilité de vos données, et vous opposer à leur utilisation, en écrivant à %(email)s. Nous répondons sous un mois. Vous pouvez également saisir votre autorité de protection des données : en France, la CNIL (cnil.fr) ; au Royaume-Uni, l’ICO (ico.org.uk).</p>
 
 <h2>Cookies et suivi</h2>
-<p>Ce site n’utilise ni cookies, ni outil d’analyse, ni pixel publicitaire, et ses polices sont hébergées sur notre propre serveur. Le seul contenu tiers est notre agenda de réservation (Google Agenda) : il ne se charge que lorsque vous cliquez sur « Réserver un premier rendez-vous », et Google peut alors utiliser ses propres cookies, selon sa politique de confidentialité (policies.google.com/privacy). Rien d’autre n’est stocké ni suivi sur votre appareil : il n’y a donc pas de bandeau cookies. Si cela change un jour, nous vous demanderons d’abord votre consentement et mettrons cette page à jour.</p>
+<p>Ce site n’utilise ni cookies ni pixel publicitaire, et ses polices sont hébergées sur notre propre serveur. Nous mesurons la fréquentation avec Cloudflare Web Analytics, qui ne dépose aucun cookie et ne vous suit pas d’un site à l’autre ni ne crée de profil : il compte seulement les pages vues et leur provenance. Le seul contenu tiers est notre agenda de réservation (Google Agenda) : il ne se charge que lorsque vous cliquez sur « Réserver un premier rendez-vous », et Google peut alors utiliser ses propres cookies, selon sa politique de confidentialité (policies.google.com/privacy). Rien d’autre n’est stocké ni suivi sur votre appareil : il n’y a donc pas de bandeau cookies. Si cela change un jour, nous vous demanderons d’abord votre consentement et mettrons cette page à jour.</p>
 
 <h2 id="mentions">Mentions légales</h2>
 <dl><dt>Éditeur du site</dt><dd>%(pub)s (Kinassay Lab)</dd>
