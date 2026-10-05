@@ -84,7 +84,7 @@ if form:
 HOME = {'index.html': '', 'fr/index.html': 'fr/'}            # page -> path under the site root (EN = /, FR = /fr/)
 LANG = {'index.html': 'en', 'fr/index.html': 'fr'}
 LEGAL = ['privacy.html', 'fr/confidentialite.html']          # noindex,follow, never in the sitemap, no canonical/hreflang
-INSIGHTS = sorted(os.path.join(d, 'index.html') for d, _, fs in os.walk('insights') if 'index.html' in fs)   # English-only, indexable (build_insights.py)
+INSIGHTS = sorted(os.path.join(d, 'index.html') for top in ('insights', os.path.join('fr', 'insights')) for d, _, fs in os.walk(top) if 'index.html' in fs)   # EN /insights/ + FR /fr/insights/, indexable (build_insights.py)
 PAGES = list(HOME) + LEGAL + ['404.html'] + INSIGHTS
 ICONS = ['favicon.ico', 'favicon-96.png', 'apple-touch-icon.png', 'icon-192.png']   # official & monogram (from logo1.png)
 CITIES = ['Paris', 'London', 'Dubai']                        # markets served, NOT offices (no LocalBusiness / address)
@@ -299,12 +299,16 @@ if site:
     # never earlier than the day it went live; the listing = its newest article
     pub = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
     mods = {p: git_date(p) for p in HOME}
+    is_art = lambda p: p.split('/')[-3] == 'insights' if p.count('/') >= 2 else False      # insights/<slug>/index.html or fr/insights/<slug>/index.html
+    src_md = lambda p: 'content/insights.fr.md' if p.startswith('fr/') else 'content/insights.md'
     for p in INSIGHTS:
-        slug = p.split('/')[1] if p.count('/') == 2 else ''
-        if slug: mods[p] = max(filter(None, [git_date('content/insights.md'), pub.get(slug, '')]), default='')
-    arts = [mods[p] for p in INSIGHTS if p.count('/') == 2 and mods.get(p)]
+        if is_art(p):
+            slug = p.split('/')[-2]
+            mods[p] = max(filter(None, [git_date(src_md(p)), pub.get(slug, '')]), default='')
     for p in INSIGHTS:
-        if p.count('/') == 1: mods[p] = max(arts, default=git_date(p))
+        if not is_art(p):
+            arts = [mods[q] for q in INSIGHTS if is_art(q) and q.startswith('fr/') == p.startswith('fr/') and mods.get(q)]
+            mods[p] = max(arts, default=git_date(p))
     sitemap = make_sitemap(site, base, mods)
     open('dist/sitemap.xml', 'w').write(sitemap)
     errors.extend(seo_check(built, sitemap, site, base, 'dist'))

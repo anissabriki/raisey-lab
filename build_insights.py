@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """Generates the Insights section from content/insights.md with index.html's design tokens, header and footer
 (same approach as build_legal.py: the CSP only allows inline CSS, so each page carries the shared base CSS).
 
@@ -145,6 +146,43 @@ CSS = '''
 '''
 
 
+# ---------------------------------------------------------------- languages (EN = content/insights.md at /insights/, FR = content/insights.fr.md at /fr/insights/)
+T = {
+ 'en': {'src': 'content/insights.md', 'pre': '', 'locale': 'en_GB', 'skip': 'Skip to content', 'main': 'Main', 'footer': 'Footer',
+        'nav': [('#services', 'Services'), ('#about', 'About'), ('#work', 'Studies')], 'book': 'Book a first meeting', 'menu': 'Menu', 'close': 'Close',
+        'legal': '<a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span>',
+        'home': 'Home', 'by': 'By', 'founder': 'Founder', 'read': 'min read', 'prev': '← Previous', 'next': 'Next', 'soon': 'Coming next', 'all': '← All Insights',
+        'series': 'Insights series', 'more': 'Read the Insight', 'sources': 'Sources', 'list_aria': 'The series', 'crumbs': 'Breadcrumb',
+        'fig_alt': 'Anissa Sabrina Briki, founder of Kinassay Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”',
+        'end1': '<p><a class="tl" href="%(home)s#services">Explore our approach <i class="ar"></i></a></p><p class="sub">Or see where your practice stands: <a href="%(home)s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>',
+        'end2': '<p class="q">Understand your patient journey.</p><a class="btn" href="%(home)s#contact">Book a first meeting <i class="ar"></i></a><p class="sub">Or start with a diagnosis: the free Kinassay Scan reads your practice across six dimensions, in about 4 minutes. <a href="%(home)s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>',
+        'end3': '<p class="q">Growing your practice across markets?</p><p><a class="tl" href="%(home)s#services">Discover Brand &amp; Digital Strategy <i class="ar"></i></a></p>',
+        'end4': '<p class="sub">What does your digital presence say about your philosophy? <a href="%(home)s#contact">Book a first meeting <span aria-hidden="true">→</span></a></p>',
+        'months': None},
+ 'fr': {'src': 'content/insights.fr.md', 'pre': 'fr/', 'locale': 'fr_FR', 'skip': 'Aller au contenu', 'main': 'Principale', 'footer': 'Pied de page',
+        'nav': [('#services', 'Services'), ('#about', 'À propos'), ('#work', 'Études')], 'book': '<span>Réserver un premier <span class="nb">rendez-vous</span></span>', 'menu': 'Menu', 'close': 'Fermer',
+        'legal': '<a class="lg" href="%(up)sfr/confidentialite.html">Politique de confidentialité</a><a class="lg" href="%(up)sfr/confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span>',
+        'home': 'Accueil', 'by': 'Par', 'founder': 'fondatrice', 'read': 'min de lecture', 'prev': '← Précédent', 'next': 'Suivant', 'soon': 'À paraître', 'all': '← Tous les Insights',
+        'series': 'La série Insights', 'more': 'Lire l’Insight', 'sources': 'Sources', 'list_aria': 'La série', 'crumbs': 'Fil d’Ariane',
+        'fig_alt': 'Anissa Sabrina Briki, fondatrice de Kinassay Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »',
+        'end1': '<p><a class="tl" href="%(home)s#services">Découvrir notre approche <i class="ar"></i></a></p><p class="sub">Ou faites le point sur votre cabinet : <a href="%(home)s#kinassay-scan">Faire le Kinassay Scan <span aria-hidden="true">→</span></a></p>',
+        'end2': '<p class="q">Comprendre votre parcours patient.</p><a class="btn" href="%(home)s#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i></a><p class="sub">Ou commencez par le Kinassay Scan gratuit, qui lit votre cabinet sur six dimensions en 4 minutes environ. <a href="%(home)s#kinassay-scan">Faire le Kinassay Scan <span aria-hidden="true">→</span></a></p>',
+        'end3': '<p class="q">Vous développez votre cabinet sur plusieurs marchés ?</p><p><a class="tl" href="%(home)s#services">Découvrir la stratégie de marque et digitale <i class="ar"></i></a></p>',
+        'end4': '<p class="sub">Que dit votre présence digitale de votre philosophie ? <a href="%(home)s#contact">Réserver un premier rendez-vous <span aria-hidden="true">→</span></a></p>',
+        'months': ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']},
+}
+LISTINGS = {
+ 'en': LISTING,
+ 'fr': {'title': 'Insights — Médecine esthétique, marque et digital | Kinassay Lab',
+        'description': 'Essais sur la médecine esthétique, la culture de la beauté, le comportement des patients et la stratégie digitale, pour les cabinets esthétiques à Paris, Londres, Dubaï et ailleurs.',
+        'h1': 'Notes depuis l’intérieur de la médecine esthétique.',
+        'lead': 'Les Insights de Kinassay Lab : des essais sur la médecine esthétique, la culture de la beauté, le comportement des patients et la stratégie digitale, pour les cabinets à Paris, Londres, Dubaï et ailleurs.',
+        'featured': '02', 'next_no': '05', 'next_title': 'Un bon médecin sait dire non',
+        'subscribe': 'Recevez les nouveaux Insights dès leur parution.', 'thanks': 'Merci, vous recevrez le prochain Insight.',
+        'scan': 'Commencer par le Kinassay Scan', 'explore': 'Ou découvrir comment nous accompagnons les cabinets'},
+}
+
+
 # ---------------------------------------------------------------- content parsing
 def smart(s):
     """Typographic quotes/apostrophes (the site's convention); URLs are never touched."""
@@ -162,8 +200,8 @@ def inline(s, link):
     return re.sub(r'(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])', r'<em>\1</em>', s)
 
 
-def parse():
-    txt = re.sub(r'<!--.*?-->', '', open('content/insights.md', encoding='utf-8').read(), flags=re.S)
+def parse(src='content/insights.md'):
+    txt = re.sub(r'<!--.*?-->', '', open(src, encoding='utf-8').read(), flags=re.S)
     arts = []
     for no, chunk in re.findall(r'^## Article (\d+)\n(.*?)(?=^## Article |\Z)', txt, re.S | re.M):
         meta = {k.strip().lower(): v.strip().strip('`') for k, v in re.findall(r'^- \*\*([^*]+):\*\* (.+)$', chunk, re.M)}
@@ -176,8 +214,8 @@ def parse():
         body = chunk[chunk.index('**Standfirst:**'):].split('\n', 1)[1]
         body, _, rest = body.partition('\n*CTA:*')
         a['cta'] = rest.split('\n', 1)[0].strip()
-        src = re.search(r'^\*\*Sources\*\*\n(.*?)(?:\n---|\Z)', rest, re.S | re.M)
-        a['sources'] = re.findall(r'^- (.+)$', src.group(1), re.M) if src else []
+        srcs = re.search(r'^\*\*Sources\*\*\n(.*?)(?:\n---|\Z)', rest, re.S | re.M)
+        a['sources'] = re.findall(r'^- (.+)$', srcs.group(1), re.M) if srcs else []
         a['blocks'] = [b.strip() for b in re.split(r'\n\s*\n', body.strip().rstrip('-').strip()) if b.strip()]
         words = ' '.join([a['standfirst']] + a['blocks'])
         a['words'] = len(re.findall(r"[\w’'-]+", re.sub(r'\]\([^)]*\)|[#>*\[]', ' ', words)))
@@ -187,24 +225,8 @@ def parse():
 
 
 # ---------------------------------------------------------------- page chrome
-def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
-    up = '../' * depth
-    home = up + 'index.html'
-    nav = [('#services', 'Services'), ('#about', 'About'), ('#work', 'Studies')]
-    ins = up + 'insights/index.html'
-    nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t) for h, t in nav) + \
-        '<li><a class="on" href="%s" aria-current="%s">Insights</a></li>' % (ins, 'page' if url_path == 'insights/' else 'true')
-    mob_html = nav_html.replace('<li><a href', '<li><a class="l" href').replace('<li><a class="on"', '<li><a class="l on"')
-    foot = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t) for h, t in nav) + \
-        '<li><a href="%s#kinassay-scan">Kinassay Scan</a></li><li><a href="%s">Insights</a></li><li><a href="%s#contact">Book a first meeting</a></li>' % (home, ins, home)
-    sw = ('<div class="langsw h" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><i aria-hidden="true"></i>'
-          '<a href="%sfr/index.html" hreflang="fr" lang="fr" aria-label="Français">FR</a></div>' % up)
-    url = ROOT_URL + url_path
-    seo = ('<link rel="canonical" href="%s">\n<meta property="og:url" content="%s">\n' % (url, url)) if SITE else \
-        '<!-- canonical + og:url: generated from SITE_URL (site.config.json -> siteUrl) once the domain is set -->\n'
-    css = (CSS_BASE + CSS_FOOT + '\n' + FORM_CSS + CSS).replace('url(fonts/', 'url(%sfonts/' % up)
-    return '''<!doctype html>
-<html lang="en">
+PAGE = """<!doctype html>
+<html lang="%(lang)s">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -215,7 +237,7 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 <meta property="og:description" content="%(desc)s">
 <meta property="og:type" content="%(ogt)s">
 <meta property="og:site_name" content="Kinassay Lab">
-<meta property="og:locale" content="en_GB">
+<meta property="og:locale" content="%(locale)s">
 %(icons)s
 <link rel="preload" href="%(up)sfonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="%(up)sfonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -228,29 +250,29 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 </head>
 <body>
 %(sprite)s
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">%(skip)s</a>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
-    <nav class="nav" aria-label="Main"><ul>%(nav)s</ul></nav>
-    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#contact">Book a first meeting <i class="ar"></i></a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
+    <nav class="nav" aria-label="%(navlabel)s"><ul>%(nav)s</ul></nav>
+    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#contact">%(book)s <i class="ar"></i></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">%(menu)s</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
     </div>
   </div>
-  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#contact">Book a first meeting <i class="ar"></i></a></div></div>
+  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#contact">%(book)s <i class="ar"></i></a></div></div>
 </header>
 <main id="main" class="ins"><div class="wrap">
 %(body)s
 </div></main>
 <footer class="site-footer"><div class="wrap">
   <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
-  <nav aria-label="Footer"><ul>%(foot)s</ul></nav></div>
-  <p class="f-legal"><a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span></p>
+  <nav aria-label="%(footlabel)s"><ul>%(foot)s</ul></nav></div>
+  <p class="f-legal">%(legal)s</p>
 </div></footer>
 <script>
 (function(){const mb=document.querySelector('.menu-btn'),mp=document.getElementById('mobile-nav');
 document.getElementById('yr').textContent=new Date().getFullYear();
-const set=o=>{mb.setAttribute('aria-expanded',String(o));mb.querySelector('.mt').textContent=o?'Close':'Menu';mp.hidden=!o};
+const set=o=>{mb.setAttribute('aria-expanded',String(o));mb.querySelector('.mt').textContent=o?'%(close)s':'%(menu)s';mp.hidden=!o};
 mb.addEventListener('click',()=>set(mb.getAttribute('aria-expanded')!=='true'));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!mp.hidden){set(false);mb.focus()}});
 mp.addEventListener('click',e=>{if(e.target.closest('a'))set(false)});
@@ -258,14 +280,46 @@ matchMedia('(min-width:1001px)').addEventListener('change',m=>{if(m.matches)set(
 </script>%(script)s
 </body>
 </html>
-''' % dict(title=html.escape(title), desc=html.escape(desc), seo=seo, ogt=og_type, icons=ICONS.replace('href="', 'href="' + up), up=up, css=css,
-           ld=json.dumps(ld, ensure_ascii=False, indent=1).replace('</', '<\\/'), sprite=SPRITE, home=home, nav=nav_html, sw=sw,
-           swm=sw.replace('langsw h', 'langsw m'), mob=mob_html, body=body, foot=foot, script=script)
+"""
 
 
-def crumbs(items):
+def shell(lang, depth, title, desc, url_path, alt, og_type, body, ld, script=''):
+    """depth = folders below the site root; url_path = this page's path; alt = {'en': path, 'fr': path} for the language switch + hreflang."""
+    t = T[lang]
+    fr = lang == 'fr'
+    up = '../' * depth
+    home = up + t['pre'] + 'index.html'
+    ins = up + t['pre'] + 'insights/index.html'
+    nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, x) for h, x in t['nav']) + \
+        '<li><a class="on" href="%s" aria-current="%s">Insights</a></li>' % (ins, 'page' if url_path.endswith('insights/') else 'true')
+    mob_html = nav_html.replace('<li><a href', '<li><a class="l" href').replace('<li><a class="on"', '<li><a class="l on"')
+    foot = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, x) for h, x in t['nav']) + \
+        '<li><a href="%s#kinassay-scan">Kinassay Scan</a></li><li><a href="%s">Insights</a></li><li><a href="%s#contact">%s</a></li>' % (home, ins, home, t['book'])
+    other_rel = up + alt['en' if fr else 'fr'] + 'index.html'
+    if fr:
+        sw = ('<div class="langsw h" role="group" aria-label="Langue"><a href="%s" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i>'
+              '<span aria-current="true" lang="fr">FR</span></div>' % other_rel)
+    else:
+        sw = ('<div class="langsw h" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><i aria-hidden="true"></i>'
+              '<a href="%s" hreflang="fr" lang="fr" aria-label="Français">FR</a></div>' % other_rel)
+    url = ROOT_URL + url_path
+    if SITE:
+        seo = ('<link rel="canonical" href="%s">\n<meta property="og:url" content="%s">\n'
+               '<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="fr" href="%s">\n<link rel="alternate" hreflang="x-default" href="%s">\n'
+               % (url, url, ROOT_URL + alt['en'], ROOT_URL + alt['fr'], ROOT_URL + alt['en']))
+    else:
+        seo = '<!-- canonical + og:url: generated from SITE_URL (site.config.json -> siteUrl) once the domain is set -->\n'
+    css = (CSS_BASE + CSS_FOOT + '\n' + FORM_CSS + CSS).replace('url(fonts/', 'url(%sfonts/' % up)
+    return PAGE % dict(lang=lang, title=html.escape(title), desc=html.escape(desc), seo=seo, ogt=og_type, locale=t['locale'],
+                       icons=ICONS.replace('href="', 'href="' + up), up=up, css=css,
+                       ld=json.dumps(ld, ensure_ascii=False, indent=1).replace('</', '<\\/'), sprite=SPRITE, home=home, nav=nav_html, sw=sw,
+                       swm=sw.replace('langsw h', 'langsw m'), mob=mob_html, body=body, foot=foot, script=script, skip=t['skip'], navlabel=t['main'],
+                       footlabel=t['footer'], book=t['book'], menu=t['menu'], close=t['close'], legal=t['legal'] % {'up': up})
+
+
+def crumbs(items, lang='en'):
     lis = ''.join(('<li><a href="%s">%s</a></li>' % (h, html.escape(t))) if h else '<li><span aria-current="page">%s</span></li>' % html.escape(t) for h, t in items)
-    return '<nav class="crumbs" aria-label="Breadcrumb"><ol>%s</ol></nav>' % lis
+    return '<nav class="crumbs" aria-label="%s"><ol>%s</ol></nav>' % (T[lang]['crumbs'], lis)
 
 
 def breadcrumb_ld(items):
@@ -284,21 +338,29 @@ PUBLISHED = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if no
 
 
 # ---------------------------------------------------------------- pages
-# Secondary, editorial founder portrait (final approved asset): shown whole (2:3) in the founder's own essay.
-FOUNDER_FIG = ('<figure class="art-fig"><picture><source type="image/webp" srcset="../../images/founder-story-480.webp 480w, '
-               '../../images/founder-story-768.webp 768w, ../../images/founder-story-1024.webp 1024w" sizes="(max-width:600px) calc(100vw - 40px), 560px">'
-               '<img src="../../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, founder of Kinassay Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”" '
-               'decoding="async" width="1024" height="1536"></picture></figure>\n')
+def founder_fig(lang, up):
+    """Secondary, editorial founder portrait (final approved asset): shown whole (2:3) in the founder's own essay."""
+    return ('<figure class="art-fig"><picture><source type="image/webp" srcset="%(u)simages/founder-story-480.webp 480w, '
+            '%(u)simages/founder-story-768.webp 768w, %(u)simages/founder-story-1024.webp 1024w" sizes="(max-width:600px) calc(100vw - 40px), 560px">'
+            '<img src="%(u)simages/founder-story-768.jpg" alt="%(alt)s" decoding="async" width="1024" height="1536"></picture></figure>\n') % {'u': up, 'alt': T[lang]['fig_alt']}
 
-def pubdate(a):
+
+def pubdate(a, lang='en'):
     """ · 26 September 2026 — shown only when the article has a real publication date (the same one as datePublished)."""
     d = PUBLISHED.get(a['slug'])
-    if not d: return ''
+    if not d:
+        return ''
     x = datetime.date.fromisoformat(d)
-    return ' · <time datetime="%s">%d %s</time>' % (d, x.day, x.strftime('%B %Y'))
+    m = T[lang]['months']
+    return ' · <time datetime="%s">%d %s %d</time>' % (d, x.day, m[x.month - 1] if m else x.strftime('%B'), x.year)
 
 
-def article(a, arts):
+def article(a, arts, lang, alt):
+    t = T[lang]
+    L = LISTINGS[lang]
+    pre = t['pre']
+    depth = 3 if pre else 2
+    up = '../' * depth
     i = arts.index(a)
     link = lambda u: ('../%s/index.html' % u.split('/insights/')[1].strip('/')) if u.startswith('/insights/') else u
     blocks = []
@@ -309,40 +371,30 @@ def article(a, arts):
             blocks.append('<blockquote><p>%s</p></blockquote>' % inline(' '.join(l[2:] if l.startswith('> ') else l for l in b.splitlines()), link))
         else:
             blocks.append('<p>%s</p>' % inline(' '.join(b.splitlines()), link))
-    home = '../../index.html'
+    home = up + pre + 'index.html'
     no = int(a['no'])
-    if no == 1:
-        end = ('<p><a class="tl" href="%s#services">Explore our approach <i class="ar"></i></a></p>'
-               '<p class="sub">Or see where your practice stands: <a href="%s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
-    elif no == 2:
-        end = ('<p class="q">Understand your patient journey.</p>'
-               '<a class="btn" href="%s#contact">Book a first meeting <i class="ar"></i></a>'
-               '<p class="sub">Or start with a diagnosis: the free Kinassay Scan reads your practice across six dimensions, in about 4 minutes. '
-               '<a href="%s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
-    elif no == 3:
-        end = ('<p class="q">Growing your practice across markets?</p>'
-               '<p><a class="tl" href="%s#services">Discover Brand &amp; Digital Strategy <i class="ar"></i></a></p>' % home)
+    if no in (1, 2, 3):
+        end = t['end%d' % no] % {'home': home}
     else:
-        end = ('<div class="soon"><span class="ins-label">%s · Coming next</span><span class="t">%s</span></div>'
-               '<p class="sub">What does your digital presence say about your philosophy? <a href="%s#contact">Book a first meeting <span aria-hidden="true">→</span></a></p>'
-               % (LISTING['next_no'], html.escape(LISTING['next_title']), home))
+        end = ('<div class="soon"><span class="ins-label">%s · %s</span><span class="t">%s</span></div>' % (L['next_no'], t['soon'], html.escape(L['next_title']))
+               + t['end4'] % {'home': home})
     prev = arts[i - 1] if i else None
     nxt = arts[i + 1] if i + 1 < len(arts) else None
     pn = ''
-    pn += ('<a class="pv" href="../%s/index.html"><span class="d">← Previous · %s</span><span class="t">%s</span></a>' % (prev['slug'], prev['no'], html.escape(smart(prev['title'])))) if prev else '<span aria-hidden="true"></span>'
-    pn += ('<a class="nx" href="../%s/index.html"><span class="d">Next · %s →</span><span class="t">%s</span></a>' % (nxt['slug'], nxt['no'], html.escape(smart(nxt['title'])))) if nxt else \
-        '<div class="nx soon"><span class="d">Next · %s · Coming next</span><span class="t">%s</span></div>' % (LISTING['next_no'], html.escape(LISTING['next_title']))
+    pn += ('<a class="pv" href="../%s/index.html"><span class="d">%s · %s</span><span class="t">%s</span></a>' % (prev['slug'], t['prev'], prev['no'], html.escape(smart(prev['title'])))) if prev else '<span aria-hidden="true"></span>'
+    pn += ('<a class="nx" href="../%s/index.html"><span class="d">%s · %s →</span><span class="t">%s</span></a>' % (nxt['slug'], t['next'], nxt['no'], html.escape(smart(nxt['title'])))) if nxt else \
+        '<div class="nx soon"><span class="d">%s · %s · %s</span><span class="t">%s</span></div>' % (t['next'], L['next_no'], t['soon'], html.escape(L['next_title']))
     src = ''
     if a['sources']:
-        src = '<section class="art-src" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul>%s</ul></section>' % ''.join('<li>%s</li>' % inline(s, link) for s in a['sources'])
-    path = 'insights/%s/' % a['slug']
-    body = '''%s
+        src = '<section class="art-src" aria-labelledby="src-h"><h2 id="src-h">%s</h2><ul>%s</ul></section>' % (t['sources'], ''.join('<li>%s</li>' % inline(s, link) for s in a['sources']))
+    path = pre + 'insights/%s/' % a['slug']
+    body = """%s
 <article data-article="%s">
 <header class="art-head">
 <p class="ins-label">Insight %s · %s</p>
 <h1>%s</h1>
 <p class="art-stand">%s</p>
-<p class="ins-meta">By <a class="ins-by" href="../../index.html#about">%s</a>, Founder%s · <span class="nw">%d min read</span></p>
+<p class="ins-meta">%s <a class="ins-by" href="%s#about">%s</a>, %s%s · <span class="nw">%d %s</span></p>
 </header>
 %s<div class="art-body">
 %s
@@ -350,44 +402,56 @@ def article(a, arts):
 %s
 <div class="art-end">%s</div>
 </article>
-<nav class="art-pn" aria-label="Insights series">%s</nav>
-<a class="art-back" href="../index.html">← All Insights</a>''' % (
-        crumbs([(home, 'Home'), ('../index.html', 'Insights'), (None, a['short'])]), a['slug'], a['no'], html.escape(a['theme']),
-        html.escape(smart(a['title'])), html.escape(smart(a['standfirst'])), BYLINE, pubdate(a), a['minutes'], FOUNDER_FIG if a['slug'] == 'why-i-created-raisey-lab' else '', '\n'.join(blocks), src, end, pn)
+<nav class="art-pn" aria-label="%s">%s</nav>
+<a class="art-back" href="../index.html">%s</a>""" % (
+        crumbs([(home, t['home']), ('../index.html', 'Insights'), (None, a['short'])], lang), a['slug'], a['no'], html.escape(a['theme']),
+        html.escape(smart(a['title'])), html.escape(smart(a['standfirst'])), t['by'], home, BYLINE, t['founder'], pubdate(a, lang), a['minutes'], t['read'],
+        founder_fig(lang, up) if a['no'] == '01' else '', '\n'.join(blocks), src, end, t['series'], pn, t['all'])
     url = ROOT_URL + path
     ld = ld_graph({'@type': 'Article', 'headline': smart(a['title']), 'description': a['description'],
                    'author': AUTHOR, 'publisher': PUBLISHER, 'image': ROOT_URL + 'images/og.jpg',
                    **({'datePublished': PUBLISHED[a['slug']], 'dateModified': PUBLISHED[a['slug']]} if a['slug'] in PUBLISHED else {}),
-                   'mainEntityOfPage': {'@type': 'WebPage', '@id': url}, 'inLanguage': 'en', 'wordCount': a['words']},
-                  breadcrumb_ld([('', 'Home'), ('insights/', 'Insights'), (path, a['short'])]))
-    return path, shell(2, a['seo_title'], a['description'], path, 'article', body, ld)
+                   'mainEntityOfPage': {'@type': 'WebPage', '@id': url}, 'inLanguage': lang, 'wordCount': a['words']},
+                  breadcrumb_ld([(pre, t['home']), (pre + 'insights/', 'Insights'), (path, a['short'])]))
+    return path, shell(lang, depth, a['seo_title'], a['description'], path, alt, 'article', body, ld)
 
 
-def listing(arts):
-    f = next(a for a in arts if a['no'] == LISTING['featured'])
-    feat = '''<section class="ins-feat" aria-labelledby="feat-h">
+def listing(arts, lang):
+    t = T[lang]
+    L = LISTINGS[lang]
+    pre = t['pre']
+    depth = 2 if pre else 1
+    f = next(a for a in arts if a['no'] == L['featured'])
+    feat = """<section class="ins-feat" aria-labelledby="feat-h">
 <span class="ins-num" aria-hidden="true">%s</span>
 <div><p class="ins-label">%s</p>
 <h2 id="feat-h"><a href="%s/index.html">%s</a></h2>
 <p class="ex">%s</p>
-<p class="ins-meta">%d min read</p>
-<span class="more" aria-hidden="true">Read the Insight <i class="ar"></i></span></div>
-</section>''' % (f['no'], html.escape(f['theme']), f['slug'], html.escape(smart(f['title'])), html.escape(smart(f['excerpt'])), f['minutes'])
-    rows = ''.join('''<li class="ins-row"><span class="ins-num" aria-hidden="true">%s</span><div><p class="ins-label">%s</p>
-<h2><a href="%s/index.html"><span class="sr-only">%s. </span>%s</a></h2><p class="ex">%s</p><p class="ins-meta">%d min read</p></div><span class="go" aria-hidden="true"><i class="ar"></i></span></li>
-''' % (a['no'], html.escape(a['theme']), a['slug'], a['no'], html.escape(smart(a['title'])), html.escape(smart(a['excerpt'])), a['minutes']) for a in arts)
-    subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="../privacy.html">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a>\n</section>' % (LISTING['subscribe'], LISTING['thanks'], LISTING['explore'])) if NEWSLETTER else ('<p class="ins-explore-row"><a class="ins-explore" href="../index.html#kinassay-scan">%s <span aria-hidden="true">→</span></a> <span class="ins-dot" aria-hidden="true">·</span> <a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a></p>' % (LISTING['scan'], LISTING['explore']))
-    body = '''%s
+<p class="ins-meta">%d %s</p>
+<span class="more" aria-hidden="true">%s <i class="ar"></i></span></div>
+</section>""" % (f['no'], html.escape(f['theme']), f['slug'], html.escape(smart(f['title'])), html.escape(smart(f['excerpt'])), f['minutes'], t['read'], t['more'])
+    rows = ''.join("""<li class="ins-row"><span class="ins-num" aria-hidden="true">%s</span><div><p class="ins-label">%s</p>
+<h2><a href="%s/index.html"><span class="sr-only">%s. </span>%s</a></h2><p class="ex">%s</p><p class="ins-meta">%d %s</p></div><span class="go" aria-hidden="true"><i class="ar"></i></span></li>
+""" % (a['no'], html.escape(a['theme']), a['slug'], a['no'], html.escape(smart(a['title'])), html.escape(smart(a['excerpt'])), a['minutes'], t['read']) for a in arts)
+    home = '../index.html'
+    privacy = '../confidentialite.html' if pre else '../privacy.html'
+    if NEWSLETTER:
+        subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="%s">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="%s#services">%s <span aria-hidden="true">→</span></a>\n</section>'
+                     % (L['subscribe'], privacy, L['thanks'], home, L['explore']))
+    else:
+        subscribe = ('<p class="ins-explore-row"><a class="ins-explore" href="%s#kinassay-scan">%s <span aria-hidden="true">→</span></a> <span class="ins-dot" aria-hidden="true">·</span> <a class="ins-explore" href="%s#services">%s <span aria-hidden="true">→</span></a></p>'
+                     % (home, L['scan'], home, L['explore']))
+    body = """%s
 <header class="ins-hero"><h1>%s</h1><p class="ins-lead">%s</p></header>
 %s
-<section class="ins-series" aria-label="The series" style="margin-top:clamp(48px,6vw,80px)">
+<section class="ins-series" aria-label="%s" style="margin-top:clamp(48px,6vw,80px)">
 <ol class="ins-list">
 %s</ol>
-<p class="ins-next"><span class="ins-label">%s · Coming next</span><span class="t">%s</span></p>
+<p class="ins-next"><span class="ins-label">%s · %s</span><span class="t">%s</span></p>
 </section>
-%s''' % (crumbs([('../index.html', 'Home'), (None, 'Insights')]), LISTING['h1'], html.escape(LISTING['lead']), feat, rows,
-                   LISTING['next_no'], html.escape(LISTING['next_title']), subscribe)
-    script = '''
+%s""" % (crumbs([(home, t['home']), (None, 'Insights')], lang), L['h1'], html.escape(L['lead']), feat, t['list_aria'], rows,
+         L['next_no'], t['soon'], html.escape(L['next_title']), subscribe)
+    script = """
 <script>
 (function(){
 'use strict';
@@ -403,36 +467,54 @@ f.addEventListener('submit',async e=>{
   if(!FORM_ENDPOINT){st.dataset.s='error';st.textContent=DEV?'This form is not connected to an email provider yet, so nothing was sent. (Set FORM_ENDPOINT before launch.)':'Subscription is not available yet. Please try again later.';return}
   b.disabled=true;
   try{
-    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({source:'insights-subscribe',email:i.value.trim(),lang:'en',sentAt:new Date().toISOString()})});
+    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({source:'insights-subscribe',email:i.value.trim(),lang:'LANG',sentAt:new Date().toISOString()})});
     if(!r.ok) throw new Error('send-failed');
     f.hidden=true; done.hidden=false; done.focus();
   }catch(err){st.dataset.s='error';st.textContent='We couldn’t subscribe you. Please try again in a moment.';b.disabled=false}
 });
 })();
-</script>'''
-    url = ROOT_URL + 'insights/'
-    ld = ld_graph({'@type': 'CollectionPage', '@id': url, 'url': url, 'name': LISTING['title'], 'description': LISTING['description'],
-                   'inLanguage': 'en', 'publisher': PUBLISHER,
-                   'mainEntity': {'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': n, 'url': ROOT_URL + 'insights/%s/' % a['slug'],
+</script>""".replace("'LANG'", "'%s'" % lang)
+    path = pre + 'insights/'
+    url = ROOT_URL + path
+    ld = ld_graph({'@type': 'CollectionPage', '@id': url, 'url': url, 'name': L['title'], 'description': L['description'],
+                   'inLanguage': lang, 'publisher': PUBLISHER,
+                   'mainEntity': {'@type': 'ItemList', 'itemListElement': [{'@type': 'ListItem', 'position': n, 'url': ROOT_URL + pre + 'insights/%s/' % a['slug'],
                                                                            'name': smart(a['title'])} for n, a in enumerate(arts, 1)]}},
-                  breadcrumb_ld([('', 'Home'), ('insights/', 'Insights')]))
-    return 'insights/', shell(1, LISTING['title'], LISTING['description'], 'insights/', 'website', body, ld, script if NEWSLETTER else '')
+                  breadcrumb_ld([(pre, t['home']), (path, 'Insights')]))
+    alt = {'en': 'insights/', 'fr': 'fr/insights/'}
+    return path, shell(lang, depth, L['title'], L['description'], path, alt, 'website', body, ld, script if NEWSLETTER else '')
 
 
 def build():
-    arts = parse()
     today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
-    held = [x for x in arts if x.get('publish') and x['publish'] > today]          # scheduled: not live yet, so not built
-    arts = [x for x in arts if x not in held]
-    for x in held: print('scheduled (not built until %s): %s' % (x['publish'], x['slug']))
-    for x in arts:
-        if x.get('publish'): PUBLISHED.setdefault(x['slug'], x['publish'])        # the real date it goes live
+    by_lang = {}
+    for lang in ('en', 'fr'):
+        arts = parse(T[lang]['src'])
+        held = [x for x in arts if x.get('publish') and x['publish'] > today]          # scheduled: not live yet, so not built
+        for x in held:
+            print('scheduled (not built until %s): %s' % (x['publish'], x['slug']))
+        by_lang[lang] = [x for x in arts if x not in held]
+        for x in by_lang[lang]:
+            if x.get('publish'):
+                PUBLISHED.setdefault(x['slug'], x['publish'])        # the real date it goes live
+    en_by_no = {a['no']: a for a in by_lang['en']}
+    fr_by_no = {a['no']: a for a in by_lang['fr']}
+    if set(en_by_no) != set(fr_by_no):
+        raise SystemExit('FAILED: content/insights.md and content/insights.fr.md must list the same article numbers (%s vs %s)' % (sorted(en_by_no), sorted(fr_by_no)))
     shutil.rmtree('insights', ignore_errors=True)
-    pages = [listing(arts)] + [article(a, arts) for a in arts]
+    shutil.rmtree(os.path.join('fr', 'insights'), ignore_errors=True)
+    pages, arts_all = [], []
+    for lang in ('en', 'fr'):
+        arts = by_lang[lang]
+        pages.append(listing(arts, lang))
+        for a in arts:
+            alt = {'en': 'insights/%s/' % en_by_no[a['no']]['slug'], 'fr': 'fr/insights/%s/' % fr_by_no[a['no']]['slug']}
+            pages.append(article(a, arts, lang, alt))
+        arts_all += arts
     for path, h in pages:
         os.makedirs(path, exist_ok=True)
         open(os.path.join(path, 'index.html'), 'w', encoding='utf-8').write(h)
-    return [p for p, _ in pages], arts
+    return [p for p, _ in pages], arts_all
 
 
 if __name__ == '__main__':

@@ -72,8 +72,8 @@ def page(lang):
     nav = [('#services', 'Services', 'Services'), ('#about', 'About', 'À propos'), ('#work', 'Studies', 'Études')]
     nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
     mob_html = ''.join('<li><a class="l" href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
-    ins = 'insights/index.html' if en else '../insights/index.html'   # Insights (English only)
-    ins_hl = '' if en else ' hreflang="en"'
+    ins = 'insights/index.html'   # EN: /insights/, FR: /fr/insights/ (both relative to the page's own folder)
+    ins_hl = ''
     nav_html += '<li><a href="%s"%s>Insights</a></li>' % (ins, ins_hl)
     mob_html += '<li><a class="l" href="%s"%s>Insights</a></li>' % (ins, ins_hl)
     if en:

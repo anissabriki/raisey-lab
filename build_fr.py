@@ -49,13 +49,13 @@ def main():
     # ---------- chrome ----------
     fr = fr.replace('alt="Anissa Sabrina Briki, founder of Kinassay Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”"', 'alt="Anissa Sabrina Briki, fondatrice de Kinassay Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »"')
     fr = fr.replace('<label for="sf-website_url">Leave this field empty</label>', '<label for="sf-website_url">Laissez ce champ vide</label>').replace('<label for="cf-website_url">Leave this field empty</label>', '<label for="cf-website_url">Laissez ce champ vide</label>')
-    fr = fr.replace('href="insights/index.html">Insights<', 'href="../insights/index.html" hreflang="en">Insights<')   # Insights are in English
+    # Insights: French versions live at fr/insights/ (build_insights.py), so the relative links stay as they are
     sub('<a class="skip" href="#main">Skip to content</a>', '<a class="skip" href="#main">Aller au contenu</a>')
     sub('aria-label="Kinassay Lab, top"', 'aria-label="Kinassay Lab, haut de page"')
     sub('<nav class="nav" aria-label="Main">', '<nav class="nav" aria-label="Principale">')
     sub('href="#work">Studies<', 'href="#work">Études<')
     sub('href="#about">About<', 'href="#about">À propos<')
-    sub('Book a first meeting <i class="ar"></i>', 'Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i>')
+    sub('Book a first meeting <i class="ar"></i>', '<span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i>')
     sub('<li><a href="#contact">Book a first meeting</a></li>', '<li><a href="#contact">Réserver un premier rendez-vous</a></li>')
     sub('<nav aria-label="Footer">', '<nav aria-label="Pied de page">')
     sub('<a class="ck-more" data-ck-more href="privacy.html">', '<a class="ck-more" data-ck-more href="confidentialite.html">')
@@ -238,7 +238,7 @@ def main():
         '<p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>')
     sub('<p>I’m Anissa Sabrina Briki, founder of Kinassay Lab. At FILLMED Laboratories, I worked alongside aesthetic practitioners and saw the realities of growing a practice. Before that, at Google and GroupM, I built digital strategy and growth across beauty, luxury and international markets.</p>',
         '<p>Je suis Anissa Sabrina Briki, fondatrice de Kinassay Lab. Chez FILLMED Laboratories, j’ai travaillé aux côtés des praticiens de la médecine esthétique, au plus près de la réalité du développement d’un cabinet. Auparavant, chez Google et GroupM, j’ai construit des stratégies digitales et de croissance pour la beauté, le luxe et les marchés internationaux.</p>')
-    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Read my story: why I created Kinassay Lab <i class="ar"></i></a>', '<a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Lire mon histoire : pourquoi j’ai créé Kinassay Lab (en anglais) <i class="ar"></i></a>')
+    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Read my story: why I created Kinassay Lab <i class="ar"></i></a>', '<a class="tl f-read" href="insights/pourquoi-j-ai-cree-kinassay-lab/">Lire mon histoire : pourquoi j’ai créé Kinassay Lab <i class="ar"></i></a>')
     sub('My LinkedIn profile <i class="ar"></i>', 'Mon profil LinkedIn <i class="ar"></i>')
     sub('aria-label="Three worlds"', 'aria-label="Trois univers"')
     sub('<p class="cs">Aesthetic medicine</p>', '<p class="cs">Médecine esthétique</p>')
