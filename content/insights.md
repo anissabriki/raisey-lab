@@ -144,7 +144,7 @@ By the time she walks through the door, much of the decision may already have be
 
 > Your patients are already making decisions online, whether or not you take part in that journey.
 
-*CTA:* Understand your patient journey. Request a Kinassay Lab Review →
+*CTA:* Understand your patient journey. Book a first meeting →
 
 ---
 

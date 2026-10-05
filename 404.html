@@ -507,6 +507,65 @@ body{background:var(--rl-ivory)}
 .hx-final .hx-eb{margin-bottom:12px}
 .hx-final-grid p:not(.hx-eb):not(.hx-micro){margin-top:14px;color:var(--rl-muted);max-width:32em;line-height:1.6}
 @media (min-width:980px){.hx-final-grid{grid-template-columns:minmax(0,1fr) auto}.hx-final .hx-cta{text-align:center}}
+/* =================== HOMEPAGE 2026-10 — lead generation: book a first meeting (primary) · Kinassay Scan (secondary) =================== */
+.anchor-alias{position:absolute;width:0;height:0;overflow:hidden}
+.hx-alt{margin-top:18px;font-size:15px;color:var(--rl-muted)}
+.hx-alt a{color:var(--rl-ink);text-underline-offset:.3em;text-decoration-thickness:1px}
+@media (hover:hover){.hx-alt a:hover{color:var(--rl-burgundy)}}
+.hero.hx .hx-cta .btn{min-height:60px;padding:18px 34px;font-size:16px}
+/* founder credibility, short */
+.f-note{margin-top:6px;font-size:13px}
+.fx .f-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px clamp(18px,2.4vw,32px)}
+.fx .f-cta .f-read{margin-left:0}
+/* booking section */
+.bk-list{margin-top:clamp(20px,2.4vw,28px);display:grid;gap:0;max-width:34em;border-top:1px solid var(--line)}
+.bk-list li{position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}
+.bk-list li::before{content:'';position:absolute;left:2px;top:1.15em;width:12px;height:1px;background:var(--rl-burgundy)}
+.bk-cta{margin-top:clamp(24px,3vw,34px)}
+.bk-or{margin-top:clamp(36px,4.6vw,52px);padding-top:clamp(22px,2.6vw,30px);border-top:1px solid var(--line-strong);font:500 clamp(1.15rem,1rem + .45vw,1.4rem)/1.35 var(--serif);max-width:28em}
+#contact .bk-or + .form{margin-top:clamp(18px,2.2vw,26px)}
+#contact .form .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy)}
+@media (hover:hover){#contact .form .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
+#contact.no-cal .form .btn{--b:var(--p-burgundy);--f:var(--optical)}
+.c-panel .c-fp{font-size:15px;line-height:1.55;color:var(--on-aub-2);max-width:24em}
+/* Kinassay Scan = secondary path: quieter entry button */
+.hx-scan .hx-five{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:clamp(20px,2.6vw,28px) auto 0;padding:0;max-width:56em;grid-template-columns:none;border:0}
+.hx-scan .hx-five li{display:inline-flex;align-items:baseline;gap:8px;padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;background:transparent;min-height:0}
+.hx-scan .hx-five li svg,.hx-scan .hx-five li p{display:none}
+.hx-scan .hx-five .hx-n{position:static;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--rl-muted)}
+.hx-scan .hx-five h3{margin:0;font:500 14px/1.2 var(--sans);letter-spacing:0;color:var(--rl-ink)}
+.hx-scan .hx-scan-h{margin-top:12px;font:400 clamp(2rem,1.2rem + 2.6vw,3.2rem)/1.05 var(--serif);letter-spacing:-.025em;color:var(--rl-ink)}
+.hx-scan .rv-cta .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy);min-height:56px;padding:16px 30px;font-size:15px}
+@media (hover:hover){.hx-scan .rv-cta .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
+/* Kinassay Scan drawer (JS adds .is-drawer; without JS the Scan stays an inline section) */
+.hx-scan.is-drawer{position:fixed;top:0;right:0;bottom:0;z-index:70;width:min(780px,100%);margin:0;padding-block:0 clamp(40px,6vw,72px);overflow-y:auto;overscroll-behavior:contain;
+  box-shadow:-24px 0 60px rgba(28,24,25,.18);transform:translateX(100%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s linear .45s}
+.hx-scan.is-drawer.open{transform:none;visibility:visible;transition:transform .45s var(--ease),visibility 0s}
+.hx-scan.is-drawer .wrap{padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+.dr-top{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;padding:12px clamp(12px,2vw,20px);background:inherit;background:color-mix(in srgb,#ebe6ee 92%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dr-close{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 14px;background:none;border:1px solid var(--line-strong);border-radius:999px;font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--rl-ink);cursor:pointer}
+.dr-close span{font-size:20px;line-height:1}
+@media (hover:hover){.dr-close:hover{border-color:var(--rl-burgundy);color:var(--rl-burgundy)}}
+.dr-backdrop{position:fixed;inset:0;z-index:65;background:rgba(28,24,25,.38);opacity:0;transition:opacity .35s var(--ease)}
+.dr-backdrop.on{opacity:1}
+html.dr-lock{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.hx-scan.is-drawer,.hx-scan.is-drawer.open,.dr-backdrop{transition:none}}
+/* booking popup: the Google Calendar booking page opens over the site (embed version, ?gv=true) */
+.bk-modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:clamp(0px,3vw,40px);background:rgba(28,24,25,.45)}
+.bk-modal[hidden]{display:none}
+.bk-box{display:flex;flex-direction:column;width:min(1040px,100%);height:min(780px,100%);background:var(--paper);border-radius:var(--radius-tile);box-shadow:0 30px 80px rgba(28,24,25,.3);overflow:hidden}
+.bk-head{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding:10px clamp(14px,2vw,22px);border-bottom:1px solid var(--line)}
+.bk-t{margin-right:auto;font:500 clamp(1.05rem,1rem + .3vw,1.25rem)/1.2 var(--serif);color:var(--rl-ink)}
+.bk-ext{font-size:13px;color:var(--rl-muted);text-underline-offset:.3em}
+.bk-frame{flex:1;width:100%;border:0;background:#fff}
+@media (max-width:640px){.bk-modal{padding:0}.bk-box{border-radius:0;height:100%}.bk-ext{display:none}.bk-head{flex-wrap:nowrap}.bk-t{font-size:1rem}}
+html.bk-lock{overflow:hidden}
+/* mobile: the booking route stays one tap away once the hero has scrolled past */
+.book-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right));background:color-mix(in srgb,var(--cream) 94%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .35s var(--ease)}
+.book-bar.on{transform:none}
+.book-bar .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);width:100%;justify-content:center;min-height:52px}
+@media (min-width:1001px){.book-bar{display:none!important}}
+@media (prefers-reduced-motion:reduce){.book-bar{transition:none}}
 
 .legal{padding-block:clamp(48px,7vw,104px) clamp(56px,8vw,112px)}
 .legal .wrap{max-width:860px}
@@ -529,7 +588,7 @@ body{background:var(--rl-ivory)}
 </head>
 <body>
 
-<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Kinassay Lab"><img class="brand-amp" src="images/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a></div></header>
+<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Kinassay Lab"><img class="brand-amp" src="images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a></div></header>
 <main class="legal"><div class="wrap nf">
 <h1>This page doesn’t exist.</h1>
 <p>The link may be old or mistyped. You can go back to the site.</p>

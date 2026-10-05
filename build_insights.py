@@ -190,13 +190,13 @@ def parse():
 def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
     up = '../' * depth
     home = up + 'index.html'
-    nav = [('#studio', 'Studio'), ('#raisey-scan', 'Kinassay Scan'), ('#services', 'Services'), ('#work', 'Work'), ('#about', 'About')]
+    nav = [('#services', 'Services'), ('#about', 'About'), ('#work', 'Studies')]
     ins = up + 'insights/index.html'
     nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t) for h, t in nav) + \
         '<li><a class="on" href="%s" aria-current="%s">Insights</a></li>' % (ins, 'page' if url_path == 'insights/' else 'true')
     mob_html = nav_html.replace('<li><a href', '<li><a class="l" href').replace('<li><a class="on"', '<li><a class="l on"')
     foot = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t) for h, t in nav) + \
-        '<li><a href="%s">Insights</a></li><li><a href="%s#contact">Contact</a></li>' % (ins, home)
+        '<li><a href="%s#kinassay-scan">Kinassay Scan</a></li><li><a href="%s">Insights</a></li><li><a href="%s#contact">Book a first meeting</a></li>' % (home, ins, home)
     sw = ('<div class="langsw h" role="group" aria-label="Language"><span aria-current="true" lang="en">EN</span><i aria-hidden="true"></i>'
           '<a href="%sfr/index.html" hreflang="fr" lang="fr" aria-label="Français">FR</a></div>' % up)
     url = ROOT_URL + url_path
@@ -231,19 +231,19 @@ def shell(depth, title, desc, url_path, og_type, body, ld, script=''):
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
     <nav class="nav" aria-label="Main"><ul>%(nav)s</ul></nav>
-    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">Start your Scan <i class="ar"></i></a>
+    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#contact">Book a first meeting <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
     </div>
   </div>
-  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#raisey-scan">Start your Scan <i class="ar"></i></a></div></div>
+  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#contact">Book a first meeting <i class="ar"></i></a></div></div>
 </header>
 <main id="main" class="ins"><div class="wrap">
 %(body)s
 </div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
   <nav aria-label="Footer"><ul>%(foot)s</ul></nav></div>
   <p class="f-legal"><a class="lg" href="%(up)sprivacy.html">Privacy Policy</a><a class="lg" href="%(up)sprivacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span></p>
 </div></footer>
@@ -313,18 +313,18 @@ def article(a, arts):
     no = int(a['no'])
     if no == 1:
         end = ('<p><a class="tl" href="%s#services">Explore our approach <i class="ar"></i></a></p>'
-               '<p class="sub">Or see where your practice stands: <a href="%s#raisey-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
+               '<p class="sub">Or see where your practice stands: <a href="%s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 2:
         end = ('<p class="q">Understand your patient journey.</p>'
-               '<a class="btn" href="%s#contact" data-interest="presence-review">Request a Kinassay Lab Review <i class="ar"></i></a>'
+               '<a class="btn" href="%s#contact">Book a first meeting <i class="ar"></i></a>'
                '<p class="sub">Or start with a diagnosis: the free Kinassay Scan reads your practice across six dimensions, in about 4 minutes. '
-               '<a href="%s#raisey-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
+               '<a href="%s#kinassay-scan">Take the Kinassay Scan <span aria-hidden="true">→</span></a></p>' % (home, home))
     elif no == 3:
         end = ('<p class="q">Growing your practice across markets?</p>'
                '<p><a class="tl" href="%s#services">Discover Brand &amp; Digital Strategy <i class="ar"></i></a></p>' % home)
     else:
         end = ('<div class="soon"><span class="ins-label">%s · Coming next</span><span class="t">%s</span></div>'
-               '<p class="sub">What does your digital presence say about your philosophy? <a href="%s#contact">Request a Kinassay Lab Review <span aria-hidden="true">→</span></a></p>'
+               '<p class="sub">What does your digital presence say about your philosophy? <a href="%s#contact">Book a first meeting <span aria-hidden="true">→</span></a></p>'
                % (LISTING['next_no'], html.escape(LISTING['next_title']), home))
     prev = arts[i - 1] if i else None
     nxt = arts[i + 1] if i + 1 < len(arts) else None
@@ -376,7 +376,7 @@ def listing(arts):
     rows = ''.join('''<li class="ins-row"><span class="ins-num" aria-hidden="true">%s</span><div><p class="ins-label">%s</p>
 <h2><a href="%s/index.html"><span class="sr-only">%s. </span>%s</a></h2><p class="ex">%s</p><p class="ins-meta">%d min read</p></div><span class="go" aria-hidden="true"><i class="ar"></i></span></li>
 ''' % (a['no'], html.escape(a['theme']), a['slug'], a['no'], html.escape(smart(a['title'])), html.escape(smart(a['excerpt'])), a['minutes']) for a in arts)
-    subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="../privacy.html">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a>\n</section>' % (LISTING['subscribe'], LISTING['thanks'], LISTING['explore'])) if NEWSLETTER else ('<p class="ins-explore-row"><a class="ins-explore" href="../index.html#raisey-scan">%s <span aria-hidden="true">→</span></a> <span class="ins-dot" aria-hidden="true">·</span> <a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a></p>' % (LISTING['scan'], LISTING['explore']))
+    subscribe = ('<section class="ins-sub" aria-labelledby="sub-h">\n<p class="l" id="sub-h">%s</p>\n<form id="ins-subscribe" novalidate>\n<div class="row"><label class="sr-only" for="sub-email">Email address</label><input class="input" id="sub-email" name="email" type="email" autocomplete="email" placeholder="you@clinic.com" required>\n<button class="btn" type="submit">Subscribe</button></div>\n<p class="status" role="status" aria-live="polite"></p>\n<p class="priv"><a href="../privacy.html">Privacy Policy</a></p>\n</form>\n<p class="done" hidden tabindex="-1">%s</p>\n<a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a>\n</section>' % (LISTING['subscribe'], LISTING['thanks'], LISTING['explore'])) if NEWSLETTER else ('<p class="ins-explore-row"><a class="ins-explore" href="../index.html#kinassay-scan">%s <span aria-hidden="true">→</span></a> <span class="ins-dot" aria-hidden="true">·</span> <a class="ins-explore" href="../index.html#services">%s <span aria-hidden="true">→</span></a></p>' % (LISTING['scan'], LISTING['explore']))
     body = '''%s
 <header class="ins-hero"><h1>%s</h1><p class="ins-lead">%s</p></header>
 %s

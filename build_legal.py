@@ -68,8 +68,7 @@ def page(lang):
     today = datetime.date.fromisoformat(cfg.get('legalUpdated') or datetime.date.today().isoformat())   # last REAL change to the policy text, not the build date
     months_fr = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
     date = today.strftime('%-d %B %Y') if en else '%d %s %d' % (today.day, months_fr[today.month - 1], today.year)
-    nav = [('#studio', 'Studio', 'Studio'), ('#raisey-scan', 'Kinassay Scan', 'Kinassay Scan'), ('#services', 'Services', 'Services'),
-           ('#work', 'Work', 'Études'), ('#about', 'About', 'À propos')]
+    nav = [('#services', 'Services', 'Services'), ('#about', 'About', 'À propos'), ('#work', 'Studies', 'Études')]
     nav_html = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
     mob_html = ''.join('<li><a class="l" href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav)
     ins = 'insights/index.html' if en else '../insights/index.html'   # Insights (English only)
@@ -83,7 +82,7 @@ def page(lang):
         sw = ('<div class="langsw h" role="group" aria-label="Langue"><a href="%s" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i>'
               '<span aria-current="true" lang="fr">FR</span></div>' % other)
     sw_m = sw.replace('langsw h', 'langsw m')
-    cta = t('Start your Scan', 'Lancer mon Scan')
+    cta = t('Book a first meeting', 'Réserver un premier rendez-vous')
 
     if en:
         title = 'Privacy Policy — Kinassay Lab'
@@ -101,13 +100,13 @@ def page(lang):
 <p>Only what you type into our two forms, the Kinassay Scan results request and the contact form:</p>
 <ul><li><strong>Required:</strong> name of the doctor or clinic, email address, and (for the Kinassay Scan results) your website or Instagram.</li>
 <li><strong>Optional:</strong> specialty, phone number, and your message.</li>
-<li><strong>Your Scan answers and first insight</strong>, attached to your results request, so we can send your full Scan results and, if we speak, start the first conversation from where you are.</li>
+<li><strong>Your Scan answers and first insight</strong>, attached to your results request, so we can send your full Scan results and, if we speak, start the first meeting from where you are.</li>
 <li>Which button or service you came from (for example “Kinassay Scan” or “founding partner”), so we can answer the right question.</li></ul>
 <p>The Kinassay Scan runs in your browser and reads only your answers: it does not examine your website, Google presence or social profiles. Your answers are not sent or stored anywhere unless you request your full results by email.</p>
 
 <h2>Why we use it, and on what basis</h2>
 <ul><li>To send you your complete Kinassay Scan results by email and to reply to you: steps taken at your request (Article 6(1)(b) GDPR).</li>
-<li>To arrange and hold a first conversation and, if you go on to a Kinassay Review, to prepare it, which includes looking at your practice’s public website and digital presence: steps taken at your request (Article 6(1)(b) GDPR).</li>
+<li>To arrange and hold a first meeting and, if you go on to a Kinassay Review, to prepare it, which includes looking at your practice’s public website and digital presence: steps taken at your request (Article 6(1)(b) GDPR).</li>
 <li>To follow up on that request with you as a professional contact: our legitimate interest (Article 6(1)(f) GDPR).</li></ul>
 <p>We do not send newsletters or marketing emails unless you ask us separately, and we do not use your data for profiling or automated decisions. The results email is a one-off message and does not add you to a mailing list. The Kinassay Scan gives an automated reading of your answers only; it has no legal or similarly significant effect on you.</p>
 
@@ -152,13 +151,13 @@ def page(lang):
 <p>Uniquement ce que vous saisissez dans nos deux formulaires, la demande de résultats du Kinassay Scan et le formulaire de contact :</p>
 <ul><li><strong>Obligatoire :</strong> nom du praticien ou de la clinique, adresse e-mail et, pour les résultats du Kinassay Scan, votre site web ou Instagram.</li>
 <li><strong>Facultatif :</strong> spécialité, numéro de téléphone et votre message.</li>
-<li><strong>Vos réponses au Scan et votre premier aperçu</strong>, joints à votre demande de résultats, pour que nous puissions vous envoyer vos résultats complets et, si nous échangeons, partir de votre situation lors du premier échange.</li>
+<li><strong>Vos réponses au Scan et votre premier aperçu</strong>, joints à votre demande de résultats, pour que nous puissions vous envoyer vos résultats complets et, si nous échangeons, partir de votre situation lors du premier rendez-vous.</li>
 <li>Le bouton ou le service dont vous êtes parti (par exemple « Kinassay Scan » ou « partenaire fondateur »), afin de répondre à la bonne question.</li></ul>
 <p>Le Kinassay Scan s’exécute dans votre navigateur et ne lit que vos réponses : il n’examine ni votre site, ni votre présence Google, ni vos réseaux sociaux. Vos réponses ne sont ni envoyées ni conservées, sauf si vous demandez vos résultats complets par e-mail.</p>
 
 <h2>Pourquoi, et sur quelle base légale</h2>
 <ul><li>Pour vous envoyer par e-mail les résultats complets de votre Kinassay Scan et vous répondre : mesures prises à votre demande (article 6.1.b du RGPD).</li>
-<li>Pour convenir d’un premier échange et le tenir puis, si vous poursuivez avec un Kinassay Review, le préparer, ce qui comprend l’examen du site web public et de la présence digitale de votre cabinet : mesures prises à votre demande (article 6.1.b du RGPD).</li>
+<li>Pour convenir d’un premier rendez-vous et le tenir puis, si vous poursuivez avec un Kinassay Review, le préparer, ce qui comprend l’examen du site web public et de la présence digitale de votre cabinet : mesures prises à votre demande (article 6.1.b du RGPD).</li>
 <li>Pour assurer le suivi de cette demande avec vous en tant que contact professionnel : notre intérêt légitime (article 6.1.f du RGPD).</li></ul>
 <p>Nous n’envoyons ni newsletter ni message commercial sans que vous nous le demandiez séparément, et nous n’utilisons pas vos données à des fins de profilage ou de décision automatisée. L’e-mail de résultats est un message unique : il ne vous ajoute à aucune liste de diffusion. Le Kinassay Scan fournit une lecture automatisée de vos seules réponses ; elle n’a aucun effet juridique ni effet significatif similaire sur vous.</p>
 
@@ -193,7 +192,7 @@ def page(lang):
         css = css.replace('url(fonts/', 'url(../fonts/')
     fonts = ('<link rel="preload" href="%sfonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>\n'
              '<link rel="preload" href="%sfonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>') % (up, up)
-    footer_nav = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav) + '<li><a href="%s"%s>Insights</a></li>' % (ins, ins_hl) + '<li><a href="%s#contact">Contact</a></li>' % home
+    footer_nav = ''.join('<li><a href="%s%s">%s</a></li>' % (home, h, t(a, b)) for h, a, b in nav) + '<li><a href="%s"%s>Insights</a></li>' % (ins, ins_hl) + '<li><a href="%s#contact">%s</a></li>' % (home, cta)
     return '''<!doctype html>
 <html lang="%(lang)s">
 <head>
@@ -215,16 +214,16 @@ def page(lang):
 <a class="skip" href="#main">%(skip)s</a>
 <header class="site-header">
   <div class="wrap bar">
-    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
+    <a class="brand" href="%(home)s#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
     <nav class="nav" aria-label="%(navlabel)s"><ul>%(nav)s</ul></nav>
-    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#raisey-scan">%(cta)s <i class="ar"></i></a>
+    <div style="display:flex;align-items:center;gap:16px">%(sw)s<a class="btn head-cta" href="%(home)s#contact">%(cta)s <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">%(mo)s</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button></div>
   </div>
-  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#raisey-scan">%(cta)s <i class="ar"></i></a></div></div>
+  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul>%(mob)s</ul>%(swm)s<a class="btn" href="%(home)s#contact">%(cta)s <i class="ar"></i></a></div></div>
 </header>
 <main id="main" class="legal"><div class="wrap">%(body)s</div></main>
 <footer class="site-footer"><div class="wrap">
-  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
+  <div class="f-row"><a class="brand" href="%(home)s#studio" style="font-size:20px"><img class="brand-amp" src="%(up)simages/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
   <nav aria-label="%(footlabel)s"><ul>%(fnav)s</ul></nav></div>
   <p class="f-legal">%(fl)s<span>%(places)s · %(tag)s © %(yr)d Kinassay Lab. %(rights)s</span></p>
 </div></footer>
@@ -265,7 +264,7 @@ def page404():
 </head>
 <body>
 %(sprite)s
-<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Kinassay Lab"><img class="brand-amp" src="images/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a></div></header>
+<header class="site-header"><div class="wrap bar"><a class="brand" href="index.html" aria-label="Kinassay Lab"><img class="brand-amp" src="images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a></div></header>
 <main class="legal"><div class="wrap nf">
 <h1>This page doesn’t exist.</h1>
 <p>The link may be old or mistyped. You can go back to the site.</p>

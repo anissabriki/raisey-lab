@@ -867,6 +867,65 @@ body{background:var(--rl-ivory)}
 .hx-final .hx-eb{margin-bottom:12px}
 .hx-final-grid p:not(.hx-eb):not(.hx-micro){margin-top:14px;color:var(--rl-muted);max-width:32em;line-height:1.6}
 @media (min-width:980px){.hx-final-grid{grid-template-columns:minmax(0,1fr) auto}.hx-final .hx-cta{text-align:center}}
+/* =================== HOMEPAGE 2026-10 — lead generation: book a first meeting (primary) · Kinassay Scan (secondary) =================== */
+.anchor-alias{position:absolute;width:0;height:0;overflow:hidden}
+.hx-alt{margin-top:18px;font-size:15px;color:var(--rl-muted)}
+.hx-alt a{color:var(--rl-ink);text-underline-offset:.3em;text-decoration-thickness:1px}
+@media (hover:hover){.hx-alt a:hover{color:var(--rl-burgundy)}}
+.hero.hx .hx-cta .btn{min-height:60px;padding:18px 34px;font-size:16px}
+/* founder credibility, short */
+.f-note{margin-top:6px;font-size:13px}
+.fx .f-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px clamp(18px,2.4vw,32px)}
+.fx .f-cta .f-read{margin-left:0}
+/* booking section */
+.bk-list{margin-top:clamp(20px,2.4vw,28px);display:grid;gap:0;max-width:34em;border-top:1px solid var(--line)}
+.bk-list li{position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--line);font-size:16px;line-height:1.45}
+.bk-list li::before{content:'';position:absolute;left:2px;top:1.15em;width:12px;height:1px;background:var(--rl-burgundy)}
+.bk-cta{margin-top:clamp(24px,3vw,34px)}
+.bk-or{margin-top:clamp(36px,4.6vw,52px);padding-top:clamp(22px,2.6vw,30px);border-top:1px solid var(--line-strong);font:500 clamp(1.15rem,1rem + .45vw,1.4rem)/1.35 var(--serif);max-width:28em}
+#contact .bk-or + .form{margin-top:clamp(18px,2.2vw,26px)}
+#contact .form .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy)}
+@media (hover:hover){#contact .form .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
+#contact.no-cal .form .btn{--b:var(--p-burgundy);--f:var(--optical)}
+.c-panel .c-fp{font-size:15px;line-height:1.55;color:var(--on-aub-2);max-width:24em}
+/* Kinassay Scan = secondary path: quieter entry button */
+.hx-scan .hx-five{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:clamp(20px,2.6vw,28px) auto 0;padding:0;max-width:56em;grid-template-columns:none;border:0}
+.hx-scan .hx-five li{display:inline-flex;align-items:baseline;gap:8px;padding:8px 14px;border:1px solid var(--line-strong);border-radius:999px;background:transparent;min-height:0}
+.hx-scan .hx-five li svg,.hx-scan .hx-five li p{display:none}
+.hx-scan .hx-five .hx-n{position:static;font:500 11px/1 var(--mono);letter-spacing:.1em;color:var(--rl-muted)}
+.hx-scan .hx-five h3{margin:0;font:500 14px/1.2 var(--sans);letter-spacing:0;color:var(--rl-ink)}
+.hx-scan .hx-scan-h{margin-top:12px;font:400 clamp(2rem,1.2rem + 2.6vw,3.2rem)/1.05 var(--serif);letter-spacing:-.025em;color:var(--rl-ink)}
+.hx-scan .rv-cta .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy);min-height:56px;padding:16px 30px;font-size:15px}
+@media (hover:hover){.hx-scan .rv-cta .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
+/* Kinassay Scan drawer (JS adds .is-drawer; without JS the Scan stays an inline section) */
+.hx-scan.is-drawer{position:fixed;top:0;right:0;bottom:0;z-index:70;width:min(780px,100%);margin:0;padding-block:0 clamp(40px,6vw,72px);overflow-y:auto;overscroll-behavior:contain;
+  box-shadow:-24px 0 60px rgba(28,24,25,.18);transform:translateX(100%);visibility:hidden;transition:transform .45s var(--ease),visibility 0s linear .45s}
+.hx-scan.is-drawer.open{transform:none;visibility:visible;transition:transform .45s var(--ease),visibility 0s}
+.hx-scan.is-drawer .wrap{padding-left:clamp(20px,4vw,48px);padding-right:clamp(20px,4vw,48px)}
+.dr-top{position:sticky;top:0;z-index:2;display:flex;justify-content:flex-end;padding:12px clamp(12px,2vw,20px);background:inherit;background:color-mix(in srgb,#ebe6ee 92%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.dr-close{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 14px;background:none;border:1px solid var(--line-strong);border-radius:999px;font:600 13px/1 var(--sans);letter-spacing:.04em;color:var(--rl-ink);cursor:pointer}
+.dr-close span{font-size:20px;line-height:1}
+@media (hover:hover){.dr-close:hover{border-color:var(--rl-burgundy);color:var(--rl-burgundy)}}
+.dr-backdrop{position:fixed;inset:0;z-index:65;background:rgba(28,24,25,.38);opacity:0;transition:opacity .35s var(--ease)}
+.dr-backdrop.on{opacity:1}
+html.dr-lock{overflow:hidden}
+@media (prefers-reduced-motion:reduce){.hx-scan.is-drawer,.hx-scan.is-drawer.open,.dr-backdrop{transition:none}}
+/* booking popup: the Google Calendar booking page opens over the site (embed version, ?gv=true) */
+.bk-modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:clamp(0px,3vw,40px);background:rgba(28,24,25,.45)}
+.bk-modal[hidden]{display:none}
+.bk-box{display:flex;flex-direction:column;width:min(1040px,100%);height:min(780px,100%);background:var(--paper);border-radius:var(--radius-tile);box-shadow:0 30px 80px rgba(28,24,25,.3);overflow:hidden}
+.bk-head{display:flex;align-items:center;gap:12px 20px;flex-wrap:wrap;padding:10px clamp(14px,2vw,22px);border-bottom:1px solid var(--line)}
+.bk-t{margin-right:auto;font:500 clamp(1.05rem,1rem + .3vw,1.25rem)/1.2 var(--serif);color:var(--rl-ink)}
+.bk-ext{font-size:13px;color:var(--rl-muted);text-underline-offset:.3em}
+.bk-frame{flex:1;width:100%;border:0;background:#fff}
+@media (max-width:640px){.bk-modal{padding:0}.bk-box{border-radius:0;height:100%}.bk-ext{display:none}.bk-head{flex-wrap:nowrap}.bk-t{font-size:1rem}}
+html.bk-lock{overflow:hidden}
+/* mobile: the booking route stays one tap away once the hero has scrolled past */
+.book-bar{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px max(16px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right));background:color-mix(in srgb,var(--cream) 94%,transparent);border-top:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateY(110%);transition:transform .35s var(--ease)}
+.book-bar.on{transform:none}
+.book-bar .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);width:100%;justify-content:center;min-height:52px}
+@media (min-width:1001px){.book-bar{display:none!important}}
+@media (prefers-reduced-motion:reduce){.book-bar{transition:none}}
 </style>
 </head>
 <body>
@@ -875,36 +934,33 @@ body{background:var(--rl-ivory)}
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="#studio" aria-label="Kinassay Lab, haut de page">
-      <img class="brand-amp" src="../images/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab
+      <img class="brand-amp" src="../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab
     </a>
     <nav class="nav" aria-label="Principale">
       <ul>
-        <li><a href="#studio">Studio</a></li>
-        <li><a href="#raisey-scan">Kinassay Scan</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#work">Études</a></li>
         <li><a href="#about">À propos</a></li>
+        <li><a href="#work">Études</a></li>
         <li><a href="../insights/index.html" hreflang="en">Insights</a></li>
       </ul>
     </nav>
     <div style="display:flex;align-items:center;gap:16px">
       <div class="langsw h" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
-      <a class="btn head-cta" href="#raisey-scan">Lancer mon Scan <i class="ar"></i></a>
+      <a class="btn head-cta" href="#contact" data-book>Réserver un premier rendez-vous <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
     </div>
   </div>
   <div class="mobile" id="mobile-nav" hidden>
     <div class="wrap">
       <ul>
-        <li><a class="l" href="#studio">Studio</a></li>
-        <li><a class="l" href="#raisey-scan">Kinassay Scan</a></li>
         <li><a class="l" href="#services">Services</a></li>
-        <li><a class="l" href="#work">Études</a></li>
         <li><a class="l" href="#about">À propos</a></li>
+        <li><a class="l" href="#work">Études</a></li>
+        <li><a class="l" href="#kinassay-scan">Kinassay Scan</a></li>
         <li><a class="l" href="../insights/index.html" hreflang="en">Insights</a></li>
       </ul>
       <div class="langsw m" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
-      <a class="btn" href="#raisey-scan">Lancer mon Scan <i class="ar"></i></a>
+      <a class="btn" href="#contact" data-book>Réserver un premier rendez-vous <i class="ar"></i></a>
     </div>
   </div>
 </header>
@@ -917,10 +973,11 @@ body{background:var(--rl-ivory)}
     <div class="hx-copy">
       <p class="eyebrow rise" style="--i:0">Quand la médecine esthétique rencontre le digital.</p>
       <h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>
-      <p class="lede rise" style="--i:2">Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.</p>
+      <p class="lede rise" style="--i:2">Kinassay Lab aide les médecins et cliniques esthétiques à être trouvés, à inspirer confiance et à être choisis par les bons patients, grâce à une présence digitale à la hauteur de leur expertise médicale.</p>
       <div class="hx-cta rise" style="--i:3">
-        <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Kinassay Scan <i class="ar"></i></a>
-        <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
+        <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a>
+        <p class="hx-micro">30 minutes · Gratuit · Sans engagement</p>
+        <p class="hx-alt">Envie d’explorer d’abord ? <a href="#kinassay-scan" data-startdiag data-interest="presence-scan">Faites le Kinassay Scan gratuit</a> <span class="nb">(environ 4 minutes)</span></p>
       </div>
     </div>
     <figure class="hx-media hx-hero-img" data-slot="hero">
@@ -930,107 +987,9 @@ body{background:var(--rl-ivory)}
   </div>
 </section>
 
-<!-- ============ LANDSCAPE ============ -->
-<section class="hx-land" aria-labelledby="hx-land-h">
-  <div class="wrap hx-land-grid">
-    <h2 id="hx-land-h" class="hx-eb">Né d’une connaissance intime<br> de la médecine esthétique</h2>
-    <ul class="hx-fields"><li>Médecine esthétique</li><li>Pharma et laboratoires</li><li>Marchés internationaux</li></ul>
-    <div class="hx-exp"><p class="hx-exp-h">Parcours de la fondatrice</p><p>FILLMED Laboratories · Google · GroupM</p><p class="hx-exp-note">Postes occupés par Anissa Sabrina Briki avant de fonder Kinassay Lab. Il ne s’agit pas de références clients. <a href="#about">Découvrir la fondatrice <span aria-hidden="true">→</span></a></p></div>
-  </div>
-</section>
 
-<!-- ============ PATIENT JOURNEY ============ -->
-<section class="hx-journey" aria-labelledby="hx-journey-h">
-  <figure class="hx-media hx-journey-img" data-slot="journey">
-    <picture><source media="(max-width:979px)" type="image/webp" srcset="../images/home-journey-480.webp 480w, ../images/home-journey-960.webp 960w" sizes="100vw"><source type="image/webp" srcset="../images/home-journey-480.webp 480w, ../images/home-journey-960.webp 960w, ../images/home-journey-1420.webp 1420w" sizes="(max-width:979px) 100vw, 31vw"><img src="../images/home-journey-960.jpg" alt="Salle de consultation calme dans une clinique de médecine esthétique" width="960" height="749" loading="lazy" decoding="async"></picture>
-  </figure>
-  <div class="hx-journey-copy">
-    <h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>
-    <p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>
-    <p class="hx-read"><a class="tl" href="../insights/aesthetic-medicine-patient-journey/" hreflang="en">Comment les patients choisissent vraiment un praticien <i class="ar"></i></a></p>
-  </div>
-</section>
 
-<!-- ============ PRESENCE FRAMEWORK ============ -->
-<section class="hx-pillars" id="raisey-scan" aria-labelledby="hx-pillars-h">
-  <div class="wrap">
-    <h2 id="hx-pillars-h" class="hx-eb hx-center">Quelle est la force de votre présence ?</h2>
-    <p class="hx-intro">Six dimensions pour comprendre comment votre expertise existe, se distingue et convertit dans l’écosystème digital.</p>
-    <ol class="hx-five">
-      <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Marque</h3><p>Positionnement · Identité<br> Différenciation</p></li>
-      <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p></li>
-      <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Autorité</h3><p>Expertise · Réputation<br> Confiance</p></li>
-      <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V14a5.5 5.5 0 0 1 4-5.3"/><path d="M13 18.5V14a5.5 5.5 0 0 1 4-5.3"/><rect x="4.4" y="13.6" width="4.6" height="4.9" rx="1"/><rect x="12.4" y="13.6" width="4.6" height="4.9" rx="1"/><path d="M4 5h16" opacity=".55"/></g></svg><h3>Potentiel éditorial</h3><p>Contenu · Thought leadership<br> Différenciation</p></li>
-      <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Parcours patient</h3><p>Site web · UX<br> Conversion</p></li>
-      <li><span class="hx-n">06</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Croissance</h3><p>Acquisition · CRM<br> Fidélisation</p></li>
-    </ol>
-    <div class="rv-cta hx-cta hx-center">
-      <button class="btn" type="button" id="takeDiag">Démarrer mon Kinassay Scan <i class="ar"></i></button>
-      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
-    </div>
-    <noscript><p class="muted" style="margin-top:20px">Le Kinassay Scan nécessite JavaScript. Vous pouvez demander un premier échange dans la dernière section, plus bas.</p></noscript>
-    <div class="glance" id="glance" hidden>
-      <p class="eyebrow">Votre Kinassay Scan</p>
-      <h3 class="g-h" tabindex="-1" data-glance-title>Vos résultats en un coup d’œil.</h3>
-      <p class="g-sub">Une première lecture de vos réponses sur six dimensions clés.<span class="basis">Basé sur vos réponses · Pas sur un audit de votre présence digitale</span></p>
-      <div class="radar" id="radar"></div>
-      <div class="legend">
-        <p class="lg-h">Comprendre vos résultats</p>
-        <p class="lg-s">Chaque dimension se lit sur trois niveaux.</p>
-        <ul id="legend"></ul>
-      </div>
-    </div>
-    <div class="scan" id="scan" data-scan hidden>
-      <div data-stage aria-live="polite"></div>
-      <div class="req-box" data-request hidden>
-        <p class="done"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Scan terminé</p>
-        <h3 tabindex="-1" data-request-title>Recevez votre Kinassay Scan personnalisé.</h3>
-        <p class="muted" style="max-width:52ch">Les résultats complets de votre Kinassay Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier échange.</p>
-        <form class="lead form" id="scan-form" data-variant="scan" novalidate>
-          <div class="hp" aria-hidden="true"><label for="sf-website_url">Laissez ce champ vide</label><input id="sf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
-          <div class="field"><label for="sf-name">Nom du praticien ou de la clinique <span aria-hidden="true">*</span></label><input class="input" id="sf-name" name="name" type="text" placeholder="ex. Dr Marie Dupont" autocomplete="organization" required data-err="Merci d’indiquer votre nom ou celui de votre clinique." aria-describedby="sf-name-err"><p class="err" id="sf-name-err"></p></div>
-          <div class="field"><label for="sf-email">E-mail <span aria-hidden="true">*</span></label><input class="input" id="sf-email" name="email" type="email" placeholder="vous@clinique.fr" autocomplete="email" required data-err="Merci d’indiquer votre e-mail." data-err2="Cet e-mail semble incorrect." aria-describedby="sf-email-err"><p class="err" id="sf-email-err"></p></div>
-          <div class="field"><label for="sf-spec">Spécialité <span class="o">(facultatif)</span></label><select class="input" id="sf-spec" name="specialty"><option value="" selected>Choisissez votre spécialité</option><optgroup label="Médecins et chirurgiens"><option value="Aesthetic Physician" data-tier="tier1">Médecin esthétique</option><option value="Anesthesiologist" data-tier="tier1">Anesthésiste-réanimateur</option><option value="Cosmetic Surgeon" data-tier="tier1">Chirurgien esthétique</option><option value="Dermatologist" data-tier="tier1">Dermatologue</option><option value="Facial Plastic Surgeon" data-tier="tier1">Chirurgien plasticien de la face</option><option value="Gynecologist" data-tier="tier1">Gynécologue</option><option value="Internal Medicine" data-tier="tier1">Médecin interniste</option><option value="MD (general)" data-tier="tier1">Médecin généraliste</option><option value="Oculoplastic Surgeon" data-tier="tier1">Chirurgien oculo-plasticien</option><option value="Pediatrician" data-tier="tier1">Pédiatre</option><option value="Plastic Surgeon" data-tier="tier1">Chirurgien plasticien</option></optgroup><optgroup label="Infirmiers et infirmières"><option value="Nurse Practitioner" data-tier="tier2">Infirmier(ère) en pratique avancée (IPA)</option><option value="Registered Nurse" data-tier="tier2">Infirmier(ère) diplômé(e) d’État (IDE)</option></optgroup><optgroup label="Paramédical et dentaire"><option value="Dental Surgeon" data-tier="tier3">Chirurgien-dentiste</option><option value="Mesotherapist" data-tier="tier3">Mésothérapeute</option><option value="Pharmacist" data-tier="tier3">Pharmacien</option><option value="Physician Assistant" data-tier="tier3">Assistant médical</option></optgroup><optgroup label="Autre"><option value="Beautician" data-tier="tier4">Esthéticien(ne)</option><option value="Medical office staff" data-tier="tier4">Personnel de cabinet médical</option><option value="Nutritionist" data-tier="tier4">Nutritionniste</option><option value="Industry representative / other" data-tier="tier4">Représentant de l’industrie / autre</option></optgroup></select></div>
-          <div class="field"><label for="sf-web">Site web ou Instagram <span aria-hidden="true">*</span></label><input class="input" id="sf-web" name="web" type="text" placeholder="ex. votreclinique.fr ou @compte" autocomplete="url" required data-err="Merci d’indiquer votre site web ou Instagram." aria-describedby="sf-web-err"><p class="err" id="sf-web-err"></p></div>
-          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations, avec vos réponses au Scan, servent uniquement à vous envoyer vos résultats et à vous répondre. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
-          <div class="f-actions wide"><button class="btn" type="submit">Recevoir mes résultats <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
-          <p class="micro wide"><span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span></p>
-          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un premier échange avec Kinassay Lab.</p><a class="tl" href="#contact" data-interest="first-conversation">Demander un premier échange <i class="ar"></i></a></div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ STUDIO INTRODUCTION ============ -->
-<section class="hx-studio" aria-labelledby="hx-studio-h">
-  <div class="hx-studio-copy">
-    <p class="hx-eb">De l’analyse à la direction.</p>
-    <h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>
-    <p>Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.</p>
-    <a class="tl" href="#services">Découvrir nos services <i class="ar"></i></a>
-  </div>
-  <figure class="hx-media hx-studio-img" data-slot="studio">
-    <picture><source type="image/webp" srcset="../images/home-studio-480.webp 480w, ../images/home-studio-960.webp 960w, ../images/home-studio-1393.webp 1393w" sizes="(max-width:979px) 100vw, 33vw"><img src="../images/home-studio-960.jpg" alt="Intérieur architectural d’une clinique de médecine esthétique" width="960" height="778" loading="lazy" decoding="async"></picture>
-  </figure>
-  <div class="hx-trio">
-    <dl>
-      <div><dt>Visibilité</dt><dd>Être trouvé.</dd></div>
-      <div><dt>Autorité</dt><dd>Inspirer confiance.</dd></div>
-      <div><dt>Croissance</dt><dd>Être choisi.</dd></div>
-    </dl>
-    <button class="hx-fold-btn" type="button" aria-expanded="false" aria-controls="hx-fold"><span class="sr-only" data-open="Afficher l’approche en détail" data-close="Masquer l’approche en détail">Afficher l’approche en détail</span><svg class="hx-fold-ar" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v15.5M6.5 14 12 19.5 17.5 14" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-  </div>
-  <div class="hx-fold" id="hx-fold" role="region" aria-label="Notre approche en détail">
-    <div class="hx-fold-in">
-      <ol class="hx-fold-list">
-        <li><span class="hx-n hx-fn">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Être trouvé</h3><p>Exister là où vos patients vous cherchent : recherche, référencement local, réseaux et présence digitale.</p><ul><li>SEO &amp; recherche</li><li>Référencement local</li><li>Visibilité digitale</li><li>Présence multi-canaux</li></ul></li>
-        <li><span class="hx-n hx-fn">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Inspirer confiance</h3><p>Faire percevoir votre expertise et votre approche avant même la consultation.</p><ul><li>Positionnement</li><li>Contenus experts</li><li>Marque &amp; identité</li><li>Réputation</li></ul></li>
-        <li><span class="hx-n hx-fn">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Être choisi</h3><p>Transformer cette confiance en prise de rendez-vous, puis en fidélité.</p><ul><li>Site web &amp; UX</li><li>Conversion</li><li>Acquisition &amp; CRM</li><li>Fidélisation</li></ul></li>
-      </ol>
-    </div>
-  </div>
-</section>
 
 <!-- 🔒 LOCKED · APPROVED COMPONENT: services ("How we build your presence"). Do not modify unless explicitly requested. Snapshot in /_locked. No coloured icons, waves or illustrations. -->
 <!-- ============ 04 · SERVICES (two territories) ============ -->
@@ -1103,69 +1062,11 @@ body{background:var(--rl-ivory)}
   </div>
 </section>
 
-<!-- ============ 05 · SELECTED PRESENCE STUDIES ============ -->
-<section class="sec" id="work" aria-labelledby="work-h">
-  <div class="wrap">
-    <div class="st-head"><span class="n">05</span><h2 id="work-h">Études sélectionnées Kinassay</h2><span class="r">Analyses stratégiques indépendantes</span></div>
-    <div class="cases" tabindex="0" role="group" aria-label="Études sélectionnées Kinassay. Faites défiler, ou utilisez les flèches du clavier.">
-      <article class="case" data-c="rose">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-1-480.webp 480w, ../images/study-1-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-1-800.jpg" alt="Salle de soins esthétique lumineuse avec un fauteuil de soin et un miroir rond" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">01</span> Dermatologue reconnu</p>
-        <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
-        <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
-        <p>Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-      <article class="case" data-c="lav">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-2-480.webp 480w, ../images/study-2-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-2-800.jpg" alt="Gros plan sur des lèvres et une peau en lumière naturelle douce" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">02</span> Cabinet confidentiel</p>
-        <h3>Un cabinet esthétique confidentiel, à mi-parcours</h3>
-        <p class="path" aria-label="Orientation : Réputation, Positionnement, Premium"><span class="st"><b>Réputation</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Positionnement</b><i class="ar" aria-hidden="true"></i></span><b>Premium</b></p>
-        <p>Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-      <article class="case" data-c="gold">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-3-480.webp 480w, ../images/study-3-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-3-800.jpg" alt="Accueil de clinique aux tons de bois clair et de pierre" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">03</span> Infirmière en pratique avancée</p>
-        <h3>Une infirmière en pratique avancée qui construit sa patientèle</h3>
-        <p class="path" aria-label="Orientation : Confiance, Autorité, Marque"><span class="st"><b>Confiance</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><b>Marque</b></p>
-        <p>De bons avis, mais aucun fil conducteur. L’étude : structurer les signaux de confiance en un récit cohérent transforme des preuves éparses en une vraie marque, choisie par les patients en toute connaissance de cause.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-      <article class="case" data-c="sage">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-4-480.webp 480w, ../images/study-4-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-4-800.jpg" alt="Plateau d’instruments à côté d’un fauteuil de soin" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">04</span> Spécialiste de niche</p>
-        <h3>Un spécialiste de niche pour un geste rare</h3>
-        <p class="path" aria-label="Orientation : Expertise, Visibilité, Acquisition"><span class="st"><b>Expertise</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Acquisition</b></p>
-        <p>Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-      <article class="case" data-c="rose">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-5-480.webp 480w, ../images/study-5-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-5-800.jpg" alt="Salle de conférence avec un écran « Aesthetic Medicine Today »" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">05</span> Vision clinique</p>
-        <h3>Un médecin à la vision clinique affirmée</h3>
-        <p class="path" aria-label="Orientation : Point de vue, Contenu, Réputation"><span class="st"><b>Point de vue</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Contenu</b><i class="ar" aria-hidden="true"></i></span><b>Réputation</b></p>
-        <p>De vraies convictions sur la manière de pratiquer un traitement — mais aucune n’est publique. L’étude : un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-      <article class="case" data-c="lav">
-        <picture class="cs-img"><source type="image/webp" srcset="../images/study-6-480.webp 480w, ../images/study-6-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-6-800.jpg" alt="Ordinateur portable affichant le site d’un cabinet esthétique sur un bureau ensoleillé" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
-        <p class="cs-lab"><span class="cs-no">06</span> Consultant hospitalier</p>
-        <h3>Un consultant rattaché à un hôpital</h3>
-        <p class="path" aria-label="Orientation : Institution, Voix, Influence"><span class="st"><b>Institution</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Voix</b><i class="ar" aria-hidden="true"></i></span><b>Influence</b></p>
-        <p>Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.</p>
-        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
-      </article>
-    </div>
-    <div class="cs-nav" data-cs-nav><button type="button" class="cs-btn" data-cs-prev aria-label="Étude précédente"><i class="ar" aria-hidden="true"></i></button><span class="cs-count" aria-live="polite"><b data-cs-i>01</b> <span class="t">/ <span data-cs-n>06</span></span></span><button type="button" class="cs-btn" data-cs-next aria-label="Étude suivante"><i class="ar" aria-hidden="true"></i></button></div>
-    <p class="disc">Les Études indépendantes sont la réflexion propre de Kinassay Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
-  </div>
-</section>
-
-<!-- ============ 06 · FOUNDER ============ -->
+<!-- 🔒 END LOCKED services -->
+<!-- ============ 02 · CREDIBILITY ============ -->
 <section class="sec founder-sec" id="about" aria-labelledby="fnd-h">
   <div class="wrap">
-    <p class="sl"><span class="n">06</span><span class="t">Fondatrice</span></p>
+    <p class="sl"><span class="n">02</span><span class="t">Pourquoi me faire confiance</span></p>
     <div class="founder fx">
       <figure class="f-portrait"><picture><source type="image/webp" srcset="../images/founder-about-480.webp 480w, ../images/founder-about-768.webp 768w, ../images/founder-about-1024.webp 1024w" sizes="(max-width:639px) calc(100vw - 40px), (max-width:899px) 46vw, 380px"><img src="../images/founder-about-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Kinassay Lab : portrait rapproché sur fond crème, avec les mentions « Founder, Anissa » et « Strategy, growth, experience for aesthetic practices »" loading="lazy" decoding="async" width="1024" height="1536"></picture><figcaption class="f-cap"><span>Même expertise.</span> <em>Un rayonnement plus large.</em></figcaption></figure>
       <div class="f-head">
@@ -1173,10 +1074,9 @@ body{background:var(--rl-ivory)}
         <p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>
       </div>
       <div class="f-story">
-        <p>C’est de ce constat qu’est née Kinassay Lab.</p>
-        <p>Mon expérience chez FILLMED Laboratories m’a plongée au cœur de la médecine esthétique — aux côtés des praticiens, au plus près des parcours patients et des enjeux de développement des cabinets.</p><p>Avant cela, chez Google et GroupM, j’ai construit mon expertise en stratégie et croissance digitale, entre beauté, luxe et marchés internationaux.</p><p>Kinassay Lab est née à la rencontre de ces deux univers : la compréhension de la médecine esthétique et l’expertise du digital.</p>
-        <p>Aujourd’hui, j’accompagne chaque cabinet personnellement, avec une même ambition : élever sa visibilité et son autorité à la hauteur de son expertise.</p>
-        <p class="who">Anissa Sabrina Briki <span class="muted">· Fondatrice · Stratégie &amp; Croissance</span></p>
+        <p>Je suis Anissa Sabrina Briki, fondatrice de Kinassay Lab. Chez FILLMED Laboratories, j’ai travaillé aux côtés des praticiens de la médecine esthétique, au plus près de la réalité du développement d’un cabinet. Auparavant, chez Google et GroupM, j’ai construit des stratégies digitales et de croissance pour la beauté, le luxe et les marchés internationaux.</p>
+        <p>Kinassay Lab réunit ces deux univers : la compréhension de la médecine esthétique et de ses patients, et les compétences digitales pour rendre un cabinet visible et digne de confiance. J’accompagne personnellement chaque cabinet.</p>
+        <p class="note f-note">Postes occupés avant la création de Kinassay Lab. Il ne s’agit pas de références clients.</p>
       </div>
       <div class="f-side">
         <ol class="journey" aria-label="Trois univers">
@@ -1200,56 +1100,121 @@ body{background:var(--rl-ivory)}
           </li>
         </ol>
       </div>
-      <p class="f-cta"><a class="tl" href="#contact" data-interest="founder">Échanger avec la fondatrice <i class="ar"></i></a> <a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Pourquoi j’ai créé Kinassay Lab <i class="ar"></i></a></p>
+      <p class="f-cta"><a class="tl" href="#contact" data-book data-interest="founder">Réserver un premier rendez-vous <i class="ar"></i></a> <a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Lire mon histoire : pourquoi j’ai créé Kinassay Lab (en anglais) <i class="ar"></i></a></p>
     </div>
   </div>
 </section>
 
-<!-- ============ 07 · FOUNDING PARTNERS ============ -->
-<section class="sec fp" id="founding" aria-labelledby="fp-h">
+<!-- ============ 03 · SELECTED STUDIES ============ -->
+<section class="sec" id="work" aria-labelledby="work-h">
   <div class="wrap">
-    <div class="fp-top">
-      <p class="sl fp-lab"><span class="n">07</span><span class="t"><span class="fp-lt">Partenaires fondateurs</span><span class="fp-dash"> — </span><span class="nb">Paris · Londres · Dubaï</span></span></p>
-      <div class="fp-h">
-        <h2 id="fp-h"><span class="a">Une manière de travailler</span> <span class="b">plus proche.</span></h2>
-        <p class="fp-sub">Six cabinets. Une collaboration directe.<br>Une croissance pensée autour de votre cabinet.</p>
-        <p>Kinassay Lab ouvre ses six premiers partenariats. Chaque collaboration commence par un échange pour comprendre votre pratique, votre positionnement et vos priorités — suivi d’un Kinassay Review personnalisé pour définir ce qu’il faut élever, et dans quel ordre.</p>
-      </div>
-      <div class="fp-06 fp-photo">
-        <figure><picture><source type="image/webp" srcset="../images/founder-story-480.webp 480w, ../images/founder-story-768.webp 768w, ../images/founder-story-1024.webp 1024w" sizes="(max-width:899px) calc(100vw - 40px), 40vw"><img src="../images/founder-story-768.jpg" alt="Anissa Sabrina Briki, fondatrice de Kinassay Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »" loading="lazy" decoding="async" width="1024" height="1536"></picture></figure>
-        <p class="mono" aria-hidden="true"><span class="m">Six cabinets<br>seulement</span><span class="d">Partenaires<br>fondateurs</span></p>
-      </div>
+    <div class="st-head"><span class="n">03</span><h2 id="work-h">Études sélectionnées</h2><span class="r">Analyses composites illustratives · Ni résultats clients, ni cas réels</span></div>
+    <div class="cases" tabindex="0" role="group" aria-label="Études sélectionnées. Faites défiler, ou utilisez les flèches du clavier.">
+      <article class="case" data-c="rose">
+        <picture class="cs-img"><source type="image/webp" srcset="../images/study-1-480.webp 480w, ../images/study-1-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-1-800.jpg" alt="Salle de soins esthétique lumineuse avec un fauteuil de soin et un miroir rond" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
+        <p class="cs-lab"><span class="cs-no">01</span> Dermatologue reconnu</p>
+        <h3>Un dermatologue reconnu, 20 ans de carrière</h3>
+        <p class="path" aria-label="Orientation : Autorité, Visibilité, Héritage"><span class="st"><b>Autorité</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Héritage</b></p>
+        <p>Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
+      </article>
+      <article class="case" data-c="lav">
+        <picture class="cs-img"><source type="image/webp" srcset="../images/study-2-480.webp 480w, ../images/study-2-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-2-800.jpg" alt="Gros plan sur des lèvres et une peau en lumière naturelle douce" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
+        <p class="cs-lab"><span class="cs-no">02</span> Cabinet confidentiel</p>
+        <h3>Un cabinet esthétique confidentiel, à mi-parcours</h3>
+        <p class="path" aria-label="Orientation : Réputation, Positionnement, Premium"><span class="st"><b>Réputation</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Positionnement</b><i class="ar" aria-hidden="true"></i></span><b>Premium</b></p>
+        <p>Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
+      </article>
+      <article class="case" data-c="sage">
+        <picture class="cs-img"><source type="image/webp" srcset="../images/study-4-480.webp 480w, ../images/study-4-800.webp 800w" sizes="(max-width:699px) 86vw, (max-width:999px) 46vw, 420px"><img src="../images/study-4-800.jpg" alt="Plateau d’instruments à côté d’un fauteuil de soin" width="800" height="450" loading="lazy" decoding="async" draggable="false"></picture>
+        <p class="cs-lab"><span class="cs-no">03</span> Spécialiste de niche</p>
+        <h3>Un spécialiste de niche pour un geste rare</h3>
+        <p class="path" aria-label="Orientation : Expertise, Visibilité, Acquisition"><span class="st"><b>Expertise</b><i class="ar" aria-hidden="true"></i></span><span class="st"><b>Visibilité</b><i class="ar" aria-hidden="true"></i></span><b>Acquisition</b></p>
+        <p>Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.</p>
+        <button type="button" class="cs-more" aria-expanded="false" data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i class="ar" aria-hidden="true"></i></button>
+      </article>
     </div>
-
-    <div class="fp-perks" tabindex="0" role="group" aria-label="Avantages partenaires fondateurs. Faites défiler, ou utilisez les flèches.">
-      <div class="it"><span class="n"><b>01</b> — Partir de la bonne analyse</span><h3>Votre Kinassay Review</h3><p>Après un premier échange, nous analysons l’état réel de votre présence digitale et définissons les écarts, les opportunités et les recommandations.</p></div>
-      <div class="it"><span class="n"><b>02</b> — Sur mesure pour votre cabinet</span><h3>Conditions partenaire fondateur</h3><p>Pas d’offre toute faite. Vos priorités, votre périmètre et votre stratégie sont définis selon ce dont votre cabinet a réellement besoin, avec des conditions privilégiées réservées à nos six premiers partenaires.</p></div>
-      <div class="it"><span class="n"><b>03</b> — Un échange direct</span><h3>Travaillez directement avec la fondatrice</h3><p>Stratégie, direction créative et décisions clés se traitent directement avec la fondatrice de Kinassay Lab — du premier échange jusqu’à la mise en œuvre.</p></div>
-    </div>
-
-    <div class="fp-nav" data-fp-nav><span class="cs-count" aria-live="polite"><b data-fp-i>01</b> <span class="t">/ <span data-fp-n>03</span></span></span><span class="fp-arrows"><button type="button" class="cs-btn" data-fp-prev aria-label="Précédent"><i class="ar" aria-hidden="true"></i></button><button type="button" class="cs-btn" data-fp-next aria-label="Suivant"><i class="ar" aria-hidden="true"></i></button></span></div>
-
-    <div class="fp-close">
-      <p class="lb">Partenariat fondateur</p>
-      <div class="cl">
-        <p class="st"><span>Votre expertise est déjà établie.</span> <em>Construisons la présence qui lui ressemble.</em></p>
-        <p class="m">Six partenariats fondateurs entre <span class="nb">Paris · Londres · Dubaï.</span></p>
-        <a class="btn" href="#contact" data-interest="founding-partner">Devenir partenaire fondateur <i class="ar"></i></a>
-      </div>
-    </div>
-
-    <p class="fp-strip"><span>Kinassay Scan</span><span>Premier échange</span><span>Kinassay Review</span><span>Transformation</span><span>Croissance continue</span></p>
+    <div class="cs-nav" data-cs-nav><button type="button" class="cs-btn" data-cs-prev aria-label="Étude précédente"><i class="ar" aria-hidden="true"></i></button><span class="cs-count" aria-live="polite"><b data-cs-i>01</b> <span class="t">/ <span data-cs-n>03</span></span></span><button type="button" class="cs-btn" data-cs-next aria-label="Étude suivante"><i class="ar" aria-hidden="true"></i></button></div>
+    <p class="disc">Ces études sont la réflexion propre de Kinassay Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.</p>
   </div>
 </section>
 
-<!-- ============ 08 · CONTACT ============ -->
+
+
+<!-- ============ KINASSAY SCAN (secondary path) — opens as a side drawer when JavaScript runs; plain section without it ============ -->
+<section class="hx-pillars hx-scan" id="kinassay-scan" aria-labelledby="hx-pillars-h">
+  <span id="raisey-scan" class="anchor-alias" aria-hidden="true"></span>
+  <div class="dr-top" hidden><button type="button" class="dr-close" data-drawer-close aria-label="Fermer le Kinassay Scan">Fermer <span aria-hidden="true">×</span></button></div>
+  <div class="wrap">
+    <p class="hx-eb hx-center">Envie d’explorer d’abord ?</p>
+    <h2 id="hx-pillars-h" class="hx-scan-h hx-center">Faites le Kinassay Scan gratuit.</h2>
+    <p class="hx-intro">Onze questions sur votre cabinet. Une première lecture de vos réponses sur six dimensions, et vos résultats complets par e-mail.</p>
+    <ol class="hx-five" aria-label="Les six dimensions lues par le Scan">
+      <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Marque</h3><p>Positionnement · Identité<br> Différenciation</p></li>
+      <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p></li>
+      <li><span class="hx-n">03</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.2-3.9 4-5.8 7.5-5.8s6.3 1.9 7.5 5.8"/></g></svg><h3>Autorité</h3><p>Expertise · Réputation<br> Confiance</p></li>
+      <li><span class="hx-n">04</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 18.5V14a5.5 5.5 0 0 1 4-5.3"/><path d="M13 18.5V14a5.5 5.5 0 0 1 4-5.3"/><rect x="4.4" y="13.6" width="4.6" height="4.9" rx="1"/><rect x="12.4" y="13.6" width="4.6" height="4.9" rx="1"/><path d="M4 5h16" opacity=".55"/></g></svg><h3>Potentiel éditorial</h3><p>Contenu · Prise de parole d’expert<br> Différenciation</p></li>
+      <li><span class="hx-n">05</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.8 3.8v3.6h-3.6"/></g></svg><h3>Parcours patient</h3><p>Site web · UX<br> Conversion</p></li>
+      <li><span class="hx-n">06</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20v-5M12 20V10M18 20V4"/></g></svg><h3>Croissance</h3><p>Acquisition · CRM<br> Fidélisation</p></li>
+    </ol>
+    
+    <div class="rv-cta hx-cta hx-center">
+      <button class="btn" type="button" id="takeDiag">Démarrer mon Kinassay Scan <i class="ar"></i></button>
+      <p class="hx-micro">Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes</p>
+    </div>
+    <noscript><p class="muted" style="margin-top:20px">Le Kinassay Scan nécessite JavaScript. Vous pouvez réserver un premier rendez-vous dans la section suivante.</p></noscript>
+    <div class="glance" id="glance" hidden>
+      <p class="eyebrow">Votre Kinassay Scan</p>
+      <h3 class="g-h" tabindex="-1" data-glance-title>Vos résultats en un coup d’œil.</h3>
+      <p class="g-sub">Une première lecture de vos réponses sur six dimensions clés.<span class="basis">Basé sur vos réponses · Pas sur un audit de votre présence digitale</span></p>
+      <div class="radar" id="radar"></div>
+      <div class="legend">
+        <p class="lg-h">Comprendre vos résultats</p>
+        <p class="lg-s">Chaque dimension se lit sur trois niveaux.</p>
+        <ul id="legend"></ul>
+      </div>
+    </div>
+    <div class="scan" id="scan" data-scan hidden>
+      <div data-stage aria-live="polite"></div>
+      <div class="req-box" data-request hidden>
+        <p class="done"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>Scan terminé</p>
+        <h3 tabindex="-1" data-request-title>Recevez votre Kinassay Scan personnalisé.</h3>
+        <p class="muted" style="max-width:52ch">Les résultats complets de votre Kinassay Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier rendez-vous.</p>
+        <form class="lead form" id="scan-form" data-variant="scan" novalidate>
+          <div class="hp" aria-hidden="true"><label for="sf-website_url">Laissez ce champ vide</label><input id="sf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="field"><label for="sf-name">Nom du praticien ou de la clinique <span aria-hidden="true">*</span></label><input class="input" id="sf-name" name="name" type="text" placeholder="ex. Dr Marie Dupont" autocomplete="organization" required data-err="Merci d’indiquer votre nom ou celui de votre clinique." aria-describedby="sf-name-err"><p class="err" id="sf-name-err"></p></div>
+          <div class="field"><label for="sf-email">E-mail <span aria-hidden="true">*</span></label><input class="input" id="sf-email" name="email" type="email" placeholder="vous@clinique.fr" autocomplete="email" required data-err="Merci d’indiquer votre e-mail." data-err2="Cet e-mail semble incorrect." aria-describedby="sf-email-err"><p class="err" id="sf-email-err"></p></div>
+          <div class="field"><label for="sf-spec">Spécialité <span class="o">(facultatif)</span></label><select class="input" id="sf-spec" name="specialty"><option value="" selected>Choisissez votre spécialité</option><optgroup label="Médecins et chirurgiens"><option value="Aesthetic Physician" data-tier="tier1">Médecin esthétique</option><option value="Anesthesiologist" data-tier="tier1">Anesthésiste-réanimateur</option><option value="Cosmetic Surgeon" data-tier="tier1">Chirurgien esthétique</option><option value="Dermatologist" data-tier="tier1">Dermatologue</option><option value="Facial Plastic Surgeon" data-tier="tier1">Chirurgien plasticien de la face</option><option value="Gynecologist" data-tier="tier1">Gynécologue</option><option value="Internal Medicine" data-tier="tier1">Médecin interniste</option><option value="MD (general)" data-tier="tier1">Médecin généraliste</option><option value="Oculoplastic Surgeon" data-tier="tier1">Chirurgien oculo-plasticien</option><option value="Pediatrician" data-tier="tier1">Pédiatre</option><option value="Plastic Surgeon" data-tier="tier1">Chirurgien plasticien</option></optgroup><optgroup label="Infirmiers et infirmières"><option value="Nurse Practitioner" data-tier="tier2">Infirmier(ère) en pratique avancée (IPA)</option><option value="Registered Nurse" data-tier="tier2">Infirmier(ère) diplômé(e) d’État (IDE)</option></optgroup><optgroup label="Paramédical et dentaire"><option value="Dental Surgeon" data-tier="tier3">Chirurgien-dentiste</option><option value="Mesotherapist" data-tier="tier3">Mésothérapeute</option><option value="Pharmacist" data-tier="tier3">Pharmacien</option><option value="Physician Assistant" data-tier="tier3">Assistant médical</option></optgroup><optgroup label="Autre"><option value="Beautician" data-tier="tier4">Esthéticien(ne)</option><option value="Medical office staff" data-tier="tier4">Personnel de cabinet médical</option><option value="Nutritionist" data-tier="tier4">Nutritionniste</option><option value="Industry representative / other" data-tier="tier4">Représentant de l’industrie / autre</option></optgroup></select></div>
+          <div class="field"><label for="sf-web">Site web ou Instagram <span aria-hidden="true">*</span></label><input class="input" id="sf-web" name="web" type="text" placeholder="ex. votreclinique.fr ou @compte" autocomplete="url" required data-err="Merci d’indiquer votre site web ou Instagram." aria-describedby="sf-web-err"><p class="err" id="sf-web-err"></p></div>
+          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations, avec vos réponses au Scan, servent uniquement à vous envoyer vos résultats et à vous répondre. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
+          <div class="f-actions wide"><button class="btn" type="submit">Recevoir mes résultats <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
+          <p class="micro wide"><span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span></p>
+          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un premier rendez-vous avec Kinassay Lab.</p><a class="tl" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · BOOK A FIRST MEETING ============ -->
 <section class="sec" id="contact" aria-labelledby="c-h" style="padding-top:clamp(28px,3.1vw,44px)">
   <div class="wrap">
-    <p class="sl"><span class="n">08</span><span class="t">Construisons votre présence</span></p>
+    <p class="sl"><span class="n">04</span><span class="t">Premier rendez-vous</span></p>
     <div class="c-grid">
       <div class="c-main">
-        <h2 id="c-h">Parlons de votre cabinet.</h2>
-        <p class="lede">Présentez-nous votre clinique en quelques lignes : nous vous répondons sous deux jours ouvrés pour convenir d’un premier échange.</p>
+        <h2 id="c-h">Réserver un<br> premier <span class="nb">rendez-vous.</span></h2>
+        <p class="lede">Trente minutes, gratuites et sans engagement, pour parler de votre cabinet et de la direction que vous souhaitez lui donner.</p>
+        <ul class="bk-list">
+          <li>Votre cabinet, votre positionnement et vos priorités</li>
+          <li>La façon dont les patients vous trouvent et vous perçoivent aujourd’hui</li>
+          <li>Ce qu’il faut renforcer en premier, et si un Kinassay Review personnalisé a du sens pour vous</li>
+        </ul>
+        <div class="bk-cta">
+          <a class="btn" href="#contact-form" data-book data-book-main data-interest="first-conversation">Choisir un créneau <i class="ar"></i></a>
+          <p class="hx-micro">30 minutes · Gratuit · Sans engagement</p>
+        </div>
+        <p class="bk-or" id="bk-or">Vous préférez écrire d’abord ? Laissez-nous un message : nous vous répondons sous deux jours ouvrés.</p>
         <form class="lead form" id="contact-form" data-variant="contact" novalidate>
           <div class="hp" aria-hidden="true"><label for="cf-website_url">Laissez ce champ vide</label><input id="cf-website_url" name="website_url" type="text" tabindex="-1" autocomplete="off"></div>
           <input type="hidden" name="interest" id="cf-interest" value="">
@@ -1257,11 +1222,8 @@ body{background:var(--rl-ivory)}
           <div class="field"><label for="cf-clinic">Clinique <span aria-hidden="true">*</span></label><input class="input" id="cf-clinic" name="clinic" type="text" placeholder="Clinique Dupont Esthétique" autocomplete="organization" required data-err="Merci d’indiquer votre clinique." aria-describedby="cf-clinic-err"><p class="err" id="cf-clinic-err"></p></div>
           <div class="field"><label for="cf-email">E-mail <span aria-hidden="true">*</span></label><input class="input" id="cf-email" name="email" type="email" placeholder="vous@clinique.fr" autocomplete="email" required data-err="Merci d’indiquer votre e-mail." data-err2="Cet e-mail semble incorrect." aria-describedby="cf-email-err"><p class="err" id="cf-email-err"></p></div>
           <div class="field"><label for="cf-phone">Téléphone <span class="o">(facultatif)</span></label><input class="input" id="cf-phone" name="phone" type="tel" placeholder="06…" autocomplete="tel"></div>
-          <div class="field"><label for="cf-spec">Spécialité <span class="o">(facultatif)</span></label>
-            <select class="input" id="cf-spec" name="specialty"><option value="" selected>Choisissez votre spécialité</option><optgroup label="Médecins et chirurgiens"><option value="Aesthetic Physician" data-tier="tier1">Médecin esthétique</option><option value="Anesthesiologist" data-tier="tier1">Anesthésiste-réanimateur</option><option value="Cosmetic Surgeon" data-tier="tier1">Chirurgien esthétique</option><option value="Dermatologist" data-tier="tier1">Dermatologue</option><option value="Facial Plastic Surgeon" data-tier="tier1">Chirurgien plasticien de la face</option><option value="Gynecologist" data-tier="tier1">Gynécologue</option><option value="Internal Medicine" data-tier="tier1">Médecin interniste</option><option value="MD (general)" data-tier="tier1">Médecin généraliste</option><option value="Oculoplastic Surgeon" data-tier="tier1">Chirurgien oculo-plasticien</option><option value="Pediatrician" data-tier="tier1">Pédiatre</option><option value="Plastic Surgeon" data-tier="tier1">Chirurgien plasticien</option></optgroup><optgroup label="Infirmiers et infirmières"><option value="Nurse Practitioner" data-tier="tier2">Infirmier(ère) en pratique avancée (IPA)</option><option value="Registered Nurse" data-tier="tier2">Infirmier(ère) diplômé(e) d’État (IDE)</option></optgroup><optgroup label="Paramédical et dentaire"><option value="Dental Surgeon" data-tier="tier3">Chirurgien-dentiste</option><option value="Mesotherapist" data-tier="tier3">Mésothérapeute</option><option value="Pharmacist" data-tier="tier3">Pharmacien</option><option value="Physician Assistant" data-tier="tier3">Assistant médical</option></optgroup><optgroup label="Autre"><option value="Beautician" data-tier="tier4">Esthéticien(ne)</option><option value="Medical office staff" data-tier="tier4">Personnel de cabinet médical</option><option value="Nutritionist" data-tier="tier4">Nutritionniste</option><option value="Industry representative / other" data-tier="tier4">Représentant de l’industrie / autre</option></optgroup></select></div>
-          <div class="field wide"><label for="cf-msg">Qu’aimeriez-vous améliorer en priorité ? <span class="o">(facultatif)</span></label><textarea class="input" id="cf-msg" name="message" rows="4" placeholder="Votre message…"></textarea></div>
-          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations servent uniquement à répondre à votre demande et à convenir d’un premier échange. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
-          <div class="f-actions wide"><button class="btn" type="submit">Demander un premier échange <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
+          <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le téléphone est facultatif. Ces informations servent uniquement à vous répondre et à organiser un premier rendez-vous. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
+          <div class="f-actions wide"><button class="btn" type="submit">Envoyer mon message <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
           <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Nous vous répondons sous deux jours ouvrés.</h3><p class="muted">Votre message est bien arrivé.</p></div>
         </form>
       </div>
@@ -1270,6 +1232,7 @@ body{background:var(--rl-ivory)}
           Kinassay Lab
         </span>
         <h3>Un avenir plus visible pour votre cabinet.</h3>
+        <p class="c-fp">Kinassay Lab ouvre six partenariats fondateurs entre <span class="nb">Paris, Londres et Dubaï.</span></p>
         <p class="mantra"><span>Être trouvé</span><span>Inspirer confiance</span><span>Être choisi</span></p>
       </aside>
     </div>
@@ -1277,30 +1240,29 @@ body{background:var(--rl-ivory)}
 </section>
 
 
-<!-- ============ FINAL CTA ============ -->
-<section class="hx-final" aria-labelledby="hx-final-h">
-  <div class="hx-final-bg" data-slot="final" aria-hidden="true"></div>
-  <div class="wrap hx-final-grid">
-    <div>
-      <p class="hx-eb">Prêt à voir le tableau complet ?</p>
-      <h2 id="hx-final-h">Faites le Kinassay Scan.</h2>
-      <p>Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.</p>
-    </div>
-    <div class="hx-cta">
-      <a class="btn" href="#raisey-scan" data-startdiag data-interest="presence-scan">Démarrer mon Kinassay Scan <i class="ar"></i></a>
-      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>
-    </div>
-  </div>
-</section>
+
 </main>
+
+<div class="dr-backdrop" data-drawer-close hidden></div>
+
+<div class="bk-modal" data-bk-modal hidden role="dialog" aria-modal="true" aria-labelledby="bk-modal-t" tabindex="-1">
+  <div class="bk-box">
+    <div class="bk-head"><p class="bk-t" id="bk-modal-t"></p><a class="bk-ext" href="#contact" data-bk-ext></a><button type="button" class="dr-close" data-bk-close><span class="bk-cl"></span> <span aria-hidden="true">×</span></button></div>
+    <iframe class="bk-frame" title="" loading="lazy"></iframe>
+  </div>
+</div>
+
+<div class="book-bar" data-book-bar hidden>
+  <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a>
+</div>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="f-row">
       <a class="brand" href="#studio" style="font-size:20px">
-        <img class="brand-amp" src="../images/raisey-ampersand.png" alt="" width="159" height="175">Kinassay Lab
+        <img class="brand-amp" src="../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab
       </a>
-      <nav aria-label="Pied de page"><ul><li><a href="#studio">Studio</a></li><li><a href="#raisey-scan">Kinassay Scan</a></li><li><a href="#services">Services</a></li><li><a href="#work">Études</a></li><li><a href="#about">À propos</a></li><li><a href="../insights/index.html" hreflang="en">Insights</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+      <nav aria-label="Pied de page"><ul><li><a href="#services">Services</a></li><li><a href="#about">À propos</a></li><li><a href="#work">Études</a></li><li><a href="#kinassay-scan">Kinassay Scan</a></li><li><a href="../insights/index.html" hreflang="en">Insights</a></li><li><a href="#contact">Réserver un premier rendez-vous</a></li></ul></nav>
     </div>
     <p class="f-legal"><a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span></p>
   </div>
@@ -1312,6 +1274,7 @@ body{background:var(--rl-ivory)}
 /* ---------- config ---------- */
 // Set to your form endpoint (e.g. Formspree/Basin). While empty, forms say so instead of pretending to send.
 const FORM_ENDPOINT = '';
+const BOOKING_URL = ''; // public scheduling page for the first meeting (site.config.json bookingUrl); empty = the message form is the booking route
 const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
 const SCAN_EMAIL_GATE = true;   // true = results are revealed only after the email step (French site)
 const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
@@ -1365,11 +1328,71 @@ matchMedia('(min-width:1001px)').addEventListener('change',m=>{if(m.matches)setM
 const links=[...document.querySelectorAll('.nav a')];
 if('IntersectionObserver' in window){
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-  ['studio','raisey-scan','services','work','about'].forEach(id=>{const n=document.getElementById(id);if(n)io.observe(n)});
+  ['services','about','work','kinassay-scan'].forEach(id=>{const n=document.getElementById(id);if(n)io.observe(n)});
 }
 
 /* ---------- carry the visitor's intent into the contact form ---------- */
 document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('click',()=>{document.getElementById('cf-interest').value=a.dataset.interest}));
+
+/* Kinassay Scan drawer: the questionnaire opens beside the page (hero link, menu, Services CTA, #kinassay-scan) instead of sitting in the middle of it. */
+(function(){
+  const sec=document.getElementById('kinassay-scan'), bd=document.querySelector('.dr-backdrop'); if(!sec||!bd) return;
+  const fr=document.documentElement.lang==='fr', top=sec.querySelector('.dr-top');
+  sec.classList.add('is-drawer'); sec.setAttribute('role','dialog'); sec.setAttribute('aria-modal','true'); sec.setAttribute('tabindex','-1');
+  top.hidden=false; let last=null;
+  const open=()=>{ if(sec.classList.contains('open')) return; last=document.activeElement; bd.hidden=false; requestAnimationFrame(()=>bd.classList.add('on'));
+    sec.classList.add('open'); document.documentElement.classList.add('dr-lock'); sec.scrollTop=0; setTimeout(()=>{ if(!sec.contains(document.activeElement)) sec.focus({preventScroll:true}); },60); };
+  const close=()=>{ if(!sec.classList.contains('open')) return; sec.classList.remove('open'); bd.classList.remove('on'); document.documentElement.classList.remove('dr-lock');
+    setTimeout(()=>{bd.hidden=true},350); if(location.hash==='#kinassay-scan'||location.hash==='#raisey-scan') history.replaceState(null,'',location.pathname+location.search); if(last&&last.focus) last.focus({preventScroll:true}); };
+  // capture phase: open the drawer before the Scan's own start handler runs (it then starts question 1 inside the drawer)
+  document.addEventListener('click',e=>{ const a=e.target.closest('[data-startdiag],a[href="#kinassay-scan"],a[href="#raisey-scan"]'); if(!a||sec.contains(a)) return;
+    open(); if(!a.hasAttribute('data-startdiag')) e.preventDefault(); },true);
+  document.querySelectorAll('[data-drawer-close]').forEach(b=>b.addEventListener('click',close));
+  sec.addEventListener('click',e=>{ const a=e.target.closest('a[href^="#"]'); if(a&&a.getAttribute('href')!=='#') close(); });   // e.g. "Book a first meeting" after the results
+  document.addEventListener('keydown',e=>{ if(!sec.classList.contains('open')) return;
+    if(e.key==='Escape'){ e.preventDefault(); close(); return; }
+    if(e.key==='Tab'){ const f=[...sec.querySelectorAll('a[href],button:not([disabled]),input:not([type=hidden]):not([tabindex="-1"]),select,textarea,[tabindex="0"]')].filter(x=>x.offsetParent!==null);
+      if(!f.length) return; const a=f[0], z=f[f.length-1];
+      if(e.shiftKey&&(document.activeElement===a||document.activeElement===sec)){ e.preventDefault(); z.focus(); } else if(!e.shiftKey&&document.activeElement===z){ e.preventDefault(); a.focus(); } } });
+  const fromHash=()=>{ if(location.hash==='#kinassay-scan'||location.hash==='#raisey-scan'||location.hash==='#scan') open(); };
+  fromHash(); window.addEventListener('hashchange',fromHash);
+})();
+
+/* Book a first meeting: every [data-book] link opens the scheduling page (same tab) when one is configured;
+   on small screens a booking bar appears once the hero has scrolled away (hidden again over the booking section). */
+(function(){
+  const fr=document.documentElement.lang==='fr';
+  const links=[...document.querySelectorAll('[data-book]')];
+  if(BOOKING_URL){
+    links.forEach(a=>{a.href=BOOKING_URL;});   // without the popup (middle-click, popup failure) the page opens in the same tab
+    const m=document.querySelector('[data-bk-modal]');
+    if(m){
+      const fr_=fr, f=m.querySelector('iframe'), ext=m.querySelector('[data-bk-ext]'); let last=null;
+      m.querySelector('.bk-t').textContent=fr_?'Réserver un premier rendez-vous':'Book a first meeting';
+      m.querySelector('.bk-cl').textContent=fr_?'Fermer':'Close';
+      ext.textContent=fr_?'Ouvrir en pleine page':'Open in a full page'; ext.href=BOOKING_URL;
+      f.title=fr_?'Agenda de réservation Kinassay Lab':'Kinassay Lab booking calendar';
+      const embed=BOOKING_URL+(BOOKING_URL.includes('?')?'&':'?')+'gv=true&hl='+(fr_?'fr':'en');
+      const openM=e=>{ if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1) return; e.preventDefault(); last=document.activeElement;
+        if(!f.src) f.src=embed; m.hidden=false; document.documentElement.classList.add('bk-lock'); m.focus({preventScroll:true}); };
+      const closeM=()=>{ if(m.hidden) return; m.hidden=true; document.documentElement.classList.remove('bk-lock'); if(last&&last.focus) last.focus({preventScroll:true}); };
+      links.forEach(a=>a.addEventListener('click',openM));
+      m.querySelector('[data-bk-close]').addEventListener('click',closeM);
+      m.addEventListener('click',e=>{ if(e.target===m) closeM(); });
+      document.addEventListener('keydown',e=>{ if(!m.hidden&&e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); closeM(); } },true);
+    }
+  }else{
+    const main=document.querySelector('[data-book-main]'); if(main) main.closest('.bk-cta').hidden=true;
+    const or=document.getElementById('bk-or'); if(or) or.textContent=fr?'Laissez-nous un message : nous vous répondons sous deux jours ouvrés pour fixer un créneau.':'Leave a message and we’ll reply within two business days to arrange a time.';
+    const c=document.getElementById('contact'); if(c) c.classList.add('no-cal');
+  }
+  const bar=document.querySelector('[data-book-bar]'), hero=document.getElementById('studio'), contact=document.getElementById('contact');
+  if(!bar||!hero||!contact||!('IntersectionObserver' in window)) return;
+  bar.hidden=false; let pastHero=false, atContact=false;
+  const sync=()=>bar.classList.toggle('on',pastHero&&!atContact);
+  new IntersectionObserver(([e])=>{pastHero=!e.isIntersecting&&e.boundingClientRect.top<0;sync();}).observe(hero);
+  new IntersectionObserver(([e])=>{atContact=e.isIntersecting;sync();},{rootMargin:'0px 0px -20% 0px'}).observe(contact);
+})();
 
 /* ---------- lead forms ---------- */
 const isEmail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);

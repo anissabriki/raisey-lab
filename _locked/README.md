@@ -50,3 +50,6 @@ One space added between `<span class="l1">` and `<span class="l2">` in the Servi
 
 ## Kinassay Lab rename · 2026-10-02 (owner request "décline le site avec le nouveau nom")
 Brand name only: "Raisey Scan" → "Kinassay Scan" (CTA label) and "Raisey Review" → "Kinassay Review" (JS comment). Anchor #raisey-scan kept. Layout, styling, CSS and JS behaviour unchanged; services.html/services.js snapshots + checksums refreshed.
+
+## Homepage lead-gen restructure · 2026-10-05
+The locked services block is untouched (owner chose to keep it locked). Sections around it changed, so verify.py now ends the HTML snapshot at an explicit `<!-- 🔒 END LOCKED services -->` marker placed where the old studies marker was; the snapshot bytes and checksum are unchanged.

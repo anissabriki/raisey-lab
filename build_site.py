@@ -36,6 +36,7 @@ def get(key, env):
 
 form = get('formEndpoint', 'FORM_ENDPOINT')
 email = get('contactEmail', 'CONTACT_EMAIL')
+booking = get('bookingUrl', 'BOOKING_URL')   # public scheduling page for the first conversation (optional)
 site = get('siteUrl', 'SITE_URL').rstrip('/')
 base = (get('basePath', 'BASE_PATH') or '/')
 domain = (cfg.get('customDomain') or '').strip()
@@ -62,6 +63,10 @@ if PREVIEW and not form:
     warnings.append('PREVIEW: FORM_ENDPOINT not set, forms will show their error message')
 else:
     need(bool(form) and form.startswith('https://'), 'FORM_ENDPOINT missing or not https:// (forms cannot deliver leads)')
+if booking and not booking.startswith('https://'):
+    errors.append('bookingUrl must be an https:// link to a public scheduling page')
+if not booking:
+    warnings.append('bookingUrl not set: "Book a first meeting" falls back to the message form')
 need(bool(email) and '@' in email, 'contactEmail missing (shown in privacy policy + form fallback)')
 for k, label in (('legalName', 'legal entity name'), ('postalAddress', 'postal address')):
     need(bool((cfg.get(k) or '').strip()), k + ' missing in site.config.json (' + label + ', required on the legal pages)')
@@ -249,6 +254,9 @@ if form:
     form_origin = '%s://%s' % (u.scheme, u.netloc)
 csp = ("default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'self'; "
        "connect-src 'self'%s; base-uri 'self'; form-action 'none'" % ((' ' + form_origin) if form_origin else ''))
+if booking:
+    bu = urlparse(booking)
+    csp += '; frame-src %s://%s' % (bu.scheme, bu.netloc)   # booking popup embeds the scheduling page
 harden = ('<meta http-equiv="Content-Security-Policy" content="%s">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n' % csp)
 
 built = {}
@@ -262,7 +270,8 @@ for p in PAGES:
     if p in HOME:
         h, n1 = re.subn(r"const FORM_ENDPOINT = '';", "const FORM_ENDPOINT = %s;" % json.dumps(form), h)
         h, n2 = re.subn(r"const CONTACT_EMAIL = '';", "const CONTACT_EMAIL = %s;" % json.dumps(email), h)
-        if n1 != 1 or n2 != 1:
+        h, n3 = re.subn(r"const BOOKING_URL = '';", lambda m: "const BOOKING_URL = %s;" % json.dumps(booking), h)
+        if n1 != 1 or n2 != 1 or n3 != 1:
             sys.exit('FAILED: could not inject form settings into ' + p)
     h = render_seo(p, clean_hrefs(h), site, base)
     # CSP goes right after <meta charset> so it is in force before anything else is parsed
