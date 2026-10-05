@@ -917,6 +917,18 @@ body{background:var(--rl-ivory)}
 .dr-backdrop.on{opacity:1}
 html.dr-lock{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.hx-scan.is-drawer,.hx-scan.is-drawer.open,.dr-backdrop{transition:none}}
+/* cookie banner (owner request): consent only governs the embedded Google Calendar; the site itself sets no cookies */
+.ck{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:0 max(16px,env(safe-area-inset-left)) calc(14px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right))}
+.ck[hidden]{display:none}
+.ck-in{max-width:880px;margin:0 auto;display:grid;gap:8px;padding:18px clamp(16px,2.4vw,26px);background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius-tile);box-shadow:0 18px 48px rgba(28,24,25,.16)}
+.ck-t{font:500 1.05rem/1.3 var(--serif);color:var(--rl-ink)}
+.ck-x{font-size:14px;line-height:1.55;color:var(--rl-muted)}
+.ck-b{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:6px}
+.ck .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:44px;padding:10px 22px;font-size:14px}
+.ck-no{min-height:44px;padding:10px 20px;background:none;border:1px solid var(--line-strong);border-radius:999px;font:600 14px/1 var(--sans);color:var(--rl-ink);cursor:pointer}
+.ck-more{font-size:13px;color:var(--rl-muted);text-underline-offset:.3em}
+.ck-open{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:none}
+@media (hover:hover){.ck-open:hover{text-decoration:underline}}
 /* booking popup: the Google Calendar booking page opens over the site (embed version, ?gv=true) */
 .bk-modal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:clamp(0px,3vw,40px);background:rgba(28,24,25,.45)}
 .bk-modal[hidden]{display:none}
@@ -953,7 +965,7 @@ html.bk-lock{overflow:hidden}
     </nav>
     <div style="display:flex;align-items:center;gap:16px">
       <div class="langsw h" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
-      <a class="btn head-cta" href="#contact" data-book>Réserver un premier rendez-vous <i class="ar"></i></a>
+      <a class="btn head-cta" href="#contact" data-book>Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
     </div>
   </div>
@@ -967,7 +979,7 @@ html.bk-lock{overflow:hidden}
         <li><a class="l" href="../insights/index.html" hreflang="en">Insights</a></li>
       </ul>
       <div class="langsw m" role="group" aria-label="Langue"><a href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div>
-      <a class="btn" href="#contact" data-book>Réserver un premier rendez-vous <i class="ar"></i></a>
+      <a class="btn" href="#contact" data-book>Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i></a>
     </div>
   </div>
 </header>
@@ -982,7 +994,7 @@ html.bk-lock{overflow:hidden}
       <h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>
       <p class="lede rise" style="--i:2">Kinassay Lab aide les médecins et cliniques esthétiques à être trouvés, à inspirer confiance et à être choisis par les bons patients, grâce à une présence digitale à la hauteur de leur expertise médicale.</p>
       <div class="hx-cta rise" style="--i:3">
-        <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a>
+        <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i></a>
         <p class="hx-micro">30 minutes · Gratuit · Sans engagement</p>
         <p class="hx-alt">Envie d’explorer d’abord ? <a href="#kinassay-scan" data-startdiag data-interest="presence-scan">Faites le Kinassay Scan gratuit</a> <span class="nb">(environ 4 minutes)</span></p>
       </div>
@@ -1107,7 +1119,7 @@ html.bk-lock{overflow:hidden}
           </li>
         </ol>
       </div>
-      <p class="f-cta"><a class="tl" href="#contact" data-book data-interest="founder">Réserver un premier rendez-vous <i class="ar"></i></a> <a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Lire mon histoire : pourquoi j’ai créé Kinassay Lab (en anglais) <i class="ar"></i></a> <a class="tl f-read" href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">Mon profil LinkedIn <i class="ar"></i></a></p>
+      <p class="f-cta"><a class="tl" href="#contact" data-book data-interest="founder">Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i></a> <a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Lire mon histoire : pourquoi j’ai créé Kinassay Lab (en anglais) <i class="ar"></i></a> <a class="tl f-read" href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">Mon profil LinkedIn <i class="ar"></i></a></p>
     </div>
   </div>
 </section>
@@ -1259,8 +1271,13 @@ html.bk-lock{overflow:hidden}
   </div>
 </div>
 
+<div class="ck" data-ck hidden role="region" aria-labelledby="ck-t">
+  <div class="ck-in"><p class="ck-t" id="ck-t"></p><p class="ck-x"></p>
+    <div class="ck-b"><button type="button" class="btn" data-ck-yes></button><button type="button" class="ck-no" data-ck-no></button><a class="ck-more" data-ck-more href="confidentialite.html"></a></div></div>
+</div>
+
 <div class="book-bar" data-book-bar hidden>
-  <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a>
+  <a class="btn" href="#contact" data-book data-interest="first-conversation">Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i></a>
 </div>
 
 <footer class="site-footer">
@@ -1269,7 +1286,7 @@ html.bk-lock{overflow:hidden}
       <a class="brand" href="#studio" style="font-size:20px">
         <img class="brand-amp" src="../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab
       </a>
-      <nav aria-label="Pied de page"><ul><li><a href="#services">Services</a></li><li><a href="#about">À propos</a></li><li><a href="#work">Études</a></li><li><a href="#kinassay-scan">Kinassay Scan</a></li><li><a href="../insights/index.html" hreflang="en">Insights</a></li><li><a href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">LinkedIn</a></li><li><a href="#contact">Réserver un premier rendez-vous</a></li></ul></nav>
+      <nav aria-label="Pied de page"><ul><li><a href="#services">Services</a></li><li><a href="#about">À propos</a></li><li><a href="#work">Études</a></li><li><a href="#kinassay-scan">Kinassay Scan</a></li><li><a href="../insights/index.html" hreflang="en">Insights</a></li><li><a href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">LinkedIn</a></li><li><a href="#contact">Réserver un premier rendez-vous</a></li><li><button type="button" class="ck-open" data-ck-open>Cookies</button></li></ul></nav>
     </div>
     <p class="f-legal"><a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span></p>
   </div>
@@ -1365,6 +1382,27 @@ document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('clic
   fromHash(); window.addEventListener('hashchange',fromHash);
 })();
 
+/* cookie banner: consent for the embedded Google Calendar booking page (the site itself sets no cookies; Cloudflare Web Analytics is cookieless) */
+const CK_KEY='kinassay-cookies';
+function ckGet(){ try{ return localStorage.getItem(CK_KEY)||''; }catch(e){ return window.__ck||''; } }
+function ckSet(v){ window.__ck=v; try{ localStorage.setItem(CK_KEY,v); }catch(e){} }
+(function(){
+  const b=document.querySelector('[data-ck]'); if(!b) return;
+  const fr=document.documentElement.lang==='fr';
+  const T=fr?{t:'Cookies',x:'Ce site ne dépose aucun cookie et mesure la fréquentation sans cookies. Seul notre agenda de réservation Google Agenda peut déposer des cookies Google, si vous l’ouvrez sur le site.',y:'Accepter',n:'Refuser',m:'En savoir plus'}
+           :{t:'Cookies',x:'This site sets no cookies and measures visits without cookies. Only our Google Calendar booking page may set Google cookies, if you open it on the site.',y:'Accept',n:'Decline',m:'Learn more'};
+  b.querySelector('.ck-t').textContent=T.t; b.querySelector('.ck-x').textContent=T.x;
+  b.querySelector('[data-ck-yes]').textContent=T.y; b.querySelector('[data-ck-no]').textContent=T.n;
+  const more=b.querySelector('[data-ck-more]'); more.textContent=T.m; more.href=(fr?'confidentialite.html':'privacy.html');
+  const bar=document.querySelector('[data-book-bar]');
+  const show=()=>{ b.hidden=false; if(bar) bar.style.visibility='hidden'; };
+  const hide=()=>{ b.hidden=true; if(bar) bar.style.visibility=''; };
+  b.querySelector('[data-ck-yes]').addEventListener('click',()=>{ckSet('accepted');hide()});
+  b.querySelector('[data-ck-no]').addEventListener('click',()=>{ckSet('declined');hide()});
+  document.querySelectorAll('[data-ck-open]').forEach(x=>x.addEventListener('click',show));
+  if(!ckGet()) show();
+})();
+
 /* Book a first meeting: every [data-book] link opens the scheduling page (same tab) when one is configured;
    on small screens a booking bar appears once the hero has scrolled away (hidden again over the booking section). */
 (function(){
@@ -1380,7 +1418,8 @@ document.querySelectorAll('[data-interest]').forEach(a=>a.addEventListener('clic
       ext.textContent=fr_?'Ouvrir en pleine page':'Open in a full page'; ext.href=BOOKING_URL;
       f.title=fr_?'Agenda de réservation Kinassay Lab':'Kinassay Lab booking calendar';
       const embed=BOOKING_URL+(BOOKING_URL.includes('?')?'&':'?')+'gv=true&hl='+(fr_?'fr':'en');
-      const openM=e=>{ if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1) return; e.preventDefault(); last=document.activeElement;
+      const openM=e=>{ if(e.metaKey||e.ctrlKey||e.shiftKey||e.button===1) return; if(ckGet()!=='accepted') return;   // no consent: the booking page opens in full (same tab)
+        e.preventDefault(); last=document.activeElement;
         if(!f.src) f.src=embed; m.hidden=false; document.documentElement.classList.add('bk-lock'); m.focus({preventScroll:true}); };
       const closeM=()=>{ if(m.hidden) return; m.hidden=true; document.documentElement.classList.remove('bk-lock'); if(last&&last.focus) last.focus({preventScroll:true}); };
       document.addEventListener('click',e=>{ if(e.target.closest('[data-book]')) openM(e); });   // delegated: also covers links added later (Scan results)

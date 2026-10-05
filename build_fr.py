@@ -55,9 +55,10 @@ def main():
     sub('<nav class="nav" aria-label="Main">', '<nav class="nav" aria-label="Principale">')
     sub('href="#work">Studies<', 'href="#work">Études<')
     sub('href="#about">About<', 'href="#about">À propos<')
-    sub('Book a first meeting <i class="ar"></i>', 'Réserver un premier rendez-vous <i class="ar"></i>')
+    sub('Book a first meeting <i class="ar"></i>', 'Réserver un premier <span class="nb">rendez-vous</span> <i class="ar"></i>')
     sub('<li><a href="#contact">Book a first meeting</a></li>', '<li><a href="#contact">Réserver un premier rendez-vous</a></li>')
     sub('<nav aria-label="Footer">', '<nav aria-label="Pied de page">')
+    sub('<a class="ck-more" data-ck-more href="privacy.html">', '<a class="ck-more" data-ck-more href="confidentialite.html">')
     sub('<span class="mt">Menu</span>', '<span class="mt">Menu</span>')
 
     # ---------- hero + new homepage sequence (2026-09) ----------
