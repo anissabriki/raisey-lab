@@ -1156,7 +1156,7 @@ html.bk-lock{overflow:hidden}
   <div class="wrap">
     <p class="hx-eb hx-center">Envie d’explorer d’abord ?</p>
     <h2 id="hx-pillars-h" class="hx-scan-h hx-center">Faites le Kinassay Scan gratuit.</h2>
-    <p class="hx-intro">Onze questions sur votre cabinet. Une première lecture de vos réponses sur six dimensions, et vos résultats complets par e-mail.</p>
+    <p class="hx-intro">Onze questions sur votre cabinet. Votre lecture personnalisée sur six dimensions, envoyée par e-mail en quelques minutes.</p>
     <ol class="hx-five" aria-label="Les six dimensions lues par le Scan">
       <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Marque</h3><p>Positionnement · Identité<br> Différenciation</p></li>
       <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p></li>
@@ -1197,7 +1197,7 @@ html.bk-lock{overflow:hidden}
           <p class="note wide priv"><span aria-hidden="true">*</span> Obligatoire. Le reste est facultatif. Ces informations, avec vos réponses au Scan, servent uniquement à vous envoyer vos résultats et à vous répondre. <a class="link" href="confidentialite.html">Politique de confidentialité</a></p>
           <div class="f-actions wide"><button class="btn" type="submit">Recevoir mes résultats <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
           <p class="micro wide"><span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span></p>
-          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un premier rendez-vous avec Kinassay Lab.</p><a class="tl" href="#contact" data-book data-interest="first-conversation">Réserver un premier rendez-vous <i class="ar"></i></a></div>
+          <div class="thanks wide" hidden tabindex="-1"><h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un débrief de 30 minutes avec la fondatrice pour lire vos résultats ensemble. Gratuit, sans engagement.</p><a class="tl" href="#contact" data-book data-interest="first-conversation">Réserver mon débrief de 30 minutes <i class="ar"></i></a></div>
         </form>
       </div>
     </div>
@@ -1283,7 +1283,7 @@ html.bk-lock{overflow:hidden}
 const FORM_ENDPOINT = '';
 const BOOKING_URL = ''; // public scheduling page for the first meeting (site.config.json bookingUrl); empty = the message form is the booking route
 const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
-const SCAN_EMAIL_GATE = false;   // true = results are revealed only after the email step (French site)
+const SCAN_EMAIL_GATE = true;   // owner 2026-10: Scan results are sent by email only (no on-screen results, both languages)
 const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1563,7 +1563,7 @@ function gateStep(){
   stage.querySelector('[data-back]').addEventListener('click',()=>{request.hidden=true;go(Q.length-1)});
   openRequest();
 }
-sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}) });
+sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; stage.innerHTML=''; });   // email only: the thank-you message stays, no on-screen results
 {const b=sform.querySelector('button[type=submit]'); b.dataset.label=b.firstChild.textContent}
 function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
 

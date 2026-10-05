@@ -88,8 +88,8 @@ def main():
     sub('Understanding your results', 'Comprendre vos résultats')
     sub('Each dimension is read on three levels.', 'Chaque dimension se lit sur trois niveaux.')
     sub('<button class="btn" type="button" id="takeDiag">Start my Kinassay Scan <i class="ar"></i></button>', '<button class="btn" type="button" id="takeDiag">Démarrer mon Kinassay Scan <i class="ar"></i></button>')
-    sub('<p class="hx-intro">Eleven questions about your practice. A first reading of your answers across six dimensions, with your full results by email.</p>',
-        '<p class="hx-intro">Onze questions sur votre cabinet. Une première lecture de vos réponses sur six dimensions, et vos résultats complets par e-mail.</p>')
+    sub('<p class="hx-intro">Eleven questions about your practice. Your personalised reading across six dimensions, sent to you by email within minutes.</p>',
+        '<p class="hx-intro">Onze questions sur votre cabinet. Votre lecture personnalisée sur six dimensions, envoyée par e-mail en quelques minutes.</p>')
     sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('The Kinassay Scan needs JavaScript. You can book a first meeting in the next section.',
         'Le Kinassay Scan nécessite JavaScript. Vous pouvez réserver un premier rendez-vous dans la section suivante.')
@@ -115,8 +115,9 @@ def main():
         '<span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span>')
     sub('Required. Everything else is optional. We use these details, together with your Scan answers, only to send your Scan results and to reply to you. <a class="link" href="privacy.html">Privacy Policy</a>',
         'Obligatoire. Le reste est facultatif. Ces informations, avec vos réponses au Scan, servent uniquement à vous envoyer vos résultats et à vous répondre. <a class="link" href="confidentialite.html">Politique de confidentialité</a>')
-    sub('<h3>Thank you. Your complete Scan results are on their way.</h3><p class="muted">They should reach you within a few minutes. Nothing yet? Check your spam folder.</p><p class="muted">The next step, if you wish, is a first meeting with Kinassay Lab.</p>',
-        '<h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un premier rendez-vous avec Kinassay Lab.</p>')
+    sub('<h3>Thank you. Your complete Scan results are on their way.</h3><p class="muted">They should reach you within a few minutes. Nothing yet? Check your spam folder.</p><p class="muted">The next step, if you wish: a 30-minute debrief with the founder to read your results together. Free, no commitment.</p>',
+        '<h3>Merci. Les résultats complets de votre Scan arrivent.</h3><p class="muted">Comptez quelques minutes. Rien reçu ? Pensez à vérifier vos courriers indésirables.</p><p class="muted">L’étape suivante, si vous le souhaitez : un débrief de 30 minutes avec la fondatrice pour lire vos résultats ensemble. Gratuit, sans engagement.</p>')
+    sub('Book my 30-minute debrief <i class="ar"></i>', 'Réserver mon débrief de 30 minutes <i class="ar"></i>')
 
     # specialty selects: French labels, canonical English values (CRM stays consistent across languages)
     groups = [

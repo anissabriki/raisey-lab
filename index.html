@@ -1156,7 +1156,7 @@ html.bk-lock{overflow:hidden}
   <div class="wrap">
     <p class="hx-eb hx-center">Prefer to explore first?</p>
     <h2 id="hx-pillars-h" class="hx-scan-h hx-center">Take the free Kinassay Scan.</h2>
-    <p class="hx-intro">Eleven questions about your practice. A first reading of your answers across six dimensions, with your full results by email.</p>
+    <p class="hx-intro">Eleven questions about your practice. Your personalised reading across six dimensions, sent to you by email within minutes.</p>
     <ol class="hx-five" aria-label="The six dimensions read by the Scan">
       <li><span class="hx-n">01</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8" stroke-dasharray="2.2 2.4"/></g></svg><h3>Brand</h3><p>Positioning · Identity<br> Differentiation</p></li>
       <li><span class="hx-n">02</span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></g></svg><h3>Visibility</h3><p>SEO · Search<br> Being found</p></li>
@@ -1197,7 +1197,7 @@ html.bk-lock{overflow:hidden}
           <p class="note wide priv"><span aria-hidden="true">*</span> Required. Everything else is optional. We use these details, together with your Scan answers, only to send your Scan results and to reply to you. <a class="link" href="privacy.html">Privacy Policy</a></p>
           <div class="f-actions wide"><button class="btn" type="submit">Send me my results <i class="ar"></i></button><p class="status" role="status" aria-live="polite"></p></div>
           <p class="micro wide"><span class="nb">Free · No commitment ·</span> <span class="nb">Full results by email within minutes</span></p>
-          <div class="thanks wide" hidden tabindex="-1"><h3>Thank you. Your complete Scan results are on their way.</h3><p class="muted">They should reach you within a few minutes. Nothing yet? Check your spam folder.</p><p class="muted">The next step, if you wish, is a first meeting with Kinassay Lab.</p><a class="tl" href="#contact" data-book data-interest="first-conversation">Book a first meeting <i class="ar"></i></a></div>
+          <div class="thanks wide" hidden tabindex="-1"><h3>Thank you. Your complete Scan results are on their way.</h3><p class="muted">They should reach you within a few minutes. Nothing yet? Check your spam folder.</p><p class="muted">The next step, if you wish: a 30-minute debrief with the founder to read your results together. Free, no commitment.</p><a class="tl" href="#contact" data-book data-interest="first-conversation">Book my 30-minute debrief <i class="ar"></i></a></div>
         </form>
       </div>
     </div>
@@ -1283,7 +1283,7 @@ html.bk-lock{overflow:hidden}
 const FORM_ENDPOINT = '';
 const BOOKING_URL = ''; // public scheduling page for the first meeting (site.config.json bookingUrl); empty = the message form is the booking route
 const CONTACT_EMAIL = ''; // shown in the fallback message if the form service is unreachable
-const SCAN_EMAIL_GATE = false;   // true = results are revealed only after the email step (French site)
+const SCAN_EMAIL_GATE = true;   // owner 2026-10: Scan results are sent by email only (no on-screen results, both languages)
 const DEV = ['localhost','127.0.0.1',''].includes(location.hostname) || location.protocol === 'file:';
 document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -1563,7 +1563,7 @@ function gateStep(){
   stage.querySelector('[data-back]').addEventListener('click',()=>{request.hidden=true;go(Q.length-1)});
   openRequest();
 }
-sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}) });
+sform.addEventListener('lead:sent',()=>{ if(!SCAN_EMAIL_GATE) return; stage.innerHTML=''; });   // email only: the thank-you message stays, no on-screen results
 {const b=sform.querySelector('button[type=submit]'); b.dataset.label=b.firstChild.textContent}
 function go(n){ step=n; if(n>=Q.length&&SCAN_EMAIL_GATE){gateStep();return} if(n<Q.length)question(); else{result(); const rm=matchMedia('(prefers-reduced-motion: reduce)').matches; document.getElementById('glance').scrollIntoView({behavior:rm?'auto':'smooth',block:'start'}); setTimeout(()=>{const t=document.querySelector('[data-glance-title]'); if(t)t.focus({preventScroll:true})},rm?0:450); return} focusFirst(); }
 
