@@ -136,7 +136,7 @@ def make_jsonld(p, origin, base, h=''):
 
 def render_seo(p, h, origin, base):
     """Strips the relative source alternates; adds absolute canonical/hreflang/og:url + JSON-LD to indexable pages only."""
-    h = re.sub(r'<link rel="alternate" hreflang="[^"]+" href="[^"]+">\n?', '', h)
+    h = re.sub(r'<link rel="alternate" hreflang="[^"]+" href="(?!https?://)[^"]+">\n?', '', h)   # relative source alternates only (Insights carry absolute EN/FR pairs)
     if p in HOME and origin:
         root = origin + base
         tags = ('<link rel="canonical" href="%s">\n<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="fr" href="%s">\n'
