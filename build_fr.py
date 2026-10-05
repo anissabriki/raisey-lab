@@ -237,6 +237,7 @@ def main():
     sub('<p>I’m Anissa Sabrina Briki, founder of Kinassay Lab. At FILLMED Laboratories, I worked alongside aesthetic practitioners and saw the realities of growing a practice. Before that, at Google and GroupM, I built digital strategy and growth across beauty, luxury and international markets.</p>',
         '<p>Je suis Anissa Sabrina Briki, fondatrice de Kinassay Lab. Chez FILLMED Laboratories, j’ai travaillé aux côtés des praticiens de la médecine esthétique, au plus près de la réalité du développement d’un cabinet. Auparavant, chez Google et GroupM, j’ai construit des stratégies digitales et de croissance pour la beauté, le luxe et les marchés internationaux.</p>')
     sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Read my story: why I created Kinassay Lab <i class="ar"></i></a>', '<a class="tl f-read" href="../insights/why-i-created-raisey-lab/" hreflang="en">Lire mon histoire : pourquoi j’ai créé Kinassay Lab (en anglais) <i class="ar"></i></a>')
+    sub('My LinkedIn profile <i class="ar"></i>', 'Mon profil LinkedIn <i class="ar"></i>')
     sub('aria-label="Three worlds"', 'aria-label="Trois univers"')
     sub('<p class="cs">Aesthetic medicine</p>', '<p class="cs">Médecine esthétique</p>')
     sub('<p class="cs">Digital growth&nbsp;· Beauty&nbsp;· Luxury</p>', '<p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>')

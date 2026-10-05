@@ -115,6 +115,9 @@ def make_jsonld(p, origin, base, h=''):
     person = {'@type': 'Person', '@id': root + '#founder', 'name': founder, 'alternateName': 'Anissa Briki',
               'jobTitle': 'Founder' if en else 'Fondatrice', 'worksFor': {'@id': root + '#organization'},
               'image': root + 'images/founder-about-768.jpg', 'knowsAbout': cfg.get('knowsAbout') or []}
+    fprof = [u for u in (cfg.get('founderProfiles') or []) if isinstance(u, str) and u.startswith('https://')]
+    if fprof:
+        person['sameAs'] = fprof
     site_ = {'@type': 'WebSite', '@id': root + '#website', 'url': root, 'name': 'Kinassay Lab', 'inLanguage': ['en', 'fr'],
              'publisher': {'@id': root + '#organization'}}
     # Services: read from the page's own visible Services rows (name + one-line description), so schema never claims more than the page shows
