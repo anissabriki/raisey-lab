@@ -110,11 +110,11 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 /* Expertise page (owner brief 2026-10-06): the Services Scan CTA is the page's single conversion → main burgundy button */
 .svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
 /* Expertise page FAQ (owner-approved 2026-10-06): editorial list, fine rules, same type system as Services */
-.xp-faq{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line)}
+.xp-faq{padding:clamp(64px,8vw,120px) 0 clamp(72px,9vw,128px)}
 .xp-faq-in{display:grid;gap:clamp(28px,4vw,48px)}
 .xp-faq .lab{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.xp-faq h2{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
-.xp-faq h2 em{font-style:italic}
+.xp-faq h1{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
+.xp-faq h1 em{font-style:italic}
 .xp-faq details{border-top:1px solid var(--line-strong)}
 .xp-faq details:last-child{border-bottom:1px solid var(--line-strong)}
 .xp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0}
@@ -543,7 +543,7 @@ textarea.input{min-height:130px;resize:vertical}
 .site-footer{border-top:1px solid var(--line);padding-block:clamp(36px,5vw,64px) max(28px,env(safe-area-inset-bottom));margin-top:clamp(48px,7vw,96px)}
 .f-row{display:grid;gap:20px;align-items:center}
 .f-row nav ul{display:flex;flex-wrap:wrap;gap:0 28px}
-.f-row nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
+.f-row nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
 @media (hover:hover){.f-row nav a:hover{color:var(--rasp)}}
 .f-legal{margin-top:clamp(20px,3vw,32px);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
 .f-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-underline-offset:.3em}
@@ -1121,21 +1121,6 @@ html.bk-lock{overflow:hidden}
 
 <!-- 🔒 END LOCKED services -->
 
-<!-- ============ EXPERTISE · FAQ (owner-approved 2026-10-06: plain answers that search engines and AI assistants can quote; no CTA, no figures) ============ -->
-<section class="xp-faq" id="faq" aria-labelledby="faq-h">
-  <div class="wrap xp-faq-in">
-    <div class="xp-faq-l"><p class="lab">Questions</p><h2 id="faq-h">Digital strategy for aesthetic medicine, <em>in short.</em></h2></div>
-    <div class="xp-faq-r">
-      <details><summary><h3>What is Kinassay Lab?</h3></summary><p>Kinassay Lab is a digital strategy studio born inside aesthetic medicine. We work with aesthetic doctors and clinics in Paris, London and Dubai to build how they are found, perceived and chosen online.</p></details>
-      <details><summary><h3>Who do you work with?</h3></summary><p>Aesthetic doctors, independent practices and aesthetic clinics who want a digital presence that reflects the quality of their medical work.</p></details>
-      <details><summary><h3>What does your support cover?</h3></summary><p>Four areas: visibility &amp; acquisition (local SEO, Google Business Profile, Google and Meta ads, reputation), website &amp; patient journey, content &amp; presence (social media, email, CRM), and strategy &amp; growth (digital audit, analytics, practitioner positioning).</p></details>
-      <details><summary><h3>Where should a practice start?</h3></summary><p>With the Kinassay Scan: a free questionnaire of about 4 minutes that reads your digital presence across six dimensions. Your results arrive by email within minutes.</p></details>
-      <details><summary><h3>How does a first meeting work?</h3></summary><p>It is a 30-minute video call, free and without commitment, to understand your practice, your goals and where your digital presence stands.</p></details>
-      <details><summary><h3>Do you work in French and English?</h3></summary><p>Yes. We work in both languages, with practices in France, the United Kingdom and the United Arab Emirates.</p></details>
-    </div>
-  </div>
-</section>
-
 <!-- ============ KINASSAY SCAN (secondary path) — opens as a side drawer when JavaScript runs; plain section without it ============ -->
 <section class="hx-pillars hx-scan" id="kinassay-scan" aria-labelledby="hx-pillars-h">
   <span id="raisey-scan" class="anchor-alias" aria-hidden="true"></span>
@@ -1216,7 +1201,7 @@ html.bk-lock{overflow:hidden}
       <a class="brand" href="../index.html#studio" style="font-size:20px">
         <img class="brand-amp" src="../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab
       </a>
-      <nav aria-label="Footer"><ul><li><a href="../index.html#studio">Studio</a></li><li><a href="#kinassay-scan">Kinassay Scan</a></li><li><a href="index.html" aria-current="page">Services</a></li><li><a href="../index.html#work">Profiles</a></li><li><a href="../index.html#about">About</a></li><li><a href="../insights/index.html">Insights</a></li><li><a href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">LinkedIn</a></li><li><a href="../index.html#contact">Contact</a></li><li><button type="button" class="ck-open" data-ck-open>Cookies</button></li></ul></nav>
+      <nav aria-label="Footer"><ul><li><a href="../index.html#studio">Studio</a></li><li><a href="#kinassay-scan">Kinassay Scan</a></li><li><a href="index.html" aria-current="page">Services</a></li><li><a href="../index.html#work">Profiles</a></li><li><a href="../index.html#about">About</a></li><li><a href="../insights/index.html">Insights</a></li><li><a href="https://www.linkedin.com/in/anissa-s-briki/" rel="me">LinkedIn</a></li><li><a href="../faq/index.html">FAQ</a></li><li><a href="../index.html#contact">Contact</a></li><li><button type="button" class="ck-open" data-ck-open>Cookies</button></li></ul></nav>
     </div>
     <p class="f-legal"><a class="lg" href="../privacy.html">Privacy Policy</a><a class="lg" href="../privacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span></p>
   </div>

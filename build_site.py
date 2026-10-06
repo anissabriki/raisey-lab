@@ -83,9 +83,10 @@ if form:
 # ---------------------------------------------------------------- 3. SEO architecture (clean URLs)
 HOME = {'index.html': '', 'fr/index.html': 'fr/'}            # page -> path under the site root (EN = /, FR = /fr/)
 EXPERTISE = {'expertise/index.html': 'expertise/', 'fr/expertise/index.html': 'fr/expertise/'}   # Services bands (build_expertise.py)
-SEO = dict(HOME, **EXPERTISE)                                # indexable EN/FR pairs with canonical/hreflang/JSON-LD
-PAIR = {p: (('', 'fr/') if p in HOME else ('expertise/', 'fr/expertise/')) for p in SEO}   # page -> (EN path, FR path)
-LANG = {'index.html': 'en', 'fr/index.html': 'fr', 'expertise/index.html': 'en', 'fr/expertise/index.html': 'fr'}
+FAQ = {'faq/index.html': 'faq/', 'fr/faq/index.html': 'fr/faq/'}                              # FAQ page, footer link only (build_expertise.py)
+SEO = dict(HOME, **EXPERTISE, **FAQ)                                # indexable EN/FR pairs with canonical/hreflang/JSON-LD
+PAIR = {p: (SEO[p].replace('fr/', '', 1) if p.startswith('fr/') else SEO[p], SEO[p] if p.startswith('fr/') else 'fr/' + SEO[p]) for p in SEO}   # page -> (EN path, FR path)
+LANG = {p: 'fr' if p.startswith('fr/') else 'en' for p in SEO}
 LEGAL = ['privacy.html', 'fr/confidentialite.html']          # noindex,follow, never in the sitemap, no canonical/hreflang
 INSIGHTS = sorted(os.path.join(d, 'index.html') for top in ('insights', os.path.join('fr', 'insights')) for d, _, fs in os.walk(top) if 'index.html' in fs)   # EN /insights/ + FR /fr/insights/, indexable (build_insights.py)
 PAGES = list(SEO) + LEGAL + ['404.html'] + INSIGHTS
@@ -103,7 +104,7 @@ def clean_hrefs(h):
 
 def strip_src(h):
     """The home pages carry the Services bands only as the inert source of the Expertise page: never ship them."""
-    return re.sub(r'<template id="expertise-src">.*?</template>\n?', '', h, count=1, flags=re.S)
+    return re.sub(r'<template id="(?:expertise|faq)-src">.*?</template>\n?', '', h, flags=re.S)
 
 
 def make_jsonld(p, origin, base, h=''):
@@ -180,7 +181,8 @@ def make_llms(root):
     out = ['# Kinassay Lab', '', '> ' + (cfg.get('positioning') or '').strip(), '',
            'Founded by %s. Markets served: %s. Languages: English and French.' % (founder, ', '.join(CITIES)), '',
            '## Expertise', ''] + ['- %s: %s' % (plain(n), plain(d)) for n, d in rows] + [
-           '- Details: [Expertise](%sexpertise/) · [Expertise (FR)](%sfr/expertise/)' % (root, root), '',
+           '- Details: [Expertise](%sexpertise/) · [Expertise (FR)](%sfr/expertise/)' % (root, root),
+           '- Questions: [FAQ](%sfaq/) · [FAQ (FR)](%sfr/faq/)' % (root, root), '',
            '## Where to start', '',
            '- [Kinassay Scan](%s#kinassay-scan): free questionnaire, about 4 minutes, six dimensions of digital presence, results by email within minutes.' % root,
            '- First meeting: 30 minutes by video, free, no commitment ([book](%s)).' % (booking or root + '#contact'), '',
@@ -226,7 +228,7 @@ def seo_check(pages, sitemap, origin, base, where):
             try:
                 ld = json.loads(blocks[0].replace('<\\/', '</'))
                 types = sorted(n['@type'] for n in ld['@graph'])
-                if [t for t in types if t not in ('Service', 'FAQPage')] != ['Organization', 'Person', 'WebPage', 'WebSite'] or types.count('Service') not in (0, 4) or types.count('FAQPage') != (1 if p in EXPERTISE else 0):
+                if [t for t in types if t not in ('Service', 'FAQPage')] != ['Organization', 'Person', 'WebPage', 'WebSite'] or types.count('Service') not in (0, 4) or types.count('FAQPage') != (1 if p in FAQ else 0):
                     bad.append('%s %s: unexpected JSON-LD types %s' % (where, p, types))
                 if FORBIDDEN_LD.search(blocks[0]):
                     bad.append('%s %s: JSON-LD contains a forbidden claim (address, LocalBusiness, rating, review, offer...)' % (where, p))
@@ -336,7 +338,7 @@ if site:
     # never earlier than the day it went live; the listing = its newest article
     pub = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
     mods = {p: git_date(p) for p in HOME}
-    mods.update({p: git_date('index.html' if p.startswith('expertise') else 'fr/index.html') for p in EXPERTISE})   # built from the home sources
+    mods.update({p: git_date('fr/index.html' if p.startswith('fr/') else 'index.html') for p in list(EXPERTISE) + list(FAQ)})   # built from the home sources
     is_art = lambda p: p.split('/')[-3] == 'insights' if p.count('/') >= 2 else False      # insights/<slug>/index.html or fr/insights/<slug>/index.html
     src_md = lambda p: 'content/insights.fr.md' if p.startswith('fr/') else 'content/insights.md'
     for p in INSIGHTS:

@@ -196,7 +196,7 @@ def main():
         '<h3>Découvrez les forces et les opportunités de votre présence digitale en quelques minutes.</h3>')
 
     # ---------- Expertise page FAQ (owner-approved 2026-10-06) ----------
-    sub('<h2 id="faq-h">Digital strategy for aesthetic medicine, <em>in short.</em></h2>', '<h2 id="faq-h">La stratégie digitale en médecine esthétique, <em>en bref.</em></h2>')
+    sub('<p class="lab">Frequently asked questions</p><h1 id="faq-h">Digital strategy for aesthetic medicine, <em>in short.</em></h1>', '<p class="lab">Questions fréquentes</p><h1 id="faq-h">La stratégie digitale en médecine esthétique, <em>en bref.</em></h1>')
     for en_, fr_ in (
         ('What is Kinassay Lab?', 'Qu’est-ce que Kinassay Lab ?'),
         ('Kinassay Lab is a digital strategy studio born inside aesthetic medicine. We work with aesthetic doctors and clinics in Paris, London and Dubai to build how they are found, perceived and chosen online.',

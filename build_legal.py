@@ -280,7 +280,8 @@ def page404():
 """ % dict(base=base, icon=icon, css=css, sprite=sprite)
 
 
-expertise = lambda h: h.replace('index.html#services"', 'expertise/index.html"')   # Services = the Expertise page (build_expertise.py)
+expertise = lambda h: re.sub(r'<li><a href="([^"]*)index\.html#contact">', r'<li><a href="\1faq/index.html">FAQ</a></li>\g<0>',   # footer: FAQ page before the contact link
+                            h.replace('index.html#services"', 'expertise/index.html"'), count=1)   # Services = the Expertise page (build_expertise.py)
 open('404.html', 'w', encoding='utf-8').write(expertise(page404()))
 open('privacy.html', 'w', encoding='utf-8').write(expertise(page('en')))
 os.makedirs('fr', exist_ok=True)

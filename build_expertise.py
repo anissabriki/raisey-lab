@@ -1,17 +1,23 @@
 # -*- coding: utf-8 -*-
-"""Builds the Expertise page (expertise/index.html + fr/expertise/index.html) from the home pages.
+"""Builds the Expertise page (expertise/, fr/expertise/) and the FAQ page (faq/, fr/faq/) from the home pages.
 
 The Services bands (locked component) live in index.html inside <template id="expertise-src">, so build_fr.py
 translates them with the rest of the page and _locked/verify.py keeps guarding them. This script keeps the
 header, footer, booking popup, cookie banner and Kinassay Scan drawer of each home page, replaces the home
-sections with the Services bands, and moves every relative link one folder down.
+sections with the Services bands (or the FAQ, from <template id="faq-src">), and moves every relative link one folder down.
 Run after build_fr.py (build_site.py does it).
 """
 import os
 import re
 import sys
 
-KEEP = {'main', 'services', 'kinassay-scan', 'scan', 'visibility', 'website', 'content', 'growth', 'faq'}   # anchors that exist on the Expertise page
+KEEP = {'main', 'services', 'kinassay-scan', 'scan', 'visibility', 'website', 'content', 'growth', 'faq'}   # anchors that exist on these pages
+META_FAQ = {
+    'en': ('FAQ — Digital strategy for aesthetic medicine | Kinassay Lab',
+           'Short answers about Kinassay Lab: who we work with, what our support covers, where a practice should start and how a first meeting works.'),
+    'fr': ('FAQ — Stratégie digitale en médecine esthétique | Kinassay Lab',
+           'Les réponses courtes sur Kinassay Lab : avec qui nous travaillons, ce que comprend l’accompagnement, par où commencer et comment se passe un premier rendez-vous.'),
+}
 META = {
     'en': ('Expertise — How Kinassay Lab builds your presence',
            'Visibility & acquisition, website & patient journey, content & presence, strategy & growth: how Kinassay Lab builds the digital presence of aesthetic doctors and clinics.'),
@@ -32,11 +38,11 @@ def fail(msg):
     sys.exit('build_expertise: ' + msg)
 
 
-def build(src, out, lang):
+def build(src, out, lang, slug='expertise', meta=META, js=OPEN_JS):
     h = open(src, encoding='utf-8').read()
-    m = re.search(r'<template id="expertise-src">\n(.*?)\n</template>', h, re.S)
+    m = re.search(r'<template id="%s-src">\n(.*?)\n</template>' % slug, h, re.S)
     if not m:
-        fail('no <template id="expertise-src"> in ' + src)
+        fail('no <template id="%s-src"> in %s' % (slug, src))
     bands = m.group(1)
     scan = re.search(r'<!-- =+ KINASSAY SCAN .*?</section>\n', h, re.S)
     if not scan:
@@ -44,7 +50,7 @@ def build(src, out, lang):
     h, n = re.subn(r'(<main id="main">\n).*?(</main>)', lambda k: k.group(1) + bands + '\n\n' + scan.group(0) + k.group(2), h, count=1, flags=re.S)
     if n != 1:
         fail('<main> not found in ' + src)
-    title, desc = META[lang]
+    title, desc = meta[lang]
     esc = lambda t: t.replace('&', '&amp;')
     for pat, val in ((r'<title>.*?</title>', '<title>%s</title>' % esc(title)),
                      (r'<meta name="description" content="[^"]*">', '<meta name="description" content="%s">' % esc(desc)),
@@ -56,7 +62,7 @@ def build(src, out, lang):
     h = re.sub(r'<link rel="preload" as="image"[^>]*>\n', '', h)                       # the home hero image is not on this page
     h = re.sub(r'<link rel="alternate" hreflang="[^"]+" href="[^"]+">\n', '', h)      # build_site.py adds the absolute pair
 
-    other = '../fr/expertise/index.html' if lang == 'en' else '../../expertise/index.html'
+    other = ('../fr/%s/index.html' if lang == 'en' else '../../%s/index.html') % slug
     home_other = 'fr/index.html' if lang == 'en' else '../index.html'
 
     def move(v):
@@ -64,8 +70,8 @@ def build(src, out, lang):
             return v
         if v.startswith('#'):
             return v if v[1:] in KEEP else '../index.html' + v
-        if v.startswith('expertise/index.html'):
-            return 'index.html' + v[len('expertise/index.html'):]
+        if v.startswith(slug + '/index.html'):
+            return 'index.html' + v[len(slug + '/index.html'):]
         if v == home_other:
             return other
         return '../' + v
@@ -73,14 +79,16 @@ def build(src, out, lang):
     h = re.sub(r'\b(href|src)="([^"]*)"', lambda k: '%s="%s"' % (k.group(1), move(k.group(2))), h)
     h = re.sub(r'\bsrcset="([^"]*)"', lambda k: 'srcset="%s"' % re.sub(r'(^|,\s*)(?!https?:|data:|/)(\S)', r'\1../\2', k.group(1)), h)
     h = re.sub(r'url\((?![\'"]?(?:https?:|data:|/|#))', 'url(../', h)
-    h = re.sub(r'href="index\.html"(?=>)', 'href="index.html" aria-current="page"', h)   # menu/footer "Services" = this page
+    h = re.sub(r'href="index\.html"(?=>)', 'href="index.html" aria-current="page"', h)   # menu/footer link to this page
     # keywords wrap between items, never before a "·" (mobile bands)
     h = re.sub(r'(<(?:span|p) class="p?-?sup">)(.*?)(</(?:span|p)>)', lambda k: k.group(1) + k.group(2).replace(' · ', '\u00a0· ') + k.group(3), h)
-    h = h.replace('</body>', OPEN_JS + '</body>', 1)
+    h = h.replace('</body>', js + '</body>', 1)
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(h)
 
 
 build('index.html', os.path.join('expertise', 'index.html'), 'en')
 build(os.path.join('fr', 'index.html'), os.path.join('fr', 'expertise', 'index.html'), 'fr')
-print('expertise pages written')
+build('index.html', os.path.join('faq', 'index.html'), 'en', 'faq', META_FAQ, '')
+build(os.path.join('fr', 'index.html'), os.path.join('fr', 'faq', 'index.html'), 'fr', 'faq', META_FAQ, '')
+print('expertise + faq pages written')

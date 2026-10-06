@@ -115,11 +115,11 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 /* Expertise page (owner brief 2026-10-06): the Services Scan CTA is the page's single conversion → main burgundy button */
 .svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
 /* Expertise page FAQ (owner-approved 2026-10-06): editorial list, fine rules, same type system as Services */
-.xp-faq{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line)}
+.xp-faq{padding:clamp(64px,8vw,120px) 0 clamp(72px,9vw,128px)}
 .xp-faq-in{display:grid;gap:clamp(28px,4vw,48px)}
 .xp-faq .lab{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
-.xp-faq h2{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
-.xp-faq h2 em{font-style:italic}
+.xp-faq h1{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
+.xp-faq h1 em{font-style:italic}
 .xp-faq details{border-top:1px solid var(--line-strong)}
 .xp-faq details:last-child{border-bottom:1px solid var(--line-strong)}
 .xp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0}
@@ -188,7 +188,7 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 .site-footer{border-top:1px solid var(--line);padding-block:clamp(36px,5vw,64px) max(28px,env(safe-area-inset-bottom));margin-top:clamp(48px,7vw,96px)}
 .f-row{display:grid;gap:20px;align-items:center}
 .f-row nav ul{display:flex;flex-wrap:wrap;gap:0 28px}
-.f-row nav a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
+.f-row nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;text-decoration:none;font-weight:500;font-size:15px}
 @media (hover:hover){.f-row nav a:hover{color:var(--rasp)}}
 .f-legal{margin-top:clamp(20px,3vw,32px);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px}
 .f-legal a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-underline-offset:.3em}
@@ -878,7 +878,7 @@ html.bk-lock{overflow:hidden}
 </div></main>
 <footer class="site-footer"><div class="wrap">
   <div class="f-row"><a class="brand" href="../../fr/index.html#studio" style="font-size:20px"><img class="brand-amp" src="../../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
-  <nav aria-label="Pied de page"><ul><li><a href="../../fr/expertise/index.html">Services</a></li><li><a href="../../fr/index.html#about">À propos</a></li><li><a href="../../fr/index.html#work">Études</a></li><li><a href="../../fr/index.html#kinassay-scan">Kinassay Scan</a></li><li><a href="../../fr/insights/index.html">Insights</a></li><li><a href="../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span></a></li></ul></nav></div>
+  <nav aria-label="Pied de page"><ul><li><a href="../../fr/expertise/index.html">Services</a></li><li><a href="../../fr/index.html#about">À propos</a></li><li><a href="../../fr/index.html#work">Études</a></li><li><a href="../../fr/index.html#kinassay-scan">Kinassay Scan</a></li><li><a href="../../fr/insights/index.html">Insights</a></li><li><a href="../../fr/faq/index.html">FAQ</a></li><li><a href="../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span></a></li></ul></nav></div>
   <p class="f-legal"><a class="lg" href="../../fr/confidentialite.html">Politique de confidentialité</a><a class="lg" href="../../fr/confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span></p>
 </div></footer>
 <script>
