@@ -109,6 +109,23 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
    owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
 /* Expertise page (owner brief 2026-10-06): the Services Scan CTA is the page's single conversion → main burgundy button */
 .svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* Expertise page FAQ (owner-approved 2026-10-06): editorial list, fine rules, same type system as Services */
+.xp-faq{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line)}
+.xp-faq-in{display:grid;gap:clamp(28px,4vw,48px)}
+.xp-faq .lab{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.xp-faq h2{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
+.xp-faq h2 em{font-style:italic}
+.xp-faq details{border-top:1px solid var(--line-strong)}
+.xp-faq details:last-child{border-bottom:1px solid var(--line-strong)}
+.xp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0}
+.xp-faq summary::-webkit-details-marker{display:none}
+.xp-faq summary h3{font:400 clamp(1.2rem,1rem + .6vw,1.5rem)/1.25 var(--serif);letter-spacing:-.01em}
+.xp-faq summary::after{content:'+';flex:none;display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--line-strong);border-radius:50%;font:300 20px/1 var(--sans);color:var(--p-burgundy);transition:transform .3s var(--ease)}
+.xp-faq details[open] summary::after{transform:rotate(45deg)}
+.xp-faq details p{padding:0 56px 26px 0;color:var(--muted);line-height:1.65;max-width:40em}
+@media (hover:hover){.xp-faq summary:hover h3{color:var(--p-burgundy)}}
+@media (min-width:980px){.xp-faq-in{grid-template-columns:minmax(0,38fr) minmax(0,62fr);align-items:start}.xp-faq-l{position:sticky;top:120px}}
+@media (max-width:979px){.xp-faq details p{padding-right:0}}
 /* the Services heading is the Expertise page's h1: same look as the approved h2 */
 .svc-l h1{font-size:clamp(2.5rem,1rem + 3.4vw,4.1rem);line-height:1.02;letter-spacing:-.03em;font-weight:400;margin-top:clamp(22px,3vw,36px)}
 .svc-l h1 .l1,.svc-l h1 .l2{display:block}
@@ -1103,6 +1120,21 @@ html.bk-lock{overflow:hidden}
 </section>
 
 <!-- 🔒 END LOCKED services -->
+
+<!-- ============ EXPERTISE · FAQ (owner-approved 2026-10-06: plain answers that search engines and AI assistants can quote; no CTA, no figures) ============ -->
+<section class="xp-faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap xp-faq-in">
+    <div class="xp-faq-l"><p class="lab">Questions</p><h2 id="faq-h">Digital strategy for aesthetic medicine, <em>in short.</em></h2></div>
+    <div class="xp-faq-r">
+      <details><summary><h3>What is Kinassay Lab?</h3></summary><p>Kinassay Lab is a digital strategy studio born inside aesthetic medicine. We work with aesthetic doctors and clinics in Paris, London and Dubai to build how they are found, perceived and chosen online.</p></details>
+      <details><summary><h3>Who do you work with?</h3></summary><p>Aesthetic doctors, independent practices and aesthetic clinics who want a digital presence that reflects the quality of their medical work.</p></details>
+      <details><summary><h3>What does your support cover?</h3></summary><p>Four areas: visibility &amp; acquisition (local SEO, Google Business Profile, Google and Meta ads, reputation), website &amp; patient journey, content &amp; presence (social media, email, CRM), and strategy &amp; growth (digital audit, analytics, practitioner positioning).</p></details>
+      <details><summary><h3>Where should a practice start?</h3></summary><p>With the Kinassay Scan: a free questionnaire of about 4 minutes that reads your digital presence across six dimensions. Your results arrive by email within minutes.</p></details>
+      <details><summary><h3>How does a first meeting work?</h3></summary><p>It is a 30-minute video call, free and without commitment, to understand your practice, your goals and where your digital presence stands.</p></details>
+      <details><summary><h3>Do you work in French and English?</h3></summary><p>Yes. We work in both languages, with practices in France, the United Kingdom and the United Arab Emirates.</p></details>
+    </div>
+  </div>
+</section>
 
 <!-- ============ KINASSAY SCAN (secondary path) — opens as a side drawer when JavaScript runs; plain section without it ============ -->
 <section class="hx-pillars hx-scan" id="kinassay-scan" aria-labelledby="hx-pillars-h">

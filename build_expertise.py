@@ -11,7 +11,7 @@ import os
 import re
 import sys
 
-KEEP = {'main', 'services', 'kinassay-scan', 'scan', 'visibility', 'website', 'content', 'growth'}   # anchors that exist on the Expertise page
+KEEP = {'main', 'services', 'kinassay-scan', 'scan', 'visibility', 'website', 'content', 'growth', 'faq'}   # anchors that exist on the Expertise page
 META = {
     'en': ('Expertise — How Kinassay Lab builds your presence',
            'Visibility & acquisition, website & patient journey, content & presence, strategy & growth: how Kinassay Lab builds the digital presence of aesthetic doctors and clinics.'),

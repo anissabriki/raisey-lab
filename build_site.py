@@ -139,7 +139,10 @@ def make_jsonld(p, origin, base, h=''):
                'description': meta(r'<meta name="description" content="([^"]*)"'), 'inLanguage': LANG[p],
                'isPartOf': {'@id': root + '#website'}, 'about': {'@id': root + '#organization'},
                'primaryImageOfPage': {'@type': 'ImageObject', 'url': root + 'images/og.jpg'}}
-    return {'@context': 'https://schema.org', '@graph': [org, person, site_, webpage] + services}
+    faq = re.findall(r'<details><summary><h3>(.*?)</h3></summary><p>(.*?)</p></details>', h, re.S)
+    extra = [{'@type': 'FAQPage', '@id': page + '#faq', 'inLanguage': LANG[p],
+              'mainEntity': [{'@type': 'Question', 'name': html.unescape(q), 'acceptedAnswer': {'@type': 'Answer', 'text': html.unescape(re.sub(r'<[^>]+>', '', a))}} for q, a in faq]}] if faq else []
+    return {'@context': 'https://schema.org', '@graph': [org, person, site_, webpage] + services + extra}
 
 
 def render_seo(p, h, origin, base):
@@ -167,6 +170,25 @@ def render_seo(p, h, origin, base):
             origin + base, html.escape(alt), origin + base, html.escape(alt))
         h = h.replace('</head>', img + '</head>', 1)
     return h
+
+
+def make_llms(root):
+    """llms.txt (llmstxt.org): a plain summary for AI assistants, built only from what the pages already say."""
+    rows = re.findall(r'<span class="nm">(.*?)</span>.*?<span class="ds">(.*?)</span>', open('expertise/index.html', encoding='utf-8').read(), re.S)
+    plain = lambda t: html.unescape(re.sub(r'<[^>]+>', '', t)).replace('\u00a0', ' ').strip()
+    ins = [(p, re.search(r'<h1[^>]*>(.*?)</h1>', open(p, encoding='utf-8').read(), re.S)) for p in INSIGHTS if p.count('/') == 2 and p.startswith('insights/')]
+    out = ['# Kinassay Lab', '', '> ' + (cfg.get('positioning') or '').strip(), '',
+           'Founded by %s. Markets served: %s. Languages: English and French.' % (founder, ', '.join(CITIES)), '',
+           '## Expertise', ''] + ['- %s: %s' % (plain(n), plain(d)) for n, d in rows] + [
+           '- Details: [Expertise](%sexpertise/) · [Expertise (FR)](%sfr/expertise/)' % (root, root), '',
+           '## Where to start', '',
+           '- [Kinassay Scan](%s#kinassay-scan): free questionnaire, about 4 minutes, six dimensions of digital presence, results by email within minutes.' % root,
+           '- First meeting: 30 minutes by video, free, no commitment ([book](%s)).' % (booking or root + '#contact'), '',
+           '## Insights', ''] + ['- [%s](%s%s)' % (plain(m.group(1)), root, p[:-len('index.html')]) for p, m in ins if m] + [
+           '', '## Pages', '', '- [Home](%s) · [Accueil (FR)](%sfr/)' % (root, root), '- [Insights](%sinsights/) · [Insights (FR)](%sfr/insights/)' % (root, root)]
+    if email:
+        out += ['', '## Contact', '', '- ' + email]
+    return '\n'.join(out) + '\n'
 
 
 def make_sitemap(origin, base, mods):
@@ -204,7 +226,7 @@ def seo_check(pages, sitemap, origin, base, where):
             try:
                 ld = json.loads(blocks[0].replace('<\\/', '</'))
                 types = sorted(n['@type'] for n in ld['@graph'])
-                if [t for t in types if t != 'Service'] != ['Organization', 'Person', 'WebPage', 'WebSite'] or types.count('Service') not in (0, 4):
+                if [t for t in types if t not in ('Service', 'FAQPage')] != ['Organization', 'Person', 'WebPage', 'WebSite'] or types.count('Service') not in (0, 4) or types.count('FAQPage') != (1 if p in EXPERTISE else 0):
                     bad.append('%s %s: unexpected JSON-LD types %s' % (where, p, types))
                 if FORBIDDEN_LD.search(blocks[0]):
                     bad.append('%s %s: JSON-LD contains a forbidden claim (address, LocalBusiness, rating, review, offer...)' % (where, p))
@@ -305,7 +327,11 @@ open('dist/.nojekyll', 'w').close()
 if domain and not PREVIEW:                        # a preview must never claim the custom domain
     open('dist/CNAME', 'w').write(domain + '\n')
 if site:
-    open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nSitemap: %s%ssitemap.xml\n' % (site, base))
+    # AI assistants and their search crawlers are welcome by name (owner 2026-10-06: "je veux être vue par l'IA")
+    AI_BOTS = ['OAI-SearchBot', 'ChatGPT-User', 'GPTBot', 'Claude-SearchBot', 'Claude-User', 'ClaudeBot', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot']
+    open('dist/robots.txt', 'w').write('User-agent: *\nDisallow: /\n' if PREVIEW else 'User-agent: *\nAllow: /\n\n' + ''.join('User-agent: %s\nAllow: /\n\n' % b for b in AI_BOTS) + 'Sitemap: %s%ssitemap.xml\n' % (site, base))
+    if not PREVIEW:
+        open('dist/llms.txt', 'w', encoding='utf-8').write(make_llms(site + base))
     # lastmod = last significant change: home pages from their own history; an Insight from its source text,
     # never earlier than the day it went live; the listing = its newest article
     pub = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}

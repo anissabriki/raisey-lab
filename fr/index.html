@@ -113,6 +113,23 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
    owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
 /* Expertise page (owner brief 2026-10-06): the Services Scan CTA is the page's single conversion → main burgundy button */
 .svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* Expertise page FAQ (owner-approved 2026-10-06): editorial list, fine rules, same type system as Services */
+.xp-faq{padding:clamp(72px,9vw,128px) 0;border-top:1px solid var(--line)}
+.xp-faq-in{display:grid;gap:clamp(28px,4vw,48px)}
+.xp-faq .lab{font:500 12px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.xp-faq h2{margin-top:18px;font:400 clamp(2rem,1.2rem + 2.2vw,3.1rem)/1.06 var(--serif);letter-spacing:-.025em;max-width:13em}
+.xp-faq h2 em{font-style:italic}
+.xp-faq details{border-top:1px solid var(--line-strong)}
+.xp-faq details:last-child{border-bottom:1px solid var(--line-strong)}
+.xp-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 0}
+.xp-faq summary::-webkit-details-marker{display:none}
+.xp-faq summary h3{font:400 clamp(1.2rem,1rem + .6vw,1.5rem)/1.25 var(--serif);letter-spacing:-.01em}
+.xp-faq summary::after{content:'+';flex:none;display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--line-strong);border-radius:50%;font:300 20px/1 var(--sans);color:var(--p-burgundy);transition:transform .3s var(--ease)}
+.xp-faq details[open] summary::after{transform:rotate(45deg)}
+.xp-faq details p{padding:0 56px 26px 0;color:var(--muted);line-height:1.65;max-width:40em}
+@media (hover:hover){.xp-faq summary:hover h3{color:var(--p-burgundy)}}
+@media (min-width:980px){.xp-faq-in{grid-template-columns:minmax(0,38fr) minmax(0,62fr);align-items:start}.xp-faq-l{position:sticky;top:120px}}
+@media (max-width:979px){.xp-faq details p{padding-right:0}}
 /* the Services heading is the Expertise page's h1: same look as the approved h2 */
 .svc-l h1{font-size:clamp(2.5rem,1rem + 3.4vw,4.1rem);line-height:1.02;letter-spacing:-.03em;font-weight:400;margin-top:clamp(22px,3vw,36px)}
 .svc-l h1 .l1,.svc-l h1 .l2{display:block}
@@ -1170,6 +1187,21 @@ html.bk-lock{overflow:hidden}
 </section>
 
 <!-- 🔒 END LOCKED services -->
+
+<!-- ============ EXPERTISE · FAQ (owner-approved 2026-10-06: plain answers that search engines and AI assistants can quote; no CTA, no figures) ============ -->
+<section class="xp-faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap xp-faq-in">
+    <div class="xp-faq-l"><p class="lab">Questions</p><h2 id="faq-h">La stratégie digitale en médecine esthétique, <em>en bref.</em></h2></div>
+    <div class="xp-faq-r">
+      <details><summary><h3>Qu’est-ce que Kinassay Lab ?</h3></summary><p>Kinassay Lab est un studio de stratégie digitale né de la médecine esthétique. Nous accompagnons les médecins et cliniques esthétiques à Paris, Londres et Dubaï pour bâtir la manière dont ils sont trouvés, perçus et choisis en ligne.</p></details>
+      <details><summary><h3>Avec qui travaillez-vous ?</h3></summary><p>Avec des médecins esthétiques, des cabinets indépendants et des cliniques esthétiques qui veulent une présence digitale à la hauteur de la qualité de leur pratique médicale.</p></details>
+      <details><summary><h3>Que comprend votre accompagnement ?</h3></summary><p>Quatre domaines : visibilité &amp; acquisition (SEO local, Google Business Profile, publicité Google et Meta, réputation), site &amp; parcours patient, contenu &amp; présence (réseaux sociaux, email, CRM) et stratégie &amp; croissance (audit digital, analytics, positionnement du praticien).</p></details>
+      <details><summary><h3>Par où un cabinet doit-il commencer ?</h3></summary><p>Par le Kinassay Scan : un questionnaire gratuit d’environ 4 minutes qui analyse votre présence digitale sur six dimensions. Vos résultats arrivent par e-mail en quelques minutes.</p></details>
+      <details><summary><h3>Comment se passe un premier rendez-vous ?</h3></summary><p>C’est un échange de 30 minutes en visio, gratuit et sans engagement, pour comprendre votre cabinet, vos objectifs et l’état de votre présence digitale.</p></details>
+      <details><summary><h3>Travaillez-vous en français et en anglais ?</h3></summary><p>Oui. Nous travaillons dans les deux langues, avec des cabinets en France, au Royaume-Uni et aux Émirats arabes unis.</p></details>
+    </div>
+  </div>
+</section>
 </template>
 
 <!-- ============ 05 · DO YOU RECOGNISE YOURSELF? (three situations; illustrative, not client cases) ============ -->

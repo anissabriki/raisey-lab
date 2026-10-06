@@ -195,6 +195,29 @@ def main():
     sub('<h3>Discover the strengths and opportunities of your digital presence in a few minutes.</h3>',
         '<h3>Découvrez les forces et les opportunités de votre présence digitale en quelques minutes.</h3>')
 
+    # ---------- Expertise page FAQ (owner-approved 2026-10-06) ----------
+    sub('<h2 id="faq-h">Digital strategy for aesthetic medicine, <em>in short.</em></h2>', '<h2 id="faq-h">La stratégie digitale en médecine esthétique, <em>en bref.</em></h2>')
+    for en_, fr_ in (
+        ('What is Kinassay Lab?', 'Qu’est-ce que Kinassay Lab ?'),
+        ('Kinassay Lab is a digital strategy studio born inside aesthetic medicine. We work with aesthetic doctors and clinics in Paris, London and Dubai to build how they are found, perceived and chosen online.',
+         'Kinassay Lab est un studio de stratégie digitale né de la médecine esthétique. Nous accompagnons les médecins et cliniques esthétiques à Paris, Londres et Dubaï pour bâtir la manière dont ils sont trouvés, perçus et choisis en ligne.'),
+        ('Who do you work with?', 'Avec qui travaillez-vous ?'),
+        ('Aesthetic doctors, independent practices and aesthetic clinics who want a digital presence that reflects the quality of their medical work.',
+         'Avec des médecins esthétiques, des cabinets indépendants et des cliniques esthétiques qui veulent une présence digitale à la hauteur de la qualité de leur pratique médicale.'),
+        ('What does your support cover?', 'Que comprend votre accompagnement ?'),
+        ('Four areas: visibility &amp; acquisition (local SEO, Google Business Profile, Google and Meta ads, reputation), website &amp; patient journey, content &amp; presence (social media, email, CRM), and strategy &amp; growth (digital audit, analytics, practitioner positioning).',
+         'Quatre domaines : visibilité &amp; acquisition (SEO local, Google Business Profile, publicité Google et Meta, réputation), site &amp; parcours patient, contenu &amp; présence (réseaux sociaux, email, CRM) et stratégie &amp; croissance (audit digital, analytics, positionnement du praticien).'),
+        ('Where should a practice start?', 'Par où un cabinet doit-il commencer ?'),
+        ('With the Kinassay Scan: a free questionnaire of about 4 minutes that reads your digital presence across six dimensions. Your results arrive by email within minutes.',
+         'Par le Kinassay Scan : un questionnaire gratuit d’environ 4 minutes qui analyse votre présence digitale sur six dimensions. Vos résultats arrivent par e-mail en quelques minutes.'),
+        ('How does a first meeting work?', 'Comment se passe un premier rendez-vous ?'),
+        ('It is a 30-minute video call, free and without commitment, to understand your practice, your goals and where your digital presence stands.',
+         'C’est un échange de 30 minutes en visio, gratuit et sans engagement, pour comprendre votre cabinet, vos objectifs et l’état de votre présence digitale.'),
+        ('Do you work in French and English?', 'Travaillez-vous en français et en anglais ?'),
+        ('Yes. We work in both languages, with practices in France, the United Kingdom and the United Arab Emirates.',
+         'Oui. Nous travaillons dans les deux langues, avec des cabinets en France, au Royaume-Uni et aux Émirats arabes unis.')):
+        sub(en_, fr_)
+
     # ---------- 05 studies ----------
     sub('<h2 id="work-h">Do you recognise yourself?</h2><span class="r">Three situations we often see</span>', '<h2 id="work-h">Vous <span class="nb">reconnaissez-vous ?</span></h2><span class="r">Trois situations que nous rencontrons souvent</span>')
     sub('aria-label="Three situations. Swipe, or use the arrow keys."', 'aria-label="Trois situations. Faites défiler, ou utilisez les flèches du clavier."')
