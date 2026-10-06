@@ -49,38 +49,44 @@ def main():
     # ---------- chrome ----------
     fr = fr.replace('alt="Anissa Sabrina Briki, founder of Kinassay Lab, seated on a cream sofa: editorial portrait captioned “Founder, Anissa”"', 'alt="Anissa Sabrina Briki, fondatrice de Kinassay Lab, assise sur un canapé crème : portrait éditorial avec la mention « Founder, Anissa »"')
     fr = fr.replace('<label for="sf-website_url">Leave this field empty</label>', '<label for="sf-website_url">Laissez ce champ vide</label>').replace('<label for="cf-website_url">Leave this field empty</label>', '<label for="cf-website_url">Laissez ce champ vide</label>')
-    # Insights: French versions live at fr/insights/ (build_insights.py), so the relative links stay as they are
-    sub('<a class="skip" href="#main">Skip to content</a>', '<a class="skip" href="#main">Aller au contenu</a>')
     sub('aria-label="Kinassay Lab, top"', 'aria-label="Kinassay Lab, haut de page"')
     sub('<nav class="nav" aria-label="Main">', '<nav class="nav" aria-label="Principale">')
-    sub('href="#work">Studies<', 'href="#work">Études<')
+    sub('href="#work">Profiles<', 'href="#work">Profils<')
     sub('href="#about">About<', 'href="#about">À propos<')
     sub('Book a first meeting <i class="ar"></i>', '<span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i>')
-    sub('<li><a href="#contact">Book a first meeting</a></li>', '<li><a href="#contact">Réserver un premier rendez-vous</a></li>')
-    sub('<nav aria-label="Footer">', '<nav aria-label="Pied de page">')
     sub('<a class="ck-more" data-ck-more href="privacy.html">', '<a class="ck-more" data-ck-more href="confidentialite.html">')
+    sub('<nav aria-label="Footer">', '<nav aria-label="Pied de page">')
     sub('<span class="mt">Menu</span>', '<span class="mt">Menu</span>')
 
     # ---------- hero + new homepage sequence (2026-09) ----------
     sub('<p class="eyebrow rise" style="--i:0">When aesthetic medicine meets digital.</p>', '<p class="eyebrow rise" style="--i:0">Quand la médecine esthétique rencontre le digital.</p>')
     sub('<h1 id="hx-h" class="rise" style="--i:1">Your expertise<br> deserves<br> <em>to be seen.</em></h1>', '<h1 id="hx-h" class="rise" style="--i:1">Votre expertise<br> mérite<br> <em>d’être vue.</em></h1>')
-    sub('Kinassay Lab helps aesthetic doctors and clinics be found, trusted and chosen by the right patients, with a digital presence that matches their medical expertise.',
-        'Kinassay Lab aide les médecins et cliniques esthétiques à être trouvés, à inspirer confiance et à être choisis par les bons patients, grâce à une présence digitale à la hauteur de leur expertise médicale.')
+    sub('We help aesthetic doctors and clinics build the visibility, authority and digital presence that turn medical expertise into patient trust.',
+        'Nous aidons les médecins et cliniques esthétiques à bâtir la visibilité, l’autorité et la présence digitale qui transforment l’expertise médicale en confiance patient.')
+    fr = fr.replace('Start my Kinassay Scan <i class="ar"></i></a>\n        <p class="hx-micro">About 4 minutes · Free · No commitment</p>', 'Démarrer mon Kinassay Scan <i class="ar"></i></a>\n        <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
+    fr = fr.replace('Start my Kinassay Scan <i class="ar"></i></a>\n      <p class="hx-micro">About 4 minutes · Free · No commitment</p>', 'Démarrer mon Kinassay Scan <i class="ar"></i></a>\n      <p class="hx-micro">Environ 4 minutes · Gratuit · Sans engagement</p>')
     sub('30 minutes · Free · No commitment', '30 minutes · Gratuit · Sans engagement')
     sub('<p class="hx-alt">Not ready to talk yet? <a href="#kinassay-scan" data-startdiag data-interest="presence-scan">Take the free Kinassay Scan</a> <span class="nb">(about 4 minutes)</span></p>',
         '<p class="hx-alt">Envie d’explorer d’abord ? <a href="#kinassay-scan" data-startdiag data-interest="presence-scan">Faites le Kinassay Scan gratuit</a> <span class="nb">(environ 4 minutes)</span></p>')
     sub('alt="Architectural detail of an aesthetic medicine clinic in warm natural light"', 'alt="Détail architectural d’une clinique de médecine esthétique dans une lumière naturelle chaude"')
     sub('<ol class="hx-steps" aria-label="The patient journey"><li>Search</li><li>Discover</li><li>Trust</li><li>Choose</li></ol>', '<ol class="hx-steps" aria-label="Le parcours patient"><li>Recherche</li><li>Découverte</li><li>Confiance</li><li>Choix</li></ol>')
-    sub('aria-label="Close the Kinassay Scan">Close <span', 'aria-label="Fermer le Kinassay Scan">Fermer <span')
-    sub('<p class="hx-eb hx-center">Prefer to explore first?</p>', '<p class="hx-eb hx-center">Envie d’explorer d’abord ?</p>')
-    sub('<h2 id="hx-pillars-h" class="hx-scan-h hx-center">Take the free Kinassay Scan.</h2>', '<h2 id="hx-pillars-h" class="hx-scan-h hx-center">Faites le Kinassay Scan gratuit.</h2>')
+    sub('alt="Quiet consultation room in an aesthetic medicine clinic"', 'alt="Salle de consultation calme dans une clinique de médecine esthétique"')
+    sub('<h2 id="hx-journey-h">The consultation isn’t<br> the beginning of the patient journey.</h2>', '<h2 id="hx-journey-h">La consultation n’est pas<br> le début du parcours patient.</h2>')
+    sub('<p>Patients are choosing long <u>before</u> they enter your clinic.<br> We shape everything that happens <u>before</u> the appointment.</p>', '<p>Les patients choisissent bien <u>avant</u> d’entrer dans votre cabinet.<br> Nous façonnons tout ce qui se joue <u>avant</u> le rendez-vous.</p>')
     sub('<h3>Visibility</h3><p>SEO · Search<br> Being found</p>', '<h3>Visibilité</h3><p>SEO · Recherche<br> Être trouvé</p>')
     sub('<h3>Authority</h3><p>Expertise · Reputation<br> Trust</p>', '<h3>Autorité</h3><p>Expertise · Réputation<br> Confiance</p>')
     sub('<h3>Brand</h3><p>Positioning · Identity<br> Differentiation</p>', '<h3>Marque</h3><p>Positionnement · Identité<br> Différenciation</p>')
     sub('<h3>Patient Journey</h3><p>Website · UX<br> Conversion</p>', '<h3>Parcours patient</h3><p>Site web · UX<br> Conversion</p>')
     sub('<h3>Growth</h3><p>Acquisition · CRM<br> Retention</p>', '<h3>Croissance</h3><p>Acquisition · CRM<br> Fidélisation</p>')
-    sub('<h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu · Prise de parole d’expert<br> Différenciation</p>')
-    sub('aria-label="The six dimensions read by the Scan"', 'aria-label="Les six dimensions lues par le Scan"')
+    sub('<p class="hx-eb">From diagnosis to direction.</p>', '<p class="hx-eb">De l’analyse à la direction.</p>')
+    sub('<h2 id="hx-studio-h">A strategic and creative studio for aesthetic doctors and clinics.</h2>', '<h2 id="hx-studio-h">Un studio stratégique et créatif pour les médecins et cliniques esthétiques.</h2>')
+    sub('We combine industry expertise, data, strategy and high-end content to help you be found, trusted and chosen by the right patients.',
+        'Nous réunissons expertise du secteur, données, stratégie et contenus haut de gamme pour que les bons patients vous trouvent, vous fassent confiance et vous choisissent.')
+    sub('<a class="tl" href="expertise/index.html">Explore our services <i class="ar"></i></a>', '<a class="tl" href="expertise/index.html">Découvrir nos services <i class="ar"></i></a>')
+    sub('alt="Architectural interior of an aesthetic medicine clinic"', 'alt="Intérieur architectural d’une clinique de médecine esthétique"')
+    sub('<p class="hx-eb">Ready to see the full picture?</p>', '<p class="hx-eb">Prêt à voir le tableau complet ?</p>')
+    sub('<h2 id="hx-final-h">Take the Kinassay Scan.</h2>', '<h2 id="hx-final-h">Faites le Kinassay Scan.</h2>')
+    sub('A clear, personalised reading of your answers across six dimensions, with priorities to act on.', 'Une lecture claire et personnalisée de vos réponses sur six dimensions, avec des priorités concrètes.')
 
     # ---------- 02 review ----------
     sub('<p class="eyebrow">Your Kinassay Scan</p>', '<p class="eyebrow">Votre Kinassay Scan</p>')
@@ -89,14 +95,32 @@ def main():
     sub('Understanding your results', 'Comprendre vos résultats')
     sub('Each dimension is read on three levels.', 'Chaque dimension se lit sur trois niveaux.')
     sub('<button class="btn" type="button" id="takeDiag">Start my Kinassay Scan <i class="ar"></i></button>', '<button class="btn" type="button" id="takeDiag">Démarrer mon Kinassay Scan <i class="ar"></i></button>')
+    sub('aria-label="Close the Kinassay Scan">Close <span', 'aria-label="Fermer le Kinassay Scan">Fermer <span')
+    sub('<p class="b3-eb">Our approach</p>', '<p class="b3-eb">Notre approche</p>')
+    sub('<h2 id="pl-h" class="b3-h">We build your presence around three levers.</h2>', '<h2 id="pl-h" class="b3-h">Nous construisons votre présence autour de 3 leviers.</h2>')
+    for en_, fr_ in (('<dt>Visibility</dt>', '<dt>Visibilité</dt>'), ('<dt>Authority</dt>', '<dt>Autorité</dt>'), ('<dt>Growth</dt>', '<dt>Croissance</dt>'),
+                     ('Exist where your patients are looking for you: search, local search, social and digital presence.', 'Exister là où vos patients vous cherchent : recherche, référencement local, réseaux et présence digitale.'),
+                     ('Let patients perceive your expertise and your approach before the consultation.', 'Faire percevoir votre expertise et votre approche avant même la consultation.'),
+                     ('Turn that trust into bookings, then into loyalty.', 'Transformer cette confiance en prise de rendez-vous, puis en fidélité.'),
+                     ('See how we work on<br> your visibility', 'Découvrir comment<br> nous travaillons la visibilité'),
+                     ('See how we build<br> your authority', 'Découvrir comment<br> nous renforçons votre autorité'),
+                     ('See how we drive<br> your growth', 'Découvrir comment<br> nous stimulons votre croissance'),
+                     ('<span>Where does your digital presence stand?</span>', '<span>Où en est votre présence digitale ?</span>'),
+                     ('Identify your opportunities for visibility, authority and growth in a few minutes.', 'Identifiez en quelques minutes vos opportunités de visibilité, d’autorité et de croissance.'),
+                     ('Take my Kinassay Scan <i class="ar"></i>', 'Faire mon Kinassay Scan <i class="ar"></i>'),
+                     ('Free · About 4 minutes · Results by email within minutes', 'Gratuit · Environ 4 minutes · Résultats par e-mail en quelques minutes')):
+        sub(en_, fr_)
+    sub('aria-label="The six dimensions read by the Scan"', 'aria-label="Les six dimensions lues par le Scan"')
+    sub('<p class="hx-eb hx-center">Prefer to explore first?</p>', '<p class="hx-eb hx-center">Envie d’explorer d’abord ?</p>')
+    sub('<h2 id="hx-pillars-h" class="hx-scan-h hx-center">Take the free Kinassay Scan.</h2>', '<h2 id="hx-pillars-h" class="hx-scan-h hx-center">Faites le Kinassay Scan gratuit.</h2>')
     sub('<p class="hx-intro">Eleven questions about your practice. Your personalised reading across six dimensions, sent to you by email within minutes.</p>',
         '<p class="hx-intro">Onze questions sur votre cabinet. Votre lecture personnalisée sur six dimensions, envoyée par e-mail en quelques minutes.</p>')
-    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('The Kinassay Scan needs JavaScript. You can book a first meeting in the next section.',
         'Le Kinassay Scan nécessite JavaScript. Vous pouvez réserver un premier rendez-vous dans la section suivante.')
+    sub('<h3>Editorial Potential</h3><p>Content · Thought leadership<br> Differentiation</p>', '<h3>Potentiel éditorial</h3><p>Contenu · Prise de parole d’expert<br> Différenciation</p>')
+    sub('Free · Automated · Based on your answers · About 4 minutes', 'Gratuit · Automatisé · Basé sur vos réponses · Environ 4 minutes')
     sub('</svg>Scan complete</p>', '</svg>Scan terminé</p>')
     sub('Where should we send your full Scan results?', 'Recevez votre Kinassay Scan personnalisé.')
-    # 2026-10: no email gate on the French site either: the first insight shows right after the questions (owner request)
     sub('Your full Kinassay Scan results will be sent to this address. If you’d like to go further, the next step is a first meeting.',
         'Les résultats complets de votre Kinassay Scan seront envoyés à cette adresse. Pour aller plus loin, l’étape suivante est un premier rendez-vous.')
     sub('Doctor or clinic name <span', 'Nom du praticien ou de la clinique <span')
@@ -111,7 +135,7 @@ def main():
     sub('placeholder="e.g. yourclinic.com or @handle"', 'placeholder="ex. votreclinique.fr ou @compte"')
     sub('data-err="Please add your website or Instagram."', 'data-err="Merci d’indiquer votre site web ou Instagram."')
     sub('Send me my results <i class="ar"></i>', 'Recevoir mes résultats <i class="ar"></i>')
-    sub('Send my message <i class="ar"></i></button>', 'Envoyer mon message <i class="ar"></i></button>')
+    sub('Request a first conversation <i class="ar"></i></button>', 'Demander un premier échange <i class="ar"></i></button>')
     sub('<span class="nb">Free · No commitment ·</span> <span class="nb">Full results by email within minutes</span>',
         '<span class="nb">Gratuit · Sans engagement ·</span> <span class="nb">Résultats complets par e-mail sous quelques minutes</span>')
     sub('Required. Everything else is optional. We use these details, together with your Scan answers, only to send your Scan results and to reply to you. <a class="link" href="privacy.html">Privacy Policy</a>',
@@ -131,115 +155,90 @@ def main():
     opts = '<option value="" selected>Choisissez votre spécialité</option>'
     for g, t, items in groups:
         opts += '<optgroup label="%s">' % g + ''.join('<option value="%s" data-tier="%s">%s</option>' % (v, t, l) for v, l in items) + '</optgroup>'
-    for sid in ('sf-spec',):
+    for sid in ('sf-spec', 'cf-spec'):
         pat = re.compile(r'(<select class="input" id="%s" name="specialty">).*?(</select>)' % sid, re.S)
         if not pat.search(fr):
             sys.exit('select not found: ' + sid)
         fr = pat.sub(lambda m: m.group(1) + opts + m.group(2), fr)
 
-    # ---------- 04 services (localized derivative of the locked English component) ----------
+    # ---------- 04 services → Expertise page (localized derivative of the locked English component; owner brief 2026-10-06) ----------
     sub('<p class="lab">Our expertise</p>', '<p class="lab">Notre expertise</p>')
-    sub('<span class="l1">How we raise</span> <span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span> <span class="l2">votre <em>présence.</em></span>')
-    sub('From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is found, perceived and chosen.',
-        'De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est trouvé, perçu et choisi.')
-    sub('<p class="mc"><span>Be found.</span><span>Be trusted.</span><span>Be chosen.</span></p>', '<p class="mc"><span>Être trouvé.</span><span>Inspirer confiance.</span><span>Être choisi.</span></p>')
-    sub('<span class="nm">Visibility</span>', '<span class="nm">Présence digitale</span>')
-    sub('Search · Google · Social · Reputation', 'Recherche · Google · Réseaux · Réputation')
-    sub('Raise your visibility where patients are already looking.', 'Soyez visible là où vos patients cherchent déjà.')
-    sub('<p class="p-stg">Be found</p>', '<p class="p-stg">Être trouvé</p>')
-    sub('<span class="stg">Be found</span>', '<span class="stg">Être trouvé</span>')
-    sub('<span class="stg">Build trust, shape the experience</span>', '<span class="stg">Inspirer confiance, soigner l’expérience</span>')
-    sub('<span class="stg">Stay visible</span>', '<span class="stg">Rester visible</span>')
-    sub('<span class="stg">Build authority</span>', '<span class="stg">Bâtir l’autorité</span>')
-    sub('<li>Local search &amp; SEO</li><li>Google Business Profile</li><li>Social presence</li><li>Reviews &amp; reputation</li>',
-        '<li>Référencement local et SEO</li><li>Fiche Google Business</li><li>Réseaux sociaux</li><li>Avis et e-réputation</li>')
-    sub('<span class="nm">Website &amp; Patient Journey</span>', '<span class="nm">Site web et parcours patient</span>')
-    sub('Positioning · UX/UI · Booking · SEO foundations', 'Positionnement · UX/UI · Rendez-vous · Bases SEO')
-    sub('Turn expertise into an online experience patients can understand and trust.', 'Faites de votre expertise une expérience en ligne que les patients comprennent — et en laquelle ils ont confiance.')
-    sub('<p class="p-stg">Build trust, shape the experience</p>', '<p class="p-stg">Inspirer confiance, soigner l’expérience</p>')
-    sub('<li>Positioning &amp; brand direction</li><li>Website design &amp; build</li><li>Booking &amp; patient journey</li><li>SEO foundations</li>',
-        '<li>Positionnement et identité de marque</li><li>Conception et développement du site</li><li>Prise de rendez-vous et parcours patient</li><li>Bases SEO</li>')
-    sub('<span class="nm">Sustained Visibility</span>', '<span class="nm">Présence continue</span>')
-    sub('Content · Social · Google · Reputation', 'Contenu · Réseaux · Google · Réputation')
-    sub('Keep your practice visible, relevant and rising after launch.', 'Gardez votre présence visible, pertinente et cohérente, bien après le lancement.')
-    sub('<p class="p-stg">Stay visible</p>', '<p class="p-stg">Rester visible</p>')
-    sub('<li>Editorial content</li><li>Social presence</li><li>Google &amp; reviews</li><li>Performance reporting</li>',
-        '<li>Contenu éditorial</li><li>Réseaux sociaux</li><li>Google et avis</li><li>Suivi des performances</li>')
-    sub('<span class="nm">Growth &amp; Authority</span>', '<span class="nm">Croissance et autorité</span>')
-    sub('Strategy · Analytics · Personal Brand · Content', 'Stratégie · Analytics · Marque personnelle · Contenu')
-    sub('Turn visibility into lasting authority and measurable growth.', 'Transformez votre visibilité en autorité durable et en croissance mesurable.')
-    sub('<p class="p-stg">Build authority</p>', '<p class="p-stg">Bâtir l’autorité</p>')
-    sub('<li>Growth strategy</li><li>Analytics &amp; reporting</li><li>Personal brand</li><li>Thought-leadership content</li>',
-        '<li>Stratégie de croissance</li><li>Analytics et reporting</li><li>Marque personnelle</li><li>Contenus d’expertise</li>')
-    sub('Discuss this <i class="ar"></i>', 'En parler <i class="ar"></i>')
+    sub('<span class="l1">How we build</span> <span class="l2">your <em>presence.</em></span>', '<span class="l1">Comment nous bâtissons</span> <span class="l2">votre <em>présence.</em></span>')
+    sub('From visibility to patient experience, we build the digital strategy that shapes how an aesthetic practice is <span class="hl">found, perceived and chosen.</span>',
+        'De la visibilité à l’expérience patient, nous bâtissons la stratégie digitale qui façonne la manière dont un cabinet esthétique est <span class="hl">trouvé, perçu et choisi.</span>')
+    svc = [('Visibility &amp; acquisition', 'Visibilité &amp; acquisition', 'Be found', 'Être trouvé',
+            'Google · Local SEO · Social · Reputation', 'Google · SEO local · Social · Réputation',
+            'Be found by the right patients.', 'Être trouvé par les bons patients.',
+            '<li>Acquisition strategy</li><li>SEO &amp; local search</li><li>Google Business Profile</li><li>Google Ads</li><li>Meta Ads</li><li>Social media strategy</li><li>Reputation &amp; reviews</li><li>Performance analysis</li>',
+            '<li>Stratégie d’acquisition</li><li>SEO et référencement local</li><li>Google Business Profile</li><li>Google Ads</li><li>Meta Ads</li><li>Stratégie social media</li><li>Réputation et avis</li><li>Analyse des performances</li>'),
+           ('Website &amp; patient journey', 'Site &amp; parcours patient', 'Turn interest', 'Transformer l’intérêt',
+            'Positioning · UX/UI · SEO · Conversion · Booking', 'Positionnement · UX/UI · SEO · Conversion · Rendez-vous',
+            'Turn interest into appointments.', 'Transformer l’intérêt en rendez-vous.',
+            '<li>Website strategy &amp; architecture</li><li>Positioning</li><li>UX/UI</li><li>Treatment pages</li><li>SEO</li><li>Online booking</li><li>Conversion optimisation</li><li>Analytics &amp; tracking</li>',
+            '<li>Stratégie et architecture du site</li><li>Positionnement</li><li>UX/UI</li><li>Pages traitements</li><li>SEO</li><li>Prise de rendez-vous</li><li>Optimisation de conversion</li><li>Analytics et tracking</li>'),
+           ('Content &amp; presence', 'Contenu &amp; présence', 'Build trust', 'Construire la confiance',
+            'Content · Social · Email · CRM · Loyalty', 'Contenu · Social · Email · CRM · Fidélisation',
+            'Build trust over time.', 'Construire la confiance dans le temps.',
+            '<li>Editorial strategy</li><li>Content creation</li><li>Social media</li><li>Email marketing</li><li>CRM</li><li>Automations</li><li>Educational content</li><li>Nurturing</li><li>Loyalty</li>',
+            '<li>Stratégie éditoriale</li><li>Création de contenu</li><li>Réseaux sociaux</li><li>Email marketing</li><li>CRM</li><li>Automatisations</li><li>Contenu éducatif</li><li>Nurturing</li><li>Fidélisation</li>'),
+           ('Strategy &amp; growth', 'Stratégie &amp; croissance', 'Accelerate growth', 'Accélérer la croissance',
+            'Strategy · Data · Analytics · Authority · Growth', 'Stratégie · Data · Analytics · Autorité · Croissance',
+            'Make your digital presence a growth lever.', 'Faire de la présence digitale un levier de croissance.',
+            '<li>Digital audit</li><li>Growth strategy</li><li>Analytics &amp; dashboards</li><li>Continuous optimisation</li><li>Digital authority</li><li>Practitioner positioning</li><li>Competitive analysis</li><li>Strategic support</li>',
+            '<li>Audit digital</li><li>Stratégie de croissance</li><li>Analytics et dashboards</li><li>Optimisation continue</li><li>Autorité digitale</li><li>Positionnement du praticien</li><li>Analyse concurrentielle</li><li>Accompagnement stratégique</li>')]
+    for nm, nm_fr, stg, stg_fr, sp, sp_fr, ds, ds_fr, cap, cap_fr in svc:
+        sub('<span class="nm">%s</span><span class="stg">%s</span><span class="sup">%s</span><span class="ds">%s</span>' % (nm, stg, sp, ds),
+            '<span class="nm">%s</span><span class="stg">%s</span><span class="sup">%s</span><span class="ds">%s</span>' % (nm_fr, stg_fr, sp_fr, ds_fr))
+        sub('<p class="p-stg">%s</p><p class="p-sup">%s</p><p class="p-ds">%s</p>\n            <ul class="cap">%s</ul>' % (stg, sp, ds, cap),
+            '<p class="p-stg">%s</p><p class="p-sup">%s</p><p class="p-ds">%s</p>\n            <ul class="cap">%s</ul>' % (stg_fr, sp_fr, ds_fr, cap_fr))
     sub('<p class="eb">Not sure where to start?</p>', '<p class="eb">Vous ne savez pas par où commencer ?</p>')
-    sub('<h3>See what you can raise.</h3>', '<h3>Découvrez ce que révèlent vos réponses.</h3>')
-    sub('Start my Kinassay Scan <i class="ar"></i></a>\n    </div>\n  </div>\n</section>', 'Démarrer mon Kinassay Scan <i class="ar"></i></a>\n    </div>\n  </div>\n</section>')
+    sub('<h3>Discover the strengths and opportunities of your digital presence in a few minutes.</h3>',
+        '<h3>Découvrez les forces et les opportunités de votre présence digitale en quelques minutes.</h3>')
 
     # ---------- 05 studies ----------
-    sub('<h2 id="work-h">Selected studies</h2><span class="r">Illustrative composite analyses · Not client results or real cases</span>',
-        '<h2 id="work-h">Études sélectionnées</h2><span class="r">Analyses composites illustratives · Ni résultats clients, ni cas réels</span>')
-    studies = [
-        ('A Senior Dermatologist, 20 Years in Practice', 'Un dermatologue reconnu, 20 ans de carrière', 'Direction: Authority to Visibility to Legacy', 'Orientation : Autorité, Visibilité, Héritage',
-         ['Authority', 'Visibility', 'Legacy'], ['Autorité', 'Visibilité', 'Héritage'],
-         'Two decades of referrals and real standing among peers — none of it visible online. The study: authority built over a career has to be translated into content a search engine can read, or it stays invisible.',
-         'Vingt ans de recommandations et une vraie estime de ses confrères — mais rien de tout cela n’existe en ligne. L’étude : une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, faute de quoi elle reste invisible.'),
-        ('A Boutique Aesthetic Practice, Mid-Career', 'Un cabinet esthétique confidentiel, à mi-parcours', 'Direction: Reputation to Positioning to Premium', 'Orientation : Réputation, Positionnement, Premium',
-         ['Reputation', 'Positioning', 'Premium'], ['Réputation', 'Positionnement', 'Premium'],
-         'Strong word-of-mouth, but a generic online presence that undercuts it. The study: coherent positioning is what lets an earned reputation support premium pricing instead of reading as entry-level.',
-         'Un bouche-à-oreille solide, mais une présence en ligne banale qui le dessert. L’étude : c’est un positionnement cohérent qui permet à une réputation méritée de soutenir un positionnement premium, au lieu de passer pour une offre d’entrée de gamme.'),
-        ('A Nurse Prescriber Building a New Client Base', 'Une infirmière en pratique avancée qui construit sa patientèle', 'Direction: Trust to Authority to Brand', 'Orientation : Confiance, Autorité, Marque',
-         ['Trust', 'Authority', 'Brand'], ['Confiance', 'Autorité', 'Marque'],
-         'Good reviews, scattered with no throughline. The study: formalising trust signals into a consistent narrative turns scattered proof into an actual brand a patient chooses on purpose.',
-         'De bons avis, mais aucun fil conducteur. L’étude : structurer les signaux de confiance en un récit cohérent transforme des preuves éparses en une vraie marque, choisie par les patients en toute connaissance de cause.'),
-        ('A Niche Specialist in a Rare Procedure', 'Un spécialiste de niche pour un geste rare', 'Direction: Expertise to Visibility to Acquisition', 'Orientation : Expertise, Visibilité, Acquisition',
-         ['Expertise', 'Visibility', 'Acquisition'], ['Expertise', 'Visibilité', 'Acquisition'],
-         'Deep expertise, invisible to the exact patients searching for it. The study: specific expertise needs equally specific visibility, or less-qualified providers capture the acquisition instead.',
-         'Une expertise pointue, invisible aux patients qui la cherchent précisément. L’étude : une expertise précise appelle une visibilité tout aussi précise, sinon des praticiens moins qualifiés captent les patients à sa place.'),
-        ('A Doctor With a Strong Clinical Point of View', 'Un médecin à la vision clinique affirmée', 'Direction: Point of view to Content to Reputation', 'Orientation : Point de vue, Contenu, Réputation',
-         ['Point of view', 'Content', 'Reputation'], ['Point de vue', 'Contenu', 'Réputation'],
-         'Genuine opinions on how a treatment should be done — none of it public. The study: an unexpressed point of view builds no reputation. Content is what turns it into one.',
-         'De vraies convictions sur la manière de pratiquer un traitement — mais aucune n’est publique. L’étude : un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.'),
-        ('A Hospital-Affiliated Consultant', 'Un consultant rattaché à un hôpital', 'Direction: Institution to Voice to Influence', 'Orientation : Institution, Voix, Influence',
-         ['Institution', 'Voice', 'Influence'], ['Institution', 'Voix', 'Influence'],
-         'Visibility entirely borrowed from a faculty bio. The study: an individual voice alongside the institutional one is what lets influence outlast any single affiliation.',
-         'Une visibilité entièrement empruntée à une fiche de faculté. L’étude : une voix personnelle aux côtés de la voix institutionnelle permet à l’influence de durer au-delà de toute affiliation.')]
-    for t_en, t_fr, al_en, al_fr, ch_en, ch_fr, p_en, p_fr in studies:
-        if '<h3>' + t_en + '</h3>' not in fr:
-            continue   # study not on the homepage
-        sub('<h3>' + t_en + '</h3>', '<h3>' + t_fr + '</h3>')
-        sub('aria-label="' + al_en + '"', 'aria-label="' + al_fr + '"')
-        grp = lambda c: ''.join('<span class="st"><b>%s</b><i class="ar" aria-hidden="true"></i></span>' % x for x in c[:-1]) + '<b>%s</b>' % c[-1]
-        old = grp(ch_en)
-        new = grp(ch_fr)
-        sub(old, new)
-        sub('<p>' + p_en + '</p>', '<p>' + p_fr + '</p>')
-    sub('aria-label="Selected studies. Swipe, or use the arrow keys."', 'aria-label="Études sélectionnées. Faites défiler, ou utilisez les flèches du clavier."')
-    sub('aria-label="Previous study"', 'aria-label="Étude précédente"')
-    sub('aria-label="Next study"', 'aria-label="Étude suivante"')
-    sub('</span> Senior dermatologist</p>', '</span> Dermatologue reconnu</p>')
+    sub('<h2 id="work-h">Do you recognise yourself?</h2><span class="r">Three situations we often see</span>', '<h2 id="work-h">Vous <span class="nb">reconnaissez-vous ?</span></h2><span class="r">Trois situations que nous rencontrons souvent</span>')
+    sub('aria-label="Three situations. Swipe, or use the arrow keys."', 'aria-label="Trois situations. Faites défiler, ou utilisez les flèches du clavier."')
+    sub('aria-label="Previous situation"', 'aria-label="Situation précédente"')
+    sub('aria-label="Next situation"', 'aria-label="Situation suivante"')
+    sub('</span> Established expertise</p>', '</span> Expertise reconnue</p>')
     sub('</span> Boutique practice</p>', '</span> Cabinet confidentiel</p>')
-    sub('</span> Niche specialist</p>', '</span> Spécialiste de niche</p>')
-    fr = fr.replace('data-more="Read analysis" data-less="Close">Read analysis <i', 'data-more="Lire l’analyse" data-less="Réduire">Lire l’analyse <i')
+    sub('</span> Clinical point of view</p>', '</span> Vision clinique</p>')
+    sub('<h3>Twenty years of practice, invisible online.</h3>', '<h3>Vingt ans de pratique, invisibles en ligne.</h3>')
+    sub('<h3>A strong reputation, an ordinary online presence.</h3>', '<h3>Une belle réputation, une présence en ligne banale.</h3>')
+    sub('<h3>A clear point of view that nobody sees.</h3>', '<h3>Un vrai point de vue, que personne ne voit.</h3>')
+    sub('Referrals and real standing among your peers, yet none of it shows when a patient searches for you. Authority built over a career has to be translated into content a search engine can read, or it stays invisible.',
+        'Des recommandations et une vraie estime de vos confrères, mais rien de tout cela n’apparaît quand un patient vous cherche. Une autorité construite sur toute une carrière doit être traduite en contenus qu’un moteur de recherche sait lire, sinon elle reste invisible.')
+    sub('Word of mouth works, but your website and social media undersell it. Coherent positioning is what lets an earned reputation support a premium practice instead of reading as entry-level.',
+        'Le bouche-à-oreille fonctionne, mais votre site et vos réseaux ne sont pas à la hauteur. C’est un positionnement cohérent qui permet à une réputation méritée de porter un cabinet haut de gamme, au lieu de passer pour une offre d’entrée de gamme.')
+    sub('You have real convictions about how a treatment should be done, and none of them are public. An unexpressed point of view builds no reputation. Content is what turns it into one.',
+        'Vous avez de vraies convictions sur la manière de pratiquer un traitement, mais aucune n’est publique. Un point de vue qui ne s’exprime pas ne construit aucune réputation. C’est le contenu qui la lui donne.')
+    sub('aria-label="Direction: Authority to Visibility to Legacy"', 'aria-label="Orientation : Autorité, Visibilité, Héritage"')
+    sub('aria-label="Direction: Reputation to Positioning to Premium"', 'aria-label="Orientation : Réputation, Positionnement, Premium"')
+    sub('aria-label="Direction: Point of view to Content to Reputation"', 'aria-label="Orientation : Point de vue, Contenu, Réputation"')
+    for en_, fr_ in (('Authority', 'Autorité'), ('Visibility', 'Visibilité'), ('Legacy', 'Héritage'), ('Reputation', 'Réputation'), ('Positioning', 'Positionnement'), ('Point of view', 'Point de vue'), ('Content', 'Contenu')):
+        fr = fr.replace('<b>%s</b>' % en_, '<b>%s</b>' % fr_)
+    fr = fr.replace('data-more="Read more" data-less="Close">Read more <i', 'data-more="Lire la suite" data-less="Réduire">Lire la suite <i')
     sub('alt="Bright aesthetic treatment room with a treatment chair and a round mirror"', 'alt="Salle de soins esthétique lumineuse avec un fauteuil de soin et un miroir rond"')
     sub('alt="Close-up of lips and skin in soft natural light"', 'alt="Gros plan sur des lèvres et une peau en lumière naturelle douce"')
-    sub('alt="Treatment tray with instruments beside a treatment chair"', 'alt="Plateau d’instruments à côté d’un fauteuil de soin"')
-    sub('These studies are Kinassay Lab’s own thinking: how a range of practitioner profiles could translate real expertise into greater visibility and authority. They are composite illustrations, not case studies of real clients or real individuals, and describe no actual person’s practice.',
-        'Ces études sont la réflexion propre de Kinassay Lab : comment différents profils de praticiens pourraient transformer une expertise réelle en davantage de visibilité et d’autorité. Ce sont des illustrations composites — non des études de cas de clients ou de personnes réelles — et elles ne décrivent la pratique d’aucune personne existante.')
+    sub('alt="Conference room with a screen reading “Aesthetic Medicine Today”"', 'alt="Salle de conférence avec un écran « Aesthetic Medicine Today »"')
+    sub('<p class="st-q">Recognise yourself? Let’s talk.</p>', '<p class="st-q">Vous vous reconnaissez ? Parlons-en.</p>')
+    sub('These situations are illustrative composites drawn from Kinassay Lab’s experience of the sector. They are not client case studies and describe no real person’s practice.',
+        'Ces situations sont des illustrations composites, tirées de l’expérience de Kinassay Lab dans le secteur. Ce ne sont pas des études de cas clients et elles ne décrivent la pratique d’aucune personne réelle.')
 
     # ---------- 06 founder ----------
-    sub('<p class="note f-note">Roles held before founding Kinassay Lab. These are not client references.</p>', '<p class="note f-note">Postes occupés avant la création de Kinassay Lab. Il ne s’agit pas de références clients.</p>')
-    sub('<span class="t">Why work with me</span>', '<span class="t">Pourquoi me faire confiance</span>')
-    sub('<p>Kinassay Lab brings these two worlds together: an understanding of how aesthetic medicine and its patients work, and the digital skills to make a practice visible and trusted. I work personally with every practice.</p>',
-        '<p>Kinassay Lab réunit ces deux univers : la compréhension de la médecine esthétique et de ses patients, et les compétences digitales pour rendre un cabinet visible et digne de confiance. J’accompagne personnellement chaque cabinet.</p>')
+    sub('<span class="t">Founder</span>', '<span class="t">Fondatrice</span>')
     sub('alt="Anissa Sabrina Briki, founder of Kinassay Lab: close-up portrait on a cream background, captioned “Founder, Anissa” and “Strategy, growth, experience for aesthetic practices”"', 'alt="Anissa Sabrina Briki, fondatrice de Kinassay Lab : portrait rapproché sur fond crème, avec les mentions « Founder, Anissa » et « Strategy, growth, experience for aesthetic practices »"')
     sub('Built from inside aesthetic medicine.', 'Née au cœur de la médecine esthétique.')
     sub('<p><span class="pq">“Exceptional medical expertise does not, on its own, create an exceptional digital presence.”</span></p>',
         '<p><span class="pq">« Une expertise médicale exceptionnelle ne crée pas, à elle seule, une présence digitale exceptionnelle. »</span></p>')
-    sub('<p>I’m Anissa Sabrina Briki, founder of Kinassay Lab. At FILLMED Laboratories, I worked alongside aesthetic practitioners and saw the realities of growing a practice. Before that, at Google and GroupM, I built digital strategy and growth across beauty, luxury and international markets.</p>',
-        '<p>Je suis Anissa Sabrina Briki, fondatrice de Kinassay Lab. Chez FILLMED Laboratories, j’ai travaillé aux côtés des praticiens de la médecine esthétique, au plus près de la réalité du développement d’un cabinet. Auparavant, chez Google et GroupM, j’ai construit des stratégies digitales et de croissance pour la beauté, le luxe et les marchés internationaux.</p>')
-    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Read my story: why I created Kinassay Lab <i class="ar"></i></a>', '<a class="tl f-read" href="insights/pourquoi-j-ai-cree-kinassay-lab/">Lire mon histoire : pourquoi j’ai créé Kinassay Lab <i class="ar"></i></a>')
+    sub('<p>Kinassay Lab was born from this observation.</p>', '<p>C’est de ce constat qu’est née Kinassay Lab.</p>')
+    sub('<p>My experience at FILLMED Laboratories immersed me in the world of aesthetic medicine — working alongside practitioners, understanding the patient journey, and the challenges of growing a practice.</p><p>Before that, at Google and GroupM, I built my expertise in digital strategy and growth across beauty, luxury and international markets.</p><p>Kinassay Lab was born at the intersection of these two worlds: an understanding of aesthetic medicine and expertise in digital growth.</p>\n        <p>Today, I work personally with every practice, with one ambition: to raise their visibility and authority to the level of their expertise.</p>',
+        '<p>Mon expérience chez FILLMED Laboratories m’a plongée au cœur de la médecine esthétique — aux côtés des praticiens, au plus près des parcours patients et des enjeux de développement des cabinets.</p><p>Avant cela, chez Google et GroupM, j’ai construit mon expertise en stratégie et croissance digitale, entre beauté, luxe et marchés internationaux.</p><p>Kinassay Lab est née à la rencontre de ces deux univers : la compréhension de la médecine esthétique et l’expertise du digital.</p>\n        <p>Aujourd’hui, j’accompagne chaque cabinet personnellement, avec une même ambition : élever sa visibilité et son autorité à la hauteur de son expertise.</p>')
+    sub('<span class="muted">· Founder · Strategy &amp; Growth</span>', '<span class="muted">· Fondatrice · Stratégie &amp; Croissance</span>')
+    sub('Talk to the founder <i class="ar"></i>', 'Échanger avec la fondatrice <i class="ar"></i>')
+    sub('<a class="tl f-read" href="insights/why-i-created-raisey-lab/">Why I created Kinassay Lab <i class="ar"></i></a>', '<a class="tl f-read" href="insights/pourquoi-j-ai-cree-kinassay-lab/">Pourquoi j’ai créé Kinassay Lab <i class="ar"></i></a>')
     sub('My LinkedIn profile <i class="ar"></i>', 'Mon profil LinkedIn <i class="ar"></i>')
+    sub('<a class="tl" href="insights/aesthetic-medicine-patient-journey/">How patients really choose a practice <i class="ar"></i></a>', '<a class="tl" href="insights/parcours-patient-medecine-esthetique/">Comment les patients choisissent vraiment un praticien <i class="ar"></i></a>')
     sub('aria-label="Three worlds"', 'aria-label="Trois univers"')
     sub('<p class="cs">Aesthetic medicine</p>', '<p class="cs">Médecine esthétique</p>')
     sub('<p class="cs">Digital growth&nbsp;· Beauty&nbsp;· Luxury</p>', '<p class="cs">Croissance digitale&nbsp;· Beauté&nbsp;· Luxe</p>')
@@ -247,30 +246,48 @@ def main():
     sub('<p class="cs">Multi-market experience</p>', '<p class="cs">Expérience multi-marchés</p>')
     sub('<figcaption class="f-cap"><span>You built it.</span> <em>We raise it.</em></figcaption>', '<figcaption class="f-cap"><span>Même expertise.</span> <em>Un rayonnement plus large.</em></figcaption>')
 
+    # ---------- 07 founding partners ----------
+    sub('<span class="t"><span class="fp-lt">Founding partners</span><span class="fp-dash"> — </span><span class="nb">Paris · London · Dubai</span></span>', '<span class="t"><span class="fp-lt">Partenaires fondateurs</span><span class="fp-dash"> — </span><span class="nb">Paris · Londres · Dubaï</span></span>')
+    sub('aria-label="Founding partner benefits. Swipe, or use the arrows."', 'aria-label="Avantages partenaires fondateurs. Faites défiler, ou utilisez les flèches."')
+    sub('aria-label="Previous"', 'aria-label="Précédent"')
+    sub('aria-label="Next"', 'aria-label="Suivant"')
+    sub('<span class="a">A closer way</span> <span class="b">of working.</span>', '<span class="a">Une manière de travailler</span> <span class="b">plus proche.</span>')
+    sub('Six practices. Direct collaboration.<br>Growth built around your practice.', 'Six cabinets. Une collaboration directe.<br>Une croissance pensée autour de votre cabinet.')
+    sub('Kinassay Lab is opening its first six partnerships. Each collaboration begins with a conversation to understand your practice, positioning and priorities — followed by a personalised Kinassay Review to define what to raise, and in what order.',
+        'Kinassay Lab ouvre ses six premiers partenariats. Chaque collaboration commence par un échange pour comprendre votre pratique, votre positionnement et vos priorités — suivi d’un Kinassay Review personnalisé pour définir ce qu’il faut élever, et dans quel ordre.')
+    sub('<span class="m">Practices<br>only</span><span class="d">Founding<br>Partners</span>', '<span class="m">Six cabinets<br>seulement</span><span class="d">Partenaires<br>fondateurs</span>')
+    sub('<b>01</b> — Know what to raise</span><h3>Your Kinassay Review</h3><p>We look at what you’ve built, where it stands today, and what deserves to be raised next.</p>',
+        '<b>01</b> — Partir de la bonne analyse</span><h3>Votre Kinassay Review</h3><p>Après un premier échange, nous analysons l’état réel de votre présence digitale et définissons les écarts, les opportunités et les recommandations.</p>')
+    sub('<b>02</b> — Built around your practice</span><h3>Founding Partner Conditions</h3><p>No predefined package. Your priorities, scope and strategy are shaped around what your practice actually needs, with preferred conditions reserved for our first six partners.</p>',
+        '<b>02</b> — Sur mesure pour votre cabinet</span><h3>Conditions partenaire fondateur</h3><p>Pas d’offre toute faite. Vos priorités, votre périmètre et votre stratégie sont définis selon ce dont votre cabinet a réellement besoin, avec des conditions privilégiées réservées à nos six premiers partenaires.</p>')
+    sub('<b>03</b> — Direct collaboration</span><h3>Work directly with the founder</h3><p>Strategy, creative direction and key decisions are handled directly with the founder of Kinassay Lab — from the first conversation to implementation.</p>',
+        '<b>03</b> — Un échange direct</span><h3>Travaillez directement avec la fondatrice</h3><p>Stratégie, direction créative et décisions clés se traitent directement avec la fondatrice de Kinassay Lab — du premier échange jusqu’à la mise en œuvre.</p>')
+    sub('<p class="lb">Founding partnership</p>', '<p class="lb">Partenariat fondateur</p>')
+    sub('<span>Your expertise is already established.</span> <em>Now let’s raise it.</em>', '<span>Votre expertise est déjà établie.</span> <em>Construisons la présence qui lui ressemble.</em>')
+    sub('Six founding partnerships across <span class="nb">Paris · London · Dubai.</span>', 'Six partenariats fondateurs entre <span class="nb">Paris · Londres · Dubaï.</span>')
+    sub('Become a founding partner <i class="ar"></i>', 'Devenir partenaire fondateur <i class="ar"></i>')
+    sub('<span>Kinassay Scan</span><span>First conversation</span><span>Kinassay Review</span><span>Transformation</span><span>Ongoing Growth</span>', '<span>Kinassay Scan</span><span>Premier échange</span><span>Kinassay Review</span><span>Transformation</span><span>Croissance continue</span>')
+
     # ---------- 08 contact ----------
-    sub('<span class="t">First meeting</span>', '<span class="t">Premier rendez-vous</span>')
-    sub('<h2 id="c-h">Book a first<br> meeting.</h2>', '<h2 id="c-h">Réserver un<br> premier <span class="nb">rendez-vous.</span></h2>')
-    sub('Thirty minutes, free and without commitment, to talk about your practice and where you want it to go.',
-        'Trente minutes, gratuites et sans engagement, pour parler de votre cabinet et de la direction que vous souhaitez lui donner.')
-    sub('<li>Your practice, your positioning and your priorities</li>', '<li>Votre cabinet, votre positionnement et vos priorités</li>')
-    sub('<li>How patients find and perceive you today</li>', '<li>La façon dont les patients vous trouvent et vous perçoivent aujourd’hui</li>')
-    sub('<li>What to raise first, and whether a personalised Kinassay Review makes sense</li>', '<li>Ce qu’il faut renforcer en premier, et si un Kinassay Review personnalisé a du sens pour vous</li>')
-    sub('Choose a time <i class="ar"></i>', 'Choisir un créneau <i class="ar"></i>')
-    sub('Prefer to write first? Leave a message and we’ll reply within two business days.', 'Vous préférez écrire d’abord ? Laissez-nous un message : nous vous répondons sous deux jours ouvrés.')
-    sub('Kinassay Lab is opening six founding partnerships across <span class="nb">Paris, London and Dubai.</span>', 'Kinassay Lab ouvre six partenariats fondateurs entre <span class="nb">Paris, Londres et Dubaï.</span>')
+    sub('<span class="t">Let’s raise what you’ve built</span>', '<span class="t">Construisons votre présence</span>')
+    sub('<h2 id="c-h">Tell us what<br> you’ve built.</h2>', '<h2 id="c-h">Parlons de votre cabinet.</h2>')
+    sub('Tell us a little about your clinic and we’ll reply within two business days to arrange a first conversation.', 'Présentez-nous votre clinique en quelques lignes : nous vous répondons sous deux jours ouvrés pour convenir d’un premier échange.')
     sub('<label for="cf-name">Name <span', '<label for="cf-name">Nom <span')
     sub('placeholder="Dr. Amara Okafor" autocomplete="name" required data-err="Please add your name."', 'placeholder="Dr Marie Dupont" autocomplete="name" required data-err="Merci d’indiquer votre nom."')
     sub('<label for="cf-clinic">Clinic <span', '<label for="cf-clinic">Clinique <span')
     sub('placeholder="Okafor Aesthetics" autocomplete="organization" required data-err="Please add your clinic."', 'placeholder="Clinique Dupont Esthétique" autocomplete="organization" required data-err="Merci d’indiquer votre clinique."')
     sub('Phone <span class="o">(optional)</span>', 'Téléphone <span class="o">(facultatif)</span>')
     sub('placeholder="07…"', 'placeholder="06…"')
-    sub('Required. Phone is optional. We use these details only to reply to you and arrange a first meeting. <a class="link" href="privacy.html">Privacy Policy</a>',
-        'Obligatoire. Le téléphone est facultatif. Ces informations servent uniquement à vous répondre et à organiser un premier rendez-vous. <a class="link" href="confidentialite.html">Politique de confidentialité</a>')
+    sub('What would you most like to improve? <span class="o">(optional)</span>', 'Qu’aimeriez-vous améliorer en priorité ? <span class="o">(facultatif)</span>')
+    sub('placeholder="Type your message…"', 'placeholder="Votre message…"')
+    sub('Required. Everything else is optional. We use these details only to reply to your enquiry and to arrange a first conversation. <a class="link" href="privacy.html">Privacy Policy</a>',
+        'Obligatoire. Le reste est facultatif. Ces informations servent uniquement à répondre à votre demande et à convenir d’un premier échange. <a class="link" href="confidentialite.html">Politique de confidentialité</a>')
     sub('<h3>Thank you. We’ll be in touch within two business days.</h3><p class="muted">Your message is with us.</p>', '<h3>Merci. Nous vous répondons sous deux jours ouvrés.</h3><p class="muted">Votre message est bien arrivé.</p>')
     sub('<h3>Expertise, elevated.</h3>', '<h3>Un avenir plus visible pour votre cabinet.</h3>')
     sub('<p class="mantra"><span>Be found</span><span>Be trusted</span><span>Be chosen</span></p>', '<p class="mantra"><span>Être trouvé</span><span>Inspirer confiance</span><span>Être choisi</span></p>')
 
     # ---------- footer ----------
+    sub('<li><a href="#contact">Contact</a></li>', '<li><a href="#contact">Contact</a></li>')
     sub('<a class="lg" href="privacy.html">Privacy Policy</a><a class="lg" href="privacy.html#legal-notice">Legal notice</a><span>Paris · London · Dubai · Expertise, elevated. © <span id="yr">2026</span> Kinassay Lab. All rights reserved.</span>',
         '<a class="lg" href="confidentialite.html">Politique de confidentialité</a><a class="lg" href="confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span>')
 

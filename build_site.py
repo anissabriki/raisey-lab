@@ -50,7 +50,7 @@ def need(ok, msg):
 
 # ---------------------------------------------------------------- 1. regenerate derived pages
 env = dict(os.environ, SITE_CONFIG=CFG_PATH)
-for script in ('build_fr.py', 'build_legal.py', 'build_insights.py'):
+for script in ('build_fr.py', 'build_expertise.py', 'build_legal.py', 'build_insights.py'):
     r = subprocess.run([sys.executable, script], env=env, capture_output=True, text=True)
     if r.returncode != 0:
         sys.exit('FAILED: %s\n%s%s' % (script, r.stdout, r.stderr))
@@ -82,10 +82,13 @@ if form:
 
 # ---------------------------------------------------------------- 3. SEO architecture (clean URLs)
 HOME = {'index.html': '', 'fr/index.html': 'fr/'}            # page -> path under the site root (EN = /, FR = /fr/)
-LANG = {'index.html': 'en', 'fr/index.html': 'fr'}
+EXPERTISE = {'expertise/index.html': 'expertise/', 'fr/expertise/index.html': 'fr/expertise/'}   # Services bands (build_expertise.py)
+SEO = dict(HOME, **EXPERTISE)                                # indexable EN/FR pairs with canonical/hreflang/JSON-LD
+PAIR = {p: (('', 'fr/') if p in HOME else ('expertise/', 'fr/expertise/')) for p in SEO}   # page -> (EN path, FR path)
+LANG = {'index.html': 'en', 'fr/index.html': 'fr', 'expertise/index.html': 'en', 'fr/expertise/index.html': 'fr'}
 LEGAL = ['privacy.html', 'fr/confidentialite.html']          # noindex,follow, never in the sitemap, no canonical/hreflang
 INSIGHTS = sorted(os.path.join(d, 'index.html') for top in ('insights', os.path.join('fr', 'insights')) for d, _, fs in os.walk(top) if 'index.html' in fs)   # EN /insights/ + FR /fr/insights/, indexable (build_insights.py)
-PAGES = list(HOME) + LEGAL + ['404.html'] + INSIGHTS
+PAGES = list(SEO) + LEGAL + ['404.html'] + INSIGHTS
 ICONS = ['favicon.ico', 'favicon-96.png', 'apple-touch-icon.png', 'icon-192.png']   # official & monogram (from logo1.png)
 CITIES = ['Paris', 'London', 'Dubai']                        # markets served, NOT offices (no LocalBusiness / address)
 founder = (cfg.get('founderName') or 'Anissa Sabrina Briki').strip()
@@ -98,9 +101,14 @@ def clean_hrefs(h):
     return re.sub(r'href="([^"#]*?)index\.html((?:#[^"]*)?)"', lambda m: 'href="%s%s"' % (m.group(1) or './', m.group(2)), h)
 
 
+def strip_src(h):
+    """The home pages carry the Services bands only as the inert source of the Expertise page: never ship them."""
+    return re.sub(r'<template id="expertise-src">.*?</template>\n?', '', h, count=1, flags=re.S)
+
+
 def make_jsonld(p, origin, base, h=''):
     root = origin + base
-    page = root + HOME[p]
+    page = root + SEO[p]
     en = LANG[p] == 'en'
     meta = lambda pat: html.unescape((re.findall(pat, h) or [''])[0])
     org = {'@type': 'Organization', '@id': root + '#organization', 'name': 'Kinassay Lab', 'url': root,
@@ -137,12 +145,13 @@ def make_jsonld(p, origin, base, h=''):
 def render_seo(p, h, origin, base):
     """Strips the relative source alternates; adds absolute canonical/hreflang/og:url + JSON-LD to indexable pages only."""
     h = re.sub(r'<link rel="alternate" hreflang="[^"]+" href="(?!https?://)[^"]+">\n?', '', h)   # relative source alternates only (Insights carry absolute EN/FR pairs)
-    if p in HOME and origin:
+    if p in SEO and origin:
         root = origin + base
+        en_, fr_ = PAIR[p]
         tags = ('<link rel="canonical" href="%s">\n<link rel="alternate" hreflang="en" href="%s">\n<link rel="alternate" hreflang="fr" href="%s">\n'
                 '<link rel="alternate" hreflang="x-default" href="%s">\n<meta property="og:url" content="%s">\n'
                 '<meta property="og:site_name" content="Kinassay Lab">\n<meta property="og:locale" content="%s">\n<meta property="og:locale:alternate" content="%s">\n') % (
-            root + HOME[p], root, root + 'fr/', root, root + HOME[p], 'en_GB' if LANG[p] == 'en' else 'fr_FR', 'fr_FR' if LANG[p] == 'en' else 'en_GB')
+            root + SEO[p], root + en_, root + fr_, root + en_, root + SEO[p], 'en_GB' if LANG[p] == 'en' else 'fr_FR', 'fr_FR' if LANG[p] == 'en' else 'en_GB')
         h = h.replace('<link rel="preload"', tags + '<link rel="preload"', 1)
         ld = json.dumps(make_jsonld(p, origin, base, h), ensure_ascii=False, indent=1).replace('</', '<\\/')
         h = h.replace('</head>', '<script type="application/ld+json">\n%s\n</script>\n</head>' % ld, 1)
@@ -164,7 +173,7 @@ def make_sitemap(origin, base, mods):
     """Standard sitemap: one <url> per indexable page, <loc> = exact canonical URL, <lastmod> on its own line.
     hreflang alternates live in each page's <head> (not here): xhtml:link entries make browsers render the file as HTML."""
     root = origin + base
-    entries = [(root + HOME[p], mods.get(p)) for p in HOME] + [(root + p[:-len('index.html')], mods.get(p)) for p in INSIGHTS]
+    entries = [(root + SEO[p], mods.get(p)) for p in SEO] + [(root + p[:-len('index.html')], mods.get(p)) for p in INSIGHTS]
     urls = ''.join('  <url>\n    <loc>%s</loc>\n%s  </url>\n' % (html.escape(u), ('    <lastmod>%s</lastmod>\n' % d) if d else '') for u, d in entries)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n'
 
@@ -172,9 +181,9 @@ def make_sitemap(origin, base, mods):
 def seo_check(pages, sitemap, origin, base, where):
     """Canonical/hreflang reciprocity, noindex on legal pages, sitemap content. Returns a list of problems."""
     bad, root = [], origin + base
-    want = {'en': root, 'fr': root + 'fr/', 'x-default': root}
-    for p, sub in HOME.items():
+    for p, sub in SEO.items():
         h, u = pages[p], root + sub
+        want = {'en': root + PAIR[p][0], 'fr': root + PAIR[p][1], 'x-default': root + PAIR[p][0]}
         can = re.findall(r'<link rel="canonical" href="([^"]+)"', h)
         if can != [u]:
             bad.append('%s %s: canonical %s, expected [%s]' % (where, p, can, u))
@@ -208,8 +217,8 @@ def seo_check(pages, sitemap, origin, base, where):
         if re.search(r'<link rel="(canonical|alternate)"', h):
             bad.append('%s %s: noindex page must not carry canonical/hreflang' % (where, p))
     locs = re.findall(r'<loc>([^<]+)</loc>', sitemap)
-    if locs != [root, root + 'fr/'] + [root + p[:-len('index.html')] for p in INSIGHTS]:
-        bad.append('%s sitemap: URLs %s, expected the two homes + the Insights pages' % (where, locs))
+    if locs != [root + SEO[p] for p in SEO] + [root + p[:-len('index.html')] for p in INSIGHTS]:
+        bad.append('%s sitemap: URLs %s, expected the two homes + the Expertise pages + the Insights pages' % (where, locs))
     for p in (INSIGHTS if where != 'selftest' else []):     # Insights (absolute URLs come from build_insights.py): canonical, one H1, valid JSON-LD, indexable
         h, u = pages[p], root + p[:-len('index.html')]
         if re.findall(r'<link rel="canonical" href="([^"]+)"', h) != [u] or re.findall(r'<meta property="og:url" content="([^"]+)"', h) != [u]:
@@ -273,6 +282,8 @@ for p in PAGES:
         if n0 != 1:
             sys.exit('FAILED: could not inject the form endpoint into ' + p)
     if p in HOME:
+        h = strip_src(h)
+    if p in SEO:
         h, n1 = re.subn(r"const FORM_ENDPOINT = '';", "const FORM_ENDPOINT = %s;" % json.dumps(form), h)
         h, n2 = re.subn(r"const CONTACT_EMAIL = '';", "const CONTACT_EMAIL = %s;" % json.dumps(email), h)
         h, n3 = re.subn(r"const BOOKING_URL = '';", lambda m: "const BOOKING_URL = %s;" % json.dumps(booking), h)
@@ -299,6 +310,7 @@ if site:
     # never earlier than the day it went live; the listing = its newest article
     pub = {k: v for k, v in (cfg.get('insightsPublished') or {}).items() if not k.startswith('_')}
     mods = {p: git_date(p) for p in HOME}
+    mods.update({p: git_date('index.html' if p.startswith('expertise') else 'fr/index.html') for p in EXPERTISE})   # built from the home sources
     is_art = lambda p: p.split('/')[-3] == 'insights' if p.count('/') >= 2 else False      # insights/<slug>/index.html or fr/insights/<slug>/index.html
     src_md = lambda p: 'content/insights.fr.md' if p.startswith('fr/') else 'content/insights.md'
     for p in INSIGHTS:
@@ -317,7 +329,7 @@ else:
 
 # The canonical/hreflang/sitemap/JSON-LD logic is verified on EVERY build against a throw-away origin, so it cannot rot before the domain exists.
 TEST = 'https://selftest.invalid'
-probe = {p: render_seo(p, clean_hrefs(open(p, encoding='utf-8').read()), TEST, '/') for p in PAGES}
+probe = {p: render_seo(p, clean_hrefs(strip_src(open(p, encoding='utf-8').read()) if p in HOME else open(p, encoding='utf-8').read()), TEST, '/') for p in PAGES}
 errors.extend(seo_check(probe, make_sitemap(TEST, '/', {}), TEST, '/', 'selftest'))
 
 # JSON-LD gate: every block must parse, and key entities must carry their required fields (only truthful, configured data)

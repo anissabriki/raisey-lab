@@ -56,3 +56,6 @@ The locked services block is untouched (owner chose to keep it locked). Sections
 
 ## Services Scan CTA made secondary · 2026-10-05 (owner-approved "ok pour 6a")
 Outline style for `.svc-cta .btn` (scoped override outside `_locked/`, in the CTA colour block). Locked HTML/CSS/JS text unchanged; checksums unchanged.
+
+## Expertise page · 2026-10-06 (owner brief "page Expertise / Services")
+The owner reopened the component to move it onto its own page (/expertise/, /fr/expertise/). Same layout, styles and accordion behaviour. Content renamed per the brief: heading "How we build your presence." (now the page's h1), lede with "found, perceived and chosen" highlighted, four bands Visibility & acquisition / Website & patient journey / Content & presence / Strategy & growth (ids #visibility #website #content #growth), detailed lists in the panels, the per-band "Discuss this" links removed, one Scan CTA at the end. On the homepage the block sits inside an inert `<template id="expertise-src">` that build_expertise.py turns into the page; build_site.py strips it from the shipped homepages. New CSS (h1, highlight, filled CTA) lives outside the locked block. services.html snapshot + checksum refreshed; CSS/JS unchanged.

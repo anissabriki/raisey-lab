@@ -513,7 +513,7 @@ def build():
         arts_all += arts
     for path, h in pages:
         os.makedirs(path, exist_ok=True)
-        open(os.path.join(path, 'index.html'), 'w', encoding='utf-8').write(h)
+        open(os.path.join(path, 'index.html'), 'w', encoding='utf-8').write(h.replace('index.html#services"', 'expertise/index.html"'))   # Services = the Expertise page
     return [p for p, _ in pages], arts_all
 
 

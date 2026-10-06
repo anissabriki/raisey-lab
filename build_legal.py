@@ -280,10 +280,11 @@ def page404():
 """ % dict(base=base, icon=icon, css=css, sprite=sprite)
 
 
-open('404.html', 'w', encoding='utf-8').write(page404())
-open('privacy.html', 'w', encoding='utf-8').write(page('en'))
+expertise = lambda h: h.replace('index.html#services"', 'expertise/index.html"')   # Services = the Expertise page (build_expertise.py)
+open('404.html', 'w', encoding='utf-8').write(expertise(page404()))
+open('privacy.html', 'w', encoding='utf-8').write(expertise(page('en')))
 os.makedirs('fr', exist_ok=True)
-open('fr/confidentialite.html', 'w', encoding='utf-8').write(page('fr'))
+open('fr/confidentialite.html', 'w', encoding='utf-8').write(expertise(page('fr')))
 print('privacy.html + fr/confidentialite.html + 404.html written')
 uniq = sorted(set(missing))
 if uniq:

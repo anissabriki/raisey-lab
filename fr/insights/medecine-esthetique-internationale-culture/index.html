@@ -112,9 +112,14 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 .btn:hover{transform:translateY(-1px)}
 /* 🔒 LOCKED 2026-09-22, revised 2026-09-22 · CTA colour/shape system — see memory presence-lab-locked-sections.
    owner-authorised visual change to the locked mid-page CTA (does not edit the locked HTML/CSS/JS text itself) */
-/* owner-approved 2026-10-05: the Services Scan CTA is secondary to booking → quiet outline, like the Scan entry button */
-.svc-cta .btn{--b:transparent;--f:var(--p-burgundy);border-color:var(--p-burgundy);min-height:56px;padding:16px 30px;font-size:15px;gap:16px}
-@media (hover:hover){.svc-cta .btn:hover{--b:var(--p-burgundy);--f:var(--optical)}}
+/* Expertise page (owner brief 2026-10-06): the Services Scan CTA is the page's single conversion → main burgundy button */
+.svc-cta .btn{--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:64px;padding:20px 36px;font-size:16px;gap:18px}
+/* the Services heading is the Expertise page's h1: same look as the approved h2 */
+.svc-l h1{font-size:clamp(2.5rem,1rem + 3.4vw,4.1rem);line-height:1.02;letter-spacing:-.03em;font-weight:400;margin-top:clamp(22px,3vw,36px)}
+.svc-l h1 .l1,.svc-l h1 .l2{display:block}
+.svc-l h1 em{font-style:italic;font-weight:400;letter-spacing:-.035em}
+.svc-l .lede-l .hl{font-family:var(--serif);font-style:italic;font-size:1.12em;color:var(--p-burgundy);white-space:nowrap}
+@media (max-width:420px){.svc-l .lede-l .hl{white-space:normal}}
 @media (hover:hover){.btn:hover{--b:var(--rasp-d)}}
 @media (hover:hover){.btn:hover .ar{transform:translateX(5px)}}
 .btn:active{transform:translateY(1px)}
@@ -149,7 +154,7 @@ html{-webkit-tap-highlight-color:color-mix(in srgb,var(--rasp) 14%,transparent)}
 .nav a{white-space:nowrap}
 .nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font:500 14px/1 var(--sans);color:var(--ink)}
 .nav a::after{content:'';position:absolute;left:0;right:0;bottom:8px;height:1.5px;background:var(--rasp);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
-.nav a.on::after{transform:scaleX(1)}
+.nav a.on::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
 @media (hover:hover){.nav a:hover::after{transform:scaleX(1)}}
 .head-cta{min-height:44px;padding:11px 22px;font-size:14px}
 .menu-btn{display:none;align-items:center;gap:10px;background:none;border:0;color:var(--ink);min-height:44px;min-width:44px;padding:0 4px 0 12px;margin-right:-4px;cursor:pointer;font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
@@ -429,6 +434,48 @@ body{background:var(--rl-ivory)}
 .hx-pillars{background:linear-gradient(180deg,#ebe6ee 0%,#efe6e8 100%);padding-block:clamp(44px,6vw,80px)}
 .hx-five{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 10px;margin:clamp(30px,4vw,48px) 0 0;padding:0;list-style:none}
 .hx-n{font:500 11px/1 var(--mono);letter-spacing:.16em;color:var(--rl-muted)}
+/* owner 2026-10-06: patient-journey band in burgundy, cream type */
+.hx-journey{background:var(--p-burgundy)}
+.hx-journey h2{color:var(--optical)}
+.hx-journey-copy > p{color:color-mix(in srgb,var(--optical) 80%,transparent)}
+.hx-journey .hx-read .tl{color:var(--optical)}
+.hx-journey :focus-visible{outline-color:var(--optical)}
+/* Our approach · three levers (owner mock 2026-10-06) — lilac ground, burgundy type; swipe cards on mobile */
+.hx-band3{background:var(--p-soft-lilac);padding-block:clamp(48px,6vw,96px);color:var(--p-burgundy)}
+.hx-band3 .wrap>*{max-width:1180px;margin-inline:auto}
+.b3-eb{display:flex;align-items:center;gap:14px;font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:color-mix(in srgb,var(--p-burgundy) 70%,transparent)}
+.b3-eb::after{content:'';width:clamp(48px,6vw,90px);height:1px;background:color-mix(in srgb,var(--p-burgundy) 45%,transparent)}
+.b3-h{margin-top:14px;font:400 clamp(1.9rem,1.1rem + 2.2vw,3.05rem)/1.08 var(--serif);letter-spacing:-.025em;color:var(--p-burgundy)}
+.trio3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(34px,4.4vw,60px)}
+.trio3>div{display:flex;flex-direction:column;padding:4px clamp(20px,3vw,40px);border-left:1px solid color-mix(in srgb,var(--p-burgundy) 28%,transparent)}
+.trio3>div:first-child{border-left:0;padding-left:0}
+.trio3 dt{font:500 12px/1.4 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:color-mix(in srgb,var(--p-burgundy) 72%,transparent)}
+.trio3 dd{margin:0}
+.trio3 .b3-w{margin-top:12px;font:400 clamp(2.5rem,1.4rem + 3vw,4.4rem)/1 var(--serif);letter-spacing:-.03em;color:var(--p-burgundy)}
+.trio3 .b3-d{margin-top:clamp(16px,2vw,24px);max-width:24em;font-size:clamp(.98rem,.94rem + .2vw,1.08rem);line-height:1.6;color:color-mix(in srgb,var(--p-burgundy) 72%,var(--ink))}
+.trio3 .b3-l{margin-top:auto;padding-top:clamp(20px,2.6vw,30px)}
+.b3-l a{display:inline-flex;align-items:center;gap:18px;text-decoration:none;color:var(--p-burgundy)}
+.b3-c{flex:none;width:52px;height:52px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--p-burgundy) 55%,transparent);border-radius:50%;transition:background-color .3s var(--ease),color .3s var(--ease)}
+.b3-t{font:500 11px/1.6 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:color-mix(in srgb,var(--p-burgundy) 80%,transparent)}
+@media (hover:hover){.b3-l a:hover .b3-c{background:var(--p-burgundy);color:var(--optical)}}
+.b3-l a:focus-visible{outline:2px solid var(--p-burgundy);outline-offset:4px;border-radius:999px}
+.b3-scan{margin-top:clamp(44px,6vw,80px);display:grid;justify-items:center;text-align:center;gap:12px}
+.b3-q{display:flex;align-items:center;gap:clamp(16px,3vw,40px);width:100%;font:400 clamp(1.5rem,1.1rem + 1.2vw,2.3rem)/1.15 var(--serif);letter-spacing:-.015em;color:var(--p-burgundy)}
+.b3-q::before,.b3-q::after{content:'';flex:1;height:1px;background:color-mix(in srgb,var(--p-burgundy) 35%,transparent)}
+.b3-s{max-width:34em;color:color-mix(in srgb,var(--p-burgundy) 72%,var(--ink));line-height:1.6}
+.b3-scan .btn{margin-top:12px;--b:var(--p-burgundy);--f:var(--optical);border-color:var(--p-burgundy);min-height:60px;padding:18px 40px;font-size:16px}
+.b3-scan .hx-micro{color:color-mix(in srgb,var(--p-burgundy) 65%,transparent)}
+@media (max-width:859px){
+  .hx-band3 .wrap{padding-right:0}
+  .b3-eb,.b3-h,.b3-scan{padding-right:var(--gutter)}
+  .trio3{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-right:var(--gutter);max-width:none}
+  .trio3::-webkit-scrollbar{display:none}
+  .trio3>div{flex:0 0 82%;scroll-snap-align:start;padding:26px 22px 26px;background:color-mix(in srgb,var(--optical) 55%,transparent);border:1px solid color-mix(in srgb,var(--p-burgundy) 18%,transparent);border-radius:var(--radius-tile)}
+  .trio3>div:first-child{padding-left:22px}
+  .b3-q::before,.b3-q::after{display:none}
+  .b3-q{justify-content:center}
+}
+.hx-pillars .pl-cta{margin-top:clamp(34px,4.4vw,52px);display:grid;justify-items:center}
 .hx-pillars .hx-cta{margin-top:clamp(34px,4.4vw,52px);display:grid;justify-items:center}
 @media (max-width:699px){   /* mobile: compact modules, same system as desktop: small number → burgundy icon → serif title → muted descriptor (owner fix 2026-09-29) */
   .hx-five{grid-auto-rows:auto;gap:34px 0}
@@ -459,7 +506,7 @@ body{background:var(--rl-ivory)}
 .hx-trio div:last-child{border-bottom:0}
 .hx-trio dt{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--rl-muted)}
 .hx-trio dd{margin:8px 0 0;font:400 clamp(1.6rem,1.2rem + 1.2vw,2.2rem)/1.1 var(--serif);color:var(--rl-burgundy)}
-@media (min-width:980px){.hx-studio{grid-template-columns:minmax(0,44fr) minmax(0,33fr) minmax(0,23fr)}
+@media (min-width:980px){.hx-studio{grid-template-columns:minmax(0,50fr) minmax(0,50fr)}
   .hx-studio-copy{padding:clamp(56px,6vw,88px) clamp(32px,4vw,56px) clamp(56px,6vw,88px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}
   .hx-studio-img{aspect-ratio:auto;min-height:100%}.hx-trio{align-content:center;padding:clamp(40px,4vw,56px) max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter))) clamp(40px,4vw,56px) clamp(28px,3vw,44px)}}
 /* studio: editorial fold-out (the arrow reveals the methodology layer; content always in the DOM for crawlers) */
@@ -769,12 +816,12 @@ html.bk-lock{overflow:hidden}
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="../../../fr/index.html#studio" aria-label="Kinassay Lab"><img class="brand-amp" src="../../../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
-    <nav class="nav" aria-label="Principale"><ul><li><a href="../../../fr/index.html#services">Services</a></li><li><a href="../../../fr/index.html#about">À propos</a></li><li><a href="../../../fr/index.html#work">Études</a></li><li><a class="on" href="../../../fr/insights/index.html" aria-current="true">Insights</a></li></ul></nav>
+    <nav class="nav" aria-label="Principale"><ul><li><a href="../../../fr/expertise/index.html">Services</a></li><li><a href="../../../fr/index.html#about">À propos</a></li><li><a href="../../../fr/index.html#work">Études</a></li><li><a class="on" href="../../../fr/insights/index.html" aria-current="true">Insights</a></li></ul></nav>
     <div style="display:flex;align-items:center;gap:16px"><div class="langsw h" role="group" aria-label="Langue"><a href="../../../insights/international-aesthetic-medicine-culture/index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div><a class="btn head-cta" href="../../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav"><span class="mt">Menu</span><svg viewBox="0 0 20 12" width="20" height="12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M1 2h18"/><path class="l2" d="M1 10h18"/></svg></button>
     </div>
   </div>
-  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul><li><a class="l" href="../../../fr/index.html#services">Services</a></li><li><a class="l" href="../../../fr/index.html#about">À propos</a></li><li><a class="l" href="../../../fr/index.html#work">Études</a></li><li><a class="l on" href="../../../fr/insights/index.html" aria-current="true">Insights</a></li></ul><div class="langsw m" role="group" aria-label="Langue"><a href="../../../insights/international-aesthetic-medicine-culture/index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div><a class="btn" href="../../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i></a></div></div>
+  <div class="mobile" id="mobile-nav" hidden><div class="wrap"><ul><li><a class="l" href="../../../fr/expertise/index.html">Services</a></li><li><a class="l" href="../../../fr/index.html#about">À propos</a></li><li><a class="l" href="../../../fr/index.html#work">Études</a></li><li><a class="l on" href="../../../fr/insights/index.html" aria-current="true">Insights</a></li></ul><div class="langsw m" role="group" aria-label="Langue"><a href="../../../insights/international-aesthetic-medicine-culture/index.html" hreflang="en" lang="en" aria-label="English">EN</a><i aria-hidden="true"></i><span aria-current="true" lang="fr">FR</span></div><a class="btn" href="../../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span> <i class="ar"></i></a></div></div>
 </header>
 <main id="main" class="ins"><div class="wrap">
 <nav class="crumbs" aria-label="Fil d’Ariane"><ol><li><a href="../../../fr/index.html">Accueil</a></li><li><a href="../index.html">Insights</a></li><li><span aria-current="page">La beauté n’a pas de passeport</span></li></ol></nav>
@@ -817,14 +864,14 @@ html.bk-lock{overflow:hidden}
 <p>Paris, Londres, Dubaï, Istanbul, Séoul et São Paulo parlent peut-être toutes de beauté. Elles n’ont pas forcément la même conversation, et comprendre cette différence, c’est là que commence la stratégie.</p>
 </div>
 <section class="art-src" aria-labelledby="src-h"><h2 id="src-h">Sources</h2><ul><li>Ministère de la Santé et des Affaires sociales, via Korea.net : <a href="https://www.korea.net/NewsFocus/Society/view?articleId=269202">Medical tourism in 2024 attracts record 1.17M international patients</a> (en anglais)</li><li>ISAPS : <a href="https://www.isaps.org/discover/about-isaps/global-statistics/global-survey-2024-full-report-and-press-releases/">Global Survey 2024</a> (en anglais)</li></ul></section>
-<div class="art-end"><p class="q">Vous développez votre cabinet sur plusieurs marchés ?</p><p><a class="tl" href="../../../fr/index.html#services">Découvrir la stratégie de marque et digitale <i class="ar"></i></a></p></div>
+<div class="art-end"><p class="q">Vous développez votre cabinet sur plusieurs marchés ?</p><p><a class="tl" href="../../../fr/expertise/index.html">Découvrir la stratégie de marque et digitale <i class="ar"></i></a></p></div>
 </article>
 <nav class="art-pn" aria-label="La série Insights"><a class="pv" href="../parcours-patient-medecine-esthetique/index.html"><span class="d">← Précédent · 02</span><span class="t">Votre patient vous connaît déjà avant d’entrer dans votre cabinet</span></a><a class="nx" href="../medecine-esthetique-qualite-de-peau/index.html"><span class="d">Suivant · 04 →</span><span class="t">On parlait de volume. On parle désormais de peau.</span></a></nav>
 <a class="art-back" href="../index.html">← Tous les Insights</a>
 </div></main>
 <footer class="site-footer"><div class="wrap">
   <div class="f-row"><a class="brand" href="../../../fr/index.html#studio" style="font-size:20px"><img class="brand-amp" src="../../../images/kinassay-ampersand.png" alt="" width="159" height="175">Kinassay Lab</a>
-  <nav aria-label="Pied de page"><ul><li><a href="../../../fr/index.html#services">Services</a></li><li><a href="../../../fr/index.html#about">À propos</a></li><li><a href="../../../fr/index.html#work">Études</a></li><li><a href="../../../fr/index.html#kinassay-scan">Kinassay Scan</a></li><li><a href="../../../fr/insights/index.html">Insights</a></li><li><a href="../../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span></a></li></ul></nav></div>
+  <nav aria-label="Pied de page"><ul><li><a href="../../../fr/expertise/index.html">Services</a></li><li><a href="../../../fr/index.html#about">À propos</a></li><li><a href="../../../fr/index.html#work">Études</a></li><li><a href="../../../fr/index.html#kinassay-scan">Kinassay Scan</a></li><li><a href="../../../fr/insights/index.html">Insights</a></li><li><a href="../../../fr/index.html#contact"><span>Réserver un premier <span class="nb">rendez-vous</span></span></a></li></ul></nav></div>
   <p class="f-legal"><a class="lg" href="../../../fr/confidentialite.html">Politique de confidentialité</a><a class="lg" href="../../../fr/confidentialite.html#mentions">Mentions légales</a><span>Paris · Londres · Dubaï · Un standard plus élevé de présence digitale. © <span id="yr">2026</span> Kinassay Lab. Tous droits réservés.</span></p>
 </div></footer>
 <script>
