@@ -86,4 +86,11 @@ r = await call(scan('en'), { env: mkEnv({ LIMITER: undefined }) }); ok('works if
 { const o = new RateLimiter({ storage: { get: async () => [Date.now() - 61_000, Date.now() - 61_000, Date.now() - 61_000, Date.now() - 61_000, Date.now() - 61_000], put: async () => {} } });
   ok('window slides: hits older than 60 s no longer count', (await o.fetch(new Request('https://limiter/hit?limit=5&window=60000'))).status === 200); }
 
+// CRM copy: each accepted submission is stored once; bots and invalid requests are not
+{ const kv = []; const env = mkEnv({ LEADS: { put: async (k, v, o) => { kv.push({ k, v: JSON.parse(v), o }); } } });
+  await call(contact('en'), { env }); await call(scan('fr'), { env }); await call({ ...contact('en'), website_url: 'x' }, { env }); await call('{"source":"contact"}', { env });
+  ok('leads stored for the CRM: 1 contact + 1 scan, none for bots/invalid', kv.length === 2 && kv[0].v.kind === 'contact' && kv[0].v.email === 'visitor@example.org' && kv[1].v.kind === 'scan' && kv[1].v.scanTier === 'potential' && kv[1].v.scores.medical === 3, JSON.stringify(kv.map(x => x.v.kind)));
+  ok('stored leads expire after 24 months', kv.every(x => x.o.expirationTtl === 60 * 60 * 24 * 730) && kv.every(x => /^lead:\d{4}-/.test(x.k))); }
+r = await call(contact('en'), { env: mkEnv({ LEADS: { put: async () => { throw new Error('kv down'); } } }) }); ok('a storage failure never blocks the visitor', r.status === 200);
+
 console.log(`\n${pass} passed, ${fail} failed`); process.exit(fail ? 1 : 0);

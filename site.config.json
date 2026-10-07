@@ -15,8 +15,10 @@
   "founderName": "Anissa Sabrina Briki",
   "founderPhotoFinal": true,
   "socialProfiles": [],
-  "founderProfiles": ["https://www.linkedin.com/in/anissa-s-briki/"],
-  "emailProvider": "GitHub, Inc. (website hosting), Cloudflare, Inc. (form processing), Resend, Inc. (email delivery) and OVH SAS (email hosting)",
+  "founderProfiles": [
+    "https://www.linkedin.com/in/anissa-s-briki/"
+  ],
+  "emailProvider": "GitHub, Inc. (website hosting), Cloudflare, Inc. (form processing and lead storage), Resend, Inc. (email delivery), OVH SAS (email hosting) and Anthropic, PBC (customer-relationship management)",
   "_domainsNote": "kinassay.com is the ONLY canonical domain. kinassay.fr, kinassaylab.com, kinassaylab.fr and the former raiseylab.com / raiseylab.fr redirect to it (registrar/DNS-level 301 at OVH, not second sites). raiseylab.club is reserved for another project: never use it here.",
   "newsletterEnabled": false,
   "positioning": "Kinassay Lab is a digital strategy and growth studio specialising in aesthetic medicine. It helps aesthetic doctors and clinics strengthen their digital presence, visibility, authority, reputation, patient journey and growth.",
@@ -42,5 +44,5 @@
     "medecine-esthetique-qualite-de-peau": "2026-10-05",
     "international-aesthetic-medicine-culture": "2026-09-26"
   },
-  "legalUpdated": "2026-10-05"
+  "legalUpdated": "2026-10-07"
 }

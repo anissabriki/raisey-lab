@@ -20,5 +20,10 @@ class_name = "RateLimiter"
 tag = "v1"
 new_sqlite_classes = ["RateLimiter"]
 
+# Copy of every accepted submission for the Kinassay CRM (synced on request; entries expire after 24 months, as the privacy policy says).
+[[kv_namespaces]]
+binding = "LEADS"
+id = "09fa4dff5e9f4afab27da49cdc63bd43"
+
 [observability]
 enabled = true

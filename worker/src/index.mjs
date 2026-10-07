@@ -89,6 +89,17 @@ function scanFields(p) {
 
 const line = (k, v) => (v ? k + ': ' + v + '\n' : '');
 
+// A copy of each accepted submission for the Kinassay CRM. Kept 24 months (privacy policy), never blocks the visitor.
+const LEAD_TTL = 60 * 60 * 24 * 730;
+function storeLead(env, kind, f, extra = {}) {
+  if (!env.LEADS) return Promise.resolve();
+  const at = new Date().toISOString();
+  const key = 'lead:' + at + ':' + crypto.randomUUID().slice(0, 8);
+  const lead = { kind, at, name: f.name, clinic: f.clinic || '', email: f.email, phone: f.phone || '', web: f.web || '',
+    specialty: f.specialty, tier: f.tier, interest: f.interest || '', lang: f.lang, message: f.message || '', ...extra };
+  return env.LEADS.put(key, JSON.stringify(lead), { expirationTtl: LEAD_TTL }).catch(e => console.error('lead store failed:', e.message));
+}
+
 export default {
   async fetch(req, env, ctx) {
     const url = new URL(req.url);
@@ -135,6 +146,7 @@ export default {
         // HTML lead sheet + text version, built from the already-cleaned fields (and escaped again inside the template)
         const note = renderContactNotification({ ...f, practitioner_tier: f.tier });
         await sendEmail(env, { from, to: [to], reply_to: f.email, subject: oneLine(note.subject, 180), html: note.html, text: note.text });
+        ctx.waitUntil(storeLead(env, 'contact', f));
         return json(200, { ok: true });
       }
 
@@ -152,6 +164,8 @@ export default {
         const note = renderScanNotification(copy, { ...p, name: f.name, email: f.email, web: f.web, specialty: f.specialty, practitioner_tier: f.tier, lang: f.lang });
         ctx.waitUntil(sendEmail(env, { from, to: [to], reply_to: f.email, subject: oneLine(note.subject, 180), html: note.html, text: note.text })
           .catch(e => console.error('notify failed:', e.message)));
+        const sc = p.scan && typeof p.scan === 'object' ? p.scan : {};
+        ctx.waitUntil(storeLead(env, 'scan', f, { scanTier: oneLine(sc.tier, 20), scores: sc.scores && typeof sc.scores === 'object' ? Object.fromEntries(Object.entries(sc.scores).slice(0, 20).map(([k, v]) => [oneLine(k, 40), Number(v) || 0])) : {} }));
         return json(200, { ok: true });
       }
 

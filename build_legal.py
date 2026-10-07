@@ -58,7 +58,7 @@ def page(lang):
     addr = val('postalAddress', 'postal address', 'adresse postale', lang)
     prov = val('emailProvider', 'email provider', 'prestataire d’envoi des e-mails', lang)
     if not en and cfg.get('emailProvider'):   # French wording of the same processors (config value is English)
-        prov = html.escape(cfg['emailProvider'].replace('(website hosting)', '(hébergement du site)').replace('(form processing)', '(traitement des formulaires)')
+        prov = html.escape(cfg['emailProvider'].replace('(website hosting)', '(hébergement du site)').replace('(form processing and lead storage)', '(traitement et conservation des formulaires)').replace('(form processing)', '(traitement des formulaires)').replace('(customer-relationship management)', '(suivi de la relation client)')
                            .replace('(email delivery)', '(envoi des e-mails)').replace('(email hosting)', '(messagerie)').replace(' and ', ' et '))
     host = val('host', 'hosting provider', 'hébergeur', lang)
     status = html.escape(cfg.get('legalStatus') or '')           # e.g. "EI" (entrepreneur individuel), from the business registry
