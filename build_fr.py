@@ -191,6 +191,12 @@ def main():
             '<span class="nm">%s</span><span class="stg">%s</span><span class="sup">%s</span><span class="ds">%s</span>' % (nm_fr, stg_fr, sp_fr, ds_fr))
         sub('<p class="p-stg">%s</p><p class="p-sup">%s</p><p class="p-ds">%s</p>\n            <ul class="cap">%s</ul>' % (stg, sp, ds, cap),
             '<p class="p-stg">%s</p><p class="p-sup">%s</p><p class="p-ds">%s</p>\n            <ul class="cap">%s</ul>' % (stg_fr, sp_fr, ds_fr, cap_fr))
+    # AI Search Visibility · GEO, inside the Visibility panel (owner brief 2026-10-10)
+    sub('<p class="ai-t">AI Search Visibility · GEO</p>', '<p class="ai-t">Visibilité dans les moteurs et assistants d’IA</p>\n              <p class="ai-s">AI Search Visibility · GEO</p>')
+    sub('<p class="ai-d">We help aesthetic practices strengthen how their expertise is understood and discovered across search engines and AI-generated answers.</p>',
+        '<p class="ai-d">Nous aidons les cabinets esthétiques à renforcer la manière dont leur expertise est comprise et découverte dans les moteurs de recherche et les réponses générées par l’IA.</p>')
+    sub('<li>Check that the practice’s information is accessible, consistent and well understood.</li><li>Strengthen the SEO foundations and expert content that make its expertise easier to discover and cite.</li><li>Track its presence in AI answers and adjust recommendations over time.</li>',
+        '<li>Vérifier si les informations du cabinet sont accessibles, cohérentes et bien comprises.</li><li>Renforcer les fondations SEO et les contenus experts qui rendent son expertise plus facile à découvrir et à citer.</li><li>Suivre sa présence dans les réponses d’IA et ajuster les recommandations au fil du temps.</li>')
     sub('<p class="eb">Not sure where to start?</p>', '<p class="eb">Vous ne savez pas par où commencer ?</p>')
     sub('<h3>Discover the strengths and opportunities of your digital presence in a few minutes.</h3>',
         '<h3>Découvrez les forces et les opportunités de votre présence digitale en quelques minutes.</h3>')
